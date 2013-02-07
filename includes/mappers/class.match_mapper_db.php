@@ -63,19 +63,16 @@ class match_mapper_db extends match_mapper{
             // save abilities upgrade
             $a_u = $slot->get_abilities_upgrade();
             if (count($a_u) > 0) {
-                $sql = 'INSERT INTO '.db::real_tablename('ability_upgrades').' VALUES';
                 $data = array();
                 foreach($a_u as $ability) {
-                    var_dump($ability);
-                    $sql .= '(?,?,?,?),';
-                    array_push($data, $slot_id);
-                    array_push($data, $ability->ability);
-                    array_push($data, $ability->time);
-                    array_push($data, $ability->level);
+                    $data1 = array();
+                    array_push($data1, $slot_id);
+                    array_push($data1, (string)$ability->ability);
+                    array_push($data1, (string)$ability->time);
+                    array_push($data1, (string)$ability->level);
+                    array_push($data, $data1);
                 }
-                print_r($data);
-                $sql = rtrim($sql, ',');
-                $db->query_first_pdo($sql, $data);
+                $db->insert_many_pdo(db::real_tablename('ability_upgrades'), array('slot_id','ability_id','time','level'), $data);
             }
         }
     }

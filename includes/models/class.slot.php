@@ -33,7 +33,7 @@ class slot extends stat_object{
      * @param array $data
      * @return slot
      */
-    public function set_abilities_upgrade(array $data) {
+    public function set_abilities_upgrade($data) {
         $this->_abilities_upgrade = $data;
         return $this;
     }

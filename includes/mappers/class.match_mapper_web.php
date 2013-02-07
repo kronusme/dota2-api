@@ -33,10 +33,7 @@ class match_mapper_web extends match_mapper {
             $slot->set_array($data);
             if (isset($data['ability_upgrades'])) {
                 $d = (array)$data['ability_upgrades'];
-                $abilities_upgrade = array();
-                foreach($d as $v) {
-                    array_push($abilities_upgrade, (array)$v);
-                }
+                $abilities_upgrade = $d['ability'];
                 $slot->set_abilities_upgrade($abilities_upgrade);
             }
             $match->add_slot($slot);

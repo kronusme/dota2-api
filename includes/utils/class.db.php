@@ -155,6 +155,7 @@ class db{
                 $this->_query_id->bindValue($i, $val, $type);
                 ++$i;
             }
+            echo '1212121212121';
             return $this->_query_id->execute();
         }
         catch(PDOException $e)
@@ -275,6 +276,56 @@ class db{
             return false;
         }
     }
+
+    /**
+     * Insert many data per one query
+     * Example: $fields = array('a','b','c') then $data should be array(array(1,2,3), array(4,5,6)) etc
+     *
+     * @param string $table
+     * @param array $fields array of fields names
+     * @param array $data array of array of data
+     * @return bool
+     */
+    public function insert_many_pdo($table, array $fields, array $data = array()) {
+        if (empty($data)) {
+            return false;
+        }
+        $q = 'INSERT INTO `'.$table.'`';
+        $v = '';
+        $n = '(`'.implode('`,`', $fields).'`) ';
+        foreach($data as $sd) {
+            $v .= '(';
+            foreach ($sd as $val) {
+                $v .= '?,';
+            }
+            $v = rtrim($v, ',').'),';
+        }
+        $v = rtrim($v, ',');
+        $q .= $n . ' VALUES '.$v;
+        echo $q;
+        try
+        {
+            $this->_query_id = self::$_link_id->prepare($q);
+
+            $i=1;
+            foreach($data as $sd) {
+                foreach($sd as $val){
+                    $type = $this->getPDOConstantType($val);
+                    $this->_query_id->bindValue($i, $val, $type);
+                    ++$i;
+                }
+            }
+            $this->_query_id->execute();
+            return self::$_link_id->lastInsertId();
+        }
+        catch(PDOException $e)
+        {
+            $this->_error = $e->getMessage();
+            echo $this->_error;
+            return false;
+        }
+    }
+
     /**
      * Does an insert query with an array for data.
      * @access public
