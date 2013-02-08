@@ -3,6 +3,7 @@
  *
  */
 class match extends stat_object {
+    const CAPTAINS_MODE = 2;
     /**
      * @var int
      */
@@ -76,9 +77,45 @@ class match extends stat_object {
      */
     protected $_negative_votes;
     /**
+     * @var int
+     */
+    protected $_radiant_team_id;
+    /**
+     * @var string
+     */
+    protected $_radiant_name;
+    /**
+     * @var string
+     */
+    protected $_radiant_logo;
+    /**
+     * @var bool
+     */
+    protected $_radiant_team_complete;
+    /**
+     * @var int
+     */
+    protected $_dire_team_id;
+    /**
+     * @var string
+     */
+    protected $_dire_name;
+    /**
+     * @var string
+     */
+    protected $_dire_logo;
+    /**
+     * @var bool
+     */
+    protected $_dire_team_complete;
+    /**
      * @var array
      */
     protected $_slots = array();
+    /**
+     * @var array
+     */
+    protected $_picks_bans = array();
     /**
      * @param slot $slot
      * @return match
@@ -104,6 +141,22 @@ class match extends stat_object {
      */
     public function get_all_slots() {
         return $this->_slots;
+    }
+
+    /**
+     * @return array
+     */
+    public function get_all_picks_bans() {
+        return $this->_picks_bans;
+    }
+
+    /**
+     * @param array $data
+     * @return match
+     */
+    public function set_all_pick_bans(array $data) {
+        $this->_picks_bans = $data;
+        return $this;
     }
     /**
      *

@@ -3,6 +3,7 @@
  *
  */
 class player {
+    const ANONYMOUS = 4294967295;
     public static function convert_id($id) {
         if (strlen($id) === 17) {
             $converted = substr($id, 3) - 61197960265728;
