@@ -2,7 +2,7 @@
 /**
  *
  */
-class players_mapper {
+class players_mapper_web {
     /**
      *
      */
@@ -14,7 +14,7 @@ class players_mapper {
 
     /**
      * @param $id
-     * @return players_mapper
+     * @return players_mapper_web
      */
     public function add_id($id) {
         $id = (string)$id;
@@ -26,7 +26,7 @@ class players_mapper {
 
     /**
      * @param $id
-     * @return players_mapper
+     * @return players_mapper_web
      */
     public function remove_id($id) {
         $id = (string)$id;
@@ -39,7 +39,7 @@ class players_mapper {
     }
 
     /**
-     * @return players_mapper
+     * @return players_mapper_web
      */
     public function remove_ids() {
         $this->_ids = array();
