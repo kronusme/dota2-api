@@ -11,10 +11,13 @@ foreach ($matches_short_info AS $key=>$match_short_info) {
     $mm = new match_mapper_db();
     $mm->save($match);
 }*/
-$mm = new match_mapper_web(116998221);
+$mm = new match_mapper_web(121853748);
 $match = $mm->load();
 $saver = new match_mapper_db();
 $saver->save($match);
+
+/*$loader = new match_mapper_db(116998221);
+$loader->load();*/
 
 /*$match_mapper = new match_mapper_web(110272081);
 $match = $match_mapper->load();
@@ -38,6 +41,6 @@ $match_from_db = $mm->load();*/
 /*print_r($match_from_db->get_data_array());
 print_r($match_from_db->get_slot(0)->get_data_array());*/
 
-/*$players_mapper = new players_mapper();
-$info = $players_mapper->add_id('76561198067833250')->add_id('76561198058587506')->get_info();
+/*$players_mapper_web = new players_mapper_web();
+$info = $players_mapper_web->add_id('76561198067833250')->add_id('76561198058587506')->get_info();
 print_r($info);*/
