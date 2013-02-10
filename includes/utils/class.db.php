@@ -124,7 +124,6 @@ class db{
         catch(PDOException $e)
         {
             $this->_error = $e->getMessage();
-            echo $this->_error;
             return false;
         }
         return true;
@@ -144,7 +143,6 @@ class db{
      * @return Boolean Returns TRUE on success or FALSE on failure.
      */
     private function _query_pdo($sql,$params=array()) {
-        echo $sql;
         try
         {
             $this->_query_id = self::$_link_id->prepare($sql);
@@ -155,13 +153,11 @@ class db{
                 $this->_query_id->bindValue($i, $val, $type);
                 ++$i;
             }
-            echo '1212121212121';
             return $this->_query_id->execute();
         }
         catch(PDOException $e)
         {
             $this->_error = $e->getMessage();
-            echo '<p>'.$this->_error.'</p>';
             return false;
         }
     }
@@ -272,7 +268,6 @@ class db{
         catch(PDOException $e)
         {
             $this->_error = $e->getMessage();
-            echo '<p>'.$this->_error.'</p>';
             return false;
         }
     }
@@ -302,7 +297,6 @@ class db{
         }
         $v = rtrim($v, ',');
         $q .= $n . ' VALUES '.$v;
-        echo $q;
         try
         {
             $this->_query_id = self::$_link_id->prepare($q);
@@ -321,7 +315,6 @@ class db{
         catch(PDOException $e)
         {
             $this->_error = $e->getMessage();
-            echo $this->_error;
             return false;
         }
     }
@@ -351,7 +344,6 @@ class db{
                 $v.= "?, ";
         }
         $q .= "(". rtrim($n, ', ') .") VALUES (". rtrim($v, ', ') .");";
-        echo '<p>'.$q.'</p>';
         try
         {
             $this->_query_id = self::$_link_id->prepare($q);
@@ -369,7 +361,6 @@ class db{
         catch(PDOException $e)
         {
             $this->_error = $e->getMessage();
-            echo $this->_error;
             return false;
         }
 
