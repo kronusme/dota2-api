@@ -45,6 +45,7 @@ match_mapper_db will check if match with $match->get('match_id') exists in the d
 
 #### Work with match-object
 ```php
+<?php
 require_once ('config.php');
 $mm = new match_mapper_web(121995119);
 $match = $mm->load();
@@ -55,4 +56,21 @@ $slots = $match->get_all_slots();
 foreach($slots as $slot) {
     echo $slot->get('last_hits');
 }
+print_r($match->get_data_array());
+print_r($match->get_slot(0)->get_data_array());
 ```
+
+#### I want get all matches with some player
+````php
+<?php
+require_once ('config.php');
+$matches_mapper_web = new matches_mapper_web();
+$matches_mapper_web->set_account_id(93712171);
+$matches_short_info = $matches_mapper_web->load();
+foreach ($matches_short_info AS $key=>$match_short_info) {
+    $match_mapper = new match_mapper_web($key);
+    $match = $match_mapper->load();
+    $mm = new match_mapper_db();
+    $mm->save($match);
+}
+````

@@ -1,6 +1,7 @@
 <?php
 /**
- *
+ * Basic class for all statistic objects used in system
+ * Provide pure access for fields (with basic types!)
  */
 abstract class stat_object {
     /**
@@ -16,7 +17,7 @@ abstract class stat_object {
         return null;
     }
     /**
-     * Set field value
+     * Set field value (if field isn't array)
      * @param string $name
      * @param mixed $value
      * @return stat_object
@@ -30,6 +31,7 @@ abstract class stat_object {
     }
 
     /**
+     * Set not-array fields
      * @param array $data
      * @return stat_object
      */
@@ -41,6 +43,7 @@ abstract class stat_object {
     }
 
     /**
+     * Return all not-array fields as assoc array
      * @return array
      */
     public function get_data_array() {

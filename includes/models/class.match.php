@@ -1,8 +1,15 @@
 <?php
 /**
+ * All info about match including picks, bans (if cm-mode), ability upgrades (if provided) and slots
  *
+ * Don't create match-objects via $match = new match(); !
+ * Use mappers for this
+ * @used slot
  */
 class match extends stat_object {
+    /**
+     * Identify cm-mode
+     */
     const CAPTAINS_MODE = 2;
     /**
      * @var int
@@ -109,14 +116,17 @@ class match extends stat_object {
      */
     protected $_dire_team_complete;
     /**
+     * Array of slot objects (should be 10)
      * @var array
      */
     protected $_slots = array();
     /**
+     * Array of picks and bans info (not empty if game-mode is CM)
      * @var array
      */
     protected $_picks_bans = array();
     /**
+     * Add new slot for slots-array
      * @param slot $slot
      * @return match
      */
@@ -125,6 +135,7 @@ class match extends stat_object {
         return $this;
     }
     /**
+     * Get slot by its index (0-4 for radiant, 128-132 for dire - as it is in the field player_slot)
      * @param int $index
      * @return slot | null
      */
@@ -137,6 +148,7 @@ class match extends stat_object {
     }
 
     /**
+     * Return array of all slots
      * @return array
      */
     public function get_all_slots() {
@@ -144,6 +156,7 @@ class match extends stat_object {
     }
 
     /**
+     * Return array of all picks and bans
      * @return array
      */
     public function get_all_picks_bans() {
@@ -151,6 +164,9 @@ class match extends stat_object {
     }
 
     /**
+     * Set whole array of picks, bans.
+     * Used in mappers
+     *
      * @param array $data
      * @return match
      */
@@ -159,7 +175,8 @@ class match extends stat_object {
         return $this;
     }
     /**
-     *
+     * Just empty construct.
+     * Don't use me directly!
      */
     public function __construct() {
 

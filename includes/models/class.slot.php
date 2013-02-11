@@ -1,6 +1,8 @@
 <?php
 /**
+ * Class for all information about one slot (includes ability upgrades if provided)
  *
+ * Basic ini
  */
 class slot extends stat_object{
     /**
@@ -100,11 +102,13 @@ class slot extends stat_object{
      */
     protected $_match_id;
     /**
+     * Array of ability upgrades for player in this slot (can be empty)
      * @var array
      */
     protected $_abilities_upgrade = array();
 
     /**
+     * Set array of ability upgrades (used in mappers)
      * @param array $data
      * @return slot
      */
@@ -114,13 +118,15 @@ class slot extends stat_object{
     }
 
     /**
+     * Return array of ability upgrades
      * @return array
      */
     public function get_abilities_upgrade() {
         return $this->_abilities_upgrade;
     }
     /**
-     *
+     * Just empty construct
+     * Don't use me directly!
      */
     public function __construct() {
 
