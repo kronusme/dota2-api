@@ -1,8 +1,8 @@
 <?php
 
 require_once ('config.php');
-/*
-$matches_mapper_web = new matches_mapper_web();
+
+/*$matches_mapper_web = new matches_mapper_web();
 $matches_mapper_web->set_account_id(107567522);
 $matches_short_info = $matches_mapper_web->load();
 foreach ($matches_short_info AS $key=>$match_short_info) {
@@ -11,10 +11,14 @@ foreach ($matches_short_info AS $key=>$match_short_info) {
     $mm = new match_mapper_db();
     $mm->save($match);
 }*/
-$mm = new match_mapper_web(121853748);
+
+/*$teams_mapper_web = new teams_mapper_web();
+$teams = $teams_mapper_web->set_team_id(2)->set_teams_requested(2)->load();
+print_r($teams);*/
+/*$mm = new match_mapper_web(123034878); //123002160 122961276
 $match = $mm->load();
 $saver = new match_mapper_db();
-$saver->save($match);
+$saver->save($match);*/
 
 /*$loader = new match_mapper_db(116998221);
 $loader->load();*/
@@ -41,6 +45,6 @@ $match_from_db = $mm->load();*/
 /*print_r($match_from_db->get_data_array());
 print_r($match_from_db->get_slot(0)->get_data_array());*/
 
-/*$players_mapper_web = new players_mapper_web();
-$info = $players_mapper_web->add_id('76561198067833250')->add_id('76561198058587506')->get_info();
-print_r($info);*/
+$players_mapper_web = new players_mapper_web();
+$info = $players_mapper_web->add_id('76561198067833250')->add_id('76561198058587506')->load();
+print_r($info);

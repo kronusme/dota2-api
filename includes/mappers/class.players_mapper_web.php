@@ -70,13 +70,15 @@ class players_mapper_web {
     /**
      * @return array
      */
-    public function get_info() {
+    public function load() {
         $request = new request(self::player_steam_url, array('steamids' => $this->get_ids_string()));
         $response = $request->send();
         $players_info = new SimpleXMLElement($response);
         $players = array();
-        foreach($players_info->players[0] as $player) {
-            $players[(string)$player->steamid] = (array)$player;
+        foreach($players_info->players[0] as $player_info) {
+            $player = new player();
+            $player->set_array((array)$player_info);
+            $players[$player->get('steamid')] = $player;
         }
         return $players;
     }
