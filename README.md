@@ -20,6 +20,30 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 
 3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db.sql**.
 
+### Requests
+
+#### Supported
+
+1. **(GetMatchHistory)**              https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v001/
+
+2. **(GetMatchDetails)**              https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v001/
+
+3. **(GetPlayerSummaries)**           https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/
+
+4. **(GetLeagueListing)**             https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/
+
+5. **(GetTeamInfoByTeamID)**          https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/
+
+#### Unsupported
+
+1. **(GetHeroes)**                    https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/
+
+2. **(EconomySchema)**                https://api.steampowered.com/IEconItems_570/GetSchema/v0001/
+
+3. **(GetLiveLeagueGames)**           https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/
+
+4. **(GetMatchHistoryBySequenceNum)** https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v0001/
+
 ### How to use it
 
 #### Load some match-info
