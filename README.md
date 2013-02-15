@@ -74,3 +74,22 @@ foreach ($matches_short_info AS $key=>$match_short_info) {
     $mm->save($match);
 }
 ````
+
+#### Get player info
+````php
+<?php
+require_once ('config.php');
+$players_mapper_web = new players_mapper_web();
+$info = $players_mapper_web->add_id('76561198067833250')->load();
+print_r($info);
+````
+Player's id you can get via player::convert_id('xxxxx') method (xxxxx - its DotA ID).
+
+#### Get team info
+````php
+<?php
+require_once ('config.php');
+$teams_mapper_web = new teams_mapper_web();
+$teams = $teams_mapper_web->set_team_id(2)->set_teams_requested(2)->load();
+print_r($teams);
+````

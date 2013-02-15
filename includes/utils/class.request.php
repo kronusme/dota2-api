@@ -101,6 +101,7 @@ class request {
         $url .= '?'.$d;
         echo $url;
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_ENCODING , "gzip");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         // Ignore SSL warnings and questions
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
