@@ -34,15 +34,15 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 
 5. **(GetTeamInfoByTeamID)**          https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/
 
+6. **(GetHeroes)**                    https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/
+
 #### Unsupported
 
-1. **(GetHeroes)**                    https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/
+1. **(EconomySchema)**                https://api.steampowered.com/IEconItems_570/GetSchema/v0001/
 
-2. **(EconomySchema)**                https://api.steampowered.com/IEconItems_570/GetSchema/v0001/
+2. **(GetLiveLeagueGames)**           https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/
 
-3. **(GetLiveLeagueGames)**           https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/
-
-4. **(GetMatchHistoryBySequenceNum)** https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v0001/
+3. **(GetMatchHistoryBySequenceNum)** https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v0001/
 
 ### How to use it
 
@@ -117,3 +117,13 @@ $teams_mapper_web = new teams_mapper_web();
 $teams = $teams_mapper_web->set_team_id(2)->set_teams_requested(2)->load();
 print_r($teams);
 ````
+
+#### Get current heroes list
+````php
+<?php
+require_once ('config.php');
+$heroes_mapper = new heroes_mapper();
+$heroes = $heroes_mapper->load();
+print_r($heroes);
+````
+$heroes - array with numeric indexes (heroes ids)

@@ -45,6 +45,10 @@ $match_from_db = $mm->load();*/
 /*print_r($match_from_db->get_data_array());
 print_r($match_from_db->get_slot(0)->get_data_array());*/
 
-$players_mapper_web = new players_mapper_web();
+/*$players_mapper_web = new players_mapper_web();
 $info = $players_mapper_web->add_id('76561198067833250')->add_id('76561198058587506')->load();
-print_r($info);
+print_r($info);*/
+
+$heroes_mapper = new heroes_mapper();
+$heroes = $heroes_mapper->load();
+print_r($heroes);
