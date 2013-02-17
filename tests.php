@@ -49,6 +49,10 @@ print_r($match_from_db->get_slot(0)->get_data_array());*/
 $info = $players_mapper_web->add_id('76561198067833250')->add_id('76561198058587506')->load();
 print_r($info);*/
 
-$heroes_mapper = new heroes_mapper();
+/*$heroes_mapper = new heroes_mapper();
 $heroes = $heroes_mapper->load();
-print_r($heroes);
+print_r($heroes);*/
+
+$leagues_mapper = new leagues_mapper();
+$leagues = $leagues_mapper->load();
+print_r($leagues);

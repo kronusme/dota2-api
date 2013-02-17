@@ -127,3 +127,13 @@ $heroes = $heroes_mapper->load();
 print_r($heroes);
 ````
 $heroes - array with numeric indexes (heroes ids)
+
+#### Get leagues list
+````php
+<?php
+require_once ('config.php');
+$leagues_mapper = new leagues_mapper();
+$leagues = $leagues_mapper->load();
+print_r($leagues);
+````
+$leagues - array with numeric indexes (leagues ids)
