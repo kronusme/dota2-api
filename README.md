@@ -21,7 +21,8 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db.sql**.
 
 ### Requests
-
+|           Type               |                                                                                  |
+|------------------------------|----------------------------------------------------------------------------------|
 |        **Supported**         |                                  **URL**                                         |
 | GetMatchHistory              | https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v001/               |
 | GetMatchDetails              | https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v001/               |
