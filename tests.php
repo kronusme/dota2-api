@@ -53,6 +53,10 @@ print_r($info);*/
 $heroes = $heroes_mapper->load();
 print_r($heroes);*/
 
-$leagues_mapper = new leagues_mapper();
+/*$leagues_mapper = new leagues_mapper();
 $leagues = $leagues_mapper->load();
-print_r($leagues);
+print_r($leagues);*/
+
+$league_mapper = new league_mapper(22);
+$games = $league_mapper->load();
+print_r($games);
