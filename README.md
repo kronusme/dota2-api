@@ -30,8 +30,7 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 |**GetLeagueListing**            | https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/             |
 |**GetTeamInfoByTeamID**         | https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/           |
 |**GetHeroes**                   | https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/                     |
-
-|         Unsupported            |                                    URL                                           |
+|      **Unsupported**           |                                    URL                                           |
 |--------------------------------|----------------------------------------------------------------------------------|
 |**EconomySchema**               | https://api.steampowered.com/IEconItems_570/GetSchema/v0001/                     |
 |**GetLiveLeagueGames**          | https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/           |
