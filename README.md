@@ -130,7 +130,7 @@ print_r($leagues);
 $leagues - array with numeric indexes (leagues ids)
 
 #### Get live leagues matches
-````<?php
+````php
 <?php
 require_once ('config.php');
 $league_mapper = new league_mapper(22); // set league id (can be get via leagues_mapper)
