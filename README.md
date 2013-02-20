@@ -21,9 +21,9 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db.sql**.
 
 ### Requests
-|           Type               |                                                                                  |
+|           Type               |                                    URL                                           |
 |------------------------------|----------------------------------------------------------------------------------|
-|        **Supported**         |                                  **URL**                                         |
+|        **Supported**         |                                                                                  |
 | GetMatchHistory              | https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v001/               |
 | GetMatchDetails              | https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v001/               |
 | GetPlayerSummaries           | https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/                |
@@ -31,7 +31,7 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 | GetLiveLeagueGames           | https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/           |
 | GetTeamInfoByTeamID          | https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/           |
 | GetHeroes                    | https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/                     |
-|       **Unsupported**        |                                  **URL**                                         |
+|       **Unsupported**        |                                                                                  |
 | EconomySchema                | https://api.steampowered.com/IEconItems_570/GetSchema/v0001/                     |
 | GetMatchHistoryBySequenceNum | https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v0001/ |
 
