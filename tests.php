@@ -72,7 +72,5 @@ print_r($leagues);*/
 /*$league_mapper = new league_mapper(22);
 $games = $league_mapper->load();
 print_r($games);*/
-?>
-!!!! https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1?matches_requested=1&format=xml&key=7D4F1C1F028DDB9A3578B1CF60CA16D8&start_at_match_seq_num=113123716
 
-sql alter for matches tables
+
