@@ -153,7 +153,7 @@ print_r($games);
 ````
 $games - array of live_match objects
 
-###Thanks
+### Thanks
 
 1. Valve for DotA 2 and Web API.
 
