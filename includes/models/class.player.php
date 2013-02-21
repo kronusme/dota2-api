@@ -1,6 +1,9 @@
 <?php
 /**
+ * All info about one player
  *
+ * @author kronus
+ * @package models
  */
 class player extends stat_object {
     /**

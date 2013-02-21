@@ -1,6 +1,23 @@
 <?php
 /**
+ * Load info about match from web
  *
+ * @author kronus
+ * @package mappers
+ * @example
+ * <code>
+ *   $mm = new match_mapper_web(121995119);
+ *   $match = $mm->load();
+ *   echo $match->get('match_id');
+ *   echo $match->get('start_time');
+ *   echo $match->get('game_mode');
+ *   $slots = $match->get_all_slots();
+ *   foreach($slots as $slot) {
+ *     echo $slot->get('last_hits');
+ *   }
+ *   print_r($match->get_data_array());
+ *   print_r($match->get_slot(0)->get_data_array());
+ * </code>
  */
 class match_mapper_web extends match_mapper {
     const steam_match_url = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/';

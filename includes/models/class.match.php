@@ -4,7 +4,9 @@
  *
  * Don't create match-objects via $match = new match(); !
  * Use mappers for this
- * @used slot
+ * @uses slot
+ * @author kronus
+ * @package models
  */
 class match extends stat_object {
     /**
@@ -12,6 +14,7 @@ class match extends stat_object {
      */
     const CAPTAINS_MODE = 2;
     /**
+     * the numeric match ID
      * @var int
      */
     protected $_match_id;
@@ -20,38 +23,52 @@ class match extends stat_object {
      */
     protected $_season;
     /**
+     * true if radiant won, false otherwise
      * @var bool
      */
     protected $_radiant_win;
     /**
+     * the total time in seconds the match ran for
      * @var int
      */
     protected $_duration;
     /**
+     * the time in seconds at which first blood occurred
      * @var int
      */
     protected $_first_blood_time;
     /**
+     * date in UTC seconds since Jan 1, 1970 (unix time format)
      * @var timestamp
      */
     protected $_start_time;
     /**
+     * the match's sequence number - the order in which matches are recorded
+     * @var int
+     */
+    protected $_match_seq_num;
+    /**
+     * a number representing the game mode of this match
      * @var int
      */
     protected $_game_mode;
     /**
+     * an 11-bit unsigned int
      * @var int
      */
     protected $_tower_status_radiant;
     /**
+     * an 11-bit unsigned int
      * @var int
      */
     protected $_tower_status_dire;
     /**
+     * a 6-bit unsigned int
      * @var int
      */
     protected $_barracks_status_radiant;
     /**
+     * a 6-bit unsigned int
      * @var int
      */
     protected $_barracks_status_dire;
@@ -60,14 +77,17 @@ class match extends stat_object {
      */
     protected $_replay_salt;
     /**
+     * the type of lobby
      * @var int
      */
     protected $_lobby_type;
     /**
+     * the number of human players in the match
      * @var int
      */
     protected $_human_players;
     /**
+     * the leauge this match is from
      * @var int
      */
     protected $_leagueid;
@@ -76,10 +96,12 @@ class match extends stat_object {
      */
     protected $_cluster;
     /**
+     * the number of thumbs up the game has received
      * @var int
      */
     protected $_positive_votes;
     /**
+     * the number of thumbs up the game has received
      * @var int
      */
     protected $_negative_votes;
@@ -88,14 +110,17 @@ class match extends stat_object {
      */
     protected $_radiant_team_id;
     /**
+     * the name of the radiant team
      * @var string
      */
     protected $_radiant_name;
     /**
+     * the radiant team's logo
      * @var string
      */
     protected $_radiant_logo;
     /**
+     * radiant_team_complete - true if all players on radiant belong to this team, false otherwise (i.e. are the stand-ins {false} or not {true})
      * @var bool
      */
     protected $_radiant_team_complete;
@@ -104,14 +129,17 @@ class match extends stat_object {
      */
     protected $_dire_team_id;
     /**
+     * the name of the dire team
      * @var string
      */
     protected $_dire_name;
     /**
+     * the dire team's logo
      * @var string
      */
     protected $_dire_logo;
     /**
+     * true if all players on dire belong to this team, false otherwise (i.e. are the stand-ins {false} or not {true})
      * @var bool
      */
     protected $_dire_team_complete;

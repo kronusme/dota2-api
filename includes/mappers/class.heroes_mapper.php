@@ -1,6 +1,16 @@
 <?php
 /**
  * Load basic info about DotA 2 heroes
+ *
+ * @author kronus
+ * @package mappers
+ * @example
+ * <code>
+ *   $heroes_mapper = new heroes_mapper();
+ *   $heroes_mapper->set_language('en_us');
+ *   $heroes = $heroes_mapper->load();
+ *   print_r($heroes);
+ * </code>
  */
 class heroes_mapper {
     /**
@@ -44,7 +54,7 @@ class heroes_mapper {
         $request = new request(
             self::heroes_steam_url,
             array(
-                'language' => 'en_us'
+                'language' => $this->get_language()
             )
         );
         $response = $request->send();

@@ -1,6 +1,20 @@
 <?php
 /**
+ * Load info about leagues
  *
+ * @author kronus
+ * @package mappers
+ * @example
+ * <code>
+ *  $leagues_mapper = new leagues_mapper();
+ *  $leagues = $leagues_mapper->load();
+ *  foreach($leagues as $league) {
+ *    echo $league['description'];
+ *    if ($league['tournament_url']) {
+ *      echo $league['tournament_url'];
+ *    }
+ *  }
+ * </code>
  */
 class leagues_mapper {
     /**

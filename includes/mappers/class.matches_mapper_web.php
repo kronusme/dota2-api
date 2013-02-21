@@ -1,6 +1,21 @@
 <?php
 /**
+ * Load info about matches from web
  *
+ * @author kronus
+ * @package mappers
+ * @example
+ * <code>
+ *   $matches_mapper_web = new matches_mapper_web();
+ *   $matches_mapper_web->set_account_id(93712171);
+ *   $matches_short_info = $matches_mapper_web->load();
+ *   foreach ($matches_short_info AS $key=>$match_short_info) {
+ *     $match_mapper = new match_mapper_web($key);
+ *     $match = $match_mapper->load();
+ *     $mm = new match_mapper_db();
+ *     $mm->save($match);
+ *   }
+ * </code>
  */
 class matches_mapper_web {
     const steam_matches_url = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/';
@@ -49,6 +64,12 @@ class matches_mapper_web {
      * @var int
      */
     private $_matches_requested;
+
+    /**
+     * set to only show tournament games
+     * @var string
+     */
+    private $_tournament_games_only;
 
     /**
      * @param string $name
@@ -207,6 +228,23 @@ class matches_mapper_web {
     }
 
     /**
+     * @param string $tournament_games_only
+     * @return matches_mapper_web
+     */
+    public function set_tournament_games_only($tournament_games_only) {
+        $tournament_games_only = ($tournament_games_only === true) ? 'true' : 'false';
+        $this->_tournament_games_only = $tournament_games_only;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function get_tournament_games_only() {
+        return $this->_tournament_games_only;
+    }
+
+    /**
      * @return array
      */
     private function _get_data_array() {
@@ -236,6 +274,7 @@ class matches_mapper_web {
                     $matches[$m_id]['match_id'] = $m_id;
                     $matches[$m_id]['start_time'] = intval($m->start_time);
                     $matches[$m_id]['lobby_type'] = intval($m->lobby_type);
+                    $matches[$m_id]['match_seq_num'] = intval($m->match_seq_num);
                 }
             }
         }

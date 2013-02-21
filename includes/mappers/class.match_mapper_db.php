@@ -1,6 +1,24 @@
 <?php
 /**
+ * Load info about match from db
  *
+ * @author kronus
+ * @package mappers
+ * @example
+ * <code>
+ *   $mm = new match_mapper_db(111093969);
+ *   $match = $mm->load();
+ *   echo $match->get('match_id');
+ *   echo $match->get('start_time');
+ *   echo $match->get('game_mode');
+ *   $slots = $match->get_all_slots();
+ *   foreach($slots as $slot) {
+ *     echo $slot->get('last_hits');
+ *   }
+ *   print_r($match->get_data_array());
+ *   print_r($match->get_slot(0)->get_data_array());
+ *   $mm->save($match);
+ * </code>
  */
 class match_mapper_db extends match_mapper{
     /**

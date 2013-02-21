@@ -2,6 +2,9 @@
 /**
  * Basic class for all statistic objects used in system
  * Provide pure access for fields (with basic types!)
+ *
+ * @author kronus
+ * @package models
  */
 abstract class stat_object {
     /**

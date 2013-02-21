@@ -1,6 +1,9 @@
 <?php
 /**
+ * Live match. Data about match that is playing now. Not all common match-info is available
  *
+ * @author kronus
+ * @package models
  */
 class live_match extends match {
     /**
@@ -22,52 +25,39 @@ class live_match extends match {
     /**
      * @var array
      */
-    protected $_radiant_team;
+    protected $_radiant_team = array();
     /**
      * @var array
      */
-    protected $_dire_team;
+    protected $_dire_team = array();
     /**
      * @var array
      */
-    protected $_lobby_spectators;
+    protected $_broadcasters = array();
 
     /**
-     * @param array $lobby_spectators
+     * @var array
+     */
+    protected $_unassigned = array();
+
+    /**
+     * @param array $broadcaster
      * @return live_match
      */
-    public function set_lobby_spectators(array $lobby_spectators) {
-        $this->_lobby_spectators = $lobby_spectators;
+    public function add_broadcaster(array $broadcaster) {
+        $this->_broadcasters[$broadcaster['account_id']] = $broadcaster;
         return $this;
     }
 
     /**
-     * @return array
-     */
-    public function get_lobby_spectators() {
-        return $this->_lobby_spectators;
-    }
-
-    /**
-     * @param array $spectator
+     * @param array $unassigned
      * @return live_match
      */
-    public function add_lobby_spectator(array $spectator) {
-        $this->_lobby_spectators[$spectator['account_id']] = $spectator;
+    public function add_unassigned(array $unassigned) {
+        $this->_unassigned[$unassigned['account_id']] = $unassigned;
         return $this;
     }
 
-    /**
-     * @param string $account_id
-     * @return live_match
-     */
-    public function remove_lobby_spectator($account_id) {
-        $account_id = (string)$account_id;
-        if (isset($this->_lobby_spectators[$account_id])) {
-            unset($this->_lobby_spectators[$account_id]);
-        }
-        return $this;
-    }
     /**
      * @param array $player_info
      * @return live_match
@@ -76,6 +66,7 @@ class live_match extends match {
         $this->_radiant_team[$player_info['account_id']] = $player_info;
         return $this;
     }
+
     /**
      * @param array $player_info
      * @return live_match

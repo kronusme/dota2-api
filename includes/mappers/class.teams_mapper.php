@@ -1,6 +1,9 @@
 <?php
 /**
+ * Common part for team mappers (web and db)
  *
+ * @author kronus
+ * @package mappers
  */
 abstract class teams_mapper {
     /**
@@ -21,7 +24,7 @@ abstract class teams_mapper {
 
     /**
      * @param int $team_id
-     * @return team_mapper
+     * @return teams_mapper
      */
     public function set_team_id($team_id) {
         $team_id = intval($team_id);
@@ -40,7 +43,7 @@ abstract class teams_mapper {
 
     /**
      * @param int $team_requested
-     * @return team_mapper
+     * @return teams_mapper
      */
     public function set_teams_requested($team_requested) {
         $team_requested = intval($team_requested);

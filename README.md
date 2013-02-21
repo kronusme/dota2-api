@@ -18,7 +18,7 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 
 2. In this file also replace API_KEY with your own (you can get it on the http://steamcommunity.com/dev/apikey).
 
-3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db.sql**.
+3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db.sql**. Then execute all sql-files from **sql-updates** folder.
 
 ### Requests
 |           Type               |                                    URL                                           |
@@ -95,8 +95,13 @@ foreach ($matches_short_info AS $key=>$match_short_info) {
 <?php
 require_once ('config.php');
 $players_mapper_web = new players_mapper_web();
-$info = $players_mapper_web->add_id('76561198067833250')->load();
-print_r($info);
+$players_info = $players_mapper_web->add_id('76561198067833250')->add_id('76561198058587506')->load();
+foreach($players_info as $player_info) {
+    echo $player_info->get('realname');
+    echo '<img src="'.$player_info->get('avatarfull').'" alt="'.$player_info->get('personaname').'" />';
+    echo '<a href="'.$player_info->get('profileurl').'">'.$player_info->get('personaname').'\'s steam profile</a>';
+}
+print_r($players_info);
 ````
 Player's id you can get via player::convert_id('xxxxx') method (xxxxx - its DotA ID).
 
@@ -125,7 +130,12 @@ $heroes - array with numeric indexes (heroes ids)
 require_once ('config.php');
 $leagues_mapper = new leagues_mapper();
 $leagues = $leagues_mapper->load();
-print_r($leagues);
+foreach($leagues as $league) {
+    echo $league['description'];
+    if ($league['tournament_url']) {
+        echo $league['tournament_url'];
+    }
+ }
 ````
 $leagues - array with numeric indexes (leagues ids)
 

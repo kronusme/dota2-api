@@ -1,6 +1,9 @@
 <?php
 /**
+ * Common part for match mappers (web and db)
  *
+ * @author kronus
+ * @package mappers
  */
 abstract class match_mapper {
     /**

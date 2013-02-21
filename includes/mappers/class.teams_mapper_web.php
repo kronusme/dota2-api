@@ -1,6 +1,20 @@
 <?php
 /**
+ * Load info about team from web
  *
+ * @author kronus
+ * @package mappers
+ * @example
+ * <code>
+ *   $teams_mapper_web = new teams_mapper_web();
+ *   $teams = $teams_mapper_web->set_team_id(2)->set_teams_requested(2)->load();
+ *   foreach($teams as $team) {
+ *     echo $team->get('name');
+ *     echo $team->get('rating');
+ *     echo $team->get('country_code');
+ *     print_r($team->get_all_leagues_ids());
+ *   }
+ * </code>
  */
 class teams_mapper_web extends teams_mapper {
     /**
