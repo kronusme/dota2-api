@@ -5,7 +5,7 @@ define ('API_KEY', '*******************');
 // player's account_id you want to parse
 define ('ACCOUNT_ID', 1234);
 
-error_reporting('E_ALL');
+error_reporting(E_ALL);
 
 set_time_limit(0);
 
