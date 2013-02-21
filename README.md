@@ -108,10 +108,14 @@ Player's id you can get via player::convert_id('xxxxx') method (xxxxx - its DotA
 #### Get team info
 ````php
 <?php
-require_once ('config.php');
 $teams_mapper_web = new teams_mapper_web();
 $teams = $teams_mapper_web->set_team_id(2)->set_teams_requested(2)->load();
-print_r($teams);
+foreach($teams as $team) {
+    echo $team->get('name');
+    echo $team->get('rating');
+    echo $team->get('country_code');
+    print_r($team->get_all_leagues_ids());
+}
 ````
 
 #### Get current heroes list
@@ -148,3 +152,13 @@ $games = $league_mapper->load();
 print_r($games);
 ````
 $games - array of live_match objects
+
+###Thanks
+
+1. Valve for DotA 2 and Web API.
+
+2. [MuppetMaster42](http://dev.dota2.com/member.php?u=5137),  for [http://dev.dota2.com/showthread.php?t=58317].
+
+3. Players, who don't hide their own statistic.
+
+4. dev.dota2 community.
