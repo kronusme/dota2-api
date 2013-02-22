@@ -153,11 +153,21 @@ print_r($games);
 ````
 $games - array of live_match objects
 
+#### Get matches from local db
+````php
+<?php
+require_once('config.php');
+$matches_mapper_db = new matches_mapper_db();
+$matches_mapper_db->set_league_id(29)->set_matches_requested(1)->set_start_at_match_id(126268702);
+$matches_info = $matches_mapper_db->load();
+print_r($matches_info);
+````
+
 ### Thanks
 
 1. Valve for DotA 2 and Web API.
 
-2. [MuppetMaster42](http://dev.dota2.com/member.php?u=5137),  for [http://dev.dota2.com/showthread.php?t=58317].
+2. [MuppetMaster42](http://dev.dota2.com/member.php?u=5137),  for http://dev.dota2.com/showthread.php?t=58317.
 
 3. Players, who don't hide their own statistic.
 

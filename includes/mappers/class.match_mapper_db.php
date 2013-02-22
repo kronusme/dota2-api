@@ -119,7 +119,7 @@ class match_mapper_db extends match_mapper{
                     array_push($data1, $ability['level']);
                     array_push($data, $data1);
                 }
-                $db->insert_many_pdo(db::real_tablename('ability_upgrades'), array('slot_id','ability_id','time','level'), $data);
+                $db->insert_many_pdo(db::real_tablename('ability_upgrades'), array('slot_id','ability','time','level'), $data);
             }
         }
         if ($match->get('game_mode') == match::CAPTAINS_MODE) {

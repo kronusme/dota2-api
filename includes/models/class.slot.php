@@ -5,7 +5,12 @@
  * @author kronus
  * @package models
  */
-class slot extends stat_object{
+class slot extends stat_object {
+    /**
+     * inner identifier used in local queries (web mappers don't feel it!)
+     * @var int
+     */
+    protected $_id;
     /**
      * account_id - the player's 32-bit Steam ID - will be set to "4294967295" if the player has set their account to private.
      * @var int
