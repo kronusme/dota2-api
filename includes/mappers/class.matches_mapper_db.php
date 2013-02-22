@@ -70,6 +70,7 @@ class matches_mapper_db extends matches_mapper {
         // picks and bans
         $picks_bans_query = 'SELECT * FROM '.db::real_tablename('picks_bans').' WHERE match_id IN ('.implode(',', $matches_ids).')';
         $picks_bans_info = $db->fetch_array_pdo($picks_bans_query, array());
+        // reformat picks_bans array
         $picks_bans_formatted_info = array();
         foreach($picks_bans_info as $pick_ban_info) {
             if (!isset($picks_bans_formatted_info[$pick_ban_info['match_id']])) {
@@ -108,16 +109,18 @@ class matches_mapper_db extends matches_mapper {
                 if ($slot_info['match_id'] == $match->get('match_id')) {
                     $slot = new slot();
                     $slot->set_array($slot_info);
-
-                    $slot->set_abilities_upgrade($abilities_upgrade_formatted_info[$slot->get('id')]);
+                    if(isset($abilities_upgrade_formatted_info[$slot->get('id')])) {
+                        $slot->set_abilities_upgrade($abilities_upgrade_formatted_info[$slot->get('id')]);
+                    }
                     $match->add_slot($slot);
                     $slots_count++;
                 }
             }
-            $match->set_all_pick_bans($picks_bans_formatted_info[$match->get('match_id')]);
+            if (isset($picks_bans_formatted_info[$match->get('match_id')])) {
+                $match->set_all_pick_bans($picks_bans_formatted_info[$match->get('match_id')]);
+            }
             $matches[$match->get('match_id')] = $match;
         }
-
         return $matches;
     }
 }
