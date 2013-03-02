@@ -102,7 +102,7 @@ class request {
         }
         $d = rtrim($d, '&');
         $url .= '?'.$d;
-        echo $url;
+        //echo $url;
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_ENCODING , "gzip");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

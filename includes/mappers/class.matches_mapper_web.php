@@ -44,7 +44,6 @@ class matches_mapper_web extends matches_mapper {
         $request = new request(self::steam_matches_url, $this->_get_data_array());
         $response = $request->send();
         $xml = new SimpleXMLElement($response);
-
         $matches = array();
         if (isset($xml->matches)) {
 		    foreach ($xml->matches as $match) {

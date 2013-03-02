@@ -53,8 +53,8 @@ class matches_mapper_db extends matches_mapper {
             $matches_query .= ' LIMIT ?';
             array_push($data, $this->get_matches_requested());
         }
+        $matches_query .= ' ORDER BY start_time DESC';
         $matches_info = $db->fetch_array_pdo($matches_query, $data);
-        echo $db->get_error();
         // no one match found
         if (count($matches_info) === 0) {
             return array();

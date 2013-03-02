@@ -142,6 +142,12 @@ class slot extends stat_object {
     protected $_abilities_upgrade = array();
 
     /**
+     * Array of items ids of the units like Spirit Bear
+     * @var array
+     */
+    protected $_additional_unit_items = array();
+
+    /**
      * Set array of ability upgrades (used in mappers)
      * @param array $data
      * @return slot
@@ -158,6 +164,40 @@ class slot extends stat_object {
     public function get_abilities_upgrade() {
         return $this->_abilities_upgrade;
     }
+
+    /**
+     * Set array of additional unit items ids
+     * @param array $data
+     * @return slot
+     */
+    public function set_additional_unit_items(array $data) {
+        $this->_additional_unit_items = $data;
+        return $this;
+    }
+
+    /**
+     * Get array of additional unit items ids
+     * @return array
+     */
+    public function get_additional_unit_items() {
+        return $this->_additional_unit_items;
+    }
+
+    /**
+     * Remove item from additional unit items
+     * @param int $item_id
+     * @return slot
+     */
+    public function remove_additional_unit_item($item_id) {
+        foreach($this->_additional_unit_items as $k=>$id) {
+            if ($id === $item_id) {
+                unset($this->_additional_unit_items[$k]);
+                break;
+            }
+        }
+        return $this;
+    }
+
     /**
      * Just empty construct
      * Don't use me directly!
