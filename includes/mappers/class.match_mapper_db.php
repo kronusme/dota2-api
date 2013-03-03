@@ -122,26 +122,19 @@ class match_mapper_db extends match_mapper{
             if (count($a_u) > 0) {
                 $data = array();
                 foreach($a_u as $ability) {
-                    $data1 = array();
                     $data1 = array_values($ability);
                     array_unshift($data1, $slot_id);
                     array_push($data, $data1);
                 }
-                $keys = array_keys(reset($a_u));
+                reset($a_u);
+                $keys = array_keys($a_u);
                 array_unshift($keys, 'slot_id');
-                $db->insert_many_pdo(db::real_tablename('ability_upgrades'), array($keys), $data);
+                $db->insert_many_pdo(db::real_tablename('ability_upgrades'), $keys, $data);
             }
-            $additional_units = $slot->get_additional_unit_items();
-            if (count($additional_units)) {
-                $data = array();
-                foreach($additional_units as $additional_unit) {
-                    $data1 = array_values($additional_unit);
-                    array_unshift($data1, $slot_id);
-                    array_push($data, $data1);
-                }
-                $keys = array_keys(reset($additional_units));
-                array_unshift($keys, 'slot_id');
-                $db->insert_many_pdo(db::real_tablename('ability_upgrades'), array($keys), $data);
+            $additional_unit = $slot->get_additional_unit_items();
+            if (count($additional_unit) > 0) {
+                $additional_unit['slot_id'] = $slot_id;
+                $db->insert_pdo(db::real_tablename('additional_units'), $additional_unit);
             }
         }
         if ($match->get('game_mode') == match::CAPTAINS_MODE) {

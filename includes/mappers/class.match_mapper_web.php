@@ -32,7 +32,6 @@ class match_mapper_web extends match_mapper {
         $request = new request(self::steam_match_url, array('match_id' => $this->get_match_id()));
         $response = $request->send();
         $match_info = new SimpleXMLElement($response);
-        print_r($match_info);
         $match = new match();
         $players = array();
         foreach($match_info->players->player as $key=>$player) {
