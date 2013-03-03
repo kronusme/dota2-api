@@ -120,14 +120,15 @@ class match_mapper_db extends match_mapper{
             // save abilities upgrade
             $a_u = $slot->get_abilities_upgrade();
             if (count($a_u) > 0) {
+                $keys = array();
                 $data = array();
                 foreach($a_u as $ability) {
+                    $keys = array_keys($ability); // yes, it will be reassigned meny times
                     $data1 = array_values($ability);
                     array_unshift($data1, $slot_id);
                     array_push($data, $data1);
                 }
                 reset($a_u);
-                $keys = array_keys($a_u);
                 array_unshift($keys, 'slot_id');
                 $db->insert_many_pdo(db::real_tablename('ability_upgrades'), $keys, $data);
             }
