@@ -165,6 +165,8 @@ print_r($matches_info);
 
 #### Get info about abilities, heroes, items
 ````php
+<?php
+require_once('config.php');
 $abilities = new abilities();
 $abilities->parse();
 $abilities-get_data_by_id(5172); // return array for ability with id 5172 (BeastMaster Inner Beast)
