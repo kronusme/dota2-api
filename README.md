@@ -7,7 +7,7 @@ This is PHP code for processing DotA 2 API-requests.
 
 2. **What can it do?**
 It can get match-list for some criteria, get match-info for single match, get steam-profile info for users.
-AND save all this data in MySQL database.
+AND save all this data in MySQL database. For more information see - "How to use it".
 
 3. **What I need to work with it?**
 First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should be enabled) and **MySQL 5**. Then look at install section.
@@ -161,6 +161,28 @@ $matches_mapper_db = new matches_mapper_db();
 $matches_mapper_db->set_league_id(29)->set_matches_requested(1)->set_start_at_match_id(126268702);
 $matches_info = $matches_mapper_db->load();
 print_r($matches_info);
+````
+
+#### Get info about abilities, heroes, items
+````php
+$abilities = new abilities();
+$abilities->parse();
+$abilities-get_data_by_id(5172); // return array for ability with id 5172 (BeastMaster Inner Beast)
+// same, because there are no thumbs for abilities
+$abilities->get_img_url_by_id(5172, false);
+$abilities->get_img_url_by_id(5172);
+
+$heroes = new heroes();
+$heroes->parse();
+$heroes-get_data_by_id(97); // get info about Magnus
+$heroes->get_img_url_by_id(97, false); // large image
+$heroes->get_img_url_by_id(97); // thumb
+
+$items = new items();
+$items->parse();
+$items-get_data_by_id(149); // get info about Crystalis
+$items->get_img_url_by_id(149, false); // large image
+$items->get_img_url_by_id(149); // thumb
 ````
 
 ### Thanks

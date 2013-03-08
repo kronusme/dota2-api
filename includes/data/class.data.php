@@ -18,6 +18,7 @@ abstract class data {
 
     /**
      * Parsed data
+     * Format - array(id=>array, id=>array, ...)
      * @var array
      */
     private $_data = array();
@@ -27,6 +28,12 @@ abstract class data {
      * @var string
      */
     private $_field;
+
+    /**
+     * Suffixes for images names
+     * @var array
+     */
+    private $_suffixes = array('thumb' => 'eg', 'large' => 'lg');
 
     /**
      * @param string $field
@@ -93,6 +100,39 @@ abstract class data {
                 }
                 $this->_data = $return;
             }
+        }
+    }
+
+    /**
+     * Get array of data by its id (data should be parsed before)
+     *
+     * @param int $id
+     * @return array|null
+     */
+    public function get_data_by_id($id) {
+        $id = intval($id);
+        if (isset($this->_data[$id])) {
+            return $this->_data[$id];
+        }
+        return null;
+    }
+
+    /**
+     * Generate image url (uses steam servers)
+     *
+     * @param int $id item identifier
+     * @param bool $thumb return small or large image url
+     * @return string
+     */
+    public function get_img_url_by_id($id, $thumb = true) {
+        $id = intval($id);
+        $data = $this->get_data_by_id($id);
+        if (is_null($data)) {
+            return '';
+        }
+        else {
+            $suffix = $thumb ? $this->_suffixes['thumb']: $this->_suffixes['large'];
+            return 'http://media.steampowered.com/apps/dota2/images/'.$this->_field.'/'.$data['name'].'_'.$suffix.'.png';
         }
     }
 }
