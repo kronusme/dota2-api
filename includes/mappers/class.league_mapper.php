@@ -54,7 +54,14 @@ class league_mapper {
             array('league_id' => $this->get_league_id())
         );
         $response = $request->send();
-        $league_live_matches = new SimpleXMLElement($response);
+        $league_live_matches  = null;
+        libxml_use_internal_errors(true);
+        try {
+            $league_live_matches = new SimpleXMLElement($response);
+        }
+        catch(Exception $e) {
+            return null;
+        }
         $league_live_matches = $league_live_matches->games;
         $live_matches = array();
         if (!isset($league_live_matches->game)) {

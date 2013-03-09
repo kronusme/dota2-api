@@ -58,7 +58,13 @@ class heroes_mapper {
             )
         );
         $response = $request->send();
-        $response = new SimpleXMLElement($response);
+        libxml_use_internal_errors(true);
+        try {
+            $response = new SimpleXMLElement($response);
+        }
+        catch(Exception $e) {
+            return null;
+        }
         $heroes_info = (array)($response->heroes);
         $heroes_info = $heroes_info['hero'];
         $heroes = array();
