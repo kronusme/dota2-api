@@ -184,6 +184,22 @@ class match extends stat_object {
     }
 
     /**
+     * Return array of all slots divided by team (5 for radiant, 5 for dire)
+     * @return array
+     */
+    public function get_all_slots_divided() {
+        $return = array('radiant' => array(), 'dire' => array());
+        foreach($this->_slots as $slot) {
+            $team = 'radiant';
+            if ($slot->get('player_slot') > 5) {
+                $team = 'dire';
+            }
+            array_push($return[$team], $slot);
+        }
+        return $return;
+    }
+
+    /**
      * Return array of all picks and bans
      * @return array
      */
