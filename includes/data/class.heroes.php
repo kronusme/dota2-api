@@ -2,7 +2,7 @@
 /**
  * Information about heroes (id, name, localized name)
  *
- * @author KronuS
+ * @author kronus
  * @package data
  * @example
  * <code>
@@ -17,5 +17,6 @@ class heroes extends data {
     public function __construct() {
         $this->set_filename('heroes.json');
         $this->set_field('heroes');
+        //$this->_suffixes['thumb'] = 'sb';
     }
 }

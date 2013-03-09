@@ -14,26 +14,26 @@ abstract class data {
      * JSON filename
      * @var string
      */
-    private $_filename;
+    protected $_filename;
 
     /**
      * Parsed data
      * Format - array(id=>array, id=>array, ...)
      * @var array
      */
-    private $_data = array();
+    protected $_data = array();
 
     /**
      * Field name in the JSON file
      * @var string
      */
-    private $_field;
+    protected $_field;
 
     /**
      * Suffixes for images names
      * @var array
      */
-    private $_suffixes = array('thumb' => 'eg', 'large' => 'lg');
+    protected $_suffixes = array('thumb' => 'eg', 'large' => 'lg');
 
     /**
      * @param string $field
@@ -113,6 +113,23 @@ abstract class data {
         $id = intval($id);
         if (isset($this->_data[$id])) {
             return $this->_data[$id];
+        }
+        return null;
+    }
+
+    /**
+     * Get some field ($field_name) value in the data with id = $id
+     * @param int $id
+     * @param string $field_name
+     * @return mixed|null
+     */
+    public function get_field_by_id($id, $field_name) {
+        $data = $this->get_data_by_id($id);
+        if (!is_null($data)) {
+            $field_name = (string)$field_name;
+            if (isset($data[$field_name])) {
+                return $data[$field_name];
+            }
         }
         return null;
     }

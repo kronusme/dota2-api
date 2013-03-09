@@ -2,7 +2,7 @@
 /**
  * Information about items
  *
- * @author KronuS
+ * @author kronus
  * @package data
  * @example
  * <code>

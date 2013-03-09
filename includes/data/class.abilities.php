@@ -2,7 +2,7 @@
 /**
  * Information about heroes abilities
  *
- * @author KronuS
+ * @author kronus
  * @package data
  * @example
  * <code>
@@ -15,10 +15,22 @@
  * </code>
  */
 class abilities extends data {
+    /**
+     * Stats ability identifier
+     */
+    const stats_ability_id = 5002;
+
     public function __construct() {
         $this->set_filename('abilities.json');
         $this->set_field('abilities');
         // no small images for abilities :(
         $this->_suffixes['thumb'] = 'lg';
+    }
+
+    public function get_img_url_by_id($id, $thumb = false) {
+        if ($id != self::stats_ability_id) {
+            return parent::get_img_url_by_id($id, $thumb);
+        }
+        return 'images/stats.png';
     }
 }
