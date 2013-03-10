@@ -199,6 +199,10 @@ $lobbies->parse();
 $lobbies->get_field_by_id(2, 'name'); // returns 'Tournament'
 ````
 
+### Wiki
+* [Get all leagues matches and calculate win rate for each hero](https://github.com/kronusme/dota2-api/wiki/Get-all-leagues-matches-and-calculate-win-rate-for-each-hero)
+* [Match view page](https://github.com/kronusme/dota2-api/wiki/Match-view-page)
+
 ### Thanks
 
 1. Valve for DotA 2 and Web API.
