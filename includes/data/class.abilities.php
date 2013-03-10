@@ -14,7 +14,7 @@
  *   $abilities->get_img_url_by_id(5172);
  * </code>
  */
-class abilities extends data {
+class abilities extends heroes_data {
     /**
      * Stats ability identifier
      */
@@ -27,7 +27,7 @@ class abilities extends data {
         $this->_suffixes['thumb'] = 'lg';
     }
 
-    public function get_img_url_by_id($id, $thumb = false) {
+    public function get_img_url_by_id($id, $thumb = true) {
         if ($id != self::stats_ability_id) {
             return parent::get_img_url_by_id($id, $thumb);
         }

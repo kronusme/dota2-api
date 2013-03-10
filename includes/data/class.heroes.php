@@ -13,7 +13,7 @@
  *   $heroes->get_img_url_by_id(97); // thumb
  * </code>
  */
-class heroes extends data {
+class heroes extends heroes_data {
     public function __construct() {
         $this->set_filename('heroes.json');
         $this->set_field('heroes');

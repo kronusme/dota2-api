@@ -163,7 +163,7 @@ $matches_info = $matches_mapper_db->load();
 print_r($matches_info);
 ````
 
-#### Get info about abilities, heroes, items
+#### Get info about abilities, heroes, items, games mods, lobby types etc
 ````php
 <?php
 require_once('config.php');
@@ -185,6 +185,14 @@ $items->parse();
 $items-get_data_by_id(149); // get info about Crystalis
 $items->get_img_url_by_id(149, false); // large image
 $items->get_img_url_by_id(149); // thumb
+
+$mods = new mods();
+$mods->parse();
+$mods->get_field_by_id(1, 'name'); // returns 'All Pick'
+
+$lobbies = new lobbies();
+$lobbies->parse();
+$lobbies->get_field_by_id(2, 'name'); // returns 'Tournament'
 ````
 
 ### Thanks
