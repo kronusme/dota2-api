@@ -208,6 +208,35 @@ class match extends stat_object {
     }
 
     /**
+     * Return array of all picks and bans divided by team (and then by bans and picks)
+     * @return array
+     */
+    public function get_all_picks_bans_divided() {
+        $return = array(
+            'radiant' => array(
+                'bans' => array(),
+                'picks' => array()
+            ),
+            'dire' => array(
+                'bans' => array(),
+                'picks' => array()
+            )
+        );
+        foreach($this->_picks_bans as $pick_ban) {
+            $team = 'radiant';
+            $state = 'picks';
+            if ($pick_ban['team']) {
+                $team = 'dire';
+            }
+            if (!$pick_ban['is_pick']) {
+                $state = 'bans';
+            }
+            array_push($return[$team][$state], $pick_ban);
+        }
+        return $return;
+    }
+
+    /**
      * Set whole array of picks, bans.
      * Used in mappers
      *
