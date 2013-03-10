@@ -20,6 +20,10 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 
 3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db.sql**. Then execute all sql-files from **sql-updates** folder.
 
+### Demo
+
+[http://kronus.me/cn/dota2/match.php?match_id=117762656](http://kronus.me/cn/dota2/match.php?match_id=117762656) - you can use your own match_id
+
 ### Requests
 |           Type               |                                    URL                                           |
 |------------------------------|----------------------------------------------------------------------------------|
