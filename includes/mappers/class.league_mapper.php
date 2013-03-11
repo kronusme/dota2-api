@@ -53,13 +53,8 @@ class league_mapper {
             self::league_steam_url,
             array('league_id' => $this->get_league_id())
         );
-        $response = $request->send();
-        $league_live_matches  = null;
-        libxml_use_internal_errors(true);
-        try {
-            $league_live_matches = new SimpleXMLElement($response);
-        }
-        catch(Exception $e) {
+        $league_live_matches = $request->send();
+        if (is_null($league_live_matches)) {
             return null;
         }
         $league_live_matches = $league_live_matches->games;

@@ -42,13 +42,8 @@ class matches_mapper_web extends matches_mapper {
      */
     public function load() {
         $request = new request(self::steam_matches_url, $this->_get_data_array());
-        $response = $request->send();
-        $xml = null;
-        libxml_use_internal_errors(true);
-        try {
-            $xml = new SimpleXMLElement($response);
-        }
-        catch(Exception $e) {
+        $xml = $request->send();
+        if (is_null($xml)) {
             return null;
         }
         $matches = array();

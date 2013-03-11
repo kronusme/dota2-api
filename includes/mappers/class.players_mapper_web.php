@@ -84,13 +84,8 @@ class players_mapper_web {
      */
     public function load() {
         $request = new request(self::player_steam_url, array('steamids' => $this->get_ids_string()));
-        $response = $request->send();
-        $players_info = null;
-        libxml_use_internal_errors(true);
-        try {
-            $players_info = new SimpleXMLElement($response);
-        }
-        catch(Exception $e) {
+        $players_info = $request->send();
+        if (is_null($players_info)) {
             return null;
         }
         $players = array();

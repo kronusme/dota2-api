@@ -30,13 +30,8 @@ class match_mapper_web extends match_mapper {
      */
     public function load() {
         $request = new request(self::steam_match_url, array('match_id' => $this->get_match_id()));
-        $response = $request->send();
-        $match_info = null;
-        libxml_use_internal_errors(true);
-        try {
-            $match_info = new SimpleXMLElement($response);
-        }
-        catch(Exception $e) {
+        $match_info = $request->send();
+        if (is_null($match_info)) {
             return null;
         }
         $match = new match();

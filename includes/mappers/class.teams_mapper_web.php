@@ -33,13 +33,8 @@ class teams_mapper_web extends teams_mapper {
                 'teams_requested' => $this->get_teams_requested()
             )
         );
-        $response = $request->send();
-        $teams_info = null;
-        libxml_use_internal_errors(true);
-        try {
-            $teams_info = new SimpleXMLElement($response);
-        }
-        catch(Exception $e) {
+        $teams_info = $request->send();
+        if (is_null($teams_info)) {
             return null;
         }
         $teams = array();

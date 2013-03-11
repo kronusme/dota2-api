@@ -36,11 +36,7 @@ class leagues_mapper {
             array()
         );
         $response = $request->send();
-        libxml_use_internal_errors(true);
-        try {
-            $response = new SimpleXMLElement($response);
-        }
-        catch(Exception $e) {
+        if (is_null($response)) {
             return null;
         }
         $leagues_info = (array)($response->leagues);

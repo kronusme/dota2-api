@@ -112,6 +112,13 @@ class request {
 
         $r = curl_exec($ch);
         curl_close($ch);
+        libxml_use_internal_errors(true);
+        try {
+            $r = new SimpleXMLElement($r);
+        }
+        catch(Exception $e) {
+            return null;
+        }
         return $r;
     }
 }
