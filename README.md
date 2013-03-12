@@ -79,7 +79,7 @@ print_r($match->get_data_array());
 print_r($match->get_slot(0)->get_data_array());
 ```
 
-#### I want get all matches with some player
+#### I want get last 25 matches with some player
 ````php
 <?php
 require_once ('config.php');
