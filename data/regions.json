@@ -1,0 +1,64 @@
+{
+    "regions": [
+        {
+            "id" : 111,
+            "name" : "US West"
+        },
+        {
+            "id" : 121,
+            "name" : "US East"
+        },
+        {
+            "id" : 122,
+            "name" : "US East"
+        },
+        {
+            "id" : 131,
+            "name" : "Europe West"
+        },
+        {
+            "id" : 132,
+            "name" : "Europe West"
+        },
+        {
+            "id" : 133,
+            "name" : "Europe West"
+        },
+        {
+            "id" : 151 ,
+            "name" : "Southeast Asia"
+        },
+        {
+            "id" : 152,
+            "name" : "Southeast Asia"
+        },
+        {
+            "id" : 161,
+            "name" : "China"
+        },
+        {
+            "id" : 163,
+            "name" : "China"
+        },
+        {
+            "id" : 171,
+            "name": "Australia"
+        },
+        {
+            "id" : 181,
+            "name" : "Russia"
+        },
+        {
+            "id" : 182,
+            "name" : "Russia"
+        },
+        {
+            "id" : 191,
+            "name" : "Europe East"
+        },
+        {
+            "id" : 200,
+            "name" : "South America"
+        }
+    ]
+}

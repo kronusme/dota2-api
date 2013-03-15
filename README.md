@@ -197,6 +197,10 @@ $mods->get_field_by_id(1, 'name'); // returns 'All Pick'
 $lobbies = new lobbies();
 $lobbies->parse();
 $lobbies->get_field_by_id(2, 'name'); // returns 'Tournament'
+
+$regions = new regions();
+$regions->parse();
+$regions->get_field_by_id(132, 'name'); // returns 'Europe West'
 ````
 
 ### Wiki
