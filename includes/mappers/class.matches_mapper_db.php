@@ -9,6 +9,7 @@
  *   $matches_mapper_db = new matches_mapper_db();
  *   $matches_mapper_db->set_league_id(29)->set_matches_requested(1)->set_start_at_match_id(126268702);
  *   $matches_info = $matches_mapper_db->load();
+ *   $matches_mapper_db->delete(array(12345, 54321));
  *   print_r($matches_info);
  * </code>
  */
@@ -122,5 +123,30 @@ class matches_mapper_db extends matches_mapper {
             $matches[$match->get('match_id')] = $match;
         }
         return $matches;
+    }
+
+    /**
+     * Delete matches info from db
+     * @param array $ids
+     */
+    public function delete($ids) {
+        if (!is_array($ids)) {
+            return;
+        }
+        $ids_str = implode(',', $ids);
+        $db = db::obtain();
+        $slots = $db->fetch_array_pdo('SELECT id FROM '.db::real_tablename('slots').' WHERE match_id IN ('.$ids_str.')', array());
+        $slots_formatted = array();
+        foreach($slots as $slot) {
+            array_push($slots_formatted, $slot['id']);
+        }
+        if (count($slots_formatted)) {
+            $slots_str = implode(',', $slots_formatted);
+            $db->exec('DELETE FROM '.db::real_tablename('ability_upgrades').' WHERE slot_id IN ('.$slots_str.')');
+            $db->exec('DELETE FROM '.db::real_tablename('additional_units').' WHERE slot_id IN ('.$slots_str.')');
+            $db->exec('DELETE FROM '.db::real_tablename('slots').' WHERE id IN ('.$slots_str.')');
+        }
+        $db->exec('DELETE FROM '.db::real_tablename('picks_bans').' WHERE match_id IN ('.$ids_str.')');
+        $db->exec('DELETE FROM '.db::real_tablename('matches').' WHERE match_id IN ('.$ids_str.')');
     }
 }

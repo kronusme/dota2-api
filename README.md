@@ -167,6 +167,17 @@ $matches_info = $matches_mapper_db->load();
 print_r($matches_info);
 ````
 
+#### Delete match(es) from loca db
+````php
+<?php
+require_once('config.php');
+$matches_mapper_db = new matches_mapper_db();
+$matches_mapper_db->delete(array(151341579, 151401247));
+
+$mm = new match_mapper_db();
+$mm->delete(151341579);
+````
+
 #### Get info about abilities, heroes, items, games mods, lobby types etc
 ````php
 <?php

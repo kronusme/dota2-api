@@ -18,6 +18,7 @@
  *   print_r($match->get_data_array());
  *   print_r($match->get_slot(0)->get_data_array());
  *   $mm->save($match);
+ *   $mm->delete(111093969);
  * </code>
  */
 class match_mapper_db extends match_mapper{
@@ -177,7 +178,33 @@ class match_mapper_db extends match_mapper{
     }
 
     /**
-     * @param $match_id
+     * @param int $match_id
+     */
+    public function delete($match_id) {
+        $match_id = intval($match_id);
+        if (!self::match_exists($match_id)) {
+            return;
+        }
+        $db = db::obtain();
+        $slots = $db->fetch_array_pdo('SELECT id FROM '.db::real_tablename('slots').' WHERE match_id = ?', array($match_id));
+        $slots_formatted = array();
+        foreach($slots as $slot) {
+            array_push($slots_formatted, $slot['id']);
+        }
+        if (count($slots_formatted)) {
+            $slots_str = implode(',', $slots_formatted);
+            $db->exec('DELETE FROM '.db::real_tablename('ability_upgrades').' WHERE slot_id IN ('.$slots_str.')');
+            $db->exec('DELETE FROM '.db::real_tablename('additional_units').' WHERE slot_id IN ('.$slots_str.')');
+            $db->exec('DELETE FROM '.db::real_tablename('slots').' WHERE id IN ('.$slots_str.')');
+        }
+        $db->delete_pdo(db::real_tablename('picks_bans'), array('match_id' => $match_id), 0);
+        $db->delete_pdo(db::real_tablename('matches'), array('match_id' => $match_id));
+    }
+
+    /**
+     * Delete match data from db
+     *
+     * @param int $match_id
      * @return bool
      */
     public static function match_exists($match_id) {
