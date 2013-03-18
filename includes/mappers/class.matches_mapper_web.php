@@ -48,13 +48,18 @@ class matches_mapper_web extends matches_mapper {
         }
         $matches = array();
         if (isset($xml->matches)) {
-		    foreach ($xml->matches as $match) {
-                foreach ($match as $m) {
-                    $m_id = intval($m->match_id);
-                    $matches[$m_id]['match_id'] = $m_id;
-                    $matches[$m_id]['start_time'] = intval($m->start_time);
-                    $matches[$m_id]['lobby_type'] = intval($m->lobby_type);
-                    $matches[$m_id]['match_seq_num'] = intval($m->match_seq_num);
+		    foreach ($xml->matches as $m_matches) {
+                foreach ($m_matches as $m) {
+                    $match = new match();
+                    $match->set_array((array)$m);
+                    foreach($m->players as $players) {
+                        foreach($players as $player) {
+                            $slot = new slot();
+                            $slot->set_array((array)$player);
+                            $match->add_slot($slot);
+                        }
+                    }
+                    array_push($matches, $match);
                 }
             }
         }
