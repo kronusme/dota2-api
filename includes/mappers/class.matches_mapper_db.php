@@ -79,11 +79,11 @@ class matches_mapper_db extends matches_mapper {
             }
             array_push($picks_bans_formatted_info[$pick_ban_info['match_id']], $pick_ban_info);
         }
-        // abilities upgrade
         $slots_ids = array();
         foreach($slots_info as $slot_info) {
             array_push($slots_ids, $slot_info['id']);
         }
+        // abilities upgrade
         $abilities_upgrade_query = 'SELECT * FROM '.db::real_tablename('ability_upgrades').' WHERE slot_id IN ('.implode(',', $slots_ids).') ORDER BY slot_id, level ASC';
         $abilities_upgrade_info = $db->fetch_array_pdo($abilities_upgrade_query, array());
 
@@ -94,6 +94,16 @@ class matches_mapper_db extends matches_mapper {
                 $abilities_upgrade_formatted_info[$ability_upgrade_info['slot_id']] = array();
             }
             array_push($abilities_upgrade_formatted_info[$ability_upgrade_info['slot_id']], $ability_upgrade_info);
+        }
+        // additional units
+        $additional_units_query = 'SELECT * FROM '.db::real_tablename('additional_units').' WHERE slot_id IN ('.implode(',', $slots_ids).')';
+        $additional_units_info = $db->fetch_array_pdo($additional_units_query, array());
+        $additional_units_formatted_info = array();
+        foreach($additional_units_info as $additional_unit_info) {
+            if (!isset($additional_units_formatted_info[$additional_unit_info['slot_id']])) {
+                $additional_units_formatted_info[$additional_unit_info['slot_id']] = array();
+            }
+            $additional_units_formatted_info[$additional_unit_info['slot_id']] = $additional_unit_info;
         }
 
         // we load all matches info and now need to make proper match objects
@@ -112,6 +122,9 @@ class matches_mapper_db extends matches_mapper {
                     $slot->set_array($slot_info);
                     if(isset($abilities_upgrade_formatted_info[$slot->get('id')])) {
                         $slot->set_abilities_upgrade($abilities_upgrade_formatted_info[$slot->get('id')]);
+                    }
+                    if(isset($additional_units_formatted_info[$slot->get('id')])) {
+                        $slot->set_additional_unit_items($additional_units_formatted_info[$slot->get('id')]);
                     }
                     $match->add_slot($slot);
                     $slots_count++;
