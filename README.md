@@ -214,6 +214,17 @@ $regions->parse();
 $regions->get_field_by_id(132, 'name'); // returns 'Europe West'
 ````
 
+#### Get map with barracks and towers
+````php
+$match_mapper_web = new match_mapper_web(123456789);
+$match = $match_mapper_web->load();
+$map = new map($match->get('tower_status_radiant'), $match->get('tower_status_dire'), $match->get('barracks_status_radiant'), $match->get('barracks_status_dire'));
+$canvas = $map->get_image();
+header('Content-Type: image/jpg');
+imagejpeg($canvas);
+imagedestroy($canvas);
+````
+
 ### Wiki
 * [Get all leagues matches and calculate win rate for each hero](https://github.com/kronusme/dota2-api/wiki/Get-all-leagues-matches-and-calculate-win-rate-for-each-hero)
 * [Match view page](https://github.com/kronusme/dota2-api/wiki/Match-view-page)
