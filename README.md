@@ -216,6 +216,8 @@ $regions->get_field_by_id(132, 'name'); // returns 'Europe West'
 
 #### Get map with barracks and towers
 ````php
+<?php
+require_once('config.php');
 $match_mapper_web = new match_mapper_web(123456789);
 $match = $match_mapper_web->load();
 $map = new map($match->get('tower_status_radiant'), $match->get('tower_status_dire'), $match->get('barracks_status_radiant'), $match->get('barracks_status_dire'));
