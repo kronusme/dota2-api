@@ -167,7 +167,7 @@ $matches_info = $matches_mapper_db->load();
 print_r($matches_info);
 ````
 
-#### Delete match(es) from loca db
+#### Delete match(es) from local db
 ````php
 <?php
 require_once('config.php');
