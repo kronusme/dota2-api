@@ -71,8 +71,12 @@ class match_mapper_db extends match_mapper{
         foreach($slots as $s) {
             $slot = new slot();
             $slot->set_array($s);
-            $slot->set_abilities_upgrade($ability_upgrade_formatted[$slot->get('id')]);
-            $slot->set_additional_unit_items($additional_units_formatted[$slot->get('id')]);
+            if (isset($ability_upgrade_formatted[$slot->get('id')])) {
+                $slot->set_abilities_upgrade($ability_upgrade_formatted[$slot->get('id')]);
+            }
+            if (isset($additional_units_formatted[$slot->get('id')])) {
+                $slot->set_additional_unit_items($additional_units_formatted[$slot->get('id')]);
+            }
             $match->add_slot($slot);
         }
         if ($match->get('game_mode') == match::CAPTAINS_MODE) {
