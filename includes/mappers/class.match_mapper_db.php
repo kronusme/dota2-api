@@ -44,6 +44,9 @@ class match_mapper_db extends match_mapper{
         $query_for_slots = 'SELECT * FROM '.db::real_tablename('slots').' WHERE match_id=?';
         $match_info = $db->query_first_pdo($query_for_match, array($this->get_match_id()));
         $match = new match();
+        if(!$match_info) {
+            return $match;
+        }
         $match->set_array($match_info);
         $slots = $db->fetch_array_pdo($query_for_slots, array($this->get_match_id()));
         $slot_ids = '';
