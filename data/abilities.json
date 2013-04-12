@@ -1999,6 +1999,38 @@
         {
             "name": "wisp_spirits_in",
             "id": "wisp_spirits_out"
+        },
+        {
+            "name": "bristleback_viscous_nasal_goo",
+            "id": "5548"
+        },
+        {
+            "name": "bristleback_quill_spray",
+            "id": "5549"
+        },
+        {
+            "name": "bristleback_bristleback",
+            "id": "5550"
+        },
+        {
+            "name": "bristleback_warpath",
+            "id": "5551"
+        },
+        {
+            "name": "tusk_ice_shards",
+            "id": "5565"
+        },
+        {
+            "name": "tusk_snowball",
+            "id": "5566"
+        },
+        {
+            "name": "tusk_frozen_sigil",
+            "id": "5567"
+        },
+        {
+            "name": "tusk_walrus_punch",
+            "id": "5568"
         }
     ]
 }
