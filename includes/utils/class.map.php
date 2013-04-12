@@ -66,17 +66,17 @@ class map {
             array(130, 795), // t4 top
             array(150, 810), // t4 bot
 
-            array(80, 700),  // t3 top
-            array(115, 520),  // t2 top
-            array(115, 383),  // t1 top
+            array(250, 870), // t3 bot
+            array(480, 870), // t2 bot
+            array(820, 870), // t1 bot
 
             array(205, 745), // t3 mid
             array(270, 660), // t2 mid
             array(410, 580), // t1 mid
 
-            array(250, 870), // t3 bot
-            array(480, 870), // t2 bot
-            array(820, 870), // t1 bot
+            array(80, 700),  // t3 top
+            array(115, 520),  // t2 top
+            array(115, 383)  // t1 top
         );
         for ($i = 0; $i < count($positions); $i++) {
             if ($this->_tower_status_radiant[$i]) {
@@ -84,12 +84,12 @@ class map {
             }
         }
         $positions = array(
-            array(60, 730), // TOP RANGED
-            array(100, 730), // TOP MELEE
+            array(220, 890), // BOT RANGED
+            array(220, 850), // BOT MELEE
             array(165, 760), // MID RANGED
             array(195, 780), // MID MELEE
-            array(220, 890), // BOT RANGED
-            array(220, 850) // BOT MELEE
+            array(60, 730), // TOP RANGED
+            array(100, 730) // TOP MELEE
         );
         for ($i = 0; $i < count($positions); $i++) {
             if ($this->_barracks_status_radiant[$i]) {
@@ -101,17 +101,17 @@ class map {
             array(830, 180), // t4 top
             array(860, 205), // t4 bot
 
-            array(725, 130), // t3 top
-            array(450, 100), // t2 top
-            array(180, 100), // t1 top
+            array(895, 310), // t3 bot
+            array(910, 490), // t2 bot
+            array(875, 597), // t1 bot
 
             array(760, 265), // t3 mid
             array(640, 350), // t2 mid
             array(560, 470), // t1 mid
 
-            array(895, 310), // t3 bot
-            array(910, 490), // t2 bot
-            array(875, 597), // t1 bot
+            array(725, 130), // t3 top
+            array(450, 100), // t2 top
+            array(180, 100) // t1 top
         );
         for ($i = 0; $i < count($positions); $i++) {
             if ($this->_tower_status_dire[$i]) {
@@ -119,12 +119,12 @@ class map {
             }
         }
         $positions = array(
-            array(750, 110), // TOP RANGED
-            array(750, 150), // TOP MELEE
+            array(870, 285), // BOT RANGED
+            array(920, 285), // BOT MELEE
             array(775, 235), // MID RANGED
             array(800, 255), // MID MELEE
-            array(870, 285), // BOT RANGED
-            array(920, 285) // BOT MELEE
+            array(750, 110), // TOP RANGED
+            array(750, 150) // TOP MELEE
         );
         for ($i = 0; $i < count($positions); $i++) {
             if ($this->_barracks_status_dire[$i]) {
