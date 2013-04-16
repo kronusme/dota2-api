@@ -1,0 +1,18 @@
+{
+    "name": "DotA 2 API",
+    "description": "DotA 2 Web API PHP wrapper",
+    "license": "MIT",
+    "type": "open-source lib",
+    "keywords": ["dota2", "api", "wrapper"],
+    "authors": [
+        {
+            "name": "KronuS Me",
+            "email": "kronusme@gmail.com",
+            "homepage":"http://kronus.me",
+            "role":"Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    }
+}
