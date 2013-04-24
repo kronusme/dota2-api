@@ -44,6 +44,9 @@ class leagues_mapper {
         $leagues = array();
         foreach($leagues_info as $league_info) {
             $info = (array)$league_info;
+            array_walk($info, function (&$v) {
+                $v = (string)$v;
+            });
             $leagues[$info['leagueid']] = $info;
         }
         return $leagues;
