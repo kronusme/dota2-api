@@ -2031,6 +2031,22 @@
         {
             "name": "tusk_walrus_punch",
             "id": "5568"
+        },
+        {
+            "name": "skywrath_mage_arcane_bolt",
+            "id": "5581"
+        },
+        {
+            "name": "skywrath_mage_concussive_shot",
+            "id": "5582"
+        },
+        {
+            "name": "skywrath_mage_ancient_seal",
+            "id": "5583"
+        },
+        {
+            "name": "skywrath_mage_mystic_flare",
+            "id": "5584"
         }
     ]
 }
