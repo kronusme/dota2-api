@@ -2047,6 +2047,22 @@
         {
             "name": "skywrath_mage_mystic_flare",
             "id": "5584"
+        },
+        {
+            "name": "elder_titan_echo_stomp",
+            "id": "5589"
+        },
+        {
+            "name": "elder_titan_ancestral_spirit",
+            "id": "5591"
+        },
+        {
+            "name": "elder_titan_natural_order",
+            "id": "5593"
+        },
+        {
+            "name": "elder_titan_earth_splitter",
+            "id": "5594"
         }
     ]
 }
