@@ -504,6 +504,16 @@
             "name": "abaddon",
             "id": 102,
             "localized_name": "Abaddon"
+        },
+        {
+            "name": "elder_titan",
+            "id": 103,
+            "localized_name": "Elder Titan"
+        },
+        {
+            "name": "legion_commander",
+            "id": 104,
+            "localized_name": "Legion Commander"
         }
     ]
 }
