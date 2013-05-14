@@ -59,7 +59,7 @@ class match_mapper_web extends match_mapper {
                 $d = (array)$data['ability_upgrades'];
                 $abilities_upgrade = $d['ability'];
                 foreach($abilities_upgrade as $k=>$v) {
-                    $abilities_upgrade[$k] = (array)$abilities_upgrade[$k];
+					$abilities_upgrade[$k] = (array)$abilities_upgrade[$k];
                 }
                 $slot->set_abilities_upgrade($abilities_upgrade);
             }

@@ -7,7 +7,6 @@
  * @example
  * <code>
  *   $heroes_mapper = new heroes_mapper();
- *   $heroes_mapper->set_language('en_us');
  *   $heroes = $heroes_mapper->load();
  *   print_r($heroes);
  * </code>
@@ -17,26 +16,6 @@ class heroes_mapper {
      * Request url
      */
     const heroes_steam_url = 'https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/';
-    /**
-     * @var string
-     */
-    protected $_language = 'en_us';
-
-    /**
-     * @param string $lang
-     * @return heroes_mapper
-     */
-    public function set_language($lang) {
-        $this->_language = $lang;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function get_language() {
-        return $this->_language;
-    }
 
     /**
      * @param string $lang
@@ -54,7 +33,7 @@ class heroes_mapper {
         $request = new request(
             self::heroes_steam_url,
             array(
-                'language' => $this->get_language()
+                'language' => LANGUAGE
             )
         );
         $response = $request->send();

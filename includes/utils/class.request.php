@@ -97,6 +97,7 @@ class request {
         $d = '';
         $this->_params['format'] = 'xml';
         $this->_params['key'] = API_KEY;
+        $this->_params['language'] = LANGUAGE;
         foreach ($this->_params as $key=>$value) {
             $d .= $key.'='.$value.'&';
         }
