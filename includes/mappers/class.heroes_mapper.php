@@ -32,9 +32,7 @@ class heroes_mapper {
     public function load() {
         $request = new request(
             self::heroes_steam_url,
-            array(
-                'language' => LANGUAGE
-            )
+            array()
         );
         $response = $request->send();
         if (is_null($response)) {
