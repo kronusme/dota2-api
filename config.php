@@ -2,8 +2,9 @@
 
 // dota2 api key (you can get_info it here - http://steamcommunity.com/dev/apikey)
 define ('API_KEY', '*******************');
-// player's account_id you want to parse
-define ('ACCOUNT_ID', 1234);
+
+//The language to retrieve results in (see http://en.wikipedia.org/wiki/ISO_639-1 for the language codes (first two characters) and http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for the country codes (last two characters))
+define ('LANGUAGE', 'en_us');
 
 error_reporting(0);
 
