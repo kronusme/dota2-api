@@ -24,6 +24,19 @@ class matches_mapper_web extends matches_mapper {
     const steam_matches_url = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/';
 
     /**
+     * The total number of matches available for retrieval
+     * @var int
+     */
+    protected $_total_results;
+
+    /**
+     * @return int
+     */
+     public function get_total_matches() {
+         return $this->_total_results;
+     }
+
+    /**
      * @return array
      */
     private function _get_data_array() {
@@ -48,6 +61,7 @@ class matches_mapper_web extends matches_mapper {
         }
         $matches = array();
         if (isset($xml->matches)) {
+            $this->_total_results = $xml->total_results;
 		    foreach ($xml->matches as $m_matches) {
                 foreach ($m_matches as $m) {
                     $match = new match();
