@@ -73,7 +73,7 @@ class matches_mapper_web extends matches_mapper {
                             $match->add_slot($slot);
                         }
                     }
-                    array_push($matches, $match);
+                    $matches[$match->get('match_id')] = $match;
                 }
             }
         }

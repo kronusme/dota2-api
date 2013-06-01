@@ -115,13 +115,12 @@ class match_mapper_db extends match_mapper{
         // save accounts
         foreach($slots as $slot) {
             if ($slot->get('account_id') != player::ANONYMOUS) {
-                array_push($users_data, array(
-                    $slot->get('account_id'),
-                    player::convert_id($slot->get('account_id'))
+                $db->insert_pdo(db::real_tablename('users'), array(
+                    'account_id' => $slot->get('account_id'),
+                    'steam_id' => player::convert_id($slot->get('account_id'))
                 ));
             }
         }
-        $db->insert_many_pdo(db::real_tablename('users'), array('account_id','steam_id'), $users_data);
         // save slots
         foreach($slots as $slot) {
             $slot_id = $db->insert_pdo(db::real_tablename('slots'), $slot->get_data_array());
@@ -131,7 +130,7 @@ class match_mapper_db extends match_mapper{
                 $keys = array();
                 $data = array();
                 foreach($a_u as $ability) {
-                    $keys = array_keys($ability); // yes, it will be reassigned meny times
+                    $keys = array_keys($ability); // yes, it will be reassigned many times
                     $data1 = array_values($ability);
                     array_unshift($data1, $slot_id);
                     array_push($data, $data1);
