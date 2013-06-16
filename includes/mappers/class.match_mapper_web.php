@@ -58,6 +58,9 @@ class match_mapper_web extends match_mapper {
             if (isset($data['ability_upgrades'])) {
                 $d = (array)$data['ability_upgrades'];
                 $abilities_upgrade = $d['ability'];
+                if (!is_array($abilities_upgrade)) {
+                    $abilities_upgrade = array($abilities_upgrade);
+                }
                 foreach($abilities_upgrade as $k=>$v) {
 					$abilities_upgrade[$k] = (array)$abilities_upgrade[$k];
                 }
