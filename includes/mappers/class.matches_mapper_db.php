@@ -254,11 +254,13 @@ class matches_mapper_db extends matches_mapper {
         if (trim($where) !== '') {
             $matches_query .= ' WHERE '.substr($where, 0, strlen($where) - 4);
         }
+        
+        $matches_query .= ' ORDER BY start_time DESC';
+        
         if (!is_null($this->get_matches_requested())) {
             $matches_query .= ' LIMIT ?';
             array_push($data, $this->get_matches_requested());
         }
-        $matches_query .= ' ORDER BY start_time DESC';
 
         $matches_info = $db->fetch_array_pdo($matches_query, $data);
         // no one match found
