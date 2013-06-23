@@ -1,19 +1,13 @@
 <?php
 /**
- * All info about one player
- *
- * @author kronus
- * @package models
+ * Used with player_mapper_db
+ * All Info About One Player
  */
-class player extends stat_object {
-    /**
+ class player_db extends stat_object {
+	 /**
      * This id used when some player select don't show personal statistic
      */
     const ANONYMOUS = 4294967295;
-    /**
-     * @var string
-     */
-    protected $_steamid;
 	/**
 	 * Used for db class
 	 * @var string
@@ -22,11 +16,11 @@ class player extends stat_object {
     /**
      * @var int
      */
-    protected $_communityvisibilitystate;
+    protected $_community_visibility_state;
     /**
      * @var int
      */
-    protected $_profilestate;
+    protected $_profile_state;
     /**
      * @var string
      */
@@ -38,11 +32,11 @@ class player extends stat_object {
     /**
      * @var int
      */
-    protected $_commentpermission;
+    protected $_comment_permission;
     /**
      * @var string
      */
-    protected $_profileurl;
+    protected $_profile_url;
     /**
      * @var string
      */
@@ -50,11 +44,11 @@ class player extends stat_object {
     /**
      * @var string
      */
-    protected $_avatarmedium;
+    protected $_avatar_medium;
     /**
      * @var string
      */
-    protected $_avatarfull;
+    protected $_avatar_full;
     /**
      * @var int
      */
@@ -62,15 +56,15 @@ class player extends stat_object {
     /**
      * @var string
      */
-    protected $_realname;
+    protected $_real_name;
     /**
      * @var string
      */
-    protected $_primaryclanid;
+    protected $_primary_clan_id;
     /**
      * @var timestamp
      */
-    protected $_timecreated;
+    protected $_time_created;
 
     /**
      *
@@ -90,4 +84,5 @@ class player extends stat_object {
         }
         return (string) $converted;
     }
-}
+ }
+?>
