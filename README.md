@@ -227,6 +227,32 @@ imagejpeg($canvas);
 imagedestroy($canvas);
 ````
 
+#### Get info about players from db
+````php
+$players_mapper_db = new players_mapper_db();
+$players_info = $players_mapper_db->add_id('76561198020176880')->add_id('76561197998200662')->load();
+print_r($players_info);
+````
+or for just getting one player, you can also use
+````php
+$player_mapper_db = new player_mapper_db();
+$player_mapper_db->set_steamid('76561198020176880');
+print_r($player_mapper_db->load());
+````
+
+#### Save info about players into db
+````php
+//fetch players from API
+$players_mapper_web = new players_mapper_web();
+$players = $players_mapper_web->add_id('76561198020176880')->add_id('76561197998200662')->load();
+
+//save players into db
+$player_mapper_db = new player_mapper_db();
+foreach($players as $p) {
+	$player_mapper_db->save($p);
+}
+````
+
 ### Wiki
 * [Get all leagues matches and calculate win rate for each hero](https://github.com/kronusme/dota2-api/wiki/Get-all-leagues-matches-and-calculate-win-rate-for-each-hero)
 * [Match view page](https://github.com/kronusme/dota2-api/wiki/Match-view-page)

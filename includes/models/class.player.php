@@ -14,11 +14,6 @@ class player extends stat_object {
      * @var string
      */
     protected $_steamid;
-	/**
-	 * Used for db class
-	 * @var string
-	 */
-	protected $_steam_id;
     /**
      * @var int
      */

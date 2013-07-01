@@ -2,7 +2,7 @@
 /**
  * All Info About One Player
  */
-class player_mapper_db extends player_db {
+class player_mapper_db {
 	public function __construct() {
 	}
 	
@@ -16,26 +16,30 @@ class player_mapper_db extends player_db {
 	
 	/**
 	 * @param steam_id or null
-	 * @return player_db object
+	 * @return player object
 	 */
 	public function load($id = null) {
 		if(!is_null($id)) {
 			$this->_steam_id = (string)$id;
 		}
-		$player = new player_db();
+		$player = new player();
 		
 		if(empty($this->_steam_id)) {
 			return $player;
 		}
 		
 		$db = db::obtain();
-		$result = $db->query_first_pdo('SELECT * FROM ' . db::real_tablename('users') . ' WHERE steam_id = ?', array($this->get_steamid()));
+		$result = $db->query_first_pdo('SELECT * FROM ' . db::real_tablename('users') . ' WHERE steamid = ?', array($this->get_steamid()));
 		$player->set_array($result);
 		return $player;
 	}
 	
-	public function save(player_db $player) {
-		if(player_mapper_db::player_exists($player->get('steam_id'))) {
+	/**
+	 * Determines whether the player should be inserted or updated in the db
+	 * @param player object
+	 */
+	public function save(player $player) {
+		if(player_mapper_db::player_exists($player->get('steamid'))) {
 			$this->update($player);
 		}
 		else {
@@ -43,46 +47,18 @@ class player_mapper_db extends player_db {
 		}
 	}
 	
-	private function insert($player) {
+	private function insert(player $player) {
 		$db = db::obtain();
-		$data = array(
-			'personaname' => $player->get('personaname'),
-			'steam_id' => $player->get('steam_id'),
-			'community_visibility_state' => $player->get('communityvisibilitystate'),
-			'profile_state' => $player->get('profilestate'),
-			'last_logoff' => $player->get('lastlogoff'),
-			'comment_permission' => $player->get('commentpermission'),
-			'profile_url' => $player->get('profileurl'),
-			'avatar' => $player->get('avatar'),
-			'avatar_medium' => $player->get('avatarmedium'),
-			'avatar_full' => $player->get('avatarfull'),
-			'personastate' => $player->get('personastate'),
-			'real_name' => $player->get('realname'),
-			'primary_clan_id' => $player->get('primaryclanid'),
-			'time_created' => $player->get('timecreated')
-			);
+		$data = array('account_id' => player::convert_id($player->get('steamid')));
+		$data = array_merge($data, $player->get_data_array());
 		$db->insert_pdo(db::real_tablename('users'), $data);
 	}
 	
-	private function update($player) {
+	private function update(player $player) {
 		$db = db::obtain();
-		$data = array(
-			'personaname' => $player->get('personaname'),
-			'steam_id' => $player->get('steam_id'),
-			'community_visibility_state' => $player->get('communityvisibilitystate'),
-			'profile_state' => $player->get('profilestate'),
-			'last_logoff' => $player->get('lastlogoff'),
-			'comment_permission' => $player->get('commentpermission'),
-			'profile_url' => $player->get('profileurl'),
-			'avatar' => $player->get('avatar'),
-			'avatar_medium' => $player->get('avatarmedium'),
-			'avatar_full' => $player->get('avatarfull'),
-			'personastate' => $player->get('personastate'),
-			'real_name' => $player->get('realname'),
-			'primary_clan_id' => $player->get('primaryclanid'),
-			'time_created' => $player->get('timecreated')
-			);
-		$db->update_pdo(db::real_tablename('users'), $data, array('steam_id' => $player->get('steam_id')));
+		$data = array('account_id' => player::convert_id($player->get('steamid')));
+		$data = array_merge($data, $player->get_data_array());
+		$db->update_pdo(db::real_tablename('users'), $data, array('steamid' => $player->get('steamid')));
 	}
 	
 	/**
@@ -95,11 +71,10 @@ class player_mapper_db extends player_db {
 		}
 		
 		$db = db::obtain();
-		$result = $db->query_first_pdo('SELECT * FROM ' . db::real_tablename('users') . ' WHERE steam_id = ?', array($id));
-		if($result['steam_id'] == $this->get_steamid) {
+		$result = $db->query_first_pdo('SELECT * FROM ' . db::real_tablename('users') . ' WHERE steamid = ?', array($id));
+		if($result['steamid'] == (string)$id) {
 			return true;
 		}
-		
 		return false;
 	}
 }
