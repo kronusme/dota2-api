@@ -117,7 +117,7 @@ class match_mapper_db extends match_mapper{
             if ($slot->get('account_id') != player::ANONYMOUS) {
                 $db->insert_pdo(db::real_tablename('users'), array(
                     'account_id' => $slot->get('account_id'),
-                    'steam_id' => player::convert_id($slot->get('account_id'))
+                    'steamid' => player::convert_id($slot->get('account_id'))
                 ));
             }
         }
@@ -174,7 +174,7 @@ class match_mapper_db extends match_mapper{
             // update accounts
             $db->update_pdo(db::real_tablename('users'), array(
                 'account_id' => $slot->get('account_id'),
-                'steam_id' => player::convert_id($slot->get('account_id'))
+                'steamid' => player::convert_id($slot->get('account_id'))
             ), array('account_id' => $slot->get('account_id')));
             // update slots
             if (!$lazy) {
