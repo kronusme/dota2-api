@@ -73,4 +73,3 @@ print_r($leagues);*/
 $games = $league_mapper->load();
 print_r($games);*/
 
-
