@@ -7,7 +7,7 @@
  * @example
  * <code>
  *   $matches_mapper_db = new matches_mapper_db();
- *   $matches_mapper_db->set_league_id(29)->set_matches_requested(1)->set_start_at_match_id(126268702);
+ *   $matches_mapper_db->set_leagueid(29)->set_matches_requested(1);
  *   $matches_info = $matches_mapper_db->load();
  *   $matches_mapper_db->delete(array(12345, 54321));
  *   print_r($matches_info);
@@ -237,9 +237,9 @@ class matches_mapper_db extends matches_mapper {
         $where = '';
         $data = array();
 
-        if (!is_null($this->get_league_id())) {
+        if (!is_null($this->get_leagueid())) {
             $where .= 'leagueid = ? AND ';
-            array_push($data, $this->get_league_id());
+            array_push($data, $this->get_leagueid());
         }
 
         if (count($_matches_ids_from_slots)) {

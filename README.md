@@ -162,7 +162,7 @@ $games - array of live_match objects
 <?php
 require_once('config.php');
 $matches_mapper_db = new matches_mapper_db();
-$matches_mapper_db->set_league_id(29)->set_matches_requested(1)->set_start_at_match_id(126268702);
+$matches_mapper_db->set_leagueid(29)->set_matches_requested(1);
 $matches_info = $matches_mapper_db->load();
 print_r($matches_info);
 ````
