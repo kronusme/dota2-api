@@ -229,12 +229,16 @@ imagedestroy($canvas);
 
 #### Get info about players from db
 ````php
+<?php
+require_once('config.php');
 $players_mapper_db = new players_mapper_db();
 $players_info = $players_mapper_db->add_id('76561198020176880')->add_id('76561197998200662')->load();
 print_r($players_info);
 ````
 or for just getting one player, you can also use
 ````php
+<?php
+require_once('config.php');
 $player_mapper_db = new player_mapper_db();
 $player_mapper_db->set_steamid('76561198020176880');
 print_r($player_mapper_db->load());
@@ -242,6 +246,8 @@ print_r($player_mapper_db->load());
 
 #### Save info about players into db
 ````php
+<?php
+require_once('config.php');
 //fetch players from API
 $players_mapper_web = new players_mapper_web();
 $players = $players_mapper_web->add_id('76561198020176880')->add_id('76561197998200662')->load();
@@ -251,6 +257,18 @@ $player_mapper_db = new player_mapper_db();
 foreach($players as $p) {
 	$player_mapper_db->save($p);
 }
+````
+
+#### Work with UGC Objects
+````php
+<?php
+require_once('config.php');
+$match_mapper_web = new match_mapper_web(37633163);
+$game = $match_mapper_web->load();
+$ugc_mapper_web = new ugc_mapper_web($game->get('radiant_logo'));
+$logo_data = $ugc_mapper_web->load();
+var_dump($logo_data);
+echo $logo_data->url;
 ````
 
 ### Wiki
