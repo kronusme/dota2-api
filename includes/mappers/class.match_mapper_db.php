@@ -92,10 +92,13 @@ class match_mapper_db extends match_mapper{
 
     /**
      * @param match $match
+     * @param bool $auto_update if true - update match info if match exists in the DB
      */
-    public function save(match $match) {
+    public function save(match $match, $auto_update = true) {
         if (self::match_exists($match->get('match_id'))) {
-            $this->update($match);
+            if ($auto_update) {
+                $this->update($match);
+            }
         }
         else {
             $this->insert($match);

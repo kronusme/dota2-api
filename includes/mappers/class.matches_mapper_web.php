@@ -43,7 +43,7 @@ class matches_mapper_web extends matches_mapper {
         $data = get_object_vars($this);
         $ret = array();
         foreach($data as $key => $value) {
-            if (!is_array($value) && !is_null($value)) {
+            if (!is_array($value) && !is_null($value) && $key != '_total_results') {
                 $ret[ltrim($key, '_')] = $value;
             }
         }

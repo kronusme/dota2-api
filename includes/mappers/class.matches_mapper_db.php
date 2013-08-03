@@ -237,9 +237,9 @@ class matches_mapper_db extends matches_mapper {
         $where = '';
         $data = array();
 
-        if (!is_null($this->get_leagueid())) {
+        if (!is_null($this->get_league_id())) {
             $where .= 'leagueid = ? AND ';
-            array_push($data, $this->get_leagueid());
+            array_push($data, $this->get_league_id());
         }
 
         if (count($_matches_ids_from_slots)) {

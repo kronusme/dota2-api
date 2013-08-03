@@ -37,7 +37,7 @@ abstract class matches_mapper {
      * matches for a particular league
      * @var int
      */
-    protected $_leagueid;
+    protected $_league_id;
     /**
      * Start the search at the indicated match id, descending
      * @var int
@@ -172,7 +172,7 @@ abstract class matches_mapper {
     /**
      * @return int
      */
-    public function get_leagueid() {
+    public function get_league_id() {
         return $this->_league_id;
     }
 
