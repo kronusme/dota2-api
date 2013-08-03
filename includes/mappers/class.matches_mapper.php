@@ -164,8 +164,8 @@ abstract class matches_mapper {
      * @param int $league_id
      * @return matches_mapper
      */
-    public function set_leagueid($league_id) {
-        $this->_leagueid = intval($league_id);
+    public function set_league_id($league_id) {
+        $this->_league_id = intval($league_id);
         return $this;
     }
 
