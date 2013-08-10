@@ -1,5 +1,5 @@
 {
-    "name": "DotA 2 API",
+    "name": "dota2-api",
     "description": "DotA 2 Web API PHP wrapper",
     "license": "MIT",
     "type": "open-source lib",
