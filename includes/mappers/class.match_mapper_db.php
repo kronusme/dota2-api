@@ -111,6 +111,19 @@ class match_mapper_db extends match_mapper{
     public function insert(match $match) {
         $db = db::obtain();
         $slots = $match->get_all_slots();
+        if ($match->get('radiant_team_id')) {
+            $db->insert_pdo(db::real_tablename('teams'), array(
+                'id' => $match->get('radiant_team_id'),
+                'name' => $match->get('radiant_name')
+            ));
+        }
+
+        if ($match->get('dire_team_id')) {
+            $db->insert_pdo(db::real_tablename('teams'), array(
+                'id' => $match->get('dire_team_id'),
+                'name' => $match->get('dire_name')
+            ));
+        }
 
         // save common match info
         $db->insert_pdo(db::real_tablename('matches'), $match->get_data_array());

@@ -18,7 +18,7 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 
 2. In this file also replace API_KEY with your own (you can get it on the http://steamcommunity.com/dev/apikey).
 
-3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db.sql**. Then execute all sql-files from **sql-updates** folder.
+3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db_latest.sql**.
 
 ### Demo
 
@@ -136,12 +136,12 @@ $heroes - array with numeric indexes (heroes ids)
 ````php
 <?php
 require_once ('config.php');
-$leagues_mapper = new leagues_mapper();
-$leagues = $leagues_mapper->load();
+$leagues_mapper_web = new leagues_mapper_web();
+$leagues = $leagues_mapper_web->load();
 foreach($leagues as $league) {
-    echo $league['description'];
-    if ($league['tournament_url']) {
-        echo $league['tournament_url'];
+    echo $league->get('description');
+    if ($league->get('tournament_url')) {
+        echo $league->get('tournament_url');
     }
  }
 ````
