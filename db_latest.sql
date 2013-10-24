@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `slots` (
 CREATE TABLE IF NOT EXISTS `users` (
   `account_id` bigint(20) NOT NULL DEFAULT '0',
   `personaname` varchar(50) NOT NULL DEFAULT '',
-  `steam_id` varchar(64) NOT NULL DEFAULT '',
+  `steamid` varchar(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
