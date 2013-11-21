@@ -2079,6 +2079,78 @@
         {
             "name": "elder_titan_earth_splitter",
             "id": "5594"
+        },
+        {
+            "name": "legion_commander_overwhelming_odds",
+            "id": "5595"
+        },
+        {
+            "name": "legion_commander_press_the_attack",
+            "id": "5596"
+        },
+        {
+            "name": "legion_commander_moment_of_courage",
+            "id": "5597"
+        },
+        {
+            "name": "legion_commander_duel",
+            "id": "5598"
+        },
+        {
+            "name": "ember_spirit_searing_chains",
+            "id": "5603"
+        },
+        {
+            "name": "ember_spirit_sleight_of_fist",
+            "id": "5604"
+        },
+        {
+            "name": "ember_spirit_flame_guard",
+            "id": "5605"
+        },
+        {
+            "name": "ember_spirit_fire_remnant",
+            "id": "5606"
+        },
+        {
+            "name": "ember_spirit_activate_fire_remnant",
+            "id": "5607"
+        },
+        {
+            "name": "earth_spirit_boulder_smash",
+            "id": "5608"
+        },
+        {
+            "name": "earth_spirit_rolling_boulder",
+            "id": "5609"
+        },
+        {
+            "name": "earth_spirit_geomagnetic_grip",
+            "id": "5610"
+        },
+        {
+            "name": "earth_spirit_stone_caller",
+            "id": "5611"
+        },
+        {
+            "name": "earth_spirit_magnetize",
+            "id": "5612"
+        },
+        {
+            "name": "abyssal_underlord_firestorm",
+            "id": "5613"
+        },
+        {
+            "name": "abyssal_underlord_pit_of_malice",
+            "id": "5614"
+        },
+        {
+            "name": "abyssal_underlord_atrophy_aura",
+            "id": "5615"
+        },
+        {
+            "name": "abyssal_underlord_dark_rift",
+            "id": "5616"
         }
     ]
 }

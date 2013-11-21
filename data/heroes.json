@@ -514,6 +514,21 @@
             "name": "legion_commander",
             "id": 104,
             "localized_name": "Legion Commander"
+        },
+        {
+            "name": "ember_spirit",
+            "id": 106,
+            "localized_name": "Ember Spirit"
+        },
+        {
+            "name": "earth_spirit",
+            "id": 107,
+            "localized_name": "Earth Spirit"
+        },
+        {
+            "name": "abyssal_underlord",
+            "id": 108,
+            "localized_name": "Abyssal Underlord"
         }
     ]
 }
