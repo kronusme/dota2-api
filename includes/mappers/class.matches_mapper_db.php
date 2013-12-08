@@ -14,6 +14,25 @@
  * </code>
  */
 class matches_mapper_db extends matches_mapper {
+
+    private $_team_id;
+
+    /**
+     * @param int $team_id
+     * @return matches_mapper_db
+     */
+    public function set_team_id($team_id) {
+        $this->_team_id = (int)$team_id;
+        return $this;
+    }
+
+    /**
+     * @return int | null
+     */
+    public function get_team_id() {
+        return $this->_team_id;
+    }
+
     /**
      *
      */
@@ -240,6 +259,12 @@ class matches_mapper_db extends matches_mapper {
         if (!is_null($this->get_league_id())) {
             $where .= 'leagueid = ? AND ';
             array_push($data, $this->get_league_id());
+        }
+
+        if (!is_null($this->get_team_id())) {
+            $where .= '(radiant_team_id = ? OR dire_team_id = ?) AND ';
+            array_push($data, $this->get_team_id());
+            array_push($data, $this->get_team_id());
         }
 
         if (count($_matches_ids_from_slots)) {
