@@ -101,9 +101,9 @@
             "localized_name": "Vengeful Spirit"
         },
         {
-            "name": "windrunner",
+            "name": "windranger",
             "id": 21,
-            "localized_name": "Windrunner"
+            "localized_name": "Windranger"
         },
         {
             "name": "zuus",
@@ -171,9 +171,9 @@
             "localized_name": "Sniper"
         },
         {
-            "name": "necrolyte",
+            "name": "necrophos",
             "id": 36,
-            "localized_name": "Necrolyte"
+            "localized_name": "Necrophos"
         },
         {
             "name": "warlock",
