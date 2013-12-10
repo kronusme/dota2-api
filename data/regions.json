@@ -5,11 +5,27 @@
             "name" : "US West"
         },
         {
+            "id" : 112,
+            "name" : "US West"
+        },
+        {
+            "id" : 114,
+            "name" : "US West"
+        },
+        {
             "id" : 121,
             "name" : "US East"
         },
         {
             "id" : 122,
+            "name" : "US East"
+        },
+        {
+            "id" : 123,
+            "name" : "US East"
+        },
+        {
+            "id" : 124,
             "name" : "US East"
         },
         {
@@ -29,11 +45,31 @@
             "name" : "Europe West"
         },
         {
+            "id" : 135,
+            "name" : "Europe West"
+        },
+        {
+            "id" : 136,
+            "name" : "Europe West"
+        },
+        {
+            "id" : 142 ,
+            "name" : "South Korea"
+        },
+        {
+            "id" : 143,
+            "name" : "South Korea"
+        },
+        {
             "id" : 151 ,
             "name" : "Southeast Asia"
         },
         {
             "id" : 152,
+            "name" : "Southeast Asia"
+        },
+        {
+            "id" : 153,
             "name" : "Southeast Asia"
         },
         {
@@ -57,12 +93,52 @@
             "name" : "Russia"
         },
         {
+            "id" : 183,
+            "name" : "Russia"
+        },
+        {
+            "id" : 184,
+            "name" : "Russia"
+        },
+        {
             "id" : 191,
             "name" : "Europe East"
         },
         {
             "id" : 200,
             "name" : "South America"
+        },
+        {
+            "id" : 204,
+            "name" : "South America"
+        },
+        {
+            "id" : 211,
+            "name" : "South America"
+        },
+        {
+            "id" : 212,
+            "name" : "South America"
+        },
+        {
+            "id" : 213,
+            "name" : "South America"
+        },
+        {
+            "id" : 221,
+            "name" : "China"
+        },
+        {
+            "id" : 222,
+            "name" : "China"
+        },
+        {
+            "id" : 223,
+            "name" : "China"
+        },
+        {
+            "id" : 231,
+            "name" : "China"
         }
     ]
 }
