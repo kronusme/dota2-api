@@ -27,6 +27,14 @@
         {
             "id" : 5,
             "name" : "Team match"
+        },
+        {
+            "id" : 6,
+            "name" : "Solo Queue"
+        },
+        {
+            "id" : 7,
+            "name" : "Ranked"
         }
     ]
 }
