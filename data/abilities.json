@@ -2155,6 +2155,38 @@
         {
             "name": "abyssal_underlord_dark_rift",
             "id": "5616"
+        },
+        {
+            "name": "terrorblade_reflection",
+            "id": "5619"
+        },
+        {
+            "name": "terrorblade_conjure_image",
+            "id": "5620"
+        },
+        {
+            "name": "terrorblade_metamorphosis",
+            "id": "5621"
+        },
+        {
+            "name": "terrorblade_sunder",
+            "id": "5622"
+        },
+        {
+            "name": "phoenix_icarus_dive",
+            "id": "5623"
+        },
+        {
+            "name": "phoenix_fire_spirits",
+            "id": "5625"
+        },
+        {
+            "name": "phoenix_sun_ray",
+            "id": "5626"
+        },
+        {
+            "name": "phoenix_supernova",
+            "id": "5630"
         }
     ]
 }

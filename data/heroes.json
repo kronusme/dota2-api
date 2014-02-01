@@ -529,6 +529,16 @@
             "name": "abyssal_underlord",
             "id": 108,
             "localized_name": "Abyssal Underlord"
+        },
+        {
+            "name": "terrorblade",
+            "id": 109,
+            "localized_name": "Terrorblade"
+        },
+        {
+            "name": "phoenix",
+            "id": 110,
+            "localized_name": "Phoenix"
         }
     ]
 }
