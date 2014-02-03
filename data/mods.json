@@ -59,6 +59,10 @@
         {
             "id" : 14,
             "name" : "Compendium Matchmaking"
+        },
+        {
+            "id": 16,
+            "name": "Captains Draft"
         }
     ]
 }
