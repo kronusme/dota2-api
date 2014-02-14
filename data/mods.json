@@ -61,8 +61,20 @@
             "name" : "Compendium Matchmaking"
         },
         {
+            "id": 15,
+            "name": "Custom"
+        },
+        {
             "id": 16,
             "name": "Captains Draft"
+        },
+        {
+            "id": 17,
+            "name": "New Bloom"
+        },
+        {
+            "id": 18,
+            "name": "Ability Draft"
         }
     ]
 }
