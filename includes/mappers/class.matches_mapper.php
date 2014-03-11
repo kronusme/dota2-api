@@ -198,7 +198,7 @@ abstract class matches_mapper {
      */
     public function set_matches_requested($matches_requested) {
         $matches_requested = intval($matches_requested);
-        if ($matches_requested > 0 && $matches_requested <= 25) {
+        if ($matches_requested > 0 && $matches_requested <= 100) {
             $this->_matches_requested = $matches_requested;
         }
         return $this;
