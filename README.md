@@ -155,7 +155,7 @@ $league_prize_pool_mapper_web->set_league_id(600);
 $prize_pool_info = $league_prize_pool_mapper_web->load();
 print_r($prize_pool_info);
 echo $prize_pool_info['prize_pool'];
-echo $prize_pool_info['league_id];
+echo $prize_pool_info['league_id'];
 echo $prize_pool_info['status']; // may be undefined
 ````
 
