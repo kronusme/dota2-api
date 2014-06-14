@@ -4,9 +4,18 @@ CREATE TABLE `leagues` (
   `description` varchar(2000) NOT NULL DEFAULT '',
   `tournament_url` varchar(200) DEFAULT '',
   `itemdef` int(11) DEFAULT NULL,
-  `is_finished` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`leagueid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `league_prize_pools` (
+  `league_id` MEDIUMINT(8) UNSIGNED NOT NULL,
+  `prize_pool` INT(10) UNSIGNED NOT NULL,
+  `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`league_id`, `date`),
+  CONSTRAINT `FK_league_prize_pools_leagues` FOREIGN KEY (`league_id`) REFERENCES `leagues` (`leagueid`)
+)
+  COLLATE='utf8_general_ci'
+  ENGINE=InnoDB;
 
 CREATE TABLE `matches` (
   `match_id` int(20) unsigned NOT NULL,

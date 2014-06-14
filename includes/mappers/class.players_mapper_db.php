@@ -63,7 +63,7 @@ class players_mapper_db {
 	   public function load() {
 		   $db = db::obtain();
 		   $players = array();
-		   $result = $db->fetch_array_pdo('SELECT * FROM users WHERE steamid IN (' . $this->get_ids_string() . ')', array());
+		   $result = $db->fetch_array_pdo('SELECT * FROM '.db::real_tablename('users').' WHERE steamid IN (' . $this->get_ids_string() . ')', array());
 		   foreach($result as $r) {
 			   $player = new player();
 			   $player->set_array((array)$r);
@@ -73,4 +73,3 @@ class players_mapper_db {
 		   return $players;
 	   }
 }
-?>

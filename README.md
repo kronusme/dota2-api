@@ -35,6 +35,7 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 | GetLiveLeagueGames           | https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/           |
 | GetTeamInfoByTeamID          | https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/           |
 | GetHeroes                    | https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/                     |
+| GetTournamentPrizePool       | https://api.steampowered.com/IEconDOTA2_570/GetTournamentPrizePool/v1/                     |
 |       **Unsupported**        |                                                                                  |
 | EconomySchema                | https://api.steampowered.com/IEconItems_570/GetSchema/v0001/                     |
 | GetMatchHistoryBySequenceNum | https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v0001/ |
@@ -146,6 +147,25 @@ foreach($leagues as $league) {
  }
 ````
 $leagues - array with numeric indexes (leagues ids)
+
+#### Get leagues prize pool
+````php
+$league_prize_pool_mapper_web = new league_prize_pool_mapper_web();
+$league_prize_pool_mapper_web->set_league_id(600);
+$prize_pool_info = $league_prize_pool_mapper_web->load();
+print_r($prize_pool_info);
+echo $prize_pool_info['prize_pool'];
+echo $prize_pool_info['league_id];
+echo $prize_pool_info['status']; // may be undefined
+````
+
+````php
+$prize_pool_mapper_db = new league_prize_pool_mapper_db();
+$pp = $prize_pool_mapper_db->set_league_id(600)->load();
+foreach($pp as $date=>$prize_pool) {
+    echo $date.' - $ '.number_format($prize_pool, 2);
+}
+````
 
 #### Get live leagues matches
 ````php
