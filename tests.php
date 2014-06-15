@@ -53,7 +53,7 @@ $match_from_db = $mm->load();*/
 print_r($match_from_db->get_slot(0)->get_data_array());*/
 
 /*$players_mapper_web = new players_mapper_web();
-$players_info = $players_mapper_web->add_id('76561198067833250')->add_id('76561198058587506')->load();
+$players_info = $players_mapper_web->add_id('76561198067833250')->add_id('Nimf0manka')->load();
 foreach($players_info as $player_info) {
     echo $player_info->get('realname');
     echo '<img src="'.$player_info->get('avatarfull').'" alt="'.$player_info->get('personaname').'" />';
