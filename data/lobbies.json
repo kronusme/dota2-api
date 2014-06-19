@@ -35,6 +35,10 @@
         {
             "id" : 7,
             "name" : "Ranked"
+        },
+        {
+            "id" : 8,
+            "name" : "Solo Mid 1vs1"
         }
     ]
 }
