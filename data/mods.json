@@ -75,6 +75,18 @@
         {
             "id": 18,
             "name": "Ability Draft"
+        },
+        {
+            "id": 19,
+            "name": "?? Event ??"
+        },
+        {
+            "id": 20,
+            "name": "All Random Death Match"
+        },
+        {
+            "id": 21,
+            "name": "1vs1 Solo Mid"
         }
     ]
 }
