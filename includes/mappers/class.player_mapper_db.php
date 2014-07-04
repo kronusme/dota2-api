@@ -33,7 +33,7 @@ class player_mapper_db {
 		$player->set_array($result);
 		return $player;
 	}
-	
+
 	/**
 	 * Determines whether the player should be inserted or updated in the db
 	 * @param player object
@@ -78,4 +78,3 @@ class player_mapper_db {
 		return false;
 	}
 }
-?>

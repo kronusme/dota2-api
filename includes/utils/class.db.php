@@ -279,9 +279,10 @@ class db{
      * @param string $table
      * @param array $fields array of fields names
      * @param array $data array of array of data
+     * @param bool $update should data be updated on duplicate
      * @return bool
      */
-    public function insert_many_pdo($table, array $fields, array $data = array()) {
+    public function insert_many_pdo($table, array $fields, array $data = array(), $update = false) {
         if (empty($data)) {
             return false;
         }
@@ -297,6 +298,14 @@ class db{
         }
         $v = rtrim($v, ',');
         $q .= $n . ' VALUES '.$v;
+        if ($update) {
+            $q .= ' ON DUPLICATE KEY UPDATE ';
+            foreach($fields as $f) {
+                $q .= $f.' = VALUES(`'.$f.'`),';
+            }
+            $q = rtrim($q, ',');
+        }
+        echo $q;
         try
         {
             $this->_query_id = self::$_link_id->prepare($q);
@@ -315,6 +324,7 @@ class db{
         catch(PDOException $e)
         {
             $this->_error = $e->getMessage();
+            echo $this->_error;
             return false;
         }
     }

@@ -35,7 +35,8 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 | GetLiveLeagueGames           | https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/           |
 | GetTeamInfoByTeamID          | https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/           |
 | GetHeroes                    | https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/                     |
-| GetTournamentPrizePool       | https://api.steampowered.com/IEconDOTA2_570/GetTournamentPrizePool/v1/                     |
+| GetTournamentPrizePool       | https://api.steampowered.com/IEconDOTA2_570/GetTournamentPrizePool/v1/           |
+| GetGameItems                 | https://api.steampowered.com/IEconDOTA2_570/GetGameItems/v0001/                  |
 |       **Unsupported**        |                                                                                  |
 | EconomySchema                | https://api.steampowered.com/IEconItems_570/GetSchema/v0001/                     |
 | GetMatchHistoryBySequenceNum | https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v0001/ |
@@ -132,6 +133,52 @@ $heroes = $heroes_mapper->load();
 print_r($heroes);
 ````
 $heroes - array with numeric indexes (heroes ids)
+
+#### Get current items list
+````php
+<?php
+require_once ('config.php');
+$items_mapper_web = new items_mapper_web();
+$items_info = $items_mapper_web->load();
+print_r($items_info);
+foreach($items_info as $item) {
+    echo $item->get('id');
+    echo $item->get('name');
+    echo $item->get('cost');
+    echo $item->get('secret_shop');
+    echo $item->get('side_shop');
+    echo $item->get('recipe');
+    echo $item->get('localized_name');
+}
+````
+
+#### Save received from web items list to db
+````php
+<?php
+require_once ('config.php');
+$items_mapper_web = new items_mapper_web();
+$items = $items_mapper_web->load();
+$items_mapper_db = new items_mapper_db();
+$items_mapper_db->save($items);
+````
+
+#### Get current items list from db
+````php
+<?php
+require_once ('config.php');
+$items_mapper_db = new items_mapper_db();
+$items_info = $items_mapper_db->load();
+print_r($items_info);
+foreach($items_info as $item) {
+    echo $item->get('id');
+    echo $item->get('name');
+    echo $item->get('cost');
+    echo $item->get('secret_shop');
+    echo $item->get('side_shop');
+    echo $item->get('recipe');
+    echo $item->get('localized_name');
+}
+````
 
 #### Get leagues list
 ````php
