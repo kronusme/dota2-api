@@ -2179,6 +2179,10 @@
         {
             "name": "phoenix_supernova",
             "id": "5630"
+        },
+        {
+            "name": "drow_ranger_wave_of_silence",
+            "id": "5632"
         }
     ]
 }
