@@ -288,6 +288,7 @@ CREATE TABLE IF NOT EXISTS `leagues` (
   `description` varchar(2000) NOT NULL DEFAULT '',
   `tournament_url` varchar(200) DEFAULT '',
   `itemdef` int(11) DEFAULT NULL,
+  `is_finished` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0',
   PRIMARY KEY (`leagueid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -413,6 +414,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `is_personaname_real` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `teams` (
+  `id` INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  `name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
