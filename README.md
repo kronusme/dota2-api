@@ -43,6 +43,10 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 
 ### How to use it
 
+#### IMPORTANT!
+Before parsing and saving leagues matches to your DB, make sure that you saved leagues to the DB!
+If you try to save some "public" matches, you should REMOVE `foreign key` for field `leagueid` in the table `matches`!
+
 #### Load some match-info
 ```php
 <?php
