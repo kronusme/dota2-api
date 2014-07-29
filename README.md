@@ -44,7 +44,7 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 ### How to use it
 
 #### IMPORTANT!
-Before parsing and saving leagues matches to your DB, make sure that you saved leagues to the DB!
+Before parsing and saving leagues matches to your DB, make sure that you've saved leagues to the DB (using `leagues_mapper_web`!
 If you try to save some "public" matches, you should REMOVE `foreign key` for field `leagueid` in the table `matches`!
 
 #### Load some match-info
