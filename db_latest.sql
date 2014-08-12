@@ -415,6 +415,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`account_id`, `personaname`, `avatar`, `profileurl`) VALUES
+(4294967295, 'Anonymous',  '', '');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
 CREATE TABLE IF NOT EXISTS `teams` (
   `id` INT(11) UNSIGNED NOT NULL DEFAULT '0',
   `name` VARCHAR(100) NOT NULL,
