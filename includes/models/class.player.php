@@ -15,25 +15,9 @@ class player extends stat_object {
      */
     protected $_steamid;
     /**
-     * @var int
-     */
-    protected $_communityvisibilitystate;
-    /**
-     * @var int
-     */
-    protected $_profilestate;
-    /**
      * @var string
      */
     protected $_personaname;
-    /**
-     * @var timestamp
-     */
-    protected $_lastlogoff;
-    /**
-     * @var int
-     */
-    protected $_commentpermission;
     /**
      * @var string
      */
@@ -42,30 +26,6 @@ class player extends stat_object {
      * @var string
      */
     protected $_avatar;
-    /**
-     * @var string
-     */
-    protected $_avatarmedium;
-    /**
-     * @var string
-     */
-    protected $_avatarfull;
-    /**
-     * @var int
-     */
-    protected $_personastate;
-    /**
-     * @var string
-     */
-    protected $_realname;
-    /**
-     * @var string
-     */
-    protected $_primaryclanid;
-    /**
-     * @var timestamp
-     */
-    protected $_timecreated;
 
     /**
      *
