@@ -108,18 +108,27 @@ class db{
         }
         return self::$_instance;
     }
+
+    public static function clean() {
+        self::$_instance = null;
+        self::$_link_id = null;
+    }
     /**
      * Connect to a Database host and select database using variable initialized above
      * @access public
+     * @param bool $select_db
      * @return bool If Database connection successful return true else return false
      */
-    public function connect_pdo()
+    public function connect_pdo($select_db = true)
     {
         if (!is_null(self::$_link_id)) { return true; }
         try
         {
-            self::$_link_id = new PDO('mysql:host='.$this->_server.';dbname='.$this->_database.'', $this->_user, $this->_pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+            self::$_link_id = new PDO('mysql:host='.$this->_server, $this->_user, $this->_pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
             self::$_link_id->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            if ($select_db) {
+                self::$_link_id->query('USE ' . $this->_database);
+            }
         }
         catch(PDOException $e)
         {
@@ -305,7 +314,6 @@ class db{
             }
             $q = rtrim($q, ',');
         }
-        echo $q;
         try
         {
             $this->_query_id = self::$_link_id->prepare($q);
