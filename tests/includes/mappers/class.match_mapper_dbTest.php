@@ -10,7 +10,6 @@ class match_mapper_dbTest extends PHPUnit_Framework_TestCase
 
         $expected_match_info = array(
             'game_mode' => '2',
-            'start_time' => '2014-05-27 13:40:06',
             'radiant_win' => '1',
             'first_blood_time' => '7',
             'leagueid' => '600',

@@ -6,7 +6,6 @@ class match_mapper_webTest extends PHPUnit_Framework_TestCase
         $match_id = '683300315';
         $expected_match_info = array(
             'game_mode' => '2',
-            'start_time' => '2014-05-27 13:40:06',
             'radiant_win' => '1',
             'first_blood_time' => '7',
             'leagueid' => '600',
