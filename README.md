@@ -1,5 +1,7 @@
 #dota2-api
 
+[![Build Status](https://travis-ci.org/kronusme/dota2-api.png?branch=master)](https://travis-ci.org/kronusme/dota2-api)
+
 ### About
 
 1. **What is it?**
@@ -19,10 +21,6 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 2. In this file also replace API_KEY with your own (you can get it on the http://steamcommunity.com/dev/apikey).
 
 3. Connect to your mysql-server with any tool (phpmyadmin, heidisql etc) and execute code from the file **db_latest.sql**.
-
-### Demo
-
-[http://kronus.me/cn/dota2/match.php?match_id=117762656](http://kronus.me/cn/dota2/match.php?match_id=117762656) - you can use your own match_id
 
 ### Requests
 |           Type               |                                    URL                                           |
