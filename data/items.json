@@ -943,6 +943,10 @@
         {
             "id": 241,
             "name": "tango_single"
+        },
+        {
+            "id": 242,
+            "name": "crimson_guard"
         }
     ]
 }

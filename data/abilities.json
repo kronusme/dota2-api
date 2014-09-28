@@ -2093,6 +2093,22 @@
             "id": "5598"
         },
         {
+            "name": "techies_land_mines",
+            "id": "5599"
+        },
+        {
+            "name": "techies_stasis_trap",
+            "id": "5600"
+        },
+        {
+            "name": "techies_suicide_squad_attack",
+            "id": "5601"
+        },
+        {
+            "name": "techies_remote_mines",
+            "id": "5602"
+        },
+        {
             "name": "ember_spirit_searing_chains",
             "id": "5603"
         },
