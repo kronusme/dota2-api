@@ -101,11 +101,31 @@
             "name" : "Russia"
         },
         {
+            "id" : 185,
+            "name" : "Russia"
+        },
+        {
+            "id" : 186,
+            "name" : "Russia"
+        },
+        {
             "id" : 191,
             "name" : "Europe East"
         },
         {
+            "id" : 192,
+            "name" : "Europe East"
+        },
+        {
             "id" : 200,
+            "name" : "South America"
+        },
+        {
+            "id" : 202,
+            "name" : "South America"
+        },
+        {
+            "id" : 203,
             "name" : "South America"
         },
         {
@@ -137,8 +157,24 @@
             "name" : "China"
         },
         {
+            "id" : 224,
+            "name" : "China"
+        },
+        {
+            "id" : 225,
+            "name" : "China"
+        },
+        {
             "id" : 231,
             "name" : "China"
+        },
+        {
+            "id" : 242,
+            "name" : "Chile"
+        },
+        {
+            "id" : 251,
+            "name" : "Peru"
         }
     ]
 }
