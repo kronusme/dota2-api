@@ -18,7 +18,6 @@ class teams_mapper_webTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(count($teams), 1);
         $team = array_pop($teams);
-        $this->assertEquals(intval($team->get('team_id')), 36);
         $this->assertEquals($team->get('name'), 'Natus Vincere');
         $this->assertEquals($team->get('tag'), 'Na`Vi');
         $this->assertEquals($team->get('country_code'), 'ua');
@@ -33,7 +32,6 @@ class teams_mapper_webTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(count($teams), 2);
 
         $team = array_pop($teams);
-        $this->assertEquals(intval($team->get('team_id')), 39);
         $this->assertEquals($team->get('name'), 'Evil Geniuses');
         $this->assertEquals($team->get('tag'), 'EG');
         $this->assertEquals($team->get('country_code'), 'us');
