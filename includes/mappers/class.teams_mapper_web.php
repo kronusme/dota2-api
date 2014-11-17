@@ -23,7 +23,7 @@ class teams_mapper_web extends teams_mapper {
     const teams_steam_url = 'https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/';
 
     /**
-     * @return array
+     * @return team[]
      */
     public function load() {
         $request = new request(
@@ -61,5 +61,6 @@ class teams_mapper_web extends teams_mapper {
             }
             return $teams;
         }
+        return null;
     }
 }
