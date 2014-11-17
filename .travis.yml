@@ -12,3 +12,5 @@ before_script:
 - php composer.phar install --dev --no-interaction --prefer-source
 script:
 - php vendor/bin/phpunit -c phpunit.xml.dist
+after_script:
+- php vendor/bin/coveralls
