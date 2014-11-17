@@ -1,6 +1,9 @@
 #dota2-api
 
 [![Build Status](https://travis-ci.org/kronusme/dota2-api.png?branch=master)](https://travis-ci.org/kronusme/dota2-api)
+[![Coverage Status](https://coveralls.io/repos/kronusme/dota2-api/badge.png?branch=master)](https://coveralls.io/r/kronusme/dota2-api?branch=master)
+[![License](https://poser.pugx.org/kronusme/dota2-api/license.svg)](https://packagist.org/packages/kronusme/dota2-api)
+[![Dependencies](https://www.versioneye.com/user/projects/5469ed86a760ce7bc8000027/badge.svg)](https://www.versioneye.com/user/projects/5469ed86a760ce7bc8000027)
 
 ### About
 

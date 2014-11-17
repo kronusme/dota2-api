@@ -37,7 +37,7 @@
         "php": ">5.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.2.*",
+        "phpunit/phpunit": "4.3.*",
         "phpunit/dbunit": ">=1.2",
         "satooshi/php-coveralls": "dev-master",
         "sebastianbergmann/phpcov": "1.1.0"
