@@ -41,26 +41,43 @@ class teams_mapper_web extends teams_mapper {
         if (isset($teams_info->teams)) {
             $teams_info = ((array)$teams_info->teams);
             $teams_info = $teams_info['team'];
-            foreach($teams_info as $team_info) {
-                $team_info = (array)$team_info;
-                $team = new team();
-                $fields = array_keys($team_info);
-                foreach($fields as $field) {
-                    // I hope, that API-response will be changed and players_ids, leagues_ids will become arrays
-                    if (preg_match('/^player_\d+_account_id$/', $field)) {
-                        $team->add_player_id($team_info[$field]);
-                        continue;
-                    }
-                    if (preg_match('/^league_id_\d+$/', $field)) {
-                        $team->add_league_id($team_info[$field]);
-                        continue;
-                    }
-                    $team->set($field, (string)$team_info[$field]);
+            if (is_array($teams_info)) {
+                foreach ($teams_info as $team_info) {
+                    $team = $this->get_team($team_info);
+                    $teams[$team->get('team_id')] = $team;
                 }
-                $teams[$team->get('team_id')] = $team;
+                return $teams;
             }
-            return $teams;
+            else {
+                $team = $this->get_team($teams_info);
+                $teams[$team->get('team_id')] = $team;
+                return $teams;
+            }
         }
         return null;
+    }
+
+    /**
+     * Map one team
+     * @param Object $t
+     * @return Team team
+     */
+    protected function get_team($t) {
+        $team_info = (array)$t;
+        $team = new team();
+        $fields = array_keys($team_info);
+        foreach($fields as $field) {
+            // I hope, that API-response will be changed and players_ids, leagues_ids will become arrays
+            if (preg_match('/^player_\d+_account_id$/', $field)) {
+                $team->add_player_id($team_info[$field]);
+                continue;
+            }
+            if (preg_match('/^league_id_\d+$/', $field)) {
+                $team->add_league_id($team_info[$field]);
+                continue;
+            }
+            $team->set($field, (string)$team_info[$field]);
+        }
+        return $team;
     }
 }
