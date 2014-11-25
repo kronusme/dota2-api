@@ -145,7 +145,7 @@ class match extends stat_object {
     protected $_dire_team_complete;
     /**
      * Array of slot objects (should be 10)
-     * @var array
+     * @var slot[]
      */
     protected $_slots = array();
     /**
@@ -177,7 +177,7 @@ class match extends stat_object {
 
     /**
      * Return array of all slots
-     * @return array
+     * @return slot[]
      */
     public function get_all_slots() {
         return $this->_slots;

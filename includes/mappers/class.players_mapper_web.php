@@ -80,7 +80,7 @@ class players_mapper_web {
     }
 
     /**
-     * @return array
+     * @return player[]
      */
     public function load() {
         $request = new request(self::player_steam_url, array('steamids' => $this->get_ids_string()));
