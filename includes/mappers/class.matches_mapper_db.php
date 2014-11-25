@@ -172,6 +172,7 @@ class matches_mapper_db extends matches_mapper {
         }
         return $picks_bans_formatted_info;
     }
+
     /**
      * Load data about ability upgrades from "ability_upgrades" table.
      * Array of the slots ids used as filter.
@@ -208,6 +209,7 @@ class matches_mapper_db extends matches_mapper {
         }
         return $abilities_upgrade_formatted_info;
     }
+
     /**
      * Load data about additional units from "additional_units" table.
      * Array of the slots ids used as filter.
@@ -243,6 +245,7 @@ class matches_mapper_db extends matches_mapper {
         }
         return $additional_units_formatted_info;
     }
+
     /**
      * Get info about matches from the "matches" table
      * Use matches ids from slots table as additional filter

@@ -4,7 +4,15 @@ class matches_mapper_dbTest extends PHPUnit_Framework_TestCase
 {
     protected $match_id = 985780481;
 
+    protected $league_id = 1803;
+
     public function setUp() {
+
+        $leagues_mapper_web = new leagues_mapper_web();
+        $leagues = $leagues_mapper_web->load();
+        $leagues_mapper_db = new leagues_mapper_db();
+        $leagues_mapper_db->save($leagues[$this->league_id]);
+
         $match_mapper_web = new match_mapper_web($this->match_id);
         $match = $match_mapper_web->load();
         $match_mapper_db = new match_mapper_db();
@@ -14,7 +22,7 @@ class matches_mapper_dbTest extends PHPUnit_Framework_TestCase
     public function testLoad() {
 
         $matches_mapper_db = new matches_mapper_db();
-        $matches_mapper_db->set_league_id(1803)->set_matches_requested(1);
+        $matches_mapper_db->set_league_id($this->league_id)->set_matches_requested(1);
         $matches = $matches_mapper_db->load();
         $match = array_pop($matches);
 
