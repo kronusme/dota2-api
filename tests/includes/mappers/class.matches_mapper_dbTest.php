@@ -30,7 +30,6 @@ class matches_mapper_dbTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($match->get('game_mode'), 2);
         $this->assertEquals($match->get('tower_status_radiant'), 1796);
         $this->assertEquals($match->get('tower_status_dire'), 256);
-        $this->assertEquals($match->get('match_seq_num'), 882120548);
         $this->assertEquals($match->get('radiant_win'), 1);
         $this->assertEquals($match->get('duration'), 3526);
         $this->assertEquals($match->get('first_blood_time'), 47);
