@@ -43,7 +43,7 @@ class matches_mapper_db extends matches_mapper {
      *
      * Possible filters: league_id, hero_id, account_id, start_at_match_id
      * Also matches_requested used as LIMIT
-     * @return array
+     * @return match[]
      */
     public function load() {
         $matches_info = $this->_get_matches_ids_from_matches();
