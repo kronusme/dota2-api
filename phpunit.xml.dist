@@ -17,7 +17,7 @@
         <whitelist>
             <directory>./includes</directory>
             <exclude>
-                <file>./includes/utils/db.php</file>
+                <file>./includes/utils/class.db.php</file>
                 <directory>./vendor</directory>
             </exclude>
         </whitelist>
