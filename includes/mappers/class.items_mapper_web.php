@@ -29,7 +29,7 @@ class items_mapper_web extends items_mapper {
     public function __construct(){}
 
     /**
-     * @return array
+     * @return item[]
      */
     public function load() {
         $request = new request(
