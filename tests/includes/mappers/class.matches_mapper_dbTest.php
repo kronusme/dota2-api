@@ -48,7 +48,7 @@ class matches_mapper_dbTest extends PHPUnit_Framework_TestCase
         $slots = $match->get_all_slots();
 
         $this->assertEquals(count($slots), 10);
-        $slot = array_pop($slots);
+        $slot = $slots[0];
         $this->assertEquals($slot->get('match_id'), $this->match_id);
         $this->assertEquals($slot->get('account_id'), 86727555);
         $this->assertEquals($slot->get('hero_id'), 30);
