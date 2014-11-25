@@ -34,7 +34,7 @@ class matches_mapper_dbTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($match->get('radiant_win'), 1);
         $this->assertEquals($match->get('duration'), 3526);
         $this->assertEquals($match->get('first_blood_time'), 47);
-        $this->assertEquals($match->get('start_time'), '2014-10-26 23:34:21');
+        $this->assertStringStartsWith('2014-10-26', $match->get('start_time'));
         $this->assertEquals($match->get('barracks_status_radiant'), 55);
         $this->assertEquals($match->get('barracks_status_dire'), 50);
         $this->assertEquals($match->get('lobby_type'), 1);
