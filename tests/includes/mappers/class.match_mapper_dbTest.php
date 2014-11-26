@@ -107,7 +107,7 @@ class match_mapper_dbTest extends PHPUnit_Framework_TestCase
         $slots = $match->get_all_slots();
         $slots[0]->set('hero_id', 1);
         $match->set_all_slots($slots);
-        $mapper_db->save($match);
+        $mapper_db->update($match, false);
 
         $match = $mapper_db->load($this->match_id);
 
