@@ -122,7 +122,7 @@ class match_mapper_dbTest extends PHPUnit_Framework_TestCase
         $match = $mapper_db->load($this->match_id);
         $mapper_db->save($match);
 
-        $mapper_db->delete($match);
+        $mapper_db->delete($match->get('match_id'));
 
         $match = $mapper_db->load($this->match_id);
         $this->assertNull($match->get('match_id'));
