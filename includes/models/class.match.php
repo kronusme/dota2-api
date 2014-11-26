@@ -247,6 +247,18 @@ class match extends stat_object {
         $this->_picks_bans = $data;
         return $this;
     }
+
+    /**
+     * Set list of slots for current match
+     *
+     * @param slot[] $slots
+     * @return match
+     */
+    public function set_all_slots (array $slots) {
+        $this->_slots = $slots;
+        return $this;
+    }
+
     /**
      * Just empty construct.
      * Don't use me directly!
