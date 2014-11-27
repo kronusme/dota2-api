@@ -39,7 +39,7 @@ class match extends stat_object {
     protected $_first_blood_time;
     /**
      * date in UTC seconds since Jan 1, 1970 (unix time format)
-     * @var timestamp
+     * @var number
      */
     protected $_start_time;
     /**
@@ -185,7 +185,7 @@ class match extends stat_object {
 
     /**
      * Return array of all slots divided by team (5 for radiant, 5 for dire)
-     * @return array
+     * @return slot[][]
      */
     public function get_all_slots_divided() {
         $return = array('radiant' => array(), 'dire' => array());
