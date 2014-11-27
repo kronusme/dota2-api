@@ -242,7 +242,7 @@ class db{
 
         foreach($where as $key=>$val)
         {
-            if(empty($val));
+            if(is_null($val));
             else $q.= "`$key`=? AND ";
         }
         $q = rtrim($q, 'AND ') . ' ;';

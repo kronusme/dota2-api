@@ -6,6 +6,15 @@ class matches_mapper_dbTest extends PHPUnit_Framework_TestCase
 
     protected $league_id = 1803;
 
+    public static function setUpBeforeClass() {
+        $db = db::obtain();
+        $db->exec('DELETE FROM picks_bans');
+        $db->exec('DELETE FROM ability_upgrades');
+        $db->exec('DELETE FROM additional_units');
+        $db->exec('DELETE FROM slots');
+        $db->exec('DELETE FROM matches');
+    }
+
     public function setUp() {
 
         $leagues_mapper_web = new leagues_mapper_web();
@@ -79,4 +88,25 @@ class matches_mapper_dbTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(count($get_all_picks_bans), 20);
 
     }
+
+    public function testDelete() {
+
+        $additional_match_id = 886357301;
+        $match_mapper_web = new match_mapper_web($additional_match_id);
+        $match = $match_mapper_web->load();
+        $match_mapper_db = new match_mapper_db();
+        $match_mapper_db->save($match);
+
+        $matches_mapper_db = new matches_mapper_db();
+        $matches_mapper_db->delete(array($additional_match_id, $this->match_id));
+
+        $db = db::obtain();
+        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM matches')));
+        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM slots')));
+        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM additional_units')));
+        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM ability_upgrades')));
+        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM picks_bans')));
+
+    }
+
 }

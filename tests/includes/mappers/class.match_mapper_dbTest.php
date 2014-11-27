@@ -105,15 +105,15 @@ class match_mapper_dbTest extends PHPUnit_Framework_TestCase
         $match = $mapper_db->load($this->match_id);
         $match->set('first_blood_time', 0);
         $slots = $match->get_all_slots();
-        $slots[0]->set('hero_id', 1);
+        $slots[0]->set('hero_id', '1');
         $match->set_all_slots($slots);
         $mapper_db->update($match, false);
 
         $match = $mapper_db->load($this->match_id);
 
-        $this->assertEquals($match->get('first_blood_time'), 0);
+        $this->assertEquals(0, $match->get('first_blood_time'));
         $slots = $match->get_all_slots();
-        $this->assertEquals($slots[0]->get('hero_id'), 1);
+        $this->assertEquals(1, $slots[0]->get('hero_id'));
 
     }
 

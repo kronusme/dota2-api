@@ -179,7 +179,7 @@ class match_mapper_db extends match_mapper{
 
     /**
      * @param match $match
-     * @param bool $lazy if true - update all data, if false - only possible updated data
+     * @param bool $lazy if false - update all data, if true - only possible updated data
      */
     public function update($match, $lazy = true) {
         $db = db::obtain();

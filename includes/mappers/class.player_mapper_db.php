@@ -3,6 +3,9 @@
  * All Info About One Player
  */
 class player_mapper_db {
+
+    protected $_steam_id;
+
 	public function __construct() {
 	}
 	
@@ -15,8 +18,8 @@ class player_mapper_db {
 	}
 	
 	/**
-	 * @param steam_id or null
-	 * @return player object
+	 * @param number $id or null
+	 * @return player
 	 */
 	public function load($id = null) {
 		if(!is_null($id)) {
@@ -36,7 +39,7 @@ class player_mapper_db {
 
 	/**
 	 * Determines whether the player should be inserted or updated in the db
-	 * @param player object
+	 * @param player
 	 */
 	public function save(player $player) {
 		if(player_mapper_db::player_exists($player->get('steamid'))) {
@@ -62,16 +65,16 @@ class player_mapper_db {
 	}
 	
 	/**
-	 * @param string steam_id
+	 * @param string $id
 	 * @return bool
 	 */
 	public static function player_exists($id = null) {
 		if(is_null($id)) {
-			return;
+			return false;
 		}
 		
 		$db = db::obtain();
-		$result = $db->query_first_pdo('SELECT * FROM ' . db::real_tablename('users') . ' WHERE steamid = ?', array($id));
+		$result = $db->query_first_pdo('SELECT steamid FROM ' . db::real_tablename('users') . ' WHERE steamid = ?', array($id));
 		if($result['steamid'] == (string)$id) {
 			return true;
 		}

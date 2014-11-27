@@ -101,8 +101,8 @@ class matches_mapper_db extends matches_mapper {
      * Delete matches info from db
      * @param array $ids
      */
-    public function delete($ids) {
-        if (!is_array($ids)) {
+    public function delete(array $ids) {
+        if (!count($ids)) {
             return;
         }
         $ids_str = implode(',', $ids);
