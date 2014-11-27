@@ -19,6 +19,7 @@ class match_mapper_dbTest extends PHPUnit_Framework_TestCase
         $db->exec('DELETE FROM additional_units');
         $db->exec('DELETE FROM slots');
         $db->exec('DELETE FROM matches');
+        $db->exec('DELETE FROM leagues');
     }
 
     public function testLoad() {

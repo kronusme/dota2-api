@@ -16,6 +16,7 @@ class leagues_mapper_dbTest extends PHPUnit_Framework_TestCase
     }
 
     protected function tearDown() {
+        db::obtain()->exec('DELETE FROM league_prize_pools');
         db::obtain()->exec('DELETE FROM leagues');
     }
 }

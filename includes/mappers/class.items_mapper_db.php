@@ -21,6 +21,9 @@
  */
 class items_mapper_db extends items_mapper {
 
+    /**
+     * @return item[]
+     */
     public function load() {
         $db = db::obtain();
         $items = array();
