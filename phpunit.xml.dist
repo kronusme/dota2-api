@@ -18,6 +18,8 @@
             <directory>./includes</directory>
             <exclude>
                 <file>./includes/utils/class.db.php</file>
+                <file>./includes/utils/class.map.php</file>
+                <file>./includes/mappers/class.league_mapper.php</file>
                 <directory>./vendor</directory>
             </exclude>
         </whitelist>
