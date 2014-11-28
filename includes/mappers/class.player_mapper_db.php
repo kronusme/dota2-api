@@ -75,9 +75,6 @@ class player_mapper_db {
 		
 		$db = db::obtain();
 		$result = $db->query_first_pdo('SELECT steamid FROM ' . db::real_tablename('users') . ' WHERE steamid = ?', array($id));
-		if($result['steamid'] == (string)$id) {
-			return true;
-		}
-		return false;
+		return $result['steamid'] == (string)$id;
 	}
 }
