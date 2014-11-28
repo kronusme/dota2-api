@@ -17,6 +17,7 @@ class ugc_mapper_web {
 
     /**
      * Request url
+     * @var string
      */
     const steam_ugc_url = 'http://api.steampowered.com/ISteamRemoteStorage/GetUGCFileDetails/v1/';
 
@@ -25,7 +26,7 @@ class ugc_mapper_web {
      */
     private $_ugcid;
 
-    public function __construct($ugcid) {
+    public function __construct($ugcid = null) {
         $this->_ugcid = $ugcid;
     }
 
