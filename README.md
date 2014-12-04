@@ -5,6 +5,10 @@
 [![License](https://poser.pugx.org/kronusme/dota2-api/license.svg)](https://packagist.org/packages/kronusme/dota2-api)
 [![Dependencies](https://www.versioneye.com/user/projects/5469ed86a760ce7bc8000027/badge.svg)](https://www.versioneye.com/user/projects/5469ed86a760ce7bc8000027)
 
+
+### Trunk brunch is unstable - use [v1.1.0](https://github.com/kronusme/dota2-api/tree/v1.1.0)!
+
+
 ### About
 
 1. **What is it?**

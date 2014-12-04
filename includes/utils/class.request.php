@@ -6,6 +6,12 @@
  * @package utils
  */
 class request {
+
+    /**
+     * @var string
+     */
+    public static $api_key = '';
+
     /**
      * @var string
      */
@@ -96,14 +102,16 @@ class request {
         $url = $this->_url;
         $d = '';
         $this->_params['format'] = 'xml';
-        $this->_params['key'] = API_KEY;
-        $this->_params['language'] = LANGUAGE;
+        $this->_params['key'] = self::$api_key;
+        // The language to retrieve results in (see http://en.wikipedia.org/wiki/ISO_639-1 for the language codes (first
+        // two characters) and http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for the country codes (last two characters))
+        $this->_params['language'] = 'en_us';
         foreach ($this->_params as $key=>$value) {
             $d .= $key.'='.$value.'&';
         }
         $d = rtrim($d, '&');
         $url .= '?'.$d;
-        //echo $url;
+
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_ENCODING , "gzip");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
