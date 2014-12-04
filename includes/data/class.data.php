@@ -87,7 +87,7 @@ abstract class data {
      * Parse JSON file
      */
     public function parse() {
-        $fullpath = str_replace('includes', '', config::get('base_path')).self::path.DIRECTORY_SEPARATOR.$this->_filename;
+        $fullpath = '../../'.self::path.$this->_filename;
         if (file_exists($fullpath)) {
             $content = file_get_contents($fullpath);
             $data = json_decode($content);

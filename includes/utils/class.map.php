@@ -52,7 +52,7 @@ class map {
         $this->_folder = 'images'.DIRECTORY_SEPARATOR.'map'.DIRECTORY_SEPARATOR;
     }
     public function get_image() {
-        $path = str_replace('includes', '', config::get('base_path')).$this->_folder;
+        $path = '../../'.$this->_folder;
         $this->_canvas = imagecreatefromjpeg($path.'dota_map.jpg');
         if ($this->_canvas === false) {
             return null;
