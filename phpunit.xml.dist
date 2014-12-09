@@ -17,9 +17,9 @@
         <whitelist>
             <directory>./includes</directory>
             <exclude>
-                <file>./includes/utils/class.db.php</file>
-                <file>./includes/utils/class.map.php</file>
-                <file>./includes/mappers/class.league_mapper.php</file>
+                <file>./includes/Utils/Db.php</file>
+                <file>./includes/Utils/Map.php</file>
+                <file>./includes/Mappers/LeagueMapper.php</file>
                 <directory>./vendor</directory>
             </exclude>
         </whitelist>
