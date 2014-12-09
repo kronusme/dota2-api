@@ -2,6 +2,7 @@
 
 use Dota2Api\Mappers\MatchMapperWeb;
 use Dota2Api\Models\Player;
+use Dota2Api\Models\Match;
 
 class match_mapper_webTest extends PHPUnit_Framework_TestCase
 {
@@ -16,7 +17,7 @@ class match_mapper_webTest extends PHPUnit_Framework_TestCase
         );
         $mapper = new MatchMapperWeb($match_id);
         $match = $mapper->load();
-        $this->assertEquals(get_class($match), 'match');
+        $this->assertInstanceOf('Dota2Api\Models\Match', $match);
         foreach($expected_match_info as $k=>$v) {
             $this->assertEquals($match->get($k), $v);
         }

@@ -6,6 +6,7 @@ use Dota2Api\Mappers\LeaguesMapperDb;
 use Dota2Api\Mappers\MatchMapperDb;
 use Dota2Api\Mappers\MatchMapperWeb;
 use Dota2Api\Models\Player;
+use Dota2Api\Models\Match;
 
 class MatchMapperDbTest extends PHPUnit_Framework_TestCase
 {
@@ -45,7 +46,7 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
         $mapper_db->save($match);
         $match = $mapper_db->load($this->match_id);
 
-        $this->assertInstanceOf('match', $match);
+        $this->assertInstanceOf('Dota2Api\Models\Match', $match);
         foreach($expected_match_info as $k=>$v) {
             $this->assertEquals($v, $match->get($k));
         }
