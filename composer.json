@@ -35,7 +35,9 @@
         }
     ],
     "autoload": {
-        "classmap": ["includes/"]
+        "psr-4": {
+            "Dota2Api\\": "includes/"
+        }
     },
     "require": {
         "php": ">5.2"
