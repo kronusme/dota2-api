@@ -279,7 +279,8 @@ INSERT INTO `items` (`id`, `name`, `cost`, `secret_shop`, `side_shop`, `recipe`,
 (238, 'item_winter_greevil_treat', 0, 0, 0, 0, 'Greevil Treat'),
 (239, 'item_winter_greevil_garbage', 0, 0, 0, 0, 'Greevil Chow'),
 (240, 'item_winter_greevil_chewy', 0, 0, 0, 0, 'Greevil Blink Bone'),
-(241, 'item_tango_single', 30, 0, 0, 0, 'Tango (Shared)');
+(241, 'item_tango_single', 30, 0, 0, 0, 'Tango (Shared)'),
+(242, 'item_crimson_guard', 3850, 0, 0, 0, 'Crimson Guard');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 
 CREATE TABLE IF NOT EXISTS `leagues` (

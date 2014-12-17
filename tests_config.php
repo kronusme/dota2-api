@@ -1,20 +1,22 @@
 <?php
-define('testing', true);
-require_once ('config.php');
+
+require_once 'vendor/autoload.php';
+require_once 'api-key.php';
+
+use Dota2Api\Api;
+use Dota2Api\Utils\Db;
+
+Api::init(API_KEY, array('localhost', 'root', '', 'dota2_dev_db', ''), false);
 
 $db_name = 'dota2_api_test_db';
-$db_host = config::get('db_host');
-$db_user = config::get('db_user');
-$db_pass = config::get('db_pass');
-$db_table_prefix = config::get('db_table_prefix');
-$db = db::obtain();
+$db = Db::obtain();
 $db->exec('CREATE DATABASE '.$db_name);
-db::clean();
-$db = db::obtain($db_host, $db_user, $db_pass, $db_name, $db_table_prefix);
+Db::clean();
+$db = Db::obtain('localhost', 'root', '', 'dota2_api_test_db', '');
 $db->connect_pdo();
 $db->exec(file_get_contents('db_latest.sql'));
 
 register_shutdown_function(function() {
-    $db = db::obtain();
+    $db = Db::obtain();
     $db->exec('DROP DATABASE dota2_api_test_db');
 });
