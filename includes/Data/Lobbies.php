@@ -12,11 +12,13 @@ namespace Dota2Api\Data;
  * <code>
  *   $lobbies = new lobbies();
  *   $lobbies->parse();
- *   $lobbies->get_field_by_id(2, 'name'); // returns 'Tournament'
+ *   $lobbies->getFieldById(2, 'name'); // returns 'Tournament'
  * </code>
  */
-class Lobbies extends Data {
-    public function __construct() {
+class Lobbies extends Data
+{
+    public function __construct()
+    {
         $this->_filename = 'lobbies.json';
         $this->_field = 'lobbies';
     }

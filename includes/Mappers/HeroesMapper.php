@@ -16,20 +16,20 @@ use Dota2Api\Utils\Request;
  *   print_r($heroes);
  * </code>
  */
-class HeroesMapper {
+class HeroesMapper
+{
     /**
      * Request url
      */
-    const heroes_steam_url = 'https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/';
-
-    public function __construct() {}
+    const HEROES_STEAM_URL = 'https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/';
 
     /**
      * @return array
      */
-    public function load() {
+    public function load()
+    {
         $request = new Request(
-            self::heroes_steam_url,
+            self::HEROES_STEAM_URL,
             array()
         );
         $response = $request->send();
@@ -39,7 +39,7 @@ class HeroesMapper {
         $heroes_info = (array)($response->heroes);
         $heroes_info = $heroes_info['hero'];
         $heroes = array();
-        foreach($heroes_info as $hero_info) {
+        foreach ($heroes_info as $hero_info) {
             $info = (array)$hero_info;
             $heroes[$info['id']] = $info;
         }

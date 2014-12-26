@@ -9,7 +9,8 @@ namespace Dota2Api\Models;
  * @author kronus
  * @package models
  */
-class Player extends StatObject {
+class Player extends StatObject
+{
     /**
      * This id used when some player select don't show personal statistic
      */
@@ -34,19 +35,22 @@ class Player extends StatObject {
     /**
      *
      */
-    public function __construct(){}
+    public function __construct()
+    {
+    }
+
     /**
      * Convert DotA2 user id to Steam ID
      * @param string $id
      * @return string
      */
-    public static function convert_id($id) {
+    public static function convertId($id)
+    {
         if (strlen($id) === 17) {
             $converted = substr($id, 3) - 61197960265728;
+        } else {
+            $converted = '765' . ($id + 61197960265728);
         }
-        else {
-            $converted = '765'.($id + 61197960265728);
-        }
-        return (string) $converted;
+        return (string)$converted;
     }
 }

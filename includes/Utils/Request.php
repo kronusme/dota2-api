@@ -11,12 +11,13 @@ use Exception;
  * @author kronus
  * @package utils
  */
-class Request {
+class Request
+{
 
     /**
      * @var string
      */
-    public static $api_key = '';
+    public static $apiKey = '';
 
     /**
      * @var string
@@ -31,7 +32,8 @@ class Request {
      * Get url
      * @return string
      */
-    public function get_url() {
+    public function getUrl()
+    {
         return $this->_url;
     }
 
@@ -40,7 +42,8 @@ class Request {
      * @param string $url
      * @return request
      */
-    public function set_url($url) {
+    public function setUrl($url)
+    {
         $this->_url = (string)$url;
         return $this;
     }
@@ -49,7 +52,8 @@ class Request {
      * Get all request parameters
      * @return array
      */
-    public function get_all_params() {
+    public function getAllParams()
+    {
         return $this->_params;
     }
 
@@ -58,7 +62,8 @@ class Request {
      * @param string $name
      * @return string | null
      */
-    public function get_parameter($name) {
+    public function getParameter($name)
+    {
         $name = (string)$name;
         if (isset($this->_params[$name])) {
             return $this->_params[$name];
@@ -72,7 +77,8 @@ class Request {
      * @param string $value
      * @return request
      */
-    public function set_parameter($name, $value) {
+    public function setParameter($name, $value)
+    {
         $name = (string)$name;
         $value = (string)$value;
         $this->_params[$name] = $value;
@@ -84,7 +90,8 @@ class Request {
      * @param array $params
      * @return request
      */
-    public function set_parameters(array $params) {
+    public function setParameters(array $params)
+    {
         $this->_params = $params + $this->_params;
         return $this;
     }
@@ -93,7 +100,8 @@ class Request {
      * @param string $url
      * @param array $params
      */
-    public function __construct($url, array $params) {
+    public function __construct($url, array $params)
+    {
         $this->_url = $url;
         $this->_params = $params;
     }
@@ -103,23 +111,24 @@ class Request {
      * @access public
      * @return mixed
      */
-    public function send() {
+    public function send()
+    {
         $ch = curl_init();
         $url = $this->_url;
         $d = '';
         $this->_params['format'] = 'xml';
-        $this->_params['key'] = self::$api_key;
+        $this->_params['key'] = self::$apiKey;
         // The language to retrieve results in (see http://en.wikipedia.org/wiki/ISO_639-1 for the language codes (first
         // two characters) and http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for the country codes (last two characters))
         $this->_params['language'] = 'en_us';
-        foreach ($this->_params as $key=>$value) {
-            $d .= $key.'='.$value.'&';
+        foreach ($this->_params as $key => $value) {
+            $d .= $key . '=' . $value . '&';
         }
         $d = rtrim($d, '&');
-        $url .= '?'.$d;
+        $url .= '?' . $d;
 
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_ENCODING , "gzip");
+        curl_setopt($ch, CURLOPT_ENCODING, "gzip");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         // Ignore SSL warnings and questions
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -130,8 +139,7 @@ class Request {
         libxml_use_internal_errors(true);
         try {
             $r = new SimpleXMLElement($r);
-        }
-        catch(Exception $e) {
+        } catch (Exception $e) {
             return null;
         }
         return $r;

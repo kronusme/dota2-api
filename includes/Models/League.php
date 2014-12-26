@@ -3,8 +3,8 @@
 namespace Dota2Api\Models;
 
 
-
-class League extends StatObject {
+class League extends StatObject
+{
     /**
      * League identifier
      * @var int

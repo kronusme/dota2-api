@@ -9,31 +9,34 @@ namespace Dota2Api\Mappers;
  * @author kronus
  * @package mappers
  */
-abstract class TeamsMapper {
+abstract class TeamsMapper
+{
     /**
      * @var int
      */
-    protected $_team_id;
+    protected $_teamId;
     /**
      * @var int
      */
-    protected $_teams_requested;
+    protected $_teamsRequested;
 
     /**
      * @return int
      */
-    public function get_team_id() {
-        return $this->_team_id;
+    public function getTeamId()
+    {
+        return $this->_teamId;
     }
 
     /**
-     * @param int $team_id
+     * @param int $teamId
      * @return TeamsMapper
      */
-    public function set_team_id($team_id) {
-        $team_id = intval($team_id);
-        if ($team_id > 0) {
-            $this->_team_id = $team_id;
+    public function setTeamId($teamId)
+    {
+        $teamId = intval($teamId);
+        if ($teamId > 0) {
+            $this->_teamId = $teamId;
         }
         return $this;
     }
@@ -41,18 +44,20 @@ abstract class TeamsMapper {
     /**
      * @return int
      */
-    public function get_teams_requested() {
-        return $this->_teams_requested;
+    public function getTeamsRequested()
+    {
+        return $this->_teamsRequested;
     }
 
     /**
-     * @param int $team_requested
+     * @param int $teamRequested
      * @return TeamsMapper
      */
-    public function set_teams_requested($team_requested) {
-        $team_requested = intval($team_requested);
-        if ($team_requested >= 1) {
-            $this->_teams_requested = $team_requested;
+    public function setTeamsRequested($teamRequested)
+    {
+        $teamRequested = intval($teamRequested);
+        if ($teamRequested >= 1) {
+            $this->_teamsRequested = $teamRequested;
         }
         return $this;
     }

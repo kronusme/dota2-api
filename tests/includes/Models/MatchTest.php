@@ -3,7 +3,8 @@
 use Dota2Api\Models\Match;
 use Dota2Api\Mappers\MatchMapperWeb;
 
-class MatchTest extends PHPUnit_Framework_TestCase {
+class MatchTest extends PHPUnit_Framework_TestCase
+{
 
     public $match_id = 985780481;
 
@@ -12,13 +13,15 @@ class MatchTest extends PHPUnit_Framework_TestCase {
      */
     public $match = null;
 
-    public function setUp() {
+    public function setUp()
+    {
         $match_mapper_web = new MatchMapperWeb($this->match_id);
         $this->match = $match_mapper_web->load();
     }
 
-    public function testGet_slot () {
-        $slot = $this->match->get_slot(0);
+    public function testGet_slot()
+    {
+        $slot = $this->match->getSlot(0);
 
         $this->assertEquals(30, $slot->get('hero_id'));
         $this->assertEquals(21, $slot->get('level'));
@@ -40,8 +43,9 @@ class MatchTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(36, $slot->get('item_5'));
     }
 
-    public function testGet_all_slots_divided () {
-        $slots = $this->match->get_all_slots_divided();
+    public function testGet_all_slots_divided()
+    {
+        $slots = $this->match->getAllSlotsDivided();
 
         $this->assertEquals(5, count($slots['radiant']));
         $this->assertEquals(5, count($slots['dire']));
@@ -59,8 +63,9 @@ class MatchTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(94155156, $slots['dire'][4]->get('account_id'));
     }
 
-    public function testGet_all_picks_bans_divided () {
-        $picks_bans = $this->match->get_all_picks_bans_divided();
+    public function testGet_all_picks_bans_divided()
+    {
+        $picks_bans = $this->match->getAllPicksBansDivided();
         $expected_picks_bans = array(
             "radiant" => array(
                 "bans" => array(
@@ -71,28 +76,24 @@ class MatchTest extends PHPUnit_Framework_TestCase {
                         "team" => "0",
                         "order" => "1"
                     ),
-
                     array(
                         "is_pick" => "0",
                         "hero_id" => "103",
                         "team" => "0",
                         "order" => "3"
                     ),
-
                     array(
                         "is_pick" => "0",
                         "hero_id" => "33",
                         "team" => "0",
                         "order" => "9"
                     ),
-
                     array(
                         "is_pick" => "0",
                         "hero_id" => "1",
                         "team" => "0",
                         "order" => "11"
                     ),
-
                     array(
                         "is_pick" => "0",
                         "hero_id" => "20",
@@ -108,28 +109,24 @@ class MatchTest extends PHPUnit_Framework_TestCase {
                         "team" => "0",
                         "order" => "5"
                     ),
-
                     array(
                         "is_pick" => "1",
                         "hero_id" => "77",
                         "team" => "0",
                         "order" => "6"
                     ),
-
                     array(
                         "is_pick" => "1",
                         "hero_id" => "30",
                         "team" => "0",
                         "order" => "12"
                     ),
-
                     array(
                         "is_pick" => "1",
                         "hero_id" => "13",
                         "team" => "0",
                         "order" => "14"
                     ),
-
                     array(
                         "is_pick" => "1",
                         "hero_id" => "88",
@@ -147,28 +144,24 @@ class MatchTest extends PHPUnit_Framework_TestCase {
                         "team" => "1",
                         "order" => "0"
                     ),
-
                     array(
                         "is_pick" => "0",
                         "hero_id" => "64",
                         "team" => "1",
                         "order" => "2"
                     ),
-
                     array(
                         "is_pick" => "0",
                         "hero_id" => "92",
                         "team" => "1",
                         "order" => "8"
                     ),
-
                     array(
                         "is_pick" => "0",
                         "hero_id" => "65",
                         "team" => "1",
                         "order" => "10"
                     ),
-
                     array(
                         "is_pick" => "0",
                         "hero_id" => "83",
@@ -184,28 +177,24 @@ class MatchTest extends PHPUnit_Framework_TestCase {
                         "team" => "1",
                         "order" => "4"
                     ),
-
                     array(
                         "is_pick" => "1",
                         "hero_id" => "7",
                         "team" => "1",
                         "order" => "7"
                     ),
-
                     array(
                         "is_pick" => "1",
                         "hero_id" => "69",
                         "team" => "1",
                         "order" => "13"
                     ),
-
                     array(
                         "is_pick" => "1",
                         "hero_id" => "94",
                         "team" => "1",
                         "order" => "15"
                     ),
-
                     array(
                         "is_pick" => "1",
                         "hero_id" => "90",

@@ -9,13 +9,15 @@ class TeamsMapperWebTest extends PHPUnit_Framework_TestCase
      */
     protected $mapper;
 
-    protected function setUp() {
+    protected function setUp()
+    {
         $this->mapper = new TeamsMapperWeb();
     }
 
-    public function testLoad() {
+    public function testLoad()
+    {
 
-        $this->mapper->set_team_id(36)->set_teams_requested(1);
+        $this->mapper->setTeamId(36)->setTeamsRequested(1);
         $teams = $this->mapper->load();
 
         $this->assertEquals(count($teams), 1);
@@ -28,9 +30,10 @@ class TeamsMapperWebTest extends PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, count($team->get_all_leagues_ids()));
     }
 
-    public function testLoadMultiple() {
+    public function testLoadMultiple()
+    {
 
-        $this->mapper->set_team_id(36)->set_teams_requested(2);
+        $this->mapper->setTeamId(36)->setTeamsRequested(2);
         $teams = $this->mapper->load();
         $this->assertEquals(count($teams), 2);
 

@@ -83,12 +83,12 @@ $match = $mm->load();
 echo $match->get('match_id');
 echo $match->get('start_time');
 echo $match->get('game_mode');
-$slots = $match->get_all_slots();
+$slots = $match->getAllSlots();
 foreach($slots as $slot) {
     echo $slot->get('last_hits');
 }
-print_r($match->get_data_array());
-print_r($match->get_slot(0)->get_data_array());
+print_r($match->getDataArray());
+print_r($match->getSlot(0)->getDataArray());
 ```
 
 #### I want get last 25 matches with some player
@@ -96,7 +96,7 @@ print_r($match->get_slot(0)->get_data_array());
 <?php
 require_once ('config.php');
 $matches_mapper_web = new matches_mapper_web();
-$matches_mapper_web->set_account_id(93712171);
+$matches_mapper_web->setAccountId(93712171);
 $matches_short_info = $matches_mapper_web->load();
 foreach ($matches_short_info AS $key=>$match_short_info) {
     $match_mapper = new match_mapper_web($key);
@@ -111,7 +111,7 @@ foreach ($matches_short_info AS $key=>$match_short_info) {
 <?php
 require_once ('config.php');
 $players_mapper_web = new players_mapper_web();
-$players_info = $players_mapper_web->add_id('76561198067833250')->add_id('76561198058587506')->load();
+$players_info = $players_mapper_web->addId('76561198067833250')->addId('76561198058587506')->load();
 foreach($players_info as $player_info) {
     echo $player_info->get('realname');
     echo '<img src="'.$player_info->get('avatarfull').'" alt="'.$player_info->get('personaname').'" />';
@@ -119,18 +119,18 @@ foreach($players_info as $player_info) {
 }
 print_r($players_info);
 ````
-Player's id you can get via player::convert_id('xxxxx') method (xxxxx - its DotA ID).
+Player's id you can get via player::convertId('xxxxx') method (xxxxx - its DotA ID).
 
 #### Get team info
 ````php
 <?php
 $teams_mapper_web = new teams_mapper_web();
-$teams = $teams_mapper_web->set_team_id(2)->set_teams_requested(2)->load();
+$teams = $teams_mapper_web->setTeamId(2)->setTeamsRequested(2)->load();
 foreach($teams as $team) {
     echo $team->get('name');
     echo $team->get('rating');
     echo $team->get('country_code');
-    print_r($team->get_all_leagues_ids());
+    print_r($team->getAllLeaguesIds());
 }
 ````
 
@@ -208,7 +208,7 @@ $leagues - array with numeric indexes (leagues ids)
 #### Get leagues prize pool
 ````php
 $league_prize_pool_mapper_web = new league_prize_pool_mapper_web();
-$league_prize_pool_mapper_web->set_league_id(600);
+$league_prize_pool_mapper_web->setLeagueId(600);
 $prize_pool_info = $league_prize_pool_mapper_web->load();
 print_r($prize_pool_info);
 echo $prize_pool_info['prize_pool'];
@@ -218,7 +218,7 @@ echo $prize_pool_info['status']; // may be undefined
 
 ````php
 $prize_pool_mapper_db = new league_prize_pool_mapper_db();
-$pp = $prize_pool_mapper_db->set_league_id(600)->load();
+$pp = $prize_pool_mapper_db->setLeagueId(600)->load();
 foreach($pp as $date=>$prize_pool) {
     echo $date.' - $ '.number_format($prize_pool, 2);
 }
@@ -239,7 +239,7 @@ $games - array of live_match objects
 <?php
 require_once('config.php');
 $matches_mapper_db = new matches_mapper_db();
-$matches_mapper_db->set_league_id(29)->set_matches_requested(1);
+$matches_mapper_db->setLeagueId(29)->setMatchesRequested(1);
 $matches_info = $matches_mapper_db->load();
 print_r($matches_info);
 ````
@@ -261,34 +261,34 @@ $mm->delete(151341579);
 require_once('config.php');
 $abilities = new abilities();
 $abilities->parse();
-$abilities-get_data_by_id(5172); // return array for ability with id 5172 (BeastMaster Inner Beast)
+$abilities-getDataById(5172); // return array for ability with id 5172 (BeastMaster Inner Beast)
 // same, because there are no thumbs for abilities
-$abilities->get_img_url_by_id(5172, false);
-$abilities->get_img_url_by_id(5172);
+$abilities->getImgUrlById(5172, false);
+$abilities->getImgUrlById(5172);
 
 $heroes = new heroes();
 $heroes->parse();
-$heroes-get_data_by_id(97); // get info about Magnus
-$heroes->get_img_url_by_id(97, false); // large image
-$heroes->get_img_url_by_id(97); // thumb
+$heroes-getDataById(97); // get info about Magnus
+$heroes->getImgUrlById(97, false); // large image
+$heroes->getImgUrlById(97); // thumb
 
 $items = new items();
 $items->parse();
-$items-get_data_by_id(149); // get info about Crystalis
-$items->get_img_url_by_id(149, false); // large image
-$items->get_img_url_by_id(149); // thumb
+$items-getDataById(149); // get info about Crystalis
+$items->getImgUrlById(149, false); // large image
+$items->getImgUrlById(149); // thumb
 
 $mods = new mods();
 $mods->parse();
-$mods->get_field_by_id(1, 'name'); // returns 'All Pick'
+$mods->getFieldById(1, 'name'); // returns 'All Pick'
 
 $lobbies = new lobbies();
 $lobbies->parse();
-$lobbies->get_field_by_id(2, 'name'); // returns 'Tournament'
+$lobbies->getFieldById(2, 'name'); // returns 'Tournament'
 
 $regions = new regions();
 $regions->parse();
-$regions->get_field_by_id(132, 'name'); // returns 'Europe West'
+$regions->getFieldById(132, 'name'); // returns 'Europe West'
 ````
 
 #### Get map with barracks and towers
@@ -309,7 +309,7 @@ imagedestroy($canvas);
 <?php
 require_once('config.php');
 $players_mapper_db = new players_mapper_db();
-$players_info = $players_mapper_db->add_id('76561198020176880')->add_id('76561197998200662')->load();
+$players_info = $players_mapper_db->addId('76561198020176880')->addId('76561197998200662')->load();
 print_r($players_info);
 ````
 or for just getting one player, you can also use
@@ -317,7 +317,7 @@ or for just getting one player, you can also use
 <?php
 require_once('config.php');
 $player_mapper_db = new player_mapper_db();
-$player_mapper_db->set_steamid('76561198020176880');
+$player_mapper_db->setSteamid('76561198020176880');
 print_r($player_mapper_db->load());
 ````
 
@@ -327,7 +327,7 @@ print_r($player_mapper_db->load());
 require_once('config.php');
 //fetch players from API
 $players_mapper_web = new players_mapper_web();
-$players = $players_mapper_web->add_id('76561198020176880')->add_id('76561197998200662')->load();
+$players = $players_mapper_web->addId('76561198020176880')->addId('76561197998200662')->load();
 
 //save players into db
 $player_mapper_db = new player_mapper_db();

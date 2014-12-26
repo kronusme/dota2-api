@@ -24,37 +24,37 @@ use Dota2Api\Utils\Request;
  *  }
  * </code>
  */
-class ItemsMapperWeb extends ItemsMapper {
+class ItemsMapperWeb extends ItemsMapper
+{
 
     /**
      * Request url
      */
-    const items_steam_url = 'https://api.steampowered.com/IEconDOTA2_570/GetGameItems/v0001/';
-
-    public function __construct(){}
+    const ITEMS_STEAM_URL = 'https://api.steampowered.com/IEconDOTA2_570/GetGameItems/v0001/';
 
     /**
      * @return Item[]
      */
-    public function load() {
+    public function load()
+    {
         $request = new Request(
-            self::items_steam_url,
+            self::ITEMS_STEAM_URL,
             array()
         );
         $response = $request->send();
         if (is_null($response)) {
             return null;
         }
-        $items_info = (array)($response->items);
-        $items_info = $items_info['item'];
+        $itemsInfo = (array)($response->items);
+        $itemsInfo = $itemsInfo['item'];
         $items = array();
-        foreach($items_info as $item_info) {
-            $info = (array)$item_info;
+        foreach ($itemsInfo as $itemInfo) {
+            $info = (array)$itemInfo;
             array_walk($info, function (&$v) {
                 $v = (string)$v;
             });
             $item = new item();
-            $item->set_array($info);
+            $item->setArray($info);
             $items[$info['id']] = $item;
         }
         return $items;

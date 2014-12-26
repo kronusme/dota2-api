@@ -9,7 +9,8 @@ namespace Dota2Api\Models;
  * @author kronus
  * @package models
  */
-class Team extends StatObject {
+class Team extends StatObject
+{
     /**
      * the numeric ID of the team
      * @var int
@@ -27,7 +28,7 @@ class Team extends StatObject {
     protected $_tag;
     /**
      * the Unix time at which the team was created
-     * @var timestamp
+     * @var int
      */
     protected $_time_created;
     /**
@@ -79,7 +80,8 @@ class Team extends StatObject {
     /**
      * @return array
      */
-    public function get_all_players_ids() {
+    public function getAllPlayersIds()
+    {
         return $this->_players_ids;
     }
 
@@ -87,9 +89,10 @@ class Team extends StatObject {
      * @param array $ids
      * @return team
      */
-    public function set_all_players_ids(array $ids) {
-        foreach($ids as $id) {
-            $this->add_player_id($id);
+    public function setAllPlayersIds(array $ids)
+    {
+        foreach ($ids as $id) {
+            $this->addPlayerId($id);
         }
         return $this;
     }
@@ -98,7 +101,8 @@ class Team extends StatObject {
      * @param int $index
      * @return int|null
      */
-    public function get_player_id($index) {
+    public function getPlayerId($index)
+    {
         $index = intval($index);
         if (isset($this->_players_ids[$index])) {
             return $this->_players_ids[$index];
@@ -110,7 +114,8 @@ class Team extends StatObject {
      * @param int $player_id
      * @return team
      */
-    public function add_player_id($player_id) {
+    public function addPlayerId($player_id)
+    {
         $player_id = intval($player_id);
         array_push($this->_players_ids, $player_id);
         return $this;
@@ -119,7 +124,8 @@ class Team extends StatObject {
     /**
      * @return array
      */
-    public function get_all_leagues_ids() {
+    public function getAllLeaguesIds()
+    {
         return $this->_leagues_ids;
     }
 
@@ -127,9 +133,10 @@ class Team extends StatObject {
      * @param array $leagues
      * @return team
      */
-    public function set_all_leagues_ids(array $leagues) {
-        foreach($leagues as $id) {
-            $this->add_league_id($id);
+    public function setAllLeaguesIds(array $leagues)
+    {
+        foreach ($leagues as $id) {
+            $this->addLeagueId($id);
         }
         return $this;
     }
@@ -138,7 +145,8 @@ class Team extends StatObject {
      * @param int $index
      * @return int|null
      */
-    public function get_leagues_id($index) {
+    public function getLeaguesId($index)
+    {
         $index = intval($index);
         if (isset($this->_leagues_ids[$index])) {
             return $this->_leagues_ids[$index];
@@ -150,14 +158,11 @@ class Team extends StatObject {
      * @param int $league_id
      * @return team
      */
-    public function add_league_id($league_id) {
+    public function addLeagueId($league_id)
+    {
         $league_id = intval($league_id);
         array_push($this->_leagues_ids, $league_id);
         return $this;
     }
 
-    /**
-     *
-     */
-    public function __construct(){}
 }

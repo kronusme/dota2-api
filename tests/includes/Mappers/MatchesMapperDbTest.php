@@ -13,7 +13,8 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
 
     protected $league_id = 1803;
 
-    public static function setUpBeforeClass() {
+    public static function setUpBeforeClass()
+    {
         $db = Db::obtain();
         $db->exec('DELETE FROM picks_bans');
         $db->exec('DELETE FROM ability_upgrades');
@@ -22,7 +23,8 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $db->exec('DELETE FROM matches');
     }
 
-    public function setUp() {
+    public function setUp()
+    {
 
         $leagues_mapper_web = new LeaguesMapperWeb();
         $leagues = $leagues_mapper_web->load();
@@ -35,10 +37,11 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $match_mapper_db->save($match);
     }
 
-    public function testLoad() {
+    public function testLoad()
+    {
 
         $matches_mapper_db = new MatchesMapperDb();
-        $matches_mapper_db->set_league_id($this->league_id)->set_matches_requested(1);
+        $matches_mapper_db->setLeagueId($this->league_id)->setMatchesRequested(1);
         $matches = $matches_mapper_db->load();
         $match = array_pop($matches);
 
@@ -96,7 +99,8 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
 
     }
 
-    public function testDelete() {
+    public function testDelete()
+    {
 
         $additional_match_id = 886357301;
         $match_mapper_web = new MatchMapperWeb($additional_match_id);
@@ -108,11 +112,11 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $matches_mapper_db->delete(array($additional_match_id, $this->match_id));
 
         $db = Db::obtain();
-        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM matches')));
-        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM slots')));
-        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM additional_units')));
-        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM ability_upgrades')));
-        $this->assertEquals(0, count($db->fetch_array_pdo('SELECT * FROM picks_bans')));
+        $this->assertEquals(0, count($db->fetchArrayPDO('SELECT * FROM matches')));
+        $this->assertEquals(0, count($db->fetchArrayPDO('SELECT * FROM slots')));
+        $this->assertEquals(0, count($db->fetchArrayPDO('SELECT * FROM additional_units')));
+        $this->assertEquals(0, count($db->fetchArrayPDO('SELECT * FROM ability_upgrades')));
+        $this->assertEquals(0, count($db->fetchArrayPDO('SELECT * FROM picks_bans')));
 
     }
 

@@ -6,7 +6,8 @@ namespace Dota2Api\Mappers;
 /**
  * Common part for matches mapper (like properties and their getters, setters)
  */
-abstract class MatchesMapper {
+abstract class MatchesMapper
+{
     /**
      * Search matches with a player name, exact match only
      * @var string
@@ -24,12 +25,12 @@ abstract class MatchesMapper {
     protected $_skill;
     /**
      * date in UTC seconds since Jan 1, 1970 (unix time format)
-     * @var timestamp
+     * @var int
      */
     protected $_date_min;
     /**
      * date in UTC seconds since Jan 1, 1970 (unix time format)
-     * @var timestamp
+     * @var int
      */
     protected $_date_max;
     /**
@@ -63,7 +64,8 @@ abstract class MatchesMapper {
      * @param string $name
      * @return MatchesMapper
      */
-    public function set_player_name($name) {
+    public function setPlayerMame($name)
+    {
         $this->_player_name = (string)$name;
         return $this;
     }
@@ -71,23 +73,26 @@ abstract class MatchesMapper {
     /**
      * @return string | null
      */
-    public function get_player_name() {
+    public function getPlayerName()
+    {
         return $this->_player_name;
     }
 
     /**
-     * @param int $hero_id
+     * @param int $heroId
      * @return MatchesMapper
      */
-    public function set_hero_id($hero_id) {
-        $this->_hero_id = intval($hero_id);
+    public function setHeroId($heroId)
+    {
+        $this->_hero_id = intval($heroId);
         return $this;
     }
 
     /**
      * @return int
      */
-    public function get_hero_id() {
+    public function getHeroId()
+    {
         return $this->_hero_id;
     }
 
@@ -95,7 +100,8 @@ abstract class MatchesMapper {
      * @param int $skill
      * @return MatchesMapper
      */
-    public function set_skill($skill) {
+    public function setSkill($skill)
+    {
         $skill = intval($skill);
         if ($skill >= 0 && $skill <= 3) {
             $this->_skill = $skill;
@@ -106,7 +112,8 @@ abstract class MatchesMapper {
     /**
      * @return int
      */
-    public function get_skill() {
+    public function getSkill()
+    {
         return $this->_skill;
     }
 
@@ -114,7 +121,8 @@ abstract class MatchesMapper {
      * @param int $timestamp
      * @return MatchesMapper
      */
-    public function set_date_max($timestamp) {
+    public function setDateMax($timestamp)
+    {
         $timestamp = intval($timestamp);
         if ($timestamp >= 0 && $timestamp < 2147483647) {
             $this->_date_max = $timestamp;
@@ -123,9 +131,10 @@ abstract class MatchesMapper {
     }
 
     /**
-     * @return timestamp
+     * @return int
      */
-    public function get_date_max() {
+    public function getDateMax()
+    {
         return $this->_date_max;
     }
 
@@ -133,7 +142,8 @@ abstract class MatchesMapper {
      * @param int $timestamp
      * @return MatchesMapper
      */
-    public function set_date_min($timestamp) {
+    public function setDateMin($timestamp)
+    {
         $timestamp = intval($timestamp);
         if ($timestamp >= 0 && $timestamp < 2147483647) {
             $this->_date_min = $timestamp;
@@ -142,68 +152,76 @@ abstract class MatchesMapper {
     }
 
     /**
-     * @return timestamp
+     * @return int
      */
-    public function get_date_min() {
+    public function getDateMin()
+    {
         return $this->_date_min;
     }
 
     /**
-     * @param int $account_id
+     * @param int $accountId
      * @return MatchesMapper
      */
-    public function set_account_id($account_id) {
-        $this->_account_id = intval($account_id);
+    public function setAccountId($accountId)
+    {
+        $this->_account_id = intval($accountId);
         return $this;
     }
 
     /**
      * @return int
      */
-    public function get_account_id() {
+    public function getAccountId()
+    {
         return $this->_account_id;
     }
 
     /**
-     * @param int $league_id
+     * @param int $leagueId
      * @return MatchesMapper
      */
-    public function set_league_id($league_id) {
-        $this->_league_id = intval($league_id);
+    public function setLeagueId($leagueId)
+    {
+        $this->_league_id = intval($leagueId);
         return $this;
     }
 
     /**
      * @return int
      */
-    public function get_league_id() {
+    public function getLeagueId()
+    {
         return $this->_league_id;
     }
 
     /**
-     * @param int $match_id
+     * @param int $matchId
      * @return MatchesMapper
      */
-    public function set_start_at_match_id($match_id) {
-        $this->_start_at_match_id = intval($match_id);
+    public function setStartAtMatchId($matchId)
+    {
+        $this->_start_at_match_id = intval($matchId);
         return $this;
     }
 
     /**
      * @return int
      */
-    public function get_start_at_match_id() {
+    public function getStartAtMatchId()
+    {
         return $this->_start_at_match_id;
     }
 
     /**
-     * @param int $matches_requested
+     * @param int $matchesRequested
      * @return MatchesMapper
      */
-    public function set_matches_requested($matches_requested) {
-        $matches_requested = intval($matches_requested);
-        if ($matches_requested > 0 && $matches_requested <= 100) {
-            $this->_matches_requested = $matches_requested;
+    public function setMatchesRequested($matchesRequested)
+    {
+        $matchesRequested = intval($matchesRequested);
+        if ($matchesRequested > 0 && $matchesRequested <= 100) {
+            $this->_matches_requested = $matchesRequested;
         }
         return $this;
     }
@@ -211,24 +229,27 @@ abstract class MatchesMapper {
     /**
      * @return int
      */
-    public function get_matches_requested() {
+    public function getMatchesRequested()
+    {
         return $this->_matches_requested;
     }
 
     /**
-     * @param string $tournament_games_only
+     * @param string $tournamentGamesOnly
      * @return MatchesMapper
      */
-    public function set_tournament_games_only($tournament_games_only) {
-        $tournament_games_only = ($tournament_games_only === true) ? 'true' : 'false';
-        $this->_tournament_games_only = $tournament_games_only;
+    public function setTournamentGamesOnly($tournamentGamesOnly)
+    {
+        $tournamentGamesOnly = ($tournamentGamesOnly === true) ? 'true' : 'false';
+        $this->_tournament_games_only = $tournamentGamesOnly;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function get_tournament_games_only() {
+    public function getTournamentGamesOnly()
+    {
         return $this->_tournament_games_only;
     }
 }

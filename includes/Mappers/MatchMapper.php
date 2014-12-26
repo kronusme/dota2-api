@@ -9,32 +9,39 @@ namespace Dota2Api\Mappers;
  * @author kronus
  * @package mappers
  */
-abstract class MatchMapper {
+abstract class MatchMapper
+{
     /**
      * @var int
      */
     private $_match_id;
+
     /**
-     * @param int $match_id
+     * @param int $matchId
      * @return MatchMapper
      */
-    public function set_match_id($match_id) {
-        $this->_match_id = intval($match_id);
+    public function setMatchId($matchId)
+    {
+        $this->_match_id = intval($matchId);
         return $this;
     }
+
     /**
      * @return int
      */
-    public function get_match_id() {
+    public function getMatchId()
+    {
         return $this->_match_id;
     }
 
     /**
-     *
+     * @param int $matchId
      */
-    public function __construct($match_id) {
-        $this->set_match_id($match_id);
+    public function __construct($matchId)
+    {
+        $this->setMatchId($matchId);
     }
+
     /**
      * Load info by match_id
      * @return mixed

@@ -16,9 +16,8 @@ use PDOStatement;
  * @version    1.1 06.06.2012 Improved by Kronu$
  * @todo improve class via replacing 'empty' to 'is_null'
  */
-
-
-class Db {
+class Db
+{
 
     /**
      * Store the single instance of Database class
@@ -65,16 +64,16 @@ class Db {
     /**
      * Store database connection
      * @access private
-     * @var PDO $_link_id
+     * @var PDO $_linkId
      * @static
      */
-    private static $_link_id = null;
+    private static $_linkId = null;
     /**
      * Represents a prepared statement
      * @access private
-     * @var PDOStatement $_query_id
+     * @var PDOStatement $_queryId
      */
-    private $_query_id = 0;
+    private $_queryId = 0;
 
     /**
      * Constructor to initialize the database connection variables
@@ -86,19 +85,20 @@ class Db {
      * @param $pref string
      * @return db
      */
-    private function __construct($server=null, $user=null, $pass=null, $database=null, $pref=null){
+    private function __construct($server = null, $user = null, $pass = null, $database = null, $pref = null)
+    {
 
-        if($server==null || $user==null || $database==null)
-        {
+        if ($server == null || $user == null || $database == null) {
             return;
         }
 
-        $this->_server=$server;
-        $this->_user=$user;
-        $this->_pass=$pass;
-        $this->_database=$database;
+        $this->_server = $server;
+        $this->_user = $user;
+        $this->_pass = $pass;
+        $this->_database = $database;
         self::$_prefix = $pref;
     }
+
     /**
      * Obtain an instance of Database object
      * @static
@@ -109,48 +109,54 @@ class Db {
      * @param $pref string
      * @return db If object does not exists create new and return else return already created object
      */
-    public static function obtain($server=null, $user=null, $pass=null, $database=null, $pref=null){
-        if (is_null(self::$_instance)){
+    public static function obtain($server = null, $user = null, $pass = null, $database = null, $pref = null)
+    {
+        if (is_null(self::$_instance)) {
             self::$_instance = new db($server, $user, $pass, $database, $pref);
         }
         return self::$_instance;
     }
 
-    public static function clean() {
+    public static function clean()
+    {
         self::$_instance = null;
-        self::$_link_id = null;
+        self::$_linkId = null;
     }
+
     /**
      * Connect to a Database host and select database using variable initialized above
      * @access public
-     * @param bool $select_db
+     * @param bool $selectDb
      * @return bool If Database connection successful return true else return false
      */
-    public function connect_pdo($select_db = true)
+    public function connectPDO($selectDb = true)
     {
-        if (!is_null(self::$_link_id)) { return true; }
-        try
-        {
-            self::$_link_id = new PDO('mysql:host='.$this->_server, $this->_user, $this->_pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
-            self::$_link_id->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            if ($select_db) {
-                self::$_link_id->query('USE ' . $this->_database);
-            }
+        if (!is_null(self::$_linkId)) {
+            return true;
         }
-        catch(PDOException $e)
-        {
+        try {
+            self::$_linkId = new PDO('mysql:host=' . $this->_server, $this->_user, $this->_pass,
+                array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+            self::$_linkId->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            if ($selectDb) {
+                self::$_linkId->query('USE ' . $this->_database);
+            }
+        } catch (PDOException $e) {
             $this->_error = $e->getMessage();
             return false;
         }
         return true;
     }
+
     /**
      * Close a connection to Database host
      * @access public
      */
-    public function close(){
-        self::$_link_id = null;
+    public function close()
+    {
+        self::$_linkId = null;
     }
+
     /**
      * Prepares and executes a sql query
      * @access private
@@ -158,25 +164,24 @@ class Db {
      * @param Array $params
      * @return Boolean Returns TRUE on success or FALSE on failure.
      */
-    private function _query_pdo($sql,$params=array()) {
-        try
-        {
-            $this->_query_id = self::$_link_id->prepare($sql);
-            $i=1;
-            foreach($params as $key=>$val) {
+    private function _queryPDO($sql, $params = array())
+    {
+        try {
+            $this->_queryId = self::$_linkId->prepare($sql);
+            $i = 1;
+            foreach ($params as $key => $val) {
 
                 $type = $this->getPDOConstantType($val);
-                $this->_query_id->bindValue($i, $val, $type);
+                $this->_queryId->bindValue($i, $val, $type);
                 ++$i;
             }
-            return $this->_query_id->execute();
-        }
-        catch(PDOException $e)
-        {
+            return $this->_queryId->execute();
+        } catch (PDOException $e) {
             $this->_error = $e->getMessage();
             return false;
         }
     }
+
     /**
      * Run the query, fetches the first row only, frees resultset
      * @access public
@@ -184,27 +189,32 @@ class Db {
      * @param Array $params
      * @return Mixed The first record as an Array or FALSE in case the query fails to execute.
      */
-    public function query_first_pdo($sql,$params=array()){
-        $query_id = $this->_query_pdo($sql,$params);
-        if($query_id === false)
+    public function queryFirstPDO($sql, $params = array())
+    {
+        $query_id = $this->_queryPDO($sql, $params);
+        if ($query_id === false) {
             return false;
-        $out = $this->_fetch_pdo();
-        $this->_free_result_pdo();
+        }
+        $out = $this->_fetchPDO();
+        $this->_freeResultPDO();
         return $out;
     }
+
     /**
      * Fetches and returns results one line at a time
      * @access private
      * @return Mixed The first record as an Associative Array or Empty in case if the query_id (i.e. if the query did not execute) is not set.
      */
-    private function _fetch_pdo(){
+    private function _fetchPDO()
+    {
 
         $record = "";
-        if (isset($this->_query_id)){
-            $record = $this->_query_id->fetch(PDO::FETCH_ASSOC);
+        if (isset($this->_queryId)) {
+            $record = $this->_queryId->fetch(PDO::FETCH_ASSOC);
         }
         return $record;
     }
+
     /**
      * Fetches and returns all the results (not just one row)
      * @access public
@@ -212,21 +222,24 @@ class Db {
      * @param Array $params
      * @return Mixed The complete records as an Associative Array or Empty in case if the query_id (i.e. if the query did not execute) is not set.
      */
-    public function fetch_array_pdo($sql,$params = array()){
+    public function fetchArrayPDO($sql, $params = array())
+    {
 
-        $query_id = $this->_query_pdo($sql,$params);
-        if($query_id  === false)
+        $query_id = $this->_queryPDO($sql, $params);
+        if ($query_id === false) {
             return false;
+        }
         $out = array();
 
-        while ($row = $this->_fetch_pdo()){
+        while ($row = $this->_fetchPDO()) {
 
             $out[] = $row;
         }
 
-        $this->_free_result_pdo();
+        $this->_freeResultPDO();
         return $out;
     }
+
     /**
      * Does an update query with an array for data and array as a param for the where clause
      * @access public
@@ -235,54 +248,58 @@ class Db {
      * @param Array $where
      * @return Boolean Returns TRUE on success or FALSE on failure.
      */
-    public function update_pdo($table, $data, $where=array()){
+    public function updatePDO($table, $data, $where = array())
+    {
 
-        if(empty($data))
+        if (empty($data)) {
             return false;
-        $q="UPDATE `$table` SET ";
+        }
+        $q = "UPDATE `$table` SET ";
 
-        foreach($data as $key=>$val){
-            if(is_null($val));            // fix by KronuS 07.12.2012. Was "if(empty($val));"
-            else $q.= "`$key`=?, ";
+        foreach ($data as $key => $val) {
+            if (is_null($val)) {
+                ;
+            }            // fix by KronuS 07.12.2012. Was "if(empty($val));"
+            else {
+                $q .= "`$key`=?, ";
+            }
         }
         $q = rtrim($q, ', ') . ' WHERE ';
 
-        foreach($where as $key=>$val)
-        {
-            if(is_null($val));
-            else $q.= "`$key`=? AND ";
+        foreach ($where as $key => $val) {
+            if (is_null($val)) {
+                ;
+            } else {
+                $q .= "`$key`=? AND ";
+            }
         }
         $q = rtrim($q, 'AND ') . ' ;';
 
-        try
-        {
+        try {
 
-            $this->_query_id = self::$_link_id->prepare($q);
+            $this->_queryId = self::$_linkId->prepare($q);
 
-            $i=1;
-            foreach($data as $key=>$val)
-            {
-                if(is_null($val))       // fix by KronuS 07.12.2012. Was "if(empty($val));"
-                    ;
-                else
+            $i = 1;
+            foreach ($data as $key => $val) {
+                if (is_null($val))       // fix by KronuS 07.12.2012. Was "if(empty($val));"
                 {
+                    ;
+                } else {
                     $type = $this->getPDOConstantType($val);
-                    $this->_query_id->bindValue($i, $val, $type);
+                    $this->_queryId->bindValue($i, $val, $type);
                     ++$i;
                 }
             }
 
 
-            foreach($where as $key=>$val) {
+            foreach ($where as $key => $val) {
 
                 $type = $this->getPDOConstantType($val);
-                $this->_query_id->bindValue($i, $val, $type);
+                $this->_queryId->bindValue($i, $val, $type);
                 ++$i;
             }
-            return $this->_query_id->execute();
-        }
-        catch(PDOException $e)
-        {
+            return $this->_queryId->execute();
+        } catch (PDOException $e) {
             $this->_error = $e->getMessage();
             return false;
         }
@@ -298,46 +315,44 @@ class Db {
      * @param bool $update should data be updated on duplicate
      * @return bool
      */
-    public function insert_many_pdo($table, array $fields, array $data = array(), $update = false) {
+    public function insertManyPDO($table, array $fields, array $data = array(), $update = false)
+    {
         if (empty($data)) {
             return false;
         }
-        $q = 'INSERT INTO `'.$table.'`';
+        $q = 'INSERT INTO `' . $table . '`';
         $v = '';
-        $n = '(`'.implode('`,`', $fields).'`) ';
-        foreach($data as $sd) {
+        $n = '(`' . implode('`,`', $fields) . '`) ';
+        foreach ($data as $sd) {
             $v .= '(';
             foreach ($sd as $val) {
                 $v .= '?,';
             }
-            $v = rtrim($v, ',').'),';
+            $v = rtrim($v, ',') . '),';
         }
         $v = rtrim($v, ',');
-        $q .= $n . ' VALUES '.$v;
+        $q .= $n . ' VALUES ' . $v;
         if ($update) {
             $q .= ' ON DUPLICATE KEY UPDATE ';
-            foreach($fields as $f) {
-                $q .= $f.' = VALUES(`'.$f.'`),';
+            foreach ($fields as $f) {
+                $q .= $f . ' = VALUES(`' . $f . '`),';
             }
             $q = rtrim($q, ',');
         }
-        try
-        {
-            $this->_query_id = self::$_link_id->prepare($q);
+        try {
+            $this->_queryId = self::$_linkId->prepare($q);
 
-            $i=1;
-            foreach($data as $sd) {
-                foreach($sd as $val){
+            $i = 1;
+            foreach ($data as $sd) {
+                foreach ($sd as $val) {
                     $type = $this->getPDOConstantType($val);
-                    $this->_query_id->bindValue($i, $val, $type);
+                    $this->_queryId->bindValue($i, $val, $type);
                     ++$i;
                 }
             }
-            $this->_query_id->execute();
-            return self::$_link_id->lastInsertId();
-        }
-        catch(PDOException $e)
-        {
+            $this->_queryId->execute();
+            return self::$_linkId->lastInsertId();
+        } catch (PDOException $e) {
             $this->_error = $e->getMessage();
             echo $this->_error;
             return false;
@@ -351,45 +366,44 @@ class Db {
      * @param Array $data is an assoc array with keys are column names and values as the actual values
      * @return Mixed Returns ID of the inserted record or FALSE on failure.
      */
-    public function insert_pdo($table, $data=array())
+    public function insertPDO($table, $data = array())
     {
-        if(empty($data))
+        if (empty($data)) {
             return false;
-        $q="INSERT INTO `$table` ";
-        $v=''; $n='';
-
-        foreach($data as $key=>$val){
-            $n.="`$key`, ";
-            if(strtolower($val)=='now()')
-            {
-                $v.="NOW(), ";
-                unset($data[$key]);
-            }
-            else
-                $v.= "?, ";
         }
-        $q .= "(". rtrim($n, ', ') .") VALUES (". rtrim($v, ', ') .");";
-        try
-        {
-            $this->_query_id = self::$_link_id->prepare($q);
+        $q = "INSERT INTO `$table` ";
+        $v = '';
+        $n = '';
 
-            $i=1;
-            foreach($data as $key=>$val) {
+        foreach ($data as $key => $val) {
+            $n .= "`$key`, ";
+            if (strtolower($val) == 'now()') {
+                $v .= "NOW(), ";
+                unset($data[$key]);
+            } else {
+                $v .= "?, ";
+            }
+        }
+        $q .= "(" . rtrim($n, ', ') . ") VALUES (" . rtrim($v, ', ') . ");";
+        try {
+            $this->_queryId = self::$_linkId->prepare($q);
+
+            $i = 1;
+            foreach ($data as $key => $val) {
 
                 $type = $this->getPDOConstantType($val);
-                $this->_query_id->bindValue($i, $val, $type);
+                $this->_queryId->bindValue($i, $val, $type);
                 ++$i;
             }
-            $this->_query_id->execute();
-            return self::$_link_id->lastInsertId();
-        }
-        catch(PDOException $e)
-        {
+            $this->_queryId->execute();
+            return self::$_linkId->lastInsertId();
+        } catch (PDOException $e) {
             $this->_error = $e->getMessage();
             return false;
         }
 
     }
+
     /**
      * Delete records from table
      * @param string $table
@@ -397,46 +411,46 @@ class Db {
      * @param int $limit max affected rows count (default - 1)
      * @return mixed false on failure
      */
-    public function delete_pdo($table, array $where = array(), $limit = 1) {
+    public function deletePDO($table, array $where = array(), $limit = 1)
+    {
         $limit = intval($limit);
-        if(empty($where))
+        if (empty($where)) {
             return false;
-        $q ="DELETE FROM `$table` ";
+        }
+        $q = "DELETE FROM `$table` ";
         $q .= 'WHERE ';
-        foreach($where as $key=>$val)
-        {
-            if(empty($val)) continue;
-            else $q.= "`$key`=? AND ";
+        foreach ($where as $key => $val) {
+            if (empty($val)) {
+                continue;
+            } else {
+                $q .= "`$key`=? AND ";
+            }
         }
         $q = rtrim($q, 'AND ');
         if ($limit > 0) {
-            $q .= ' LIMIT '.$limit. ' ;';
-        }
-        else {
+            $q .= ' LIMIT ' . $limit . ' ;';
+        } else {
             $q .= ' ;';
         }
-        try
-        {
-            $this->_query_id = self::$_link_id->prepare($q);
+        try {
+            $this->_queryId = self::$_linkId->prepare($q);
             $i = 1;
-            foreach($where as $key=>$val)
-            {
-                if(empty($val)) continue;
-                else
-                {
+            foreach ($where as $key => $val) {
+                if (empty($val)) {
+                    continue;
+                } else {
                     $type = $this->getPDOConstantType($val);
-                    $this->_query_id->bindValue($i, $val, $type);
+                    $this->_queryId->bindValue($i, $val, $type);
                     ++$i;
                 }
             }
-            return $this->_query_id->execute();
-        }
-        catch(PDOException $e)
-        {
+            return $this->_queryId->execute();
+        } catch (PDOException $e) {
             $this->_error = $e->getMessage();
             return false;
         }
     }
+
     /**
      * Checks the data type of the value that is passed
      * @access public
@@ -446,8 +460,7 @@ class Db {
     public function getPDOConstantType($value)
     {
 
-        switch (true)
-        {
+        switch (true) {
             case is_int($value):
                 $type = PDO::PARAM_INT;
                 break;
@@ -467,15 +480,17 @@ class Db {
      * Frees the resultset
      * @access private
      */
-    private function _free_result_pdo() {
-        $this->_query_id->closeCursor();
+    private function _freeResultPDO()
+    {
+        $this->_queryId->closeCursor();
     }
+
     /**
      * Return the last error message that is set.
      * @access public
      * @return string Return the value stored in 'error' property of the class
      */
-    public function get_error()
+    public function getError()
     {
         return $this->_error;
     }
@@ -486,11 +501,13 @@ class Db {
      * @param $tbl string
      * @return string Real table name
      */
-    public static function real_tablename($tbl) {
-        return self::$_prefix.(string)$tbl;
+    public static function realTablename($tbl)
+    {
+        return self::$_prefix . (string)$tbl;
     }
 
-    public function exec($query) {
-        return self::$_link_id->exec($query);
+    public function exec($query)
+    {
+        return self::$_linkId->exec($query);
     }
 }

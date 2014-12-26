@@ -24,19 +24,21 @@ use Dota2Api\Utils\Db;
  *  }
  * </code>
  */
-class ItemsMapperDb extends ItemsMapper {
+class ItemsMapperDb extends ItemsMapper
+{
 
     /**
      * @return Item[]
      */
-    public function load() {
+    public function load()
+    {
         $db = Db::obtain();
         $items = array();
-        $items_info = $db->fetch_array_pdo('SELECT * FROM '.Db::real_tablename('items'));
-        foreach($items_info as $item_info) {
+        $itemsInfo = $db->fetchArrayPDO('SELECT * FROM ' . Db::realTablename('items'));
+        foreach ($itemsInfo as $itemInfo) {
             $item = new Item();
-            $item->set_array($item_info);
-            $items[$item_info['id']] = $item;
+            $item->setArray($itemInfo);
+            $items[$itemInfo['id']] = $item;
         }
         return $items;
     }
@@ -44,13 +46,15 @@ class ItemsMapperDb extends ItemsMapper {
     /**
      * @param Item[] $data list of items
      */
-    public function save(array $data) {
+    public function save(array $data)
+    {
         $db = Db::obtain();
-        $data_to_insert = array();
-        foreach($data as $item) {
-            array_push($data_to_insert, $item->get_data_array());
+        $dataToInsert = array();
+        foreach ($data as $item) {
+            array_push($dataToInsert, $item->getDataArray());
         }
-        $db->insert_many_pdo(Db::real_tablename('items'), array('id', 'name', 'cost', 'secret_shop', 'side_shop', 'recipe', 'localized_name'), $data_to_insert, true);
+        $db->insertManyPDO(Db::realTablename('items'),
+            array('id', 'name', 'cost', 'secret_shop', 'side_shop', 'recipe', 'localized_name'), $dataToInsert, true);
     }
 
 }

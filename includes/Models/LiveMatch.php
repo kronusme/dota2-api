@@ -9,7 +9,8 @@ namespace Dota2Api\Models;
  * @author kronus
  * @package models
  */
-class LiveMatch extends Match {
+class LiveMatch extends Match
+{
     /**
      * @var int
      */
@@ -48,7 +49,8 @@ class LiveMatch extends Match {
      * @param array $broadcaster
      * @return LiveMatch
      */
-    public function add_broadcaster(array $broadcaster) {
+    public function addBroadcaster(array $broadcaster)
+    {
         $this->_broadcasters[$broadcaster['account_id']] = $broadcaster;
         return $this;
     }
@@ -57,7 +59,8 @@ class LiveMatch extends Match {
      * @param array $unassigned
      * @return LiveMatch
      */
-    public function add_unassigned(array $unassigned) {
+    public function addUnassigned(array $unassigned)
+    {
         $this->_unassigned[$unassigned['account_id']] = $unassigned;
         return $this;
     }
@@ -66,7 +69,8 @@ class LiveMatch extends Match {
      * @param array $player_info
      * @return LiveMatch
      */
-    public function add_radiant_player(array $player_info) {
+    public function addRadiantPlayer(array $player_info)
+    {
         $this->_radiant_team[$player_info['account_id']] = $player_info;
         return $this;
     }
@@ -75,7 +79,8 @@ class LiveMatch extends Match {
      * @param array $player_info
      * @return LiveMatch
      */
-    public function add_dire_player(array $player_info) {
+    public function addDirePlayer(array $player_info)
+    {
         $this->_dire_team[$player_info['account_id']] = $player_info;
         return $this;
     }

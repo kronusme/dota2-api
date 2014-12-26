@@ -22,7 +22,8 @@ namespace Dota2Api\Utils;
  *  imagedestroy($canvas);
  * </code>
  */
-class Map {
+class Map
+{
     /**
      * @var string
      */
@@ -34,37 +35,44 @@ class Map {
     /**
      * @var string
      */
-    private $_tower_status_radiant;
+    private $_towerStatusRadiant;
     /**
      * @var string
      */
-    private $_tower_status_dire;
+    private $_towerStatusDire;
     /**
      * @var string
      */
-    private $_barracks_status_radiant;
+    private $_barracksStatusRadiant;
     /**
      * @var string
      */
-    private $_barracks_status_dire;
+    private $_barracksStatusDire;
 
-    public function __construct($tower_status_radiant, $tower_status_dire, $barracks_status_radiant, $barracks_status_dire) {
-        $this->_tower_status_radiant = sprintf('%011b', $tower_status_radiant);
-        $this->_tower_status_dire = sprintf('%011b', $tower_status_dire);
-        $this->_barracks_status_radiant = substr(sprintf('%011b', $barracks_status_radiant), 5);
-        $this->_barracks_status_dire = substr(sprintf('%011b', $barracks_status_dire), 5);
-        $this->_folder = 'images'.DIRECTORY_SEPARATOR.'map'.DIRECTORY_SEPARATOR;
+    public function __construct(
+        $towerStatusRadiant,
+        $towerStatusDire,
+        $barracksStatusRadiant,
+        $barracksStatusDire
+    ) {
+        $this->_towerStatusRadiant = sprintf('%011b', $towerStatusRadiant);
+        $this->_towerStatusDire = sprintf('%011b', $towerStatusDire);
+        $this->_barracksStatusRadiant = substr(sprintf('%011b', $barracksStatusRadiant), 5);
+        $this->_barracksStatusDire = substr(sprintf('%011b', $barracksStatusDire), 5);
+        $this->_folder = 'images' . DIRECTORY_SEPARATOR . 'map' . DIRECTORY_SEPARATOR;
     }
-    public function get_image() {
-        $path = '../../'.$this->_folder;
-        $this->_canvas = imagecreatefromjpeg($path.'dota_map.jpg');
+
+    public function getImage()
+    {
+        $path = '../../' . $this->_folder;
+        $this->_canvas = imagecreatefromjpeg($path . 'dota_map.jpg');
         if ($this->_canvas === false) {
             return null;
         }
-        $tower_dire = $this->_load_png($path.'tower_dire.png');
-        $tower_radiant = $this->_load_png($path.'tower_radiant.png');
-        $barracks_dire = $this->_load_png($path.'racks_dire.png');
-        $barracks_radiant = $this->_load_png($path.'racks_radiant.png');
+        $towerDire = $this->_loadPng($path . 'tower_dire.png');
+        $towerRadiant = $this->_loadPng($path . 'tower_radiant.png');
+        $barracksDire = $this->_loadPng($path . 'racks_dire.png');
+        $barracksRadiant = $this->_loadPng($path . 'racks_radiant.png');
         // Radiant
         $positions = array(
             array(130, 795), // t4 top
@@ -83,8 +91,8 @@ class Map {
             array(115, 383)  // t1 top
         );
         for ($i = 0; $i < count($positions); $i++) {
-            if ($this->_tower_status_radiant[$i]) {
-                $this->_draw_icon($tower_radiant, $positions[$i]);
+            if ($this->_towerStatusRadiant[$i]) {
+                $this->_drawIcon($towerRadiant, $positions[$i]);
             }
         }
         $positions = array(
@@ -96,8 +104,8 @@ class Map {
             array(100, 730) // TOP MELEE
         );
         for ($i = 0; $i < count($positions); $i++) {
-            if ($this->_barracks_status_radiant[$i]) {
-                $this->_draw_icon($barracks_radiant, $positions[$i]);
+            if ($this->_barracksStatusRadiant[$i]) {
+                $this->_drawIcon($barracksRadiant, $positions[$i]);
             }
         }
         // Dire
@@ -118,8 +126,8 @@ class Map {
             array(180, 100) // t1 top
         );
         for ($i = 0; $i < count($positions); $i++) {
-            if ($this->_tower_status_dire[$i]) {
-                $this->_draw_icon($tower_dire, $positions[$i]);
+            if ($this->_towerStatusDire[$i]) {
+                $this->_drawIcon($towerDire, $positions[$i]);
             }
         }
         $positions = array(
@@ -131,8 +139,8 @@ class Map {
             array(750, 150) // TOP MELEE
         );
         for ($i = 0; $i < count($positions); $i++) {
-            if ($this->_barracks_status_dire[$i]) {
-                $this->_draw_icon($barracks_dire, $positions[$i]);
+            if ($this->_barracksStatusDire[$i]) {
+                $this->_drawIcon($barracksDire, $positions[$i]);
             }
         }
         return $this->_canvas;
@@ -145,7 +153,8 @@ class Map {
      * @param array $coordinates where put it
      * @return null
      */
-    private function _draw_icon($icon, $coordinates) {
+    private function _drawIcon($icon, $coordinates)
+    {
         imagecopyresampled($this->_canvas, $icon, $coordinates[0], $coordinates[1], 0, 0, 32, 32, 32, 32);
     }
 
@@ -155,7 +164,8 @@ class Map {
      * @param string $file
      * @return null|resource
      */
-    private function _load_png($file) {
+    private function _loadPng($file)
+    {
         $pic = @imagecreatefrompng($file);
         if ($pic === false) {
             return null;

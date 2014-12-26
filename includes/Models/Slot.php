@@ -9,7 +9,8 @@ namespace Dota2Api\Models;
  * @author kronus
  * @package models
  */
-class Slot extends StatObject {
+class Slot extends StatObject
+{
     /**
      * inner identifier used in local queries (web mappers don't feel it!)
      * @var int
@@ -156,7 +157,8 @@ class Slot extends StatObject {
      * @param array $data
      * @return slot
      */
-    public function set_abilities_upgrade($data) {
+    public function setAbilitiesUpgrade($data)
+    {
         $this->_abilities_upgrade = $data;
         return $this;
     }
@@ -165,7 +167,8 @@ class Slot extends StatObject {
      * Return array of ability upgrades
      * @return array
      */
-    public function get_abilities_upgrade() {
+    public function getAbilitiesUpgrade()
+    {
         return $this->_abilities_upgrade;
     }
 
@@ -174,7 +177,8 @@ class Slot extends StatObject {
      * @param array $data
      * @return slot
      */
-    public function set_additional_unit_items(array $data) {
+    public function setAdditionalUnitItems(array $data)
+    {
         $this->_additional_unit_items = $data;
         return $this;
     }
@@ -183,7 +187,8 @@ class Slot extends StatObject {
      * Get array of additional unit items ids
      * @return array
      */
-    public function get_additional_unit_items() {
+    public function getAdditionalUnitItems()
+    {
         return $this->_additional_unit_items;
     }
 
@@ -192,8 +197,9 @@ class Slot extends StatObject {
      * @param int $item_id
      * @return slot
      */
-    public function remove_additional_unit_item($item_id) {
-        foreach($this->_additional_unit_items as $k=>$id) {
+    public function removeAdditionalUnitItem($item_id)
+    {
+        foreach ($this->_additional_unit_items as $k => $id) {
             if ($id === $item_id) {
                 unset($this->_additional_unit_items[$k]);
                 break;
@@ -206,7 +212,8 @@ class Slot extends StatObject {
      * Just empty construct
      * Don't use me directly!
      */
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 }

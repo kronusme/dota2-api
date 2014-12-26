@@ -2,8 +2,6 @@
 
 namespace Dota2Api\Models;
 
-use Dota2Api\Models\Slot;
-
 /**
  * All info about match including picks, bans (if cm-mode), ability upgrades (if provided) and slots
  *
@@ -13,7 +11,8 @@ use Dota2Api\Models\Slot;
  * @author kronus
  * @package models
  */
-class Match extends StatObject {
+class Match extends StatObject
+{
     /**
      * Identify cm-mode
      */
@@ -158,21 +157,25 @@ class Match extends StatObject {
      * @var array
      */
     protected $_picks_bans = array();
+
     /**
      * Add new Slot for Slots-array
      * @param Slot $slot
-     * @return match
+     * @return Match
      */
-    public function add_slot(Slot $slot) {
+    public function addSlot(Slot $slot)
+    {
         $this->_slots[$slot->get('player_slot')] = $slot;
         return $this;
     }
+
     /**
      * Get Slot by its index (0-4 for radiant, 128-132 for dire - as it is in the field player_slot)
      * @param int $index
      * @return Slot | null
      */
-    public function get_slot($index) {
+    public function getSlot($index)
+    {
         $index = intval($index);
         if (isset($this->_slots[$index])) {
             return $this->_slots[$index];
@@ -184,7 +187,8 @@ class Match extends StatObject {
      * Return array of all Slots
      * @return Slot[]
      */
-    public function get_all_slots() {
+    public function getAllSlots()
+    {
         return $this->_slots;
     }
 
@@ -192,9 +196,10 @@ class Match extends StatObject {
      * Return array of all slots divided by team (5 for radiant, 5 for dire)
      * @return Slot[][]
      */
-    public function get_all_slots_divided() {
+    public function getAllSlotsDivided()
+    {
         $return = array('radiant' => array(), 'dire' => array());
-        foreach($this->_slots as $slot) {
+        foreach ($this->_slots as $slot) {
             $team = 'radiant';
             if ($slot->get('player_slot') > 5) {
                 $team = 'dire';
@@ -208,7 +213,8 @@ class Match extends StatObject {
      * Return array of all picks and bans
      * @return array
      */
-    public function get_all_picks_bans() {
+    public function getAllPicksBans()
+    {
         return $this->_picks_bans;
     }
 
@@ -216,7 +222,8 @@ class Match extends StatObject {
      * Return array of all picks and bans divided by team (and then by bans and picks)
      * @return array
      */
-    public function get_all_picks_bans_divided() {
+    public function getAllPicksBansDivided()
+    {
         $return = array(
             'radiant' => array(
                 'bans' => array(),
@@ -227,7 +234,7 @@ class Match extends StatObject {
                 'picks' => array()
             )
         );
-        foreach($this->_picks_bans as $pick_ban) {
+        foreach ($this->_picks_bans as $pick_ban) {
             $team = 'radiant';
             $state = 'picks';
             if ($pick_ban['team']) {
@@ -246,9 +253,10 @@ class Match extends StatObject {
      * Used in mappers
      *
      * @param array $data
-     * @return match
+     * @return Match
      */
-    public function set_all_pick_bans(array $data) {
+    public function setAllPickBans(array $data)
+    {
         $this->_picks_bans = $data;
         return $this;
     }
@@ -257,9 +265,10 @@ class Match extends StatObject {
      * Set list of slots for current match
      *
      * @param Slot[] $slots
-     * @return match
+     * @return Match
      */
-    public function set_all_slots (array $slots) {
+    public function setAllSlots(array $slots)
+    {
         $this->_slots = $slots;
         return $this;
     }
@@ -268,7 +277,8 @@ class Match extends StatObject {
      * Just empty construct.
      * Don't use me directly!
      */
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 

@@ -6,7 +6,8 @@ use Dota2Api\Utils\Db;
 
 class LeaguesMapperDbTest extends PHPUnit_Framework_TestCase
 {
-    public function testLoad() {
+    public function testLoad()
+    {
         $mapper_web = new LeaguesMapperWeb();
         $mapper_db = new LeaguesMapperDb();
         $leagues = $mapper_web->load();
@@ -19,7 +20,8 @@ class LeaguesMapperDbTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(2, count($leagues_from_db));
     }
 
-    protected function tearDown() {
+    protected function tearDown()
+    {
         Db::obtain()->exec('DELETE FROM league_prize_pools');
         Db::obtain()->exec('DELETE FROM leagues');
     }

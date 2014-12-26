@@ -13,7 +13,7 @@ $db = Db::obtain();
 $db->exec('CREATE DATABASE '.$db_name);
 Db::clean();
 $db = Db::obtain('localhost', 'root', '', 'dota2_api_test_db', '');
-$db->connect_pdo();
+$db->connectPDO();
 $db->exec(file_get_contents('db_latest.sql'));
 
 register_shutdown_function(function() {

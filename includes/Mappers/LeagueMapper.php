@@ -17,75 +17,81 @@ use Dota2Api\Models\LiveMatch;
  *  print_r($games);
  * </code>
  */
-class LeagueMapper {
+class LeagueMapper
+{
     /**
      *
      */
-    const league_steam_url = 'https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/';
+    const LEAGUE_STEAM_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/';
     /**
      * @var int
      */
-    protected $_league_id;
+    protected $_leagueId;
 
     /**
-     * @param int $league_id
+     * @param int $leagueId
      * @return LeagueMapper
      */
-    public function set_league_id($league_id) {
-        $this->_league_id = intval($league_id);
+    public function setLeagueId($leagueId)
+    {
+        $this->_leagueId = intval($leagueId);
         return $this;
     }
 
     /**
      * @return int
      */
-    public function get_league_id() {
-        return $this->_league_id;
+    public function getLeagueId()
+    {
+        return $this->_leagueId;
     }
+
     /**
-     * @param int $league_id
+     * @param int $leagueId
      */
-    public function __construct($league_id = null) {
-        if (!is_null($league_id)) {
-            $this->set_league_id($league_id);
+    public function __construct($leagueId = null)
+    {
+        if (!is_null($leagueId)) {
+            $this->setLeagueId($leagueId);
         }
     }
 
     /**
      *
      */
-    public function load() {
+    public function load()
+    {
         $request = new Request(
-            self::league_steam_url,
-            array('league_id' => $this->get_league_id())
+            self::LEAGUE_STEAM_URL,
+            array('league_id' => $this->getLeagueId())
         );
-        $league_live_matches = $request->send();
-        if (is_null($league_live_matches)) {
+        $leagueLiveMatches = $request->send();
+        if (is_null($leagueLiveMatches)) {
             return null;
         }
-        $league_live_matches = $league_live_matches->games;
-        $live_matches = array();
-        if (!isset($league_live_matches->game)) {
+        $leagueLiveMatches = $leagueLiveMatches->games;
+        $liveMatches = array();
+        if (!isset($leagueLiveMatches->game)) {
             return array();
         }
-        foreach($league_live_matches->game as $game) {
-            $live_match = new LiveMatch();
-            foreach($game->players->player as $player) {
+        foreach ($leagueLiveMatches->game as $game) {
+            $liveMatch = new LiveMatch();
+            foreach ($game->players->player as $player) {
                 switch ($player->team) {
                     case 0: {
-                        $live_match->add_radiant_player((array)$player);
+                        $liveMatch->addRadiantPlayer((array)$player);
                         break;
                     }
                     case 1: {
-                        $live_match->add_dire_player((array)$player);
+                        $liveMatch->addDirePlayer((array)$player);
                         break;
                     }
                     case 2: {
-                        $live_match->add_broadcaster((array)$player);
+                        $liveMatch->addBroadcaster((array)$player);
                         break;
                     }
                     case 4: {
-                        $live_match->add_unassigned((array)$player);
+                        $liveMatch->addUnassigned((array)$player);
                         break;
                     }
                 }
@@ -95,16 +101,16 @@ class LeagueMapper {
             $a_game['radiant_team_id'] = (string)$a_game['radiant_team']->team_id;
             $a_game['radiant_name'] = (string)$a_game['radiant_team']->team_name;
             $a_game['radiant_logo'] = (string)$a_game['radiant_team']->team_logo;
-            $a_game['radiant_team_complete'] = ($a_game['radiant_team']->complete == 'false')? 0 : 1;
+            $a_game['radiant_team_complete'] = ($a_game['radiant_team']->complete == 'false') ? 0 : 1;
             $a_game['dire_team_id'] = (string)$a_game['dire_team']->team_id;
             $a_game['dire_name'] = (string)$a_game['dire_team']->team_name;
             $a_game['dire_logo'] = (string)$a_game['dire_team']->team_logo;
-            $a_game['dire_team_complete'] = ($a_game['dire_team']->complete == 'false')? 0 : 1;
+            $a_game['dire_team_complete'] = ($a_game['dire_team']->complete == 'false') ? 0 : 1;
             unset($a_game['dire_team']);
             unset($a_game['radiant_team']);
-            $live_match->set_array($a_game);
-            array_push($live_matches, $live_match);
+            $liveMatch->setArray($a_game);
+            array_push($liveMatches, $liveMatch);
         }
-        return $live_matches;
+        return $liveMatches;
     }
 }

@@ -18,20 +18,22 @@ use Dota2Api\Utils\Request;
  *   echo $logo_data->url;
  * </code>
  */
-class UgcMapperWeb {
+class UgcMapperWeb
+{
 
     /**
      * Request url
      * @var string
      */
-    const steam_ugc_url = 'http://api.steampowered.com/ISteamRemoteStorage/GetUGCFileDetails/v1/';
+    const STEAM_UGC_URL = 'http://api.steampowered.com/ISteamRemoteStorage/GetUGCFileDetails/v1/';
 
     /**
      * @var int
      */
     private $_ugcid;
 
-    public function __construct($ugcid = null) {
+    public function __construct($ugcid = null)
+    {
         $this->_ugcid = $ugcid;
     }
 
@@ -39,12 +41,13 @@ class UgcMapperWeb {
      * @param int $ugcid
      * @return object | null
      */
-    public function load($ugcid = null) {
+    public function load($ugcid = null)
+    {
         if (!is_null($ugcid)) {
             $this->_ugcid = $ugcid;
         }
         $request = new Request(
-            self::steam_ugc_url,
+            self::STEAM_UGC_URL,
             array('appid' => 570, 'ugcid' => $this->_ugcid)
         );
         return $request->send();

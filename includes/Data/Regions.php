@@ -12,11 +12,13 @@ namespace Dota2Api\Data;
  * <code>
  *   $regions = new regions();
  *   $regions->parse();
- *   $regions->get_field_by_id(132, 'name'); // returns 'Europe West'
+ *   $regions->getFieldById(132, 'name'); // returns 'Europe West'
  * </code>
  */
-class Regions extends Data {
-    public function __construct() {
+class Regions extends Data
+{
+    public function __construct()
+    {
         $this->_filename = 'regions.json';
         $this->_field = 'regions';
     }

@@ -22,39 +22,36 @@ use Dota2Api\Models\League;
  *  }
  * </code>
  */
-class LeaguesMapperWeb extends LeaguesMapper {
+class LeaguesMapperWeb extends LeaguesMapper
+{
     /**
      *
      */
-    const leagues_steam_url = 'https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/';
-
-    /**
-     *
-     */
-    public function __construct(){}
+    const LEAGUES_STEAM_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/';
 
     /**
      * @return array
      */
-    public function load() {
+    public function load()
+    {
         $request = new Request(
-            self::leagues_steam_url,
+            self::LEAGUES_STEAM_URL,
             array()
         );
         $response = $request->send();
         if (is_null($response)) {
             return null;
         }
-        $leagues_info = (array)($response->leagues);
-        $leagues_info = $leagues_info['league'];
+        $leaguesInfo = (array)($response->leagues);
+        $leaguesInfo = $leaguesInfo['league'];
         $leagues = array();
-        foreach($leagues_info as $league_info) {
-            $info = (array)$league_info;
+        foreach ($leaguesInfo as $leagueInfo) {
+            $info = (array)$leagueInfo;
             array_walk($info, function (&$v) {
                 $v = (string)$v;
             });
             $league = new League();
-            $league->set_array($info);
+            $league->setArray($info);
             $leagues[$info['leagueid']] = $league;
         }
         return $leagues;

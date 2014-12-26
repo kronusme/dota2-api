@@ -3,8 +3,8 @@
 namespace Dota2Api\Models;
 
 
-
-class Item extends StatObject {
+class Item extends StatObject
+{
 
     /**
      * the id of the item
@@ -42,14 +42,16 @@ class Item extends StatObject {
      */
     protected $_localized_name;
 
-    public function set($name, $value) {
+    public function set($name, $value)
+    {
         if ($name === 'name') {
-            $value = 'item_'.str_replace('item_', '', $value);
+            $value = 'item_' . str_replace('item_', '', $value);
         }
         return parent::set($name, $value);
     }
 
-    public function get($name) {
+    public function get($name)
+    {
         $value = parent::get($name);
         if ($name === 'name') {
             $value = str_replace('item_', '', $value);

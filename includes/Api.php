@@ -2,15 +2,16 @@
 
 namespace Dota2Api;
 
-use Dota2Api\Utils\Db;
 use Dota2Api\Utils\Request;
 
-class Api {
+class Api
+{
 
-    public static function init($api_key, array $db, $autoselect_db = true) {
+    public static function init($api_key, array $db, $autoselect_db = true)
+    {
         $db = call_user_func_array('Dota2Api\Utils\Db::obtain', $db);
-        $db->connect_pdo($autoselect_db);
-        Request::$api_key = strval($api_key);
+        $db->connectPDO($autoselect_db);
+        Request::$apiKey = strval($api_key);
     }
 
 }

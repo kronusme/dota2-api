@@ -12,15 +12,17 @@ namespace Dota2Api\Data;
  * <code>
  *   $heroes = new heroes();
  *   $heroes->parse();
- *   $heroes-get_data_by_id(97); // get info about Magnus
- *   $heroes->get_img_url_by_id(97, false); // large image
- *   $heroes->get_img_url_by_id(97); // thumb
+ *   $heroes-getDataById(97); // get info about Magnus
+ *   $heroes->getImgUrlById(97, false); // large image
+ *   $heroes->getImgUrlById(97); // thumb
  * </code>
  */
-class Heroes extends HeroesData {
-    public function __construct() {
-        $this->set_filename('heroes.json');
-        $this->set_field('heroes');
+class Heroes extends HeroesData
+{
+    public function __construct()
+    {
+        $this->setFilename('heroes.json');
+        $this->setField('heroes');
         //$this->_suffixes['thumb'] = 'sb';
     }
 }

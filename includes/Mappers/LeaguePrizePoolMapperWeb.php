@@ -10,7 +10,7 @@ use Dota2Api\Utils\Request;
  * @example
  * <code>
  *  $league_prize_pool_mapper_web = new league_prize_pool_mapper_web();
- *  $league_prize_pool_mapper_web->set_league_id(600);
+ *  $league_prize_pool_mapper_web->setLeagueId(600);
  *  $prize_pool_info = $league_prize_pool_mapper_web->load();
  *  print_r($prize_pool_info);
  *  echo $prize_pool_info['prize_pool'];
@@ -18,31 +18,34 @@ use Dota2Api\Utils\Request;
  *  echo $prize_pool_info['status']; // may be undefined
  * </code>
  */
-class LeaguePrizePoolMapperWeb extends LeaguePrizePoolMapper {
+class LeaguePrizePoolMapperWeb extends LeaguePrizePoolMapper
+{
 
     /**
      * Request url
      */
-    const leagues_prize_pool_steam_url = 'http://api.steampowered.com/IEconDOTA2_570/GetTournamentPrizePool/v1/';
+    const LEAGUES_PRIZE_POOL_STEAM_URL = 'http://api.steampowered.com/IEconDOTA2_570/GetTournamentPrizePool/v1/';
 
     /**
-     * @param int $league_id
+     * @param int $leagueId
      */
-    public function __construct($league_id = null) {
-        if (!is_null($league_id)) {
-            $this->set_league_id($league_id);
+    public function __construct($leagueId = null)
+    {
+        if (!is_null($leagueId)) {
+            $this->setLeagueId($leagueId);
         }
     }
 
-    public function load() {
+    public function load()
+    {
         $request = new Request(
-            self::leagues_prize_pool_steam_url,
-            array('leagueid' => $this->get_league_id())
+            self::LEAGUES_PRIZE_POOL_STEAM_URL,
+            array('leagueid' => $this->getLeagueId())
         );
-        $prize_pool = $request->send();
-        if (is_null($prize_pool)) {
+        $prizePool = $request->send();
+        if (is_null($prizePool)) {
             return null;
         }
-        return (array)$prize_pool;
+        return (array)$prizePool;
     }
 }

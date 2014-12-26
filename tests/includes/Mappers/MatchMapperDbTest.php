@@ -6,21 +6,22 @@ use Dota2Api\Mappers\LeaguesMapperDb;
 use Dota2Api\Mappers\MatchMapperDb;
 use Dota2Api\Mappers\MatchMapperWeb;
 use Dota2Api\Models\Player;
-use Dota2Api\Models\Match;
 
 class MatchMapperDbTest extends PHPUnit_Framework_TestCase
 {
 
     public $match_id = '683300315';
 
-    public static function setUpBeforeClass() {
+    public static function setUpBeforeClass()
+    {
         $leagues_mapper_web = new LeaguesMapperWeb();
         $leagues = $leagues_mapper_web->load();
         $leagues_mapper_db = new LeaguesMapperDb();
         $leagues_mapper_db->save($leagues[600]);
     }
 
-    public static function tearDownBeforeClass() {
+    public static function tearDownBeforeClass()
+    {
         $db = Db::obtain();
         $db->exec('DELETE FROM picks_bans');
         $db->exec('DELETE FROM ability_upgrades');
@@ -30,7 +31,8 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
         $db->exec('DELETE FROM leagues');
     }
 
-    public function testLoad() {
+    public function testLoad()
+    {
 
         $expected_match_info = array(
             'game_mode' => '2',
@@ -47,7 +49,7 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
         $match = $mapper_db->load($this->match_id);
 
         $this->assertInstanceOf('Dota2Api\Models\Match', $match);
-        foreach($expected_match_info as $k=>$v) {
+        foreach ($expected_match_info as $k => $v) {
             $this->assertEquals($v, $match->get($k));
         }
         $expected_slots_info = array(
@@ -92,41 +94,45 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
                 'level' => 11,
             )
         );
-        $slots = $match->get_all_slots();
-        foreach($expected_slots_info as $slot_id=>$slot) {
+        $slots = $match->getAllSlots();
+        foreach ($expected_slots_info as $slot_id => $slot) {
             $this->assertTrue($slots[$slot_id]->get('account_id') !== Player::ANONYMOUS);
             $this->assertEquals($slot['level'], (int)$slots[$slot_id]->get('level'));
-            $this->assertEquals($slot['ability_upgrades'], count($slots[$slot_id]->get_abilities_upgrade()));
+            $this->assertEquals($slot['ability_upgrades'], count($slots[$slot_id]->getAbilitiesUpgrade()));
         }
 
-        $picks_bans = $match->get_all_picks_bans();
+        $picks_bans = $match->getAllPicksBans();
         $this->assertInternalType('array', $picks_bans);
         $fl = true;
-        foreach($picks_bans as $r) {
-            if (!in_array($r['is_pick'], array('1', '0'))) $fl = false;
+        foreach ($picks_bans as $r) {
+            if (!in_array($r['is_pick'], array('1', '0'))) {
+                $fl = false;
+            }
         }
         $this->assertTrue($fl);
 
     }
 
-    public function testUpdate() {
+    public function testUpdate()
+    {
         $mapper_db = new MatchMapperDb();
         $match = $mapper_db->load($this->match_id);
         $match->set('first_blood_time', 0);
-        $slots = $match->get_all_slots();
+        $slots = $match->getAllSlots();
         $slots[0]->set('hero_id', '1');
-        $match->set_all_slots($slots);
+        $match->setAllSlots($slots);
         $mapper_db->update($match, false);
 
         $match = $mapper_db->load($this->match_id);
 
         $this->assertEquals(0, $match->get('first_blood_time'));
-        $slots = $match->get_all_slots();
+        $slots = $match->getAllSlots();
         $this->assertEquals(1, $slots[0]->get('hero_id'));
 
     }
 
-    public function testDelete() {
+    public function testDelete()
+    {
         $mapper_db = new MatchMapperDb();
         $match = $mapper_db->load($this->match_id);
         $mapper_db->save($match);

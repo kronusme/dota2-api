@@ -13,49 +13,50 @@ use Dota2Api\Models\Team;
  * @example
  * <code>
  *   $teams_mapper_web = new teams_mapper_web();
- *   $teams = $teams_mapper_web->set_team_id(2)->set_teams_requested(2)->load();
+ *   $teams = $teams_mapper_web->setTeamId(2)->setTeamsRequested(2)->load();
  *   foreach($teams as $team) {
  *     echo $team->get('name');
  *     echo $team->get('rating');
  *     echo $team->get('country_code');
- *     print_r($team->get_all_leagues_ids());
+ *     print_r($team->getAllLeaguesIds());
  *   }
  * </code>
  */
-class TeamsMapperWeb extends TeamsMapper {
+class TeamsMapperWeb extends TeamsMapper
+{
     /**
      *
      */
-    const teams_steam_url = 'https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/';
+    const TEAMS_STEAM_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/';
 
     /**
      * @return team[]
      */
-    public function load() {
+    public function load()
+    {
         $request = new Request(
-            self::teams_steam_url,
+            self::TEAMS_STEAM_URL,
             array(
-                'start_at_team_id' => $this->get_team_id(),
-                'teams_requested' => $this->get_teams_requested()
+                'start_at_team_id' => $this->getTeamId(),
+                'teams_requested' => $this->getTeamsRequested()
             )
         );
-        $teams_info = $request->send();
-        if (is_null($teams_info)) {
+        $teamsInfo = $request->send();
+        if (is_null($teamsInfo)) {
             return null;
         }
         $teams = array();
-        if (isset($teams_info->teams)) {
-            $teams_info = ((array)$teams_info->teams);
-            $teams_info = $teams_info['team'];
-            if (is_array($teams_info)) {
-                foreach ($teams_info as $team_info) {
-                    $team = $this->get_team($team_info);
+        if (isset($teamsInfo->teams)) {
+            $teamsInfo = ((array)$teamsInfo->teams);
+            $teamsInfo = $teamsInfo['team'];
+            if (is_array($teamsInfo)) {
+                foreach ($teamsInfo as $teamInfo) {
+                    $team = $this->getTeam($teamInfo);
                     $teams[$team->get('team_id')] = $team;
                 }
                 return $teams;
-            }
-            else {
-                $team = $this->get_team($teams_info);
+            } else {
+                $team = $this->getTeam($teamsInfo);
                 $teams[$team->get('team_id')] = $team;
                 return $teams;
             }
@@ -68,21 +69,22 @@ class TeamsMapperWeb extends TeamsMapper {
      * @param Object $t
      * @return Team team
      */
-    protected function get_team($t) {
-        $team_info = (array)$t;
+    protected function getTeam($t)
+    {
+        $teamInfo = (array)$t;
         $team = new Team();
-        $fields = array_keys($team_info);
-        foreach($fields as $field) {
+        $fields = array_keys($teamInfo);
+        foreach ($fields as $field) {
             // I hope, that API-response will be changed and players_ids, leagues_ids will become arrays
             if (preg_match('/^player_\d+_account_id$/', $field)) {
-                $team->add_player_id($team_info[$field]);
+                $team->addPlayerId($teamInfo[$field]);
                 continue;
             }
             if (preg_match('/^league_id_\d+$/', $field)) {
-                $team->add_league_id($team_info[$field]);
+                $team->addLeagueId($teamInfo[$field]);
                 continue;
             }
-            $team->set($field, (string)$team_info[$field]);
+            $team->set($field, (string)$teamInfo[$field]);
         }
         return $team;
     }

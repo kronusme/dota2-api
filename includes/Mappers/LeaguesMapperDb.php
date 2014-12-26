@@ -6,61 +6,71 @@ use Dota2Api\Utils\Db;
 use Dota2Api\Models\League;
 
 
-class LeaguesMapperDb extends LeaguesMapper {
-    public function load() {
+class LeaguesMapperDb extends LeaguesMapper
+{
+    public function load()
+    {
         $db = Db::obtain();
-        $data = $db->fetch_array_pdo('SELECT * FROM '.Db::real_tablename('leagues'));
+        $data = $db->fetchArrayPDO('SELECT * FROM ' . Db::realTablename('leagues'));
         $leagues = array();
-        foreach($data as $row) {
+        foreach ($data as $row) {
             $league = new League();
-            $league->set_array($row);
+            $league->setArray($row);
             $leagues[$row['leagueid']] = $league;
         }
         return $leagues;
     }
 
-    public function delete($ids) {
+    public function delete($ids)
+    {
         if (!is_array($ids)) {
             return;
         }
         $ids_str = implode(',', $ids);
         $db = Db::obtain();
-        $db->exec('DELETE FROM '.Db::real_tablename('leagues').' WHERE leagueid IN ('.$ids_str.')');
+        $db->exec('DELETE FROM ' . Db::realTablename('leagues') . ' WHERE leagueid IN (' . $ids_str . ')');
     }
 
     /**
      * @param League $league
-     * @param bool $auto_update if true - update league info if league exists in the DB
+     * @param bool $autoUpdate if true - update league info if league exists in the DB
      */
-    public function save(league $league, $auto_update = true) {
-        if (self::league_exists($league->get('leagueid'))) {
-            if ($auto_update) {
+    public function save(League $league, $autoUpdate = true)
+    {
+        if (self::leagueExists($league->get('leagueid'))) {
+            if ($autoUpdate) {
                 $this->update($league);
             }
-        }
-        else {
+        } else {
             $this->insert($league);
         }
     }
+
     /**
      * @param League $league
      */
-    public function insert(league $league) {
+    public function insert(League $league)
+    {
         $db = Db::obtain();
-        $db->insert_pdo(Db::real_tablename('leagues'), $league->get_data_array());
-    }
-    /**
-     * @param League $league
-     */
-    public function update(league $league) {
-        $db = Db::obtain();
-        $db->update_pdo(Db::real_tablename('leagues'), $league->get_data_array(), array('leagueid' => $league->get('leagueid')));
+        $db->insertPDO(Db::realTablename('leagues'), $league->getDataArray());
     }
 
-    public static function league_exists($leagueid) {
+    /**
+     * @param League $league
+     */
+    public function update(league $league)
+    {
+        $db = Db::obtain();
+        $db->updatePDO(Db::realTablename('leagues'), $league->getDataArray(),
+            array('leagueid' => $league->get('leagueid')));
+    }
+
+    public static function leagueExists($leagueid)
+    {
         $leagueid = intval($leagueid);
         $db = Db::obtain();
-        $r = $db->query_first_pdo('SELECT leagueid FROM '.Db::real_tablename('leagues').' WHERE leagueid = ?', array($leagueid));
+        $r = $db->queryFirstPDO('SELECT leagueid FROM ' . Db::realTablename('leagues') . ' WHERE leagueid = ?',
+            array($leagueid));
         return ((bool)$r);
     }
 }

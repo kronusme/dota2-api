@@ -3,55 +3,59 @@
 namespace Dota2Api\Mappers;
 
 
-
 /**
  * Common part for league's prize pool mappers (web and db)
  *
  * @author kronus
  * @package mappers
  */
-abstract class LeaguePrizePoolMapper {
+abstract class LeaguePrizePoolMapper
+{
 
     /**
      * @var int
      */
-    protected $_league_id;
+    protected $_leagueId;
 
     /**
      * @var int
      */
-    protected $_prize_pool;
+    protected $_prizePool;
 
     /**
-     * @param int $league_id
+     * @param int $leagueId
      * @return LeaguePrizePoolMapper
      */
-    public function set_league_id($league_id) {
-        $this->_league_id = intval($league_id);
+    public function setLeagueId($leagueId)
+    {
+        $this->_leagueId = intval($leagueId);
         return $this;
     }
 
     /**
      * @return int
      */
-    public function get_league_id() {
-        return $this->_league_id;
+    public function getLeagueId()
+    {
+        return $this->_leagueId;
     }
 
     /**
-     * @param int $prize_pool
+     * @param int $prizePool
      * @return LeaguePrizePoolMapper
      */
-    public function set_prize_pool($prize_pool) {
-        $this->_prize_pool = intval($prize_pool);
+    public function setPrizePool($prizePool)
+    {
+        $this->_prizePool = intval($prizePool);
         return $this;
     }
 
     /**
      * @return int
      */
-    public function get_prize_pool() {
-        return $this->_prize_pool;
+    public function getPrizePool()
+    {
+        return $this->_prizePool;
     }
 
 }

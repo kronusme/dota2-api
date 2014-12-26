@@ -19,96 +19,101 @@ use Dota2Api\Models\Player;
  *   echo $match->get('match_id');
  *   echo $match->get('start_time');
  *   echo $match->get('game_mode');
- *   $slots = $match->get_all_slots();
+ *   $slots = $match->getAllSlots();
  *   foreach($slots as $slot) {
  *     echo $slot->get('last_hits');
  *   }
- *   print_r($match->get_data_array());
- *   print_r($match->get_slot(0)->get_data_array());
+ *   print_r($match->getDataArray());
+ *   print_r($match->getSlot(0)->getDataArray());
  *   $mm->save($match);
  *   $mm->delete(111093969);
  * </code>
  */
-class MatchMapperDb extends MatchMapper {
+class MatchMapperDb extends MatchMapper
+{
     /**
-     * @param int $match_id
+     * @param int $matchId
      */
-    public function __construct($match_id = null) {
-        if (!is_null($match_id)) {
-            parent::__construct($match_id);
+    public function __construct($matchId = null)
+    {
+        if (!is_null($matchId)) {
+            parent::__construct($matchId);
         }
     }
 
     /**
-     * @param int $match_id
+     * @param int $matchId
      * @return match
      */
-    public function load($match_id = null) {
-        if (!is_null($match_id)) {
-            $this->set_match_id($match_id);
+    public function load($matchId = null)
+    {
+        if (!is_null($matchId)) {
+            $this->setMatchId($matchId);
         }
         $db = Db::obtain();
-        $query_for_match = 'SELECT * FROM '.Db::real_tablename('matches').' WHERE match_id=?';
-        $query_for_slots = 'SELECT * FROM '.Db::real_tablename('slots').' WHERE match_id=?';
-        $match_info = $db->query_first_pdo($query_for_match, array($this->get_match_id()));
+        $queryForMatch = 'SELECT * FROM ' . Db::realTablename('matches') . ' WHERE match_id=?';
+        $queryForSlots = 'SELECT * FROM ' . Db::realTablename('slots') . ' WHERE match_id=?';
+        $matchInfo = $db->queryFirstPDO($queryForMatch, array($this->getMatchId()));
         $match = new Match();
-        if(!$match_info) {
+        if (!$matchInfo) {
             return $match;
         }
-        $match->set_array($match_info);
-        $slots = $db->fetch_array_pdo($query_for_slots, array($this->get_match_id()));
-        $slot_ids = '';
-        foreach($slots as $slot) {
-            $slot_ids .= $slot['id'].',';
+        $match->setArray($matchInfo);
+        $slots = $db->fetchArrayPDO($queryForSlots, array($this->getMatchId()));
+        $slotIds = '';
+        foreach ($slots as $slot) {
+            $slotIds .= $slot['id'] . ',';
         }
-        $query_for_ability_upgrades = 'SELECT * FROM '.Db::real_tablename('ability_upgrades').' WHERE slot_id IN ('.rtrim($slot_ids,',').')';
-        $ability_upgrade = $db->fetch_array_pdo($query_for_ability_upgrades);
-        $ability_upgrade_formatted = array();
-        foreach($ability_upgrade as $a) {
-            if (!isset($ability_upgrade_formatted[$a['slot_id']])) {
-                $ability_upgrade_formatted[$a['slot_id']] = array();
+        $queryForAbilityUpgrades = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . rtrim($slotIds,
+                ',') . ')';
+        $abilityUpgrade = $db->fetchArrayPDO($queryForAbilityUpgrades);
+        $abilityUpgradeFormatted = array();
+        foreach ($abilityUpgrade as $a) {
+            if (!isset($abilityUpgradeFormatted[$a['slot_id']])) {
+                $abilityUpgradeFormatted[$a['slot_id']] = array();
             }
-            array_push($ability_upgrade_formatted[$a['slot_id']], $a);
+            array_push($abilityUpgradeFormatted[$a['slot_id']], $a);
         }
-        $query_for_additional_units = 'SELECT * FROM '.Db::real_tablename('additional_units').' WHERE slot_id IN  ('.rtrim($slot_ids,',').')';
-        $additional_units = $db->fetch_array_pdo($query_for_additional_units);
-        $additional_units_formatted = array();
-        foreach($additional_units as $additional_unit) {
-            if (!isset($additional_units_formatted[$additional_unit['slot_id']])) {
-                $additional_units_formatted[$additional_unit['slot_id']] = array();
+        $queryForAdditionalUnits = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN  (' . rtrim($slotIds,
+                ',') . ')';
+        $additionalUnits = $db->fetchArrayPDO($queryForAdditionalUnits);
+        $additionalUnitsFormatted = array();
+        foreach ($additionalUnits as $additionalUnit) {
+            if (!isset($additionalUnitsFormatted[$additionalUnit['slot_id']])) {
+                $additionalUnitsFormatted[$additionalUnit['slot_id']] = array();
             }
-            array_push($additional_units_formatted[$additional_unit['slot_id']], $additional_unit);
+            array_push($additionalUnitsFormatted[$additionalUnit['slot_id']], $additionalUnit);
         }
-        foreach($slots as $s) {
+        foreach ($slots as $s) {
             $slot = new Slot();
-            $slot->set_array($s);
-            if (isset($ability_upgrade_formatted[$slot->get('id')])) {
-                $slot->set_abilities_upgrade($ability_upgrade_formatted[$slot->get('id')]);
+            $slot->setArray($s);
+            if (isset($abilityUpgradeFormatted[$slot->get('id')])) {
+                $slot->setAbilitiesUpgrade($abilityUpgradeFormatted[$slot->get('id')]);
             }
-            if (isset($additional_units_formatted[$slot->get('id')])) {
-                $slot->set_additional_unit_items($additional_units_formatted[$slot->get('id')]);
+            if (isset($additionalUnitsFormatted[$slot->get('id')])) {
+                $slot->setAdditionalUnitItems($additionalUnitsFormatted[$slot->get('id')]);
             }
-            $match->add_slot($slot);
+            $match->addSlot($slot);
         }
         if ($match->get('game_mode') == match::CAPTAINS_MODE) {
-            $query_for_picks_bans = 'SELECT `is_pick`, `hero_id`, `team`, `order` FROM '.Db::real_tablename('picks_bans').' WHERE match_id = ? ORDER BY `order`';
-            $picks_bans = $db->fetch_array_pdo($query_for_picks_bans, array($match->get('match_id')));
-            $match->set_all_pick_bans($picks_bans);
+            $queryForPicksBans = 'SELECT `is_pick`, `hero_id`, `team`, `order` FROM ' . Db::realTablename('picks_bans') . ' WHERE match_id = ? ORDER BY `order`';
+            $picks_bans = $db->fetchArrayPDO($queryForPicksBans, array($match->get('match_id')));
+            $match->setAllPickBans($picks_bans);
         }
         return $match;
     }
 
     /**
      * @param match $match
-     * @param bool $auto_update if true - update match info if match exists in the DB
+     * @param bool $autoUpdate if true - update match info if match exists in the DB
      */
-    public function save(match $match, $auto_update = true) {
-        if (self::match_exists($match->get('match_id'))) {
-            if ($auto_update) {
+    public function save(Match $match, $autoUpdate = true)
+    {
+        if (self::matchExists($match->get('match_id'))) {
+            if ($autoUpdate) {
                 $this->update($match);
             }
-        }
-        else {
+        } else {
             $this->insert($match);
         }
     }
@@ -116,131 +121,140 @@ class MatchMapperDb extends MatchMapper {
     /**
      * @param $match
      */
-    public function insert(match $match) {
+    public function insert(Match $match)
+    {
         $db = Db::obtain();
-        $slots = $match->get_all_slots();
+        $slots = $match->getAllSlots();
         if ($match->get('radiant_team_id')) {
-            $db->insert_pdo(Db::real_tablename('teams'), array(
+            $db->insertPDO(Db::realTablename('teams'), array(
                 'id' => $match->get('radiant_team_id'),
                 'name' => $match->get('radiant_name')
             ));
         }
 
         if ($match->get('dire_team_id')) {
-            $db->insert_pdo(Db::real_tablename('teams'), array(
+            $db->insertPDO(Db::realTablename('teams'), array(
                 'id' => $match->get('dire_team_id'),
                 'name' => $match->get('dire_name')
             ));
         }
 
         // save common match info
-        $db->insert_pdo(Db::real_tablename('matches'), $match->get_data_array());
+        $db->insertPDO(Db::realTablename('matches'), $match->getDataArray());
         $users_data = array();
         // save accounts
-        foreach($slots as $slot) {
+        foreach ($slots as $slot) {
             if ($slot->get('account_id') != Player::ANONYMOUS) {
-                $db->insert_pdo(Db::real_tablename('users'), array(
+                $db->insertPDO(Db::realTablename('users'), array(
                     'account_id' => $slot->get('account_id'),
-                    'steamid' => Player::convert_id($slot->get('account_id'))
+                    'steamid' => Player::convertId($slot->get('account_id'))
                 ));
             }
         }
         // save slots
-        foreach($slots as $slot) {
-            $slot_id = $db->insert_pdo(Db::real_tablename('slots'), $slot->get_data_array());
+        foreach ($slots as $slot) {
+            $slotId = $db->insertPDO(Db::realTablename('slots'), $slot->getDataArray());
             // save abilities upgrade
-            $a_u = $slot->get_abilities_upgrade();
-            if (count($a_u) > 0) {
+            $aU = $slot->getAbilitiesUpgrade();
+            if (count($aU) > 0) {
                 $keys = array();
                 $data = array();
-                foreach($a_u as $ability) {
+                foreach ($aU as $ability) {
                     $keys = array_keys($ability); // yes, it will be reassigned many times
                     $data1 = array_values($ability);
-                    array_unshift($data1, $slot_id);
+                    array_unshift($data1, $slotId);
                     array_push($data, $data1);
                 }
-                reset($a_u);
+                reset($aU);
                 array_unshift($keys, 'slot_id');
-                $db->insert_many_pdo(Db::real_tablename('ability_upgrades'), $keys, $data);
+                $db->insertManyPDO(Db::realTablename('ability_upgrades'), $keys, $data);
             }
-            $additional_unit = $slot->get_additional_unit_items();
-            if (count($additional_unit) > 0) {
-                $additional_unit['slot_id'] = $slot_id;
-                $db->insert_pdo(Db::real_tablename('additional_units'), $additional_unit);
+            $additionalUnit = $slot->getAdditionalUnitItems();
+            if (count($additionalUnit) > 0) {
+                $additionalUnit['slot_id'] = $slotId;
+                $db->insertPDO(Db::realTablename('additional_units'), $additionalUnit);
             }
         }
         if ($match->get('game_mode') == match::CAPTAINS_MODE) {
-            $picks_bans = $match->get_all_picks_bans();
+            $picksBans = $match->getAllPicksBans();
             $data = array();
-            foreach($picks_bans as $pick_ban) {
+            foreach ($picksBans as $pickBan) {
                 $data1 = array();
                 array_push($data1, $match->get('match_id'));
-                array_push($data1, $pick_ban['is_pick']);
-                array_push($data1, $pick_ban['hero_id']);
-                array_push($data1, $pick_ban['team']);
-                array_push($data1, $pick_ban['order']);
+                array_push($data1, $pickBan['is_pick']);
+                array_push($data1, $pickBan['hero_id']);
+                array_push($data1, $pickBan['team']);
+                array_push($data1, $pickBan['order']);
                 array_push($data, $data1);
             }
-            $db->insert_many_pdo(Db::real_tablename('picks_bans'), array('match_id','is_pick','hero_id','team','order'), $data);
+            $db->insertManyPDO(Db::realTablename('picks_bans'),
+                array('match_id', 'is_pick', 'hero_id', 'team', 'order'), $data);
         }
     }
 
     /**
-     * @param match $match
+     * @param Match $match
      * @param bool $lazy if false - update all data, if true - only possible updated data
      */
-    public function update($match, $lazy = true) {
+    public function update(Match $match, $lazy = true)
+    {
         $db = Db::obtain();
-        $slots = $match->get_all_slots();
+        $slots = $match->getAllSlots();
         // update common match info
-        $db->update_pdo(Db::real_tablename('matches'), $match->get_data_array(), array('match_id' => $match->get('match_id')));
-        foreach($slots as $slot) {
+        $db->updatePDO(Db::realTablename('matches'), $match->getDataArray(),
+            array('match_id' => $match->get('match_id')));
+        foreach ($slots as $slot) {
             // update accounts
-            $db->update_pdo(Db::real_tablename('users'), array(
+            $db->updatePDO(Db::realTablename('users'), array(
                 'account_id' => $slot->get('account_id'),
-                'steamid' => Player::convert_id($slot->get('account_id'))
+                'steamid' => Player::convertId($slot->get('account_id'))
             ), array('account_id' => $slot->get('account_id')));
             // update slots
             if (!$lazy) {
-                $db->update_pdo(Db::real_tablename('slots'), $slot->get_data_array(), array('match_id' => $slot->get('match_id'), 'player_slot' => $slot->get('player_slot')));
+                $db->updatePDO(Db::realTablename('slots'), $slot->getDataArray(),
+                    array('match_id' => $slot->get('match_id'), 'player_slot' => $slot->get('player_slot')));
             }
         }
     }
 
     /**
-     * @param int $match_id
+     * @param int $matchId
      */
-    public function delete($match_id) {
-        $match_id = intval($match_id);
-        if (!self::match_exists($match_id)) {
+    public function delete($matchId)
+    {
+        $matchId = intval($matchId);
+        if (!self::matchExists($matchId)) {
             return;
         }
         $db = Db::obtain();
-        $slots = $db->fetch_array_pdo('SELECT id FROM '.Db::real_tablename('slots').' WHERE match_id = ?', array($match_id));
-        $slots_formatted = array();
-        foreach($slots as $slot) {
-            array_push($slots_formatted, $slot['id']);
+        $slots = $db->fetchArrayPDO('SELECT id FROM ' . Db::realTablename('slots') . ' WHERE match_id = ?',
+            array($matchId));
+        $slotsFormatted = array();
+        foreach ($slots as $slot) {
+            array_push($slotsFormatted, $slot['id']);
         }
-        if (count($slots_formatted)) {
-            $slots_str = implode(',', $slots_formatted);
-            $db->exec('DELETE FROM '.Db::real_tablename('ability_upgrades').' WHERE slot_id IN ('.$slots_str.')');
-            $db->exec('DELETE FROM '.Db::real_tablename('additional_units').' WHERE slot_id IN ('.$slots_str.')');
-            $db->exec('DELETE FROM '.Db::real_tablename('slots').' WHERE id IN ('.$slots_str.')');
+        if (count($slotsFormatted)) {
+            $slots_str = implode(',', $slotsFormatted);
+            $db->exec('DELETE FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . $slots_str . ')');
+            $db->exec('DELETE FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN (' . $slots_str . ')');
+            $db->exec('DELETE FROM ' . Db::realTablename('slots') . ' WHERE id IN (' . $slots_str . ')');
         }
-        $db->delete_pdo(Db::real_tablename('picks_bans'), array('match_id' => $match_id), 0);
-        $db->delete_pdo(Db::real_tablename('matches'), array('match_id' => $match_id));
+        $db->deletePDO(Db::realTablename('picks_bans'), array('match_id' => $matchId), 0);
+        $db->deletePDO(Db::realTablename('matches'), array('match_id' => $matchId));
     }
 
     /**
      * Delete match data from db
      *
-     * @param int $match_id
+     * @param int $matchId
      * @return bool
      */
-    public static function match_exists($match_id) {
-        $match_id = intval($match_id);
+    public static function matchExists($matchId)
+    {
+        $matchId = intval($matchId);
         $db = Db::obtain();
-        $r = $db->query_first_pdo('SELECT match_id FROM '.Db::real_tablename('matches').' WHERE match_id = ?', array($match_id));
+        $r = $db->queryFirstPDO('SELECT match_id FROM ' . Db::realTablename('matches') . ' WHERE match_id = ?',
+            array($matchId));
         return ((bool)$r);
     }
 }

@@ -9,7 +9,8 @@ namespace Dota2Api\Data;
  * @author kronus
  * @package data
  */
-abstract class Data {
+abstract class Data
+{
     /**
      * Folder with json files
      */
@@ -43,7 +44,8 @@ abstract class Data {
      * @param string $field
      * @return data
      */
-    public function set_field($field) {
+    public function setField($field)
+    {
         $this->_field = (string)$field;
         return $this;
     }
@@ -51,7 +53,8 @@ abstract class Data {
     /**
      * @return string
      */
-    public function get_field() {
+    public function getField()
+    {
         return $this->_field;
     }
 
@@ -59,7 +62,8 @@ abstract class Data {
      * @param array $data
      * @return data
      */
-    public function set_data(array $data) {
+    public function setData(array $data)
+    {
         $this->_data = $data;
         return $this;
     }
@@ -67,7 +71,8 @@ abstract class Data {
     /**
      * @return array
      */
-    public function get_data() {
+    public function getData()
+    {
         return $this->_data;
     }
 
@@ -75,7 +80,8 @@ abstract class Data {
      * @param string $filename
      * @return data
      */
-    public function set_filename($filename) {
+    public function setFilename($filename)
+    {
         $this->_filename = (string)$filename;
         return $this;
     }
@@ -83,22 +89,24 @@ abstract class Data {
     /**
      * @return string
      */
-    public function get_filename() {
+    public function getFilename()
+    {
         return $this->_filename;
     }
 
     /**
      * Parse JSON file
      */
-    public function parse() {
-        $fullpath = dirname(__FILE__).'/../../'.self::path.'/'.$this->_filename;
+    public function parse()
+    {
+        $fullpath = dirname(__FILE__) . '/../../' . self::path . '/' . $this->_filename;
         if (file_exists($fullpath)) {
             $content = file_get_contents($fullpath);
             $data = json_decode($content);
             $return = array();
-            $field = $this->get_field();
+            $field = $this->getField();
             if ($field && $data->$field) {
-                foreach($data->$field as $obj) {
+                foreach ($data->$field as $obj) {
                     $obj_array = (array)$obj;
                     $return[$obj_array['id']] = $obj_array;
                 }
@@ -113,7 +121,8 @@ abstract class Data {
      * @param int $id
      * @return array|null
      */
-    public function get_data_by_id($id) {
+    public function getDataById($id)
+    {
         $id = intval($id);
         if (isset($this->_data[$id])) {
             return $this->_data[$id];
@@ -127,8 +136,9 @@ abstract class Data {
      * @param string $field_name
      * @return mixed|null
      */
-    public function get_field_by_id($id, $field_name) {
-        $data = $this->get_data_by_id($id);
+    public function getFieldById($id, $field_name)
+    {
+        $data = $this->getDataById($id);
         if (!is_null($data)) {
             $field_name = (string)$field_name;
             if (isset($data[$field_name])) {

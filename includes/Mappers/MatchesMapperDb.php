@@ -14,36 +14,41 @@ use Dota2Api\Models\Slot;
  * @example
  * <code>
  *   $matches_mapper_db = new matches_mapper_db();
- *   $matches_mapper_db->set_league_id(29)->set_matches_requested(1);
+ *   $matches_mapper_db->setLeagueId(29)->setMatchesRequested(1);
  *   $matches_info = $matches_mapper_db->load();
  *   $matches_mapper_db->delete(array(12345, 54321));
  *   print_r($matches_info);
  * </code>
  */
-class MatchesMapperDb extends MatchesMapper {
+class MatchesMapperDb extends MatchesMapper
+{
 
     private $_team_id;
 
     /**
-     * @param int $team_id
+     * @param int $teamId
      * @return MatchesMapperDb
      */
-    public function set_team_id($team_id) {
-        $this->_team_id = (int)$team_id;
+    public function setTeamId($teamId)
+    {
+        $this->_team_id = (int)$teamId;
         return $this;
     }
 
     /**
      * @return int | null
      */
-    public function get_team_id() {
+    public function getTeamId()
+    {
         return $this->_team_id;
     }
 
     /**
      *
      */
-    public function __construct(){}
+    public function __construct()
+    {
+    }
 
     /**
      * Load matches from db
@@ -52,52 +57,53 @@ class MatchesMapperDb extends MatchesMapper {
      * Also matches_requested used as LIMIT
      * @return Match[]
      */
-    public function load() {
-        $matches_info = $this->_get_matches_ids_from_matches();
-        $matches_ids = array();
-        foreach($matches_info as $match_info) {
-            array_push($matches_ids, $match_info['match_id']);
+    public function load()
+    {
+        $matchesInfo = $this->_getMatchesIdsFromMatches();
+        $matchesIds = array();
+        foreach ($matchesInfo as $matchInfo) {
+            array_push($matchesIds, $matchInfo['match_id']);
         }
-        if (count($matches_ids) == 0) {
+        if (count($matchesIds) == 0) {
             return array();
         }
-        $slots_info = $this->_load_slots_info($matches_ids);
-        $picks_bans_formatted_info = $this->_load_picks_bans_info($matches_ids);
+        $slotsInfo = $this->_loadSlotsInfo($matchesIds);
+        $picksBansFormattedInfo = $this->_loadPicksBansInfo($matchesIds);
 
-        $slots_ids = array();
-        foreach($slots_info as $slot_info) {
-            array_push($slots_ids, $slot_info['id']);
+        $slotsIds = array();
+        foreach ($slotsInfo as $slotInfo) {
+            array_push($slotsIds, $slotInfo['id']);
         }
 
-        $abilities_upgrade_formatted_info = $this->_load_ability_upgrades_info($slots_ids);
-        $additional_units_formatted_info = $this->_load_additional_units_info($slots_ids);
+        $abilitiesUpgradeFormattedInfo = $this->_loadAbilityUpgradesInfo($slotsIds);
+        $additionalUnitsFormattedInfo = $this->_loadAdditionalUnitsInfo($slotsIds);
 
         // we load all matches info and now need to make proper match objects
         $matches = array();
-        foreach($matches_info as $match_info) {
+        foreach ($matchesInfo as $matchInfo) {
             $match = new Match();
-            $match->set_array($match_info);
+            $match->setArray($matchInfo);
             $slots_count = 0;
-            foreach($slots_info as $slot_info) {
+            foreach ($slotsInfo as $slotInfo) {
                 if ($slots_count > 9) {
                     // match can't has more than 10 slots
                     break;
                 }
-                if ($slot_info['match_id'] == $match->get('match_id')) {
+                if ($slotInfo['match_id'] == $match->get('match_id')) {
                     $slot = new slot();
-                    $slot->set_array($slot_info);
-                    if(isset($abilities_upgrade_formatted_info[$slot->get('id')])) {
-                        $slot->set_abilities_upgrade($abilities_upgrade_formatted_info[$slot->get('id')]);
+                    $slot->setArray($slotInfo);
+                    if (isset($abilitiesUpgradeFormattedInfo[$slot->get('id')])) {
+                        $slot->setAbilitiesUpgrade($abilitiesUpgradeFormattedInfo[$slot->get('id')]);
                     }
-                    if(isset($additional_units_formatted_info[$slot->get('id')])) {
-                        $slot->set_additional_unit_items($additional_units_formatted_info[$slot->get('id')]);
+                    if (isset($additionalUnitsFormattedInfo[$slot->get('id')])) {
+                        $slot->setAdditionalUnitItems($additionalUnitsFormattedInfo[$slot->get('id')]);
                     }
-                    $match->add_slot($slot);
+                    $match->addSlot($slot);
                     $slots_count++;
                 }
             }
-            if (isset($picks_bans_formatted_info[$match->get('match_id')])) {
-                $match->set_all_pick_bans($picks_bans_formatted_info[$match->get('match_id')]);
+            if (isset($picksBansFormattedInfo[$match->get('match_id')])) {
+                $match->setAllPickBans($picksBansFormattedInfo[$match->get('match_id')]);
             }
             $matches[$match->get('match_id')] = $match;
         }
@@ -108,38 +114,42 @@ class MatchesMapperDb extends MatchesMapper {
      * Delete matches info from db
      * @param array $ids
      */
-    public function delete(array $ids) {
+    public function delete(array $ids)
+    {
         if (!count($ids)) {
             return;
         }
         $ids_str = implode(',', $ids);
         $db = Db::obtain();
-        $slots = $db->fetch_array_pdo('SELECT id FROM '.Db::real_tablename('slots').' WHERE match_id IN ('.$ids_str.')', array());
-        $slots_formatted = array();
-        foreach($slots as $slot) {
-            array_push($slots_formatted, $slot['id']);
+        $slots = $db->fetchArrayPDO('SELECT id FROM ' . Db::realTablename('slots') . ' WHERE match_id IN (' . $ids_str . ')',
+            array());
+        $slotsFormatted = array();
+        foreach ($slots as $slot) {
+            array_push($slotsFormatted, $slot['id']);
         }
-        if (count($slots_formatted)) {
-            $slots_str = implode(',', $slots_formatted);
-            $db->exec('DELETE FROM '.Db::real_tablename('ability_upgrades').' WHERE slot_id IN ('.$slots_str.')');
-            $db->exec('DELETE FROM '.Db::real_tablename('additional_units').' WHERE slot_id IN ('.$slots_str.')');
-            $db->exec('DELETE FROM '.Db::real_tablename('slots').' WHERE id IN ('.$slots_str.')');
+        if (count($slotsFormatted)) {
+            $slots_str = implode(',', $slotsFormatted);
+            $db->exec('DELETE FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . $slots_str . ')');
+            $db->exec('DELETE FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN (' . $slots_str . ')');
+            $db->exec('DELETE FROM ' . Db::realTablename('slots') . ' WHERE id IN (' . $slots_str . ')');
         }
-        $db->exec('DELETE FROM '.Db::real_tablename('picks_bans').' WHERE match_id IN ('.$ids_str.')');
-        $db->exec('DELETE FROM '.Db::real_tablename('matches').' WHERE match_id IN ('.$ids_str.')');
+        $db->exec('DELETE FROM ' . Db::realTablename('picks_bans') . ' WHERE match_id IN (' . $ids_str . ')');
+        $db->exec('DELETE FROM ' . Db::realTablename('matches') . ' WHERE match_id IN (' . $ids_str . ')');
     }
 
     /**
      * Load data about slots from "slots" table.
      * Array of the matches ids used as filter
      *
-     * @param array $matches_ids
+     * @param array $matchesIds
      * @return array
      */
-    private function _load_slots_info(array $matches_ids) {
+    private function _loadSlotsInfo(array $matchesIds)
+    {
         $db = Db::obtain();
-        $slots_query = 'SELECT * FROM '.Db::real_tablename('slots').' WHERE match_id IN ('.implode(',', $matches_ids).')';
-        return $db->fetch_array_pdo($slots_query, array());
+        $slots_query = 'SELECT * FROM ' . Db::realTablename('slots') . ' WHERE match_id IN (' . implode(',',
+                $matchesIds) . ')';
+        return $db->fetchArrayPDO($slots_query, array());
     }
 
     /**
@@ -162,22 +172,24 @@ class MatchesMapperDb extends MatchesMapper {
      *      ...
      *  )
      * </code>
-     * @param array $matches_ids
+     * @param array $matchesIds
      * @return array
      */
-    private function _load_picks_bans_info(array $matches_ids) {
+    private function _loadPicksBansInfo(array $matchesIds)
+    {
         $db = Db::obtain();
-        $picks_bans_query = 'SELECT * FROM '.Db::real_tablename('picks_bans').' WHERE match_id IN ('.implode(',', $matches_ids).')';
-        $picks_bans_info = $db->fetch_array_pdo($picks_bans_query, array());
+        $picksBansQuery = 'SELECT * FROM ' . Db::realTablename('picks_bans') . ' WHERE match_id IN (' . implode(',',
+                $matchesIds) . ')';
+        $picksBansInfo = $db->fetchArrayPDO($picksBansQuery, array());
         // reformat picks_bans array
-        $picks_bans_formatted_info = array();
-        foreach($picks_bans_info as $pick_ban_info) {
-            if (!isset($picks_bans_formatted_info[$pick_ban_info['match_id']])) {
-                $picks_bans_formatted_info[$pick_ban_info['match_id']] = array();
+        $picksBansFormattedInfo = array();
+        foreach ($picksBansInfo as $pickBanInfo) {
+            if (!isset($picksBansFormattedInfo[$pickBanInfo['match_id']])) {
+                $picksBansFormattedInfo[$pickBanInfo['match_id']] = array();
             }
-            array_push($picks_bans_formatted_info[$pick_ban_info['match_id']], $pick_ban_info);
+            array_push($picksBansFormattedInfo[$pickBanInfo['match_id']], $pickBanInfo);
         }
-        return $picks_bans_formatted_info;
+        return $picksBansFormattedInfo;
     }
 
     /**
@@ -198,23 +210,25 @@ class MatchesMapperDb extends MatchesMapper {
      *      ...
      * )
      * </code>
-     * @param array $slots_ids
+     * @param array $slotsIds
      * @return array
      */
-    private function _load_ability_upgrades_info(array $slots_ids) {
+    private function _loadAbilityUpgradesInfo(array $slotsIds)
+    {
         $db = Db::obtain();
-        $abilities_upgrade_query = 'SELECT * FROM '.Db::real_tablename('ability_upgrades').' WHERE slot_id IN ('.implode(',', $slots_ids).') ORDER BY slot_id, level ASC';
-        $abilities_upgrade_info = $db->fetch_array_pdo($abilities_upgrade_query, array());
+        $abilitiesUpgradeQuery = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . implode(',',
+                $slotsIds) . ') ORDER BY slot_id, level ASC';
+        $abilitiesUpgradeInfo = $db->fetchArrayPDO($abilitiesUpgradeQuery, array());
 
         // reformat abilities upgrades array
-        $abilities_upgrade_formatted_info = array();
-        foreach($abilities_upgrade_info as $ability_upgrade_info) {
-            if (!isset($abilities_upgrade_formatted_info[$ability_upgrade_info['slot_id']])) {
-                $abilities_upgrade_formatted_info[$ability_upgrade_info['slot_id']] = array();
+        $abilitiesUpgradeFormattedInfo = array();
+        foreach ($abilitiesUpgradeInfo as $abilityUpgradeInfo) {
+            if (!isset($abilitiesUpgradeFormattedInfo[$abilityUpgradeInfo['slot_id']])) {
+                $abilitiesUpgradeFormattedInfo[$abilityUpgradeInfo['slot_id']] = array();
             }
-            array_push($abilities_upgrade_formatted_info[$ability_upgrade_info['slot_id']], $ability_upgrade_info);
+            array_push($abilitiesUpgradeFormattedInfo[$abilityUpgradeInfo['slot_id']], $abilityUpgradeInfo);
         }
-        return $abilities_upgrade_formatted_info;
+        return $abilitiesUpgradeFormattedInfo;
     }
 
     /**
@@ -236,21 +250,23 @@ class MatchesMapperDb extends MatchesMapper {
      *      ...
      * )
      * </code>
-     * @param array $slots_ids
+     * @param array $slotsIds
      * @return array
      */
-    private function _load_additional_units_info(array $slots_ids) {
+    private function _loadAdditionalUnitsInfo(array $slotsIds)
+    {
         $db = Db::obtain();
-        $additional_units_query = 'SELECT * FROM '.Db::real_tablename('additional_units').' WHERE slot_id IN ('.implode(',', $slots_ids).')';
-        $additional_units_info = $db->fetch_array_pdo($additional_units_query, array());
-        $additional_units_formatted_info = array();
-        foreach($additional_units_info as $additional_unit_info) {
-            if (!isset($additional_units_formatted_info[$additional_unit_info['slot_id']])) {
-                $additional_units_formatted_info[$additional_unit_info['slot_id']] = array();
+        $additionalUnitsQuery = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN (' . implode(',',
+                $slotsIds) . ')';
+        $additionalUnitsInfo = $db->fetchArrayPDO($additionalUnitsQuery, array());
+        $additionalUnitsFormattedInfo = array();
+        foreach ($additionalUnitsInfo as $additionalUnitInfo) {
+            if (!isset($additionalUnitsFormattedInfo[$additionalUnitInfo['slot_id']])) {
+                $additionalUnitsFormattedInfo[$additionalUnitInfo['slot_id']] = array();
             }
-            $additional_units_formatted_info[$additional_unit_info['slot_id']] = $additional_unit_info;
+            $additionalUnitsFormattedInfo[$additionalUnitInfo['slot_id']] = $additionalUnitInfo;
         }
-        return $additional_units_formatted_info;
+        return $additionalUnitsFormattedInfo;
     }
 
     /**
@@ -258,78 +274,80 @@ class MatchesMapperDb extends MatchesMapper {
      * Use matches ids from slots table as additional filter
      * @return array
      */
-    private function _get_matches_ids_from_matches() {
-        $_matches_ids_from_slots = $this->_get_matches_ids_from_slots();
+    private function _getMatchesIdsFromMatches()
+    {
+        $_matchesIdsFromSlots = $this->_getMatchesIdsFromSlots();
         $db = Db::obtain();
         // basic matches data
-        $matches_query = 'SELECT * FROM '.Db::real_tablename('matches').'';
+        $matchesQuery = 'SELECT * FROM ' . Db::realTablename('matches') . '';
         $where = '';
         $data = array();
 
-        if (!is_null($this->get_league_id())) {
+        if (!is_null($this->getLeagueId())) {
             $where .= 'leagueid = ? AND ';
-            array_push($data, $this->get_league_id());
+            array_push($data, $this->getLeagueId());
         }
 
-        if (!is_null($this->get_team_id())) {
+        if (!is_null($this->getTeamId())) {
             $where .= '(radiant_team_id = ? OR dire_team_id = ?) AND ';
-            array_push($data, $this->get_team_id());
-            array_push($data, $this->get_team_id());
+            array_push($data, $this->getTeamId());
+            array_push($data, $this->getTeamId());
         }
 
-        if (count($_matches_ids_from_slots)) {
-            $where .= 'match_id IN ('.implode(',', $_matches_ids_from_slots).') AND ';
+        if (count($_matchesIdsFromSlots)) {
+            $where .= 'match_id IN (' . implode(',', $_matchesIdsFromSlots) . ') AND ';
         }
 
-        if (!is_null($this->get_start_at_match_id())) {
+        if (!is_null($this->getStartAtMatchId())) {
             $where .= 'match_id > ? AND ';
-            array_push($data, $this->get_start_at_match_id());
+            array_push($data, $this->getStartAtMatchId());
         }
 
         if (trim($where) !== '') {
-            $matches_query .= ' WHERE '.substr($where, 0, strlen($where) - 4);
-        }
-        
-        $matches_query .= ' ORDER BY start_time DESC';
-        
-        if (!is_null($this->get_matches_requested())) {
-            $matches_query .= ' LIMIT ?';
-            array_push($data, $this->get_matches_requested());
+            $matchesQuery .= ' WHERE ' . substr($where, 0, strlen($where) - 4);
         }
 
-        $matches_info = $db->fetch_array_pdo($matches_query, $data);
+        $matchesQuery .= ' ORDER BY start_time DESC';
+
+        if (!is_null($this->getMatchesRequested())) {
+            $matchesQuery .= ' LIMIT ?';
+            array_push($data, $this->getMatchesRequested());
+        }
+
+        $matchesInfo = $db->fetchArrayPDO($matchesQuery, $data);
         // no one match found
-        if (count($matches_info) === 0) {
+        if (count($matchesInfo) === 0) {
             return array();
         }
-        return $matches_info;
+        return $matchesInfo;
     }
 
     /**
      * Get matches ids with provided heroid or account_id (query for "slots" table)
      * @return array
      */
-    private function _get_matches_ids_from_slots() {
+    private function _getMatchesIdsFromSlots()
+    {
         $db = Db::obtain();
-        $for_slots = 'SELECT match_id '.Db::real_tablename('FROM slots').'';
-        $where_for_slots = '';
-        $data_for_slots = array();
+        $forSlots = 'SELECT match_id ' . Db::realTablename('FROM slots') . '';
+        $whereForSlots = '';
+        $dataForSlots = array();
 
-        if (!is_null($this->get_hero_id())) {
-            $where_for_slots .= 'heroid = ? AND ';
-            array_push($data_for_slots, $this->get_hero_id());
+        if (!is_null($this->getHeroId())) {
+            $whereForSlots .= 'heroid = ? AND ';
+            array_push($dataForSlots, $this->getHeroId());
         }
-        if (!is_null($this->get_account_id())) {
-            $where_for_slots .= 'account_id = ? AND ';
-            array_push($data_for_slots, $this->get_account_id());
+        if (!is_null($this->getAccountId())) {
+            $whereForSlots .= 'account_id = ? AND ';
+            array_push($dataForSlots, $this->getAccountId());
         }
 
-        if (trim($where_for_slots) !== '') {
-            $for_slots .= ' WHERE '.substr($where_for_slots, 0, strlen($where_for_slots) - 4);
+        if (trim($whereForSlots) !== '') {
+            $forSlots .= ' WHERE ' . substr($whereForSlots, 0, strlen($whereForSlots) - 4);
         }
-        $matches_ids = $db->fetch_array_pdo($for_slots, $data_for_slots);
+        $matchesIds = $db->fetchArrayPDO($forSlots, $dataForSlots);
         $ret = array();
-        foreach($matches_ids as $val) {
+        foreach ($matchesIds as $val) {
             array_push($ret, $val['match_id']);
         }
         return $ret;

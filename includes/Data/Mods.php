@@ -12,11 +12,13 @@ namespace Dota2Api\Data;
  * <code>
  *   $mods = new mods();
  *   $mods->parse();
- *   $mods->get_field_by_id(1, 'name'); // returns 'All Pick'
+ *   $mods->getFieldById(1, 'name'); // returns 'All Pick'
  * </code>
  */
-class Mods extends Data {
-    public function __construct() {
+class Mods extends Data
+{
+    public function __construct()
+    {
         $this->_filename = 'mods.json';
         $this->_field = 'mods';
     }

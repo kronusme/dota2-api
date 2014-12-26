@@ -11,7 +11,7 @@ use Dota2Api\Models\Player;
  * @example
  * <code>
  *  $PlayersMapperWeb = new PlayersMapperWeb();
- *  $players_info = $PlayersMapperWeb->add_id('76561198067833250')->add_id('76561198058587506')->load();
+ *  $players_info = $PlayersMapperWeb->addId('76561198067833250')->addId('76561198058587506')->load();
  *  foreach($players_info as $player_info) {
  *    echo $player_info->get('realname');
  *    echo '<img src="'.$player_info->get('avatarfull').'" alt="'.$player_info->get('personaname').'" />';
@@ -20,11 +20,12 @@ use Dota2Api\Models\Player;
  *  print_r($players_info);
  * </code>
  */
-class PlayersMapperWeb {
+class PlayersMapperWeb
+{
     /**
      *
      */
-    const player_steam_url = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/';
+    const PLAYER_STEAM_URL = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/';
     /**
      * @var array
      */
@@ -34,7 +35,8 @@ class PlayersMapperWeb {
      * @param $id
      * @return PlayersMapperWeb
      */
-    public function add_id($id) {
+    public function addId($id)
+    {
         $id = (string)$id;
         if (!in_array($id, $this->_ids)) {
             array_push($this->_ids, $id);
@@ -46,9 +48,10 @@ class PlayersMapperWeb {
      * @param $id
      * @return PlayersMapperWeb
      */
-    public function remove_id($id) {
+    public function removeId($id)
+    {
         $id = (string)$id;
-        foreach($this->_ids as $k => $v) {
+        foreach ($this->_ids as $k => $v) {
             if ($v == $id) {
                 unset($this->_ids[$k]);
             }
@@ -59,7 +62,8 @@ class PlayersMapperWeb {
     /**
      * @return PlayersMapperWeb
      */
-    public function remove_ids() {
+    public function removeIds()
+    {
         $this->_ids = array();
         return $this;
     }
@@ -67,37 +71,41 @@ class PlayersMapperWeb {
     /**
      * @return array
      */
-    public function get_ids() {
+    public function getIds()
+    {
         return $this->_ids;
     }
 
     /**
      * @return string
      */
-    public function get_ids_string() {
-        return implode(',', $this->get_ids());
+    public function getIdsString()
+    {
+        return implode(',', $this->getIds());
     }
 
     /**
      *
      */
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 
     /**
      * @return Player[]
      */
-    public function load() {
-        $request = new Request(self::player_steam_url, array('steamids' => $this->get_ids_string()));
-        $players_info = $request->send();
-        if (is_null($players_info)) {
+    public function load()
+    {
+        $request = new Request(self::PLAYER_STEAM_URL, array('steamids' => $this->getIdsString()));
+        $playersInfo = $request->send();
+        if (is_null($playersInfo)) {
             return null;
         }
         $players = array();
-        foreach($players_info->players[0] as $player_info) {
+        foreach ($playersInfo->players[0] as $playerInfo) {
             $player = new Player();
-            $player->set_array((array)$player_info);
+            $player->setArray((array)$playerInfo);
             $players[$player->get('steamid')] = $player;
         }
         return $players;
