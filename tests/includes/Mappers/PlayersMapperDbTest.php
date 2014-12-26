@@ -16,15 +16,15 @@ class PlayersMapperDbTest extends PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $leagues_mapper_web = new LeaguesMapperWeb();
-        $leagues = $leagues_mapper_web->load();
-        $leagues_mapper_db = new LeaguesMapperDb();
-        $leagues_mapper_db->save($leagues[600]);
+        $leaguesMapperWeb = new LeaguesMapperWeb();
+        $leagues = $leaguesMapperWeb->load();
+        $leaguesMapperDb = new LeaguesMapperDb();
+        $leaguesMapperDb->save($leagues[600]);
 
-        $match_mapper_web = new MatchMapperWeb(683300315);
-        $match = $match_mapper_web->load();
-        $match_mapper_db = new MatchMapperDb();
-        $match_mapper_db->save($match);
+        $matchMapperWeb = new MatchMapperWeb(683300315);
+        $match = $matchMapperWeb->load();
+        $matchMapperDb = new MatchMapperDb();
+        $matchMapperDb->save($match);
     }
 
     public static function tearDownBeforeClass()
@@ -43,28 +43,28 @@ class PlayersMapperDbTest extends PHPUnit_Framework_TestCase
         $this->mapper = new PlayersMapperDb();
     }
 
-    public function testAdd_id()
+    public function testAddId()
     {
         $this->assertEquals(array(), $this->mapper->getIds());
         $this->mapper->addId(1);
         $this->assertEquals(array(1), $this->mapper->getIds());
     }
 
-    public function testRemove_id()
+    public function testRemoveId()
     {
         $this->mapper->addId(1)->addId(2);
         $this->mapper->removeId(2);
         $this->assertEquals(array(1), $this->mapper->getIds());
     }
 
-    public function testRemove_ids()
+    public function testRemoveIds()
     {
         $this->mapper->addId(1);
         $this->mapper->removeIds();
         $this->assertEquals(array(), $this->mapper->getIds());
     }
 
-    public function testGet_ids_string()
+    public function testGetIdsString()
     {
         $this->mapper->addId(1)->addId(2);
         $this->assertEquals('1,2', $this->mapper->getIdsString());

@@ -7,22 +7,22 @@ class match_mapper_webTest extends PHPUnit_Framework_TestCase
 {
     public function testLoad()
     {
-        $match_id = '683300315';
-        $expected_match_info = array(
+        $matchId = '683300315';
+        $expectedMatchInfo = array(
             'game_mode' => '2',
             'radiant_win' => '1',
             'first_blood_time' => '7',
             'leagueid' => '600',
             'duration' => '1662',
         );
-        $mapper = new MatchMapperWeb($match_id);
+        $mapper = new MatchMapperWeb($matchId);
         $match = $mapper->load();
         $this->assertInstanceOf('Dota2Api\Models\Match', $match);
-        foreach ($expected_match_info as $k => $v) {
+        foreach ($expectedMatchInfo as $k => $v) {
             $this->assertEquals($match->get($k), $v);
         }
 
-        $expected_slots_info = array(
+        $expectedSlotsInfo = array(
             0 => array(
                 'ability_upgrades' => 13,
                 'level' => 13,
@@ -65,16 +65,16 @@ class match_mapper_webTest extends PHPUnit_Framework_TestCase
             )
         );
         $slots = $match->getAllSlots();
-        foreach ($expected_slots_info as $slot_id => $slot) {
-            $this->assertTrue($slots[$slot_id]->get('account_id') !== Player::ANONYMOUS);
-            $this->assertEquals($slot['level'], (int)$slots[$slot_id]->get('level'));
-            $this->assertEquals($slot['ability_upgrades'], count($slots[$slot_id]->getAbilitiesUpgrade()));
+        foreach ($expectedSlotsInfo as $slotId => $slot) {
+            $this->assertTrue($slots[$slotId]->get('account_id') !== Player::ANONYMOUS);
+            $this->assertEquals($slot['level'], (int)$slots[$slotId]->get('level'));
+            $this->assertEquals($slot['ability_upgrades'], count($slots[$slotId]->getAbilitiesUpgrade()));
         }
 
-        $picks_bans = $match->getAllPicksBans();
-        $this->assertInternalType('array', $picks_bans);
+        $picksBans = $match->getAllPicksBans();
+        $this->assertInternalType('array', $picksBans);
         $fl = true;
-        foreach ($picks_bans as $r) {
+        foreach ($picksBans as $r) {
             if (!in_array($r['is_pick'], array('1', '0'))) {
                 $fl = false;
             }

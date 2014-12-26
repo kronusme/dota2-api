@@ -9,9 +9,9 @@ use Dota2Api\Mappers\LeaguesMapperDb;
 
 class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
 {
-    protected $match_id = 985780481;
+    protected $matchId = 985780481;
 
-    protected $league_id = 1803;
+    protected $leagueId = 1803;
 
     public static function setUpBeforeClass()
     {
@@ -26,26 +26,26 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
 
-        $leagues_mapper_web = new LeaguesMapperWeb();
-        $leagues = $leagues_mapper_web->load();
-        $leagues_mapper_db = new LeaguesMapperDb();
-        $leagues_mapper_db->save($leagues[$this->league_id]);
+        $leaguesMapperWeb = new LeaguesMapperWeb();
+        $leagues = $leaguesMapperWeb->load();
+        $leaguesMapperDb = new LeaguesMapperDb();
+        $leaguesMapperDb->save($leagues[$this->leagueId]);
 
-        $match_mapper_web = new MatchMapperWeb($this->match_id);
-        $match = $match_mapper_web->load();
-        $match_mapper_db = new MatchMapperDb();
-        $match_mapper_db->save($match);
+        $matchMapperWeb = new MatchMapperWeb($this->matchId);
+        $match = $matchMapperWeb->load();
+        $matchMapperDb = new MatchMapperDb();
+        $matchMapperDb->save($match);
     }
 
     public function testLoad()
     {
 
-        $matches_mapper_db = new MatchesMapperDb();
-        $matches_mapper_db->setLeagueId($this->league_id)->setMatchesRequested(1);
-        $matches = $matches_mapper_db->load();
+        $matchesMapperDb = new MatchesMapperDb();
+        $matchesMapperDb->setLeagueId($this->leagueId)->setMatchesRequested(1);
+        $matches = $matchesMapperDb->load();
         $match = array_pop($matches);
 
-        $this->assertEquals($match->get('match_id'), $this->match_id);
+        $this->assertEquals($match->get('match_id'), $this->matchId);
         $this->assertEquals($match->get('game_mode'), 2);
         $this->assertEquals($match->get('tower_status_radiant'), 1796);
         $this->assertEquals($match->get('tower_status_dire'), 256);
@@ -64,11 +64,11 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($match->get('dire_name'), 'Team is Secret');
         $this->assertEquals($match->get('dire_team_id'), 1838315);
 
-        $slots = $match->get_all_slots();
+        $slots = $match->getAllSlots();
 
         $this->assertEquals(count($slots), 10);
         $slot = $slots[0];
-        $this->assertEquals($slot->get('match_id'), $this->match_id);
+        $this->assertEquals($slot->get('match_id'), $this->matchId);
         $this->assertEquals($slot->get('account_id'), 86727555);
         $this->assertEquals($slot->get('hero_id'), 30);
         $this->assertEquals($slot->get('player_slot'), 0);
@@ -93,23 +93,23 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($slot->get('hero_healing'), 4280);
         $this->assertEquals($slot->get('level'), 21);
 
-        $get_all_picks_bans = $match->get_all_picks_bans();
+        $getAllPicksBans = $match->getAllPicksBans();
 
-        $this->assertEquals(count($get_all_picks_bans), 20);
+        $this->assertEquals(count($getAllPicksBans), 20);
 
     }
 
     public function testDelete()
     {
 
-        $additional_match_id = 886357301;
-        $match_mapper_web = new MatchMapperWeb($additional_match_id);
-        $match = $match_mapper_web->load();
-        $match_mapper_db = new MatchMapperDb();
-        $match_mapper_db->save($match);
+        $additionalMatchId = 886357301;
+        $matchMapperWeb = new MatchMapperWeb($additionalMatchId);
+        $match = $matchMapperWeb->load();
+        $matchMapperDb = new MatchMapperDb();
+        $matchMapperDb->save($match);
 
-        $matches_mapper_db = new MatchesMapperDb();
-        $matches_mapper_db->delete(array($additional_match_id, $this->match_id));
+        $matchesMapperDb = new MatchesMapperDb();
+        $matchesMapperDb->delete(array($additionalMatchId, $this->matchId));
 
         $db = Db::obtain();
         $this->assertEquals(0, count($db->fetchArrayPDO('SELECT * FROM matches')));

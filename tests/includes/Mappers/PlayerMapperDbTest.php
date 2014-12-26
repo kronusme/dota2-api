@@ -8,7 +8,7 @@ use Dota2Api\Models\Player;
 class PlayerMapperDbTest extends PHPUnit_Framework_TestCase
 {
 
-    public $player_id = 92551671;
+    public $playerId = 92551671;
 
     /**
      * @var Player
@@ -29,16 +29,16 @@ class PlayerMapperDbTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $mapper_web = new PlayersMapperWeb();
-        $mapper_web->addId(player::convertId($this->player_id));
-        $d = $mapper_web->load();
+        $mapperWeb = new PlayersMapperWeb();
+        $mapperWeb->addId(player::convertId($this->playerId));
+        $d = $mapperWeb->load();
         $this->player = array_pop($d);
     }
 
     public function testSave()
     {
-        $mapper_db = new PlayerMapperDb();
-        $mapper_db->save($this->player);
+        $mapperDb = new PlayerMapperDb();
+        $mapperDb->save($this->player);
         $db = Db::obtain();
         $r = $db->fetchArrayPDO('SELECT * FROM users');
         $this->assertEquals(1, count($r));
@@ -47,8 +47,8 @@ class PlayerMapperDbTest extends PHPUnit_Framework_TestCase
     public function testUpdate()
     {
         $this->player->set('personaname', 'test');
-        $mapper_db = new PlayerMapperDb();
-        $mapper_db->save($this->player);
+        $mapperDb = new PlayerMapperDb();
+        $mapperDb->save($this->player);
         $db = Db::obtain();
         $r = $db->fetchArrayPDO('SELECT * FROM users');
         $player = array_pop($r);
@@ -57,8 +57,8 @@ class PlayerMapperDbTest extends PHPUnit_Framework_TestCase
 
     public function testLoad()
     {
-        $mapper_db = new PlayerMapperDb();
-        $player = $mapper_db->load(Player::convertId(strval($this->player_id)));
+        $mapperDb = new PlayerMapperDb();
+        $player = $mapperDb->load(Player::convertId(strval($this->playerId)));
         $this->assertEquals('test', $player->get('personaname'));
     }
 

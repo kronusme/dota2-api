@@ -6,7 +6,7 @@ use Dota2Api\Mappers\MatchMapperWeb;
 class MatchTest extends PHPUnit_Framework_TestCase
 {
 
-    public $match_id = 985780481;
+    public $matchId = 985780481;
 
     /**
      * @var Match
@@ -15,11 +15,11 @@ class MatchTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $match_mapper_web = new MatchMapperWeb($this->match_id);
-        $this->match = $match_mapper_web->load();
+        $matchMapperWeb = new MatchMapperWeb($this->matchId);
+        $this->match = $matchMapperWeb->load();
     }
 
-    public function testGet_slot()
+    public function testGetSlot()
     {
         $slot = $this->match->getSlot(0);
 
@@ -43,7 +43,7 @@ class MatchTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(36, $slot->get('item_5'));
     }
 
-    public function testGet_all_slots_divided()
+    public function testGetAllSlotsDivided()
     {
         $slots = $this->match->getAllSlotsDivided();
 
@@ -63,10 +63,10 @@ class MatchTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(94155156, $slots['dire'][4]->get('account_id'));
     }
 
-    public function testGet_all_picks_bans_divided()
+    public function testGetAllPicksBansDivided()
     {
-        $picks_bans = $this->match->getAllPicksBansDivided();
-        $expected_picks_bans = array(
+        $picksBans = $this->match->getAllPicksBansDivided();
+        $expectedPicksBans = array(
             "radiant" => array(
                 "bans" => array(
 
@@ -204,7 +204,7 @@ class MatchTest extends PHPUnit_Framework_TestCase
                 )
             )
         );
-        $this->assertEquals($expected_picks_bans, $picks_bans);
+        $this->assertEquals($expectedPicksBans, $picksBans);
     }
 
 }

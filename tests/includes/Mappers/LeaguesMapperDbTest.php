@@ -8,16 +8,16 @@ class LeaguesMapperDbTest extends PHPUnit_Framework_TestCase
 {
     public function testLoad()
     {
-        $mapper_web = new LeaguesMapperWeb();
-        $mapper_db = new LeaguesMapperDb();
-        $leagues = $mapper_web->load();
-        $mapper_db->save($leagues[600]);
-        $leagues_from_db = $mapper_db->load();
+        $mapperWeb = new LeaguesMapperWeb();
+        $mapperDb = new LeaguesMapperDb();
+        $leagues = $mapperWeb->load();
+        $mapperDb->save($leagues[600]);
+        $leaguesFromDb = $mapperDb->load();
 
-        $this->assertEquals(1, count($leagues_from_db));
-        $mapper_db->save($leagues[65000]);
-        $leagues_from_db = $mapper_db->load();
-        $this->assertEquals(2, count($leagues_from_db));
+        $this->assertEquals(1, count($leaguesFromDb));
+        $mapperDb->save($leagues[65000]);
+        $leaguesFromDb = $mapperDb->load();
+        $this->assertEquals(2, count($leaguesFromDb));
     }
 
     protected function tearDown()

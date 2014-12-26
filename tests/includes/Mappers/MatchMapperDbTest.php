@@ -10,14 +10,14 @@ use Dota2Api\Models\Player;
 class MatchMapperDbTest extends PHPUnit_Framework_TestCase
 {
 
-    public $match_id = '683300315';
+    public $matchId = '683300315';
 
     public static function setUpBeforeClass()
     {
-        $leagues_mapper_web = new LeaguesMapperWeb();
-        $leagues = $leagues_mapper_web->load();
-        $leagues_mapper_db = new LeaguesMapperDb();
-        $leagues_mapper_db->save($leagues[600]);
+        $leaguesMapperWeb = new LeaguesMapperWeb();
+        $leagues = $leaguesMapperWeb->load();
+        $leaguesMapperDb = new LeaguesMapperDb();
+        $leaguesMapperDb->save($leagues[600]);
     }
 
     public static function tearDownBeforeClass()
@@ -34,7 +34,7 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
     public function testLoad()
     {
 
-        $expected_match_info = array(
+        $expectedMatchInfo = array(
             'game_mode' => '2',
             'radiant_win' => '1',
             'first_blood_time' => '7',
@@ -42,17 +42,17 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
             'duration' => '1662',
         );
 
-        $mapper_web = new MatchMapperWeb($this->match_id);
-        $match = $mapper_web->load();
-        $mapper_db = new MatchMapperDb();
-        $mapper_db->save($match);
-        $match = $mapper_db->load($this->match_id);
+        $mapperWeb = new MatchMapperWeb($this->matchId);
+        $match = $mapperWeb->load();
+        $mapperDb = new MatchMapperDb();
+        $mapperDb->save($match);
+        $match = $mapperDb->load($this->matchId);
 
         $this->assertInstanceOf('Dota2Api\Models\Match', $match);
-        foreach ($expected_match_info as $k => $v) {
+        foreach ($expectedMatchInfo as $k => $v) {
             $this->assertEquals($v, $match->get($k));
         }
-        $expected_slots_info = array(
+        $expectedSlotsInfo = array(
             0 => array(
                 'ability_upgrades' => 13,
                 'level' => 13,
@@ -95,16 +95,16 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
             )
         );
         $slots = $match->getAllSlots();
-        foreach ($expected_slots_info as $slot_id => $slot) {
-            $this->assertTrue($slots[$slot_id]->get('account_id') !== Player::ANONYMOUS);
-            $this->assertEquals($slot['level'], (int)$slots[$slot_id]->get('level'));
-            $this->assertEquals($slot['ability_upgrades'], count($slots[$slot_id]->getAbilitiesUpgrade()));
+        foreach ($expectedSlotsInfo as $slotId => $slot) {
+            $this->assertTrue($slots[$slotId]->get('account_id') !== Player::ANONYMOUS);
+            $this->assertEquals($slot['level'], (int)$slots[$slotId]->get('level'));
+            $this->assertEquals($slot['ability_upgrades'], count($slots[$slotId]->getAbilitiesUpgrade()));
         }
 
-        $picks_bans = $match->getAllPicksBans();
-        $this->assertInternalType('array', $picks_bans);
+        $picksBans = $match->getAllPicksBans();
+        $this->assertInternalType('array', $picksBans);
         $fl = true;
-        foreach ($picks_bans as $r) {
+        foreach ($picksBans as $r) {
             if (!in_array($r['is_pick'], array('1', '0'))) {
                 $fl = false;
             }
@@ -115,15 +115,15 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
 
     public function testUpdate()
     {
-        $mapper_db = new MatchMapperDb();
-        $match = $mapper_db->load($this->match_id);
+        $mapperDb = new MatchMapperDb();
+        $match = $mapperDb->load($this->matchId);
         $match->set('first_blood_time', 0);
         $slots = $match->getAllSlots();
         $slots[0]->set('hero_id', '1');
         $match->setAllSlots($slots);
-        $mapper_db->update($match, false);
+        $mapperDb->update($match, false);
 
-        $match = $mapper_db->load($this->match_id);
+        $match = $mapperDb->load($this->matchId);
 
         $this->assertEquals(0, $match->get('first_blood_time'));
         $slots = $match->getAllSlots();
@@ -133,13 +133,13 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
 
     public function testDelete()
     {
-        $mapper_db = new MatchMapperDb();
-        $match = $mapper_db->load($this->match_id);
-        $mapper_db->save($match);
+        $mapperDb = new MatchMapperDb();
+        $match = $mapperDb->load($this->matchId);
+        $mapperDb->save($match);
 
-        $mapper_db->delete($match->get('match_id'));
+        $mapperDb->delete($match->get('match_id'));
 
-        $match = $mapper_db->load($this->match_id);
+        $match = $mapperDb->load($this->matchId);
         $this->assertNull($match->get('match_id'));
     }
 

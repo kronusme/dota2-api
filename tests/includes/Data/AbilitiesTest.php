@@ -16,14 +16,14 @@ class AbilitiesTest extends PHPUnit_Framework_TestCase
         $this->abilities->parse();
     }
 
-    public function testGet_data_by_id()
+    public function testGetDataById()
     {
         $data = $this->abilities->getDataById(5172);
         $this->assertEquals(5172, $data['id']);
         $this->assertEquals('beastmaster_inner_beast', $data['name']);
     }
 
-    public function testGet_img_url_by_id()
+    public function testGetImgUrlById()
     {
         $url = $this->abilities->getImgUrlById(5172);
         $this->assertEquals('http://media.steampowered.com/apps/dota2/images/abilities/beastmaster_inner_beast_lg.png',
