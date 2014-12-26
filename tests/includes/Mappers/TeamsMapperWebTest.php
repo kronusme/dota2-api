@@ -26,8 +26,8 @@ class TeamsMapperWebTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($team->get('name'), 'Natus Vincere');
         $this->assertEquals($team->get('tag'), 'Na`Vi');
         $this->assertEquals($team->get('country_code'), 'ua');
-        $this->assertGreaterThan(0, count($team->get_all_players_ids()));
-        $this->assertGreaterThan(0, count($team->get_all_leagues_ids()));
+        $this->assertGreaterThan(0, count($team->getAllPlayersIds()));
+        $this->assertGreaterThan(0, count($team->getAllLeaguesIds()));
     }
 
     public function testLoadMultiple()
@@ -42,15 +42,15 @@ class TeamsMapperWebTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($team->get('name'), 'Evil Geniuses');
         $this->assertEquals($team->get('tag'), 'EG');
         $this->assertEquals($team->get('country_code'), 'us');
-        $this->assertGreaterThan(0, count($team->get_all_players_ids()));
-        $this->assertGreaterThan(0, count($team->get_all_leagues_ids()));
+        $this->assertGreaterThan(0, count($team->getAllPlayersIds()));
+        $this->assertGreaterThan(0, count($team->getAllLeaguesIds()));
 
         $team = array_pop($teams);
         $this->assertEquals(intval($team->get('team_id')), 36);
         $this->assertEquals($team->get('name'), 'Natus Vincere');
         $this->assertEquals($team->get('tag'), 'Na`Vi');
         $this->assertEquals($team->get('country_code'), 'ua');
-        $this->assertGreaterThan(0, count($team->get_all_players_ids()));
-        $this->assertGreaterThan(0, count($team->get_all_leagues_ids()));
+        $this->assertGreaterThan(0, count($team->getAllPlayersIds()));
+        $this->assertGreaterThan(0, count($team->getAllLeaguesIds()));
     }
 }
