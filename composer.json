@@ -51,6 +51,7 @@
         "phpunit/phpunit": "4.4.*",
         "phpunit/dbunit": ">=1.2",
         "satooshi/php-coveralls": "dev-master",
+        "squizlabs/php_codesniffer": "1.*",
         "sebastianbergmann/phpcov": "1.1.0"
     }
 }
