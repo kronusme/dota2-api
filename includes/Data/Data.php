@@ -14,7 +14,7 @@ abstract class Data
     /**
      * Folder with json files
      */
-    const path = 'data';
+    const PATH = 'data';
     /**
      * JSON filename
      * @var string
@@ -99,7 +99,7 @@ abstract class Data
      */
     public function parse()
     {
-        $fullpath = dirname(__FILE__) . '/../../' . self::path . '/' . $this->_filename;
+        $fullpath = dirname(__FILE__) . '/../../' . self::PATH . '/' . $this->_filename;
         if (file_exists($fullpath)) {
             $content = file_get_contents($fullpath);
             $data = json_decode($content);

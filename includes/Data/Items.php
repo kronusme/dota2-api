@@ -22,7 +22,7 @@ class Items extends HeroesData
     /**
      * Empty slot has id = 0
      */
-    const empty_id = 0;
+    const EMPTY_ID = 0;
 
     public function __construct()
     {

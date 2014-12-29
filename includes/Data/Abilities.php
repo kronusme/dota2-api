@@ -23,7 +23,7 @@ class Abilities extends HeroesData
     /**
      * Stats ability identifier
      */
-    const stats_ability_id = 5002;
+    const STATS_ABILITY_ID = 5002;
 
     public function __construct()
     {
@@ -35,7 +35,7 @@ class Abilities extends HeroesData
 
     public function getImgUrlById($id, $thumb = true)
     {
-        if ($id != self::stats_ability_id) {
+        if ($id != self::STATS_ABILITY_ID) {
             return parent::getImgUrlById($id, $thumb);
         }
         return 'images/stats.png';
