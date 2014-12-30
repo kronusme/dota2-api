@@ -17,6 +17,7 @@ before_script:
 script:
 - mkdir -p build/logs
 - mkdir -p build/cov
+- php vendor/bin/phpcs --config-set show_warnings 0
 - php vendor/bin/phpcs ./includes --standard=PSR1 --encoding=utf-8
 - php vendor/bin/phpcs ./includes --standard=PSR2 --encoding=utf-8
 - php vendor/bin/phpunit -c phpunit.xml.dist
