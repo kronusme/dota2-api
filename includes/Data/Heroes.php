@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Data;
 
-
 /**
  * Information about heroes (id, name, localized name)
  *

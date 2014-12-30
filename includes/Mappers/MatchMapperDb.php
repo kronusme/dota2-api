@@ -64,8 +64,10 @@ class MatchMapperDb extends MatchMapper
         foreach ($slots as $slot) {
             $slotIds .= $slot['id'] . ',';
         }
-        $queryForAbilityUpgrades = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . rtrim($slotIds,
-                ',') . ')';
+        $queryForAbilityUpgrades = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . rtrim(
+            $slotIds,
+            ','
+        ) . ')';
         $abilityUpgrade = $db->fetchArrayPDO($queryForAbilityUpgrades);
         $abilityUpgradeFormatted = array();
         foreach ($abilityUpgrade as $a) {
@@ -74,8 +76,10 @@ class MatchMapperDb extends MatchMapper
             }
             array_push($abilityUpgradeFormatted[$a['slot_id']], $a);
         }
-        $queryForAdditionalUnits = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN  (' . rtrim($slotIds,
-                ',') . ')';
+        $queryForAdditionalUnits = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN  (' . rtrim(
+            $slotIds,
+            ','
+        ) . ')';
         $additionalUnits = $db->fetchArrayPDO($queryForAdditionalUnits);
         $additionalUnitsFormatted = array();
         foreach ($additionalUnits as $additionalUnit) {
@@ -187,8 +191,11 @@ class MatchMapperDb extends MatchMapper
                 array_push($data1, $pickBan['order']);
                 array_push($data, $data1);
             }
-            $db->insertManyPDO(Db::realTablename('picks_bans'),
-                array('match_id', 'is_pick', 'hero_id', 'team', 'order'), $data);
+            $db->insertManyPDO(
+                Db::realTablename('picks_bans'),
+                array('match_id', 'is_pick', 'hero_id', 'team', 'order'),
+                $data
+            );
         }
     }
 
@@ -201,8 +208,11 @@ class MatchMapperDb extends MatchMapper
         $db = Db::obtain();
         $slots = $match->getAllSlots();
         // update common match info
-        $db->updatePDO(Db::realTablename('matches'), $match->getDataArray(),
-            array('match_id' => $match->get('match_id')));
+        $db->updatePDO(
+            Db::realTablename('matches'),
+            $match->getDataArray(),
+            array('match_id' => $match->get('match_id'))
+        );
         foreach ($slots as $slot) {
             // update accounts
             $db->updatePDO(Db::realTablename('users'), array(
@@ -211,8 +221,11 @@ class MatchMapperDb extends MatchMapper
             ), array('account_id' => $slot->get('account_id')));
             // update slots
             if (!$lazy) {
-                $db->updatePDO(Db::realTablename('slots'), $slot->getDataArray(),
-                    array('match_id' => $slot->get('match_id'), 'player_slot' => $slot->get('player_slot')));
+                $db->updatePDO(
+                    Db::realTablename('slots'),
+                    $slot->getDataArray(),
+                    array('match_id' => $slot->get('match_id'), 'player_slot' => $slot->get('player_slot'))
+                );
             }
         }
     }
@@ -227,8 +240,10 @@ class MatchMapperDb extends MatchMapper
             return;
         }
         $db = Db::obtain();
-        $slots = $db->fetchArrayPDO('SELECT id FROM ' . Db::realTablename('slots') . ' WHERE match_id = ?',
-            array($matchId));
+        $slots = $db->fetchArrayPDO(
+            'SELECT id FROM ' . Db::realTablename('slots') . ' WHERE match_id = ?',
+            array($matchId)
+        );
         $slotsFormatted = array();
         foreach ($slots as $slot) {
             array_push($slotsFormatted, $slot['id']);
@@ -253,8 +268,10 @@ class MatchMapperDb extends MatchMapper
     {
         $matchId = intval($matchId);
         $db = Db::obtain();
-        $r = $db->queryFirstPDO('SELECT match_id FROM ' . Db::realTablename('matches') . ' WHERE match_id = ?',
-            array($matchId));
+        $r = $db->queryFirstPDO(
+            'SELECT match_id FROM ' . Db::realTablename('matches') . ' WHERE match_id = ?',
+            array($matchId)
+        );
         return ((bool)$r);
     }
 }

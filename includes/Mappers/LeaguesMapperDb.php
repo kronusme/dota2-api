@@ -5,7 +5,6 @@ namespace Dota2Api\Mappers;
 use Dota2Api\Utils\Db;
 use Dota2Api\Models\League;
 
-
 class LeaguesMapperDb extends LeaguesMapper
 {
     public function load()
@@ -61,16 +60,21 @@ class LeaguesMapperDb extends LeaguesMapper
     public function update(league $league)
     {
         $db = Db::obtain();
-        $db->updatePDO(Db::realTablename('leagues'), $league->getDataArray(),
-            array('leagueid' => $league->get('leagueid')));
+        $db->updatePDO(
+            Db::realTablename('leagues'),
+            $league->getDataArray(),
+            array('leagueid' => $league->get('leagueid'))
+        );
     }
 
     public static function leagueExists($leagueid)
     {
         $leagueid = intval($leagueid);
         $db = Db::obtain();
-        $r = $db->queryFirstPDO('SELECT leagueid FROM ' . Db::realTablename('leagues') . ' WHERE leagueid = ?',
-            array($leagueid));
+        $r = $db->queryFirstPDO(
+            'SELECT leagueid FROM ' . Db::realTablename('leagues') . ' WHERE leagueid = ?',
+            array($leagueid)
+        );
         return ((bool)$r);
     }
 }

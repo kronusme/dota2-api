@@ -29,7 +29,7 @@ class Db
      * @access private
      * @var String $_server
      */
-    private $_server = ''; //database server 
+    private $_server = ''; //database server
     /**
      * Database login name
      * @access private
@@ -135,8 +135,12 @@ class Db
             return true;
         }
         try {
-            self::$_linkId = new PDO('mysql:host=' . $this->_server, $this->_user, $this->_pass,
-                array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+            self::$_linkId = new PDO(
+                'mysql:host=' . $this->_server,
+                $this->_user,
+                $this->_pass,
+                array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'')
+            );
             self::$_linkId->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             if ($selectDb) {
                 self::$_linkId->query('USE ' . $this->_database);
@@ -170,7 +174,6 @@ class Db
             $this->_queryId = self::$_linkId->prepare($sql);
             $i = 1;
             foreach ($params as $key => $val) {
-
                 $type = $this->getPDOConstantType($val);
                 $this->_queryId->bindValue($i, $val, $type);
                 ++$i;
@@ -232,7 +235,6 @@ class Db
         $out = array();
 
         while ($row = $this->_fetchPDO()) {
-
             $out[] = $row;
         }
 
@@ -259,7 +261,7 @@ class Db
         foreach ($data as $key => $val) {
             if (is_null($val)) {
                 ;
-            }            // fix by KronuS 07.12.2012. Was "if(empty($val));"
+            } // fix by KronuS 07.12.2012. Was "if(empty($val));"
             else {
                 $q .= "`$key`=?, ";
             }
@@ -276,13 +278,12 @@ class Db
         $q = rtrim($q, 'AND ') . ' ;';
 
         try {
-
             $this->_queryId = self::$_linkId->prepare($q);
 
             $i = 1;
             foreach ($data as $key => $val) {
-                if (is_null($val))       // fix by KronuS 07.12.2012. Was "if(empty($val));"
-                {
+                if (is_null($val)) {
+// fix by KronuS 07.12.2012. Was "if(empty($val));"
                     ;
                 } else {
                     $type = $this->getPDOConstantType($val);
@@ -293,7 +294,6 @@ class Db
 
 
             foreach ($where as $key => $val) {
-
                 $type = $this->getPDOConstantType($val);
                 $this->_queryId->bindValue($i, $val, $type);
                 ++$i;
@@ -390,7 +390,6 @@ class Db
 
             $i = 1;
             foreach ($data as $key => $val) {
-
                 $type = $this->getPDOConstantType($val);
                 $this->_queryId->bindValue($i, $val, $type);
                 ++$i;

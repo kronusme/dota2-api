@@ -121,8 +121,10 @@ class MatchesMapperDb extends MatchesMapper
         }
         $ids_str = implode(',', $ids);
         $db = Db::obtain();
-        $slots = $db->fetchArrayPDO('SELECT id FROM ' . Db::realTablename('slots') . ' WHERE match_id IN (' . $ids_str . ')',
-            array());
+        $slots = $db->fetchArrayPDO(
+            'SELECT id FROM ' . Db::realTablename('slots') . ' WHERE match_id IN (' . $ids_str . ')',
+            array()
+        );
         $slotsFormatted = array();
         foreach ($slots as $slot) {
             array_push($slotsFormatted, $slot['id']);
@@ -147,8 +149,10 @@ class MatchesMapperDb extends MatchesMapper
     private function _loadSlotsInfo(array $matchesIds)
     {
         $db = Db::obtain();
-        $slots_query = 'SELECT * FROM ' . Db::realTablename('slots') . ' WHERE match_id IN (' . implode(',',
-                $matchesIds) . ')';
+        $slots_query = 'SELECT * FROM ' . Db::realTablename('slots') . ' WHERE match_id IN (' . implode(
+            ',',
+            $matchesIds
+        ) . ')';
         return $db->fetchArrayPDO($slots_query, array());
     }
 
@@ -178,8 +182,10 @@ class MatchesMapperDb extends MatchesMapper
     private function _loadPicksBansInfo(array $matchesIds)
     {
         $db = Db::obtain();
-        $picksBansQuery = 'SELECT * FROM ' . Db::realTablename('picks_bans') . ' WHERE match_id IN (' . implode(',',
-                $matchesIds) . ')';
+        $picksBansQuery = 'SELECT * FROM ' . Db::realTablename('picks_bans') . ' WHERE match_id IN (' . implode(
+            ',',
+            $matchesIds
+        ) . ')';
         $picksBansInfo = $db->fetchArrayPDO($picksBansQuery, array());
         // reformat picks_bans array
         $picksBansFormattedInfo = array();
@@ -216,8 +222,10 @@ class MatchesMapperDb extends MatchesMapper
     private function _loadAbilityUpgradesInfo(array $slotsIds)
     {
         $db = Db::obtain();
-        $abilitiesUpgradeQuery = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . implode(',',
-                $slotsIds) . ') ORDER BY slot_id, level ASC';
+        $abilitiesUpgradeQuery = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . implode(
+            ',',
+            $slotsIds
+        ) . ') ORDER BY slot_id, level ASC';
         $abilitiesUpgradeInfo = $db->fetchArrayPDO($abilitiesUpgradeQuery, array());
 
         // reformat abilities upgrades array
@@ -256,8 +264,10 @@ class MatchesMapperDb extends MatchesMapper
     private function _loadAdditionalUnitsInfo(array $slotsIds)
     {
         $db = Db::obtain();
-        $additionalUnitsQuery = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN (' . implode(',',
-                $slotsIds) . ')';
+        $additionalUnitsQuery = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN (' . implode(
+            ',',
+            $slotsIds
+        ) . ')';
         $additionalUnitsInfo = $db->fetchArrayPDO($additionalUnitsQuery, array());
         $additionalUnitsFormattedInfo = array();
         foreach ($additionalUnitsInfo as $additionalUnitInfo) {

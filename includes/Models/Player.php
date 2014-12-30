@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Models;
 
-
 /**
  * All info about one player
  *

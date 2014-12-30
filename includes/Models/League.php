@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Models;
 
-
 class League extends StatObject
 {
     /**

@@ -59,5 +59,4 @@ class ItemsMapperWeb extends ItemsMapper
         }
         return $items;
     }
-
 }

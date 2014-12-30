@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Mappers;
 
-
 /**
  * Common part for match mappers (web and db)
  *

@@ -53,8 +53,11 @@ class ItemsMapperDb extends ItemsMapper
         foreach ($data as $item) {
             array_push($dataToInsert, $item->getDataArray());
         }
-        $db->insertManyPDO(Db::realTablename('items'),
-            array('id', 'name', 'cost', 'secret_shop', 'side_shop', 'recipe', 'localized_name'), $dataToInsert, true);
+        $db->insertManyPDO(
+            Db::realTablename('items'),
+            array('id', 'name', 'cost', 'secret_shop', 'side_shop', 'recipe', 'localized_name'),
+            $dataToInsert,
+            true
+        );
     }
-
 }

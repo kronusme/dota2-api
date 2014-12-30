@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Utils;
 
-
 /**
  * Generate resource for map jpg image
  *

@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Models;
 
-
 /**
  * All info about one team
  *
@@ -164,5 +163,4 @@ class Team extends StatObject
         array_push($this->_leagues_ids, $league_id);
         return $this;
     }
-
 }

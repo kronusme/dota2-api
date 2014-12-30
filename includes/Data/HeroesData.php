@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Data;
 
-
 abstract class HeroesData extends Data
 {
     /**

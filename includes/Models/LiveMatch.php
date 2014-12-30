@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Models;
 
-
 /**
  * Live match. Data about match that is playing now. Not all common match-info is available
  *

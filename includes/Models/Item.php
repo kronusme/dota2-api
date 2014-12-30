@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Models;
 
-
 class Item extends StatObject
 {
 
@@ -58,5 +57,4 @@ class Item extends StatObject
         }
         return $value;
     }
-
 }

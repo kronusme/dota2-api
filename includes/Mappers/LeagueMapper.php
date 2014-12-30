@@ -78,22 +78,18 @@ class LeagueMapper
             $liveMatch = new LiveMatch();
             foreach ($game->players->player as $player) {
                 switch ($player->team) {
-                    case 0: {
+                    case 0:
                         $liveMatch->addRadiantPlayer((array)$player);
                         break;
-                    }
-                    case 1: {
+                    case 1:
                         $liveMatch->addDirePlayer((array)$player);
                         break;
-                    }
-                    case 2: {
+                    case 2:
                         $liveMatch->addBroadcaster((array)$player);
                         break;
-                    }
-                    case 4: {
+                    case 4:
                         $liveMatch->addUnassigned((array)$player);
                         break;
-                    }
                 }
             }
             $a_game = (array)$game;

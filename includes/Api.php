@@ -13,5 +13,4 @@ class Api
         $db->connectPDO($autoselect_db);
         Request::$apiKey = strval($api_key);
     }
-
 }

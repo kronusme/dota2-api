@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Mappers;
 
-
 /**
  * Common part for matches mapper (like properties and their getters, setters)
  */

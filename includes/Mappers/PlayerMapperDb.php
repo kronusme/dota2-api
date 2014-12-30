@@ -43,8 +43,10 @@ class PlayerMapperDb
         }
 
         $db = Db::obtain();
-        $result = $db->queryFirstPDO('SELECT * FROM ' . Db::realTablename('users') . ' WHERE steamid = ?',
-            array($this->getSteamid()));
+        $result = $db->queryFirstPDO(
+            'SELECT * FROM ' . Db::realTablename('users') . ' WHERE steamid = ?',
+            array($this->getSteamid())
+        );
         $player->setArray($result);
         return $player;
     }
@@ -89,8 +91,10 @@ class PlayerMapperDb
         }
 
         $db = Db::obtain();
-        $result = $db->queryFirstPDO('SELECT steamid FROM ' . Db::realTablename('users') . ' WHERE steamid = ?',
-            array($id));
+        $result = $db->queryFirstPDO(
+            'SELECT steamid FROM ' . Db::realTablename('users') . ' WHERE steamid = ?',
+            array($id)
+        );
         return $result['steamid'] == (string)$id;
     }
 }

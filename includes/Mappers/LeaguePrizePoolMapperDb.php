@@ -27,8 +27,10 @@ class LeaguePrizePoolMapperDb extends LeaguePrizePoolMapper
         }
         $db = Db::obtain();
         $checks = array();
-        $result = $db->fetchArrayPDO('SELECT * FROM ' . Db::realTablename('league_prize_pools') . ' WHERE league_id = ' . $leagueid,
-            array());
+        $result = $db->fetchArrayPDO(
+            'SELECT * FROM ' . Db::realTablename('league_prize_pools') . ' WHERE league_id = ' . $leagueid,
+            array()
+        );
         foreach ($result as $r) {
             $checks[$r['date']] = $r['prize_pool'];
         }
@@ -48,5 +50,4 @@ class LeaguePrizePoolMapperDb extends LeaguePrizePoolMapper
         $db->insertPDO(Db::realTablename('league_prize_pools'), $data);
         echo $db->getError();
     }
-
 }

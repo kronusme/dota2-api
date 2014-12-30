@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Models;
 
-
 /**
  * Class for all information about one slot (includes ability upgrades if provided)
  *

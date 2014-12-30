@@ -81,8 +81,10 @@ class PlayersMapperDb
         if (count($this->_ids) === 0) {
             return array();
         }
-        $result = $db->fetchArrayPDO('SELECT * FROM ' . Db::realTablename('users') . ' WHERE steamid IN (' . $ids . ')',
-            array());
+        $result = $db->fetchArrayPDO(
+            'SELECT * FROM ' . Db::realTablename('users') . ' WHERE steamid IN (' . $ids . ')',
+            array()
+        );
         foreach ($result as $r) {
             $player = new Player();
             $player->setArray((array)$r);

@@ -281,5 +281,4 @@ class Match extends StatObject
     {
 
     }
-
 }

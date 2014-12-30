@@ -2,7 +2,6 @@
 
 namespace Dota2Api\Models;
 
-
 /**
  * Basic class for all statistic objects used in system
  * Provide pure access for fields (with basic types!)
