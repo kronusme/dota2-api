@@ -40,7 +40,6 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 require_once 'vendor/autoload.php';
 
 use Dota2Api\Api;
-use Dota2Api\Utils\Db;
 
 Api::init('YOUR_API_KEY', array('localhost', 'root', 'password', 'db_name', 'table_prefix_'));
 ````
