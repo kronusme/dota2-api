@@ -10,10 +10,9 @@ use Dota2Api\Models\Slot;
  * Load info about match from web
  *
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *   $mm = new match_mapper_web(121995119);
+ *   $mm = new Dota2Api\Mappers\MatchMapperWeb(121995119);
  *   $match = $mm->load();
  *   echo $match->get('match_id');
  *   echo $match->get('start_time');

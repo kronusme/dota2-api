@@ -9,11 +9,10 @@ use Dota2Api\Models\LiveMatch;
  * Load live league matches
  *
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *  $league_mapper = new league_mapper(22); // set league id (can be get via leagues_mapper)
- *  $games = $league_mapper->load();
+ *  $leagueMapper = new Dota2Api\Mappers\LeagueMapper(22); // set league id (can be get via leaguesMapper)
+ *  $games = $leagueMapper->load();
  *  print_r($games);
  * </code>
  */

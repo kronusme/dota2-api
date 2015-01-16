@@ -9,11 +9,10 @@ use Dota2Api\Models\Team;
  * Load info about team from web
  *
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *   $teams_mapper_web = new teams_mapper_web();
- *   $teams = $teams_mapper_web->setTeamId(2)->setTeamsRequested(2)->load();
+ *   $teamsMapperWeb = new Dota2Api\Mappers\TeamsMapperWeb();
+ *   $teams = $teamsMapperWeb->setTeamId(2)->setTeamsRequested(2)->load();
  *   foreach($teams as $team) {
  *     echo $team->get('name');
  *     echo $team->get('rating');

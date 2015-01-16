@@ -8,11 +8,10 @@ use Dota2Api\Utils\Request;
  * Load basic info about DotA 2 heroes
  *
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *   $heroes_mapper = new heroes_mapper();
- *   $heroes = $heroes_mapper->load();
+ *   $heroesMapper = new Dota2Api\Mappers\HeroesMapper();
+ *   $heroes = $heroesMapper->load();
  *   print_r($heroes);
  * </code>
  */

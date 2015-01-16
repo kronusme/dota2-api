@@ -9,11 +9,10 @@ use Dota2Api\Models\League;
  * Load info about leagues
  *
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *  $leagues_mapper_web = new leagues_mapper_web();
- *  $leagues = $leagues_mapper_web->load();
+ *  $leaguesMapperWeb = new Dota2Api\Mappers\LeaguesMapperWeb();
+ *  $leagues = $leaguesMapperWeb->load();
  *  foreach($leagues as $league) {
  *    echo $league->get('description');
  *    if ($league->get('tournament_url')) {

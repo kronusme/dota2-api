@@ -9,10 +9,10 @@ use Dota2Api\Utils\Db;
  *
  * @example
  * <code>
- *  $prize_pool_mapper_db = new league_prize_pool_mapper_db();
- *  $pp = $prize_pool_mapper_db->setLeagueId(600)->load();
- *  foreach($pp as $date=>$prize_pool) {
- *      echo $date.' - $ '.number_format($prize_pool, 2).'<br />';
+ *  $prizePoolMapperDb = new Dota2Api\Mappers\LeaguePrizePoolMapperDb();
+ *  $pp = $prizePoolMapperDb->setLeagueId(600)->load();
+ *  foreach($pp as $date=>$prizePool) {
+ *      echo $date.' - $ '.number_format($prizePool, 2).'<br />';
  *  }
  * </code>
  */

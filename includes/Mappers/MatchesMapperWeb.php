@@ -10,16 +10,15 @@ use Dota2Api\Models\Slot;
  * Load info about matches from web
  *
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *   $matches_mapper_web = new matches_mapper_web();
- *   $matches_mapper_web->setAccountId(93712171);
- *   $matches_short_info = $matches_mapper_web->load();
- *   foreach ($matches_short_info AS $key=>$match_short_info) {
- *     $match_mapper = new match_mapper_web($key);
- *     $match = $match_mapper->load();
- *     $mm = new match_mapper_db();
+ *   $matchesMapperWeb = new Dota2Api\Mappers\MatchesMapperWeb();
+ *   $matchesMapperWeb->setAccountId(93712171);
+ *   $matchesShortInfo = $matchesMapperWeb->load();
+ *   foreach ($matchesShortInfo as $key=>$matchShortInfo) {
+ *     $matchMapper = new MatchMapperWeb($key);
+ *     $match = $matchMapper->load();
+ *     $mm = new Dota2Api\Mappers\MatchMapperDb();
  *     $mm->save($match);
  *   }
  * </code>

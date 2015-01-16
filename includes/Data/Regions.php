@@ -6,10 +6,9 @@ namespace Dota2Api\Data;
  * Information about servers regions
  *
  * @author kronus
- * @package data
  * @example
  * <code>
- *   $regions = new regions();
+ *   $regions = new Dota2Api\Data\Regions();
  *   $regions->parse();
  *   $regions->getFieldById(132, 'name'); // returns 'Europe West'
  * </code>

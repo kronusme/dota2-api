@@ -10,10 +10,10 @@ use Dota2Api\Utils\Request;
  *
  * @example
  * <code>
- *  $items_mapper_web = new items_mapper_web();
- *  $items_info = $items_mapper_web->load();
- *  print_r($items_info);
- *  foreach($items_info as $item) {
+ *  $itemsMapperWeb = new Dota2Api\Mappers\ItemsMapperWeb();
+ *  $itemsInfo = $itemsMapperWeb->load();
+ *  print_r($itemsInfo);
+ *  foreach($itemsInfo as $item) {
  *      echo $item->get('id');
  *      echo $item->get('name');
  *      echo $item->get('cost');

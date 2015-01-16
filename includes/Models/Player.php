@@ -6,7 +6,6 @@ namespace Dota2Api\Models;
  * All info about one player
  *
  * @author kronus
- * @package models
  */
 class Player extends StatObject
 {

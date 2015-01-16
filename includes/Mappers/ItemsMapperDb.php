@@ -10,10 +10,10 @@ use Dota2Api\Utils\Db;
  *
  * @example
  * <code>
- *  $items_mapper_db = new items_mapper_db();
- *  $items_info = $items_mapper_db->load();
- *  print_r($items_info);
- *  foreach($items_info as $item) {
+ *  $itemsMapperDb = new Dota2Api\Mappers\ItemsMapperDb();
+ *  $itemsInfo = $itemsMapperDb->load();
+ *  print_r($itemsInfo);
+ *  foreach($itemsInfo as $item) {
  *      echo $item->get('id');
  *      echo $item->get('name');
  *      echo $item->get('cost');

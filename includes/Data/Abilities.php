@@ -6,10 +6,9 @@ namespace Dota2Api\Data;
  * Information about heroes abilities
  *
  * @author kronus
- * @package data
  * @example
  * <code>
- *   $abilities = new abilities();
+ *   $abilities = new Dota2Api\Data\Abilities();
  *   $abilities->parse();
  *   $abilities->getDataById(5172); // return array for ability with id 5172 (BeastMaster Inner Beast)
  *   // same, because there are no thumbs for abilities

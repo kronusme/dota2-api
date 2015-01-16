@@ -6,7 +6,6 @@ namespace Dota2Api\Data;
  * Basic functionality for JSON file processing (with data like abilities, heroes etc)
  *
  * @author kronus
- * @package data
  */
 abstract class Data
 {

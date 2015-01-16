@@ -7,7 +7,6 @@ namespace Dota2Api\Models;
  * Provide pure access for fields (with basic types!)
  *
  * @author kronus
- * @package models
  */
 abstract class StatObject
 {

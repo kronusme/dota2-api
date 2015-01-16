@@ -6,10 +6,9 @@ namespace Dota2Api\Data;
  * Information about game modes
  *
  * @author kronus
- * @package data
  * @example
  * <code>
- *   $mods = new mods();
+ *   $mods = new Dota2Api\Data\Mods();
  *   $mods->parse();
  *   $mods->getFieldById(1, 'name'); // returns 'All Pick'
  * </code>

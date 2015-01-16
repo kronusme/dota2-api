@@ -9,7 +9,6 @@ use Exception;
  * Class represents basic functionality for sending request to DotA2 API service and receive response
  *
  * @author kronus
- * @package utils
  */
 class Request
 {

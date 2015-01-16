@@ -6,10 +6,9 @@ namespace Dota2Api\Data;
  * Information about heroes (id, name, localized name)
  *
  * @author kronus
- * @package data
  * @example
  * <code>
- *   $heroes = new heroes();
+ *   $heroes = new Dota2Api\Data\Heroes();
  *   $heroes->parse();
  *   $heroes-getDataById(97); // get info about Magnus
  *   $heroes->getImgUrlById(97, false); // large image

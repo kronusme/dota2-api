@@ -6,15 +6,14 @@ namespace Dota2Api\Utils;
  * Generate resource for map jpg image
  *
  * @author kronus
- * @package utils
  * @uses match, config
  * @example
  * <code>
- *  $match_mapper_web = new match_mapper_web(123456789);
- *  $match = $match_mapper_web->load();
+ *  $matchMapperWeb = new Dota2Api\Utils\MatchMapperWeb(123456789);
+ *  $match = $matchMapperWeb->load();
  *  $map = new map($match->get('tower_status_radiant'), $match->get('tower_status_dire'), $match->get('barracks_status_radiant'), $match->get('barracks_status_dire'));
  *
- *  $canvas = $map->get_image();
+ *  $canvas = $map->getImage();
  *
  *  header('Content-Type: image/jpg');
  *  imagejpeg($canvas);

@@ -7,15 +7,14 @@ use Dota2Api\Utils\Request;
 /**
  * Load info about UGC objects
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *   $match_mapper_web = new match_mapper_web(37633163);
- *   $game = $match_mapper_web->load();
- *   $ugc_mapper_web = new ugc_mapper_web($game->get('radiant_logo'));
- *   $logo_data = $ugc_mapper_web->load();
- *   var_dump($logo_data);
- *   echo $logo_data->url;
+ *   $matchMapperWeb = new Dota2Api\Mappers\MatchMapperWeb(37633163);
+ *   $game = $matchMapperWeb->load();
+ *   $ugcMapperWeb = new Dota2Api\Mappers\UgcMapperWeb($game->get('radiant_logo'));
+ *   $logo_data = $ugcMapperWeb->load();
+ *   var_dump($logoData);
+ *   echo $logoData->url;
  * </code>
  */
 class UgcMapperWeb

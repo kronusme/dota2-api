@@ -6,10 +6,9 @@ namespace Dota2Api\Data;
  * Information about game lobbies
  *
  * @author kronus
- * @package data
  * @example
  * <code>
- *   $lobbies = new lobbies();
+ *   $lobbies = new Dota2Api\Data\Lobbies();
  *   $lobbies->parse();
  *   $lobbies->getFieldById(2, 'name'); // returns 'Tournament'
  * </code>

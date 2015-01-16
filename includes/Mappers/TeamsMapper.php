@@ -6,7 +6,6 @@ namespace Dota2Api\Mappers;
  * Common part for team mappers (web and db)
  *
  * @author kronus
- * @package mappers
  */
 abstract class TeamsMapper
 {

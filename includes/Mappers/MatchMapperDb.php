@@ -11,10 +11,9 @@ use Dota2Api\Models\Player;
  * Load info about match from db
  *
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *   $mm = new match_mapper_db(111093969);
+ *   $mm = new Dota2Api\Mappers\MatchMapperDb(111093969);
  *   $match = $mm->load();
  *   echo $match->get('match_id');
  *   echo $match->get('start_time');

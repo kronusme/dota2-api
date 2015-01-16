@@ -10,14 +10,14 @@ use Dota2Api\Models\Player;
  *
  * @example
  * <code>
- *  $PlayersMapperWeb = new PlayersMapperWeb();
- *  $players_info = $PlayersMapperWeb->addId('76561198067833250')->addId('76561198058587506')->load();
- *  foreach($players_info as $player_info) {
- *    echo $player_info->get('realname');
- *    echo '<img src="'.$player_info->get('avatarfull').'" alt="'.$player_info->get('personaname').'" />';
- *    echo '<a href="'.$player_info->get('profileurl').'">'.$player_info->get('personaname').'\'s steam profile</a>';
+ *  $playersMapperWeb = new Dota2Api\Mappers\PlayersMapperWeb();
+ *  $playersInfo = $playersMapperWeb->addId('76561198067833250')->addId('76561198058587506')->load();
+ *  foreach($playersInfo as $playerInfo) {
+ *    echo $playerInfo->get('realname');
+ *    echo '<img src="'.$playerInfo->get('avatarfull').'" alt="'.$playerInfo->get('personaname').'" />';
+ *    echo '<a href="'.$playerInfo->get('profileurl').'">'.$playerInfo->get('personaname').'\'s steam profile</a>';
  *  }
- *  print_r($players_info);
+ *  print_r($playersInfo);
  * </code>
  */
 class PlayersMapperWeb

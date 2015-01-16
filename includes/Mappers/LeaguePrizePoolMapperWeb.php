@@ -9,13 +9,13 @@ use Dota2Api\Utils\Request;
  *
  * @example
  * <code>
- *  $league_prize_pool_mapper_web = new league_prize_pool_mapper_web();
- *  $league_prize_pool_mapper_web->setLeagueId(600);
- *  $prize_pool_info = $league_prize_pool_mapper_web->load();
- *  print_r($prize_pool_info);
- *  echo $prize_pool_info['prize_pool'];
- *  echo $prize_pool_info['league_id'];
- *  echo $prize_pool_info['status']; // may be undefined
+ *  $leaguePrizePoolMapperWeb = new Dota2Api\Mappers\LeaguePrizePoolMapperWeb();
+ *  $leaguePrizePoolMapperWeb->setLeagueId(600);
+ *  $prizePoolInfo = $leaguePrizePoolMapperWeb->load();
+ *  print_r($prizePoolInfo);
+ *  echo $prizePoolInfo['prize_pool'];
+ *  echo $prizePoolInfo['league_id'];
+ *  echo $prizePoolInfo['status']; // may be undefined
  * </code>
  */
 class LeaguePrizePoolMapperWeb extends LeaguePrizePoolMapper

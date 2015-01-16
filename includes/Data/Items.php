@@ -6,10 +6,9 @@ namespace Dota2Api\Data;
  * Information about items
  *
  * @author kronus
- * @package data
  * @example
  * <code>
- *   $items = new items();
+ *   $items = new Dota2Api\Data\Items();
  *   $items->parse();
  *   $items-getDataById(149); // get info about Crystalis
  *   $items->getImgUrlById(149, false); // large image

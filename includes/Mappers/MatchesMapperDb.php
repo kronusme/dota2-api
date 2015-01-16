@@ -10,14 +10,13 @@ use Dota2Api\Models\Slot;
  * Load info about matches from local db (by some criteria)
  *
  * @author kronus
- * @package mappers
  * @example
  * <code>
- *   $matches_mapper_db = new matches_mapper_db();
- *   $matches_mapper_db->setLeagueId(29)->setMatchesRequested(1);
- *   $matches_info = $matches_mapper_db->load();
- *   $matches_mapper_db->delete(array(12345, 54321));
- *   print_r($matches_info);
+ *   $matchesMapperDb = new Dota2Api\Mappers\MatchesMapperDb();
+ *   $matchesMapperDb->setLeagueId(29)->setMatchesRequested(1);
+ *   $matchesInfo = $matchesMapperDb->load();
+ *   $matchesMapperDb->delete(array(12345, 54321));
+ *   print_r($matchesInfo);
  * </code>
  */
 class MatchesMapperDb extends MatchesMapper
