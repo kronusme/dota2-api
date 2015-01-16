@@ -61,7 +61,7 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($match->get('cluster'), 136);
         $this->assertEquals($match->get('radiant_name'), 'Evil Geniuses');
         $this->assertEquals($match->get('radiant_team_id'), 39);
-        $this->assertEquals($match->get('dire_name'), 'Team is Secret');
+        $this->assertEquals($match->get('dire_name'), 'Team Secret');
         $this->assertEquals($match->get('dire_team_id'), 1838315);
 
         $slots = $match->getAllSlots();
