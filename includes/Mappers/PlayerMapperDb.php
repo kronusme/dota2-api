@@ -28,12 +28,12 @@ class PlayerMapperDb
     }
 
     /**
-     * @param number $id or null
+     * @param number|string $id or null
      * @return Player
      */
     public function load($id = null)
     {
-        if (!is_null($id)) {
+        if (null !== $id) {
             $this->_steam_id = (string)$id;
         }
         $player = new Player();
@@ -53,7 +53,7 @@ class PlayerMapperDb
 
     /**
      * Determines whether the player should be inserted or updated in the db
-     * @param Player
+     * @param Player $player
      */
     public function save(Player $player)
     {
@@ -86,7 +86,7 @@ class PlayerMapperDb
      */
     public static function playerExists($id = null)
     {
-        if (is_null($id)) {
+        if (null === $id) {
             return false;
         }
 
@@ -95,6 +95,6 @@ class PlayerMapperDb
             'SELECT steamid FROM ' . Db::realTablename('users') . ' WHERE steamid = ?',
             array($id)
         );
-        return $result['steamid'] == (string)$id;
+        return $result['steamid'] === (string)$id;
     }
 }

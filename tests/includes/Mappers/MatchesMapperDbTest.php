@@ -43,6 +43,7 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $matchesMapperDb = new MatchesMapperDb();
         $matchesMapperDb->setLeagueId($this->leagueId)->setMatchesRequested(1);
         $matches = $matchesMapperDb->load();
+        /* @var $match \Dota2Api\Models\Match */
         $match = array_pop($matches);
 
         $this->assertEquals($match->get('match_id'), $this->matchId);

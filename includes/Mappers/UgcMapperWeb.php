@@ -42,7 +42,7 @@ class UgcMapperWeb
      */
     public function load($ugcid = null)
     {
-        if (!is_null($ugcid)) {
+        if (null !== $ugcid) {
             $this->_ugcid = $ugcid;
         }
         $request = new Request(

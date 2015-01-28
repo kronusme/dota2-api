@@ -33,9 +33,6 @@ class Abilities extends HeroesData
 
     public function getImgUrlById($id, $thumb = true)
     {
-        if ($id != self::STATS_ABILITY_ID) {
-            return parent::getImgUrlById($id, $thumb);
-        }
-        return 'images/stats.png';
+        return ($id !== self::STATS_ABILITY_ID) ? parent::getImgUrlById($id, $thumb) : 'images/stats.png';
     }
 }

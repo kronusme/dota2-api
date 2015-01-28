@@ -41,12 +41,12 @@ class TeamsMapperWeb extends TeamsMapper
             )
         );
         $teamsInfo = $request->send();
-        if (is_null($teamsInfo)) {
+        if (null === $teamsInfo) {
             return null;
         }
         $teams = array();
-        if (isset($teamsInfo->teams)) {
-            $teamsInfo = ((array)$teamsInfo->teams);
+        if (null !== $teamsInfo->teams) {
+            $teamsInfo = (array)$teamsInfo->teams;
             $teamsInfo = $teamsInfo['team'];
             if (is_array($teamsInfo)) {
                 foreach ($teamsInfo as $teamInfo) {

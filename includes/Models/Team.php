@@ -101,11 +101,8 @@ class Team extends StatObject
      */
     public function getPlayerId($index)
     {
-        $index = intval($index);
-        if (isset($this->_players_ids[$index])) {
-            return $this->_players_ids[$index];
-        }
-        return null;
+        $index = (int)$index;
+        return array_key_exists($index, $this->_players_ids) ? $this->_players_ids[$index] : null;
     }
 
     /**
@@ -114,7 +111,7 @@ class Team extends StatObject
      */
     public function addPlayerId($player_id)
     {
-        $player_id = intval($player_id);
+        $player_id = (int)$player_id;
         array_push($this->_players_ids, $player_id);
         return $this;
     }
@@ -145,11 +142,8 @@ class Team extends StatObject
      */
     public function getLeaguesId($index)
     {
-        $index = intval($index);
-        if (isset($this->_leagues_ids[$index])) {
-            return $this->_leagues_ids[$index];
-        }
-        return null;
+        $index = (int)$index;
+        return array_key_exists($index, $this->_leagues_ids) ? $this->_leagues_ids[$index] : null;
     }
 
     /**
@@ -158,7 +152,7 @@ class Team extends StatObject
      */
     public function addLeagueId($league_id)
     {
-        $league_id = intval($league_id);
+        $league_id = (int)$league_id;
         array_push($this->_leagues_ids, $league_id);
         return $this;
     }

@@ -176,11 +176,8 @@ class Match extends StatObject
      */
     public function getSlot($index)
     {
-        $index = intval($index);
-        if (isset($this->_slots[$index])) {
-            return $this->_slots[$index];
-        }
-        return null;
+        $index = (int)$index;
+        return array_key_exists($index, $this->_slots) ? $this->_slots[$index] : null;
     }
 
     /**

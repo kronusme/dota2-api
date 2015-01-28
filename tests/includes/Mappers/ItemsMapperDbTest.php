@@ -13,8 +13,8 @@ class ItemsMapperDbTest extends PHPUnit_Framework_TestCase
         $items = $itemsMapperDb->load();
         foreach ($items as $item) {
             $this->assertTrue($item instanceof Item);
-            $this->assertTrue(strlen($item->get('localized_name')) > 0);
-            $this->assertTrue(strlen($item->get('name')) > 0);
+            $this->assertTrue('' !== $item->get('localized_name'));
+            $this->assertTrue('' !== $item->get('name'));
         }
 
     }

@@ -11,6 +11,6 @@ class Api
     {
         $db = call_user_func_array('Dota2Api\Utils\Db::obtain', $db);
         $db->connectPDO($autoselect_db);
-        Request::$apiKey = strval($api_key);
+        Request::$apiKey = (string)$api_key;
     }
 }

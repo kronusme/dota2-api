@@ -11,8 +11,8 @@ class PlayersMapperWebTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(count($playersInfo), 2);
 
-        $this->assertEquals('76561198067833250', strval($playersInfo['76561198067833250']->get('steamid')));
-        $this->assertEquals('76561198058587506', strval($playersInfo['76561198058587506']->get('steamid')));
+        $this->assertEquals('76561198067833250', (string)$playersInfo['76561198067833250']->get('steamid'));
+        $this->assertEquals('76561198058587506', (string)$playersInfo['76561198058587506']->get('steamid'));
 
         $this->assertStringStartsWith('http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/',
             $playersInfo['76561198067833250']->get('avatar'));

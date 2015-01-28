@@ -32,7 +32,7 @@ class HeroesMapper
             array()
         );
         $response = $request->send();
-        if (is_null($response)) {
+        if (null === $response) {
             return null;
         }
         $heroes_info = (array)($response->heroes);

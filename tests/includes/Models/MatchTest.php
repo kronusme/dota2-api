@@ -11,7 +11,7 @@ class MatchTest extends PHPUnit_Framework_TestCase
     /**
      * @var Match
      */
-    public $match = null;
+    public $match;
 
     public function setUp()
     {
@@ -47,6 +47,8 @@ class MatchTest extends PHPUnit_Framework_TestCase
     {
         $slots = $this->match->getAllSlotsDivided();
 
+        /* @var $slots Dota2Api\Models\Slot[][] */
+
         $this->assertEquals(5, count($slots['radiant']));
         $this->assertEquals(5, count($slots['dire']));
 
@@ -67,139 +69,139 @@ class MatchTest extends PHPUnit_Framework_TestCase
     {
         $picksBans = $this->match->getAllPicksBansDivided();
         $expectedPicksBans = array(
-            "radiant" => array(
-                "bans" => array(
+            'radiant' => array(
+                'bans' => array(
 
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "91",
-                        "team" => "0",
-                        "order" => "1"
+                        'is_pick' => '0',
+                        'hero_id' => '91',
+                        'team' => '0',
+                        'order' => '1'
                     ),
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "103",
-                        "team" => "0",
-                        "order" => "3"
+                        'is_pick' => '0',
+                        'hero_id' => '103',
+                        'team' => '0',
+                        'order' => '3'
                     ),
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "33",
-                        "team" => "0",
-                        "order" => "9"
+                        'is_pick' => '0',
+                        'hero_id' => '33',
+                        'team' => '0',
+                        'order' => '9'
                     ),
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "1",
-                        "team" => "0",
-                        "order" => "11"
+                        'is_pick' => '0',
+                        'hero_id' => '1',
+                        'team' => '0',
+                        'order' => '11'
                     ),
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "20",
-                        "team" => "0",
-                        "order" => "16"
+                        'is_pick' => '0',
+                        'hero_id' => '20',
+                        'team' => '0',
+                        'order' => '16'
                     )
                 ),
-                "picks" => array(
+                'picks' => array(
 
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "29",
-                        "team" => "0",
-                        "order" => "5"
+                        'is_pick' => '1',
+                        'hero_id' => '29',
+                        'team' => '0',
+                        'order' => '5'
                     ),
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "77",
-                        "team" => "0",
-                        "order" => "6"
+                        'is_pick' => '1',
+                        'hero_id' => '77',
+                        'team' => '0',
+                        'order' => '6'
                     ),
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "30",
-                        "team" => "0",
-                        "order" => "12"
+                        'is_pick' => '1',
+                        'hero_id' => '30',
+                        'team' => '0',
+                        'order' => '12'
                     ),
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "13",
-                        "team" => "0",
-                        "order" => "14"
+                        'is_pick' => '1',
+                        'hero_id' => '13',
+                        'team' => '0',
+                        'order' => '14'
                     ),
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "88",
-                        "team" => "0",
-                        "order" => "18"
+                        'is_pick' => '1',
+                        'hero_id' => '88',
+                        'team' => '0',
+                        'order' => '18'
                     )
                 )
             ),
-            "dire" => array(
-                "bans" => array(
+            'dire' => array(
+                'bans' => array(
 
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "15",
-                        "team" => "1",
-                        "order" => "0"
+                        'is_pick' => '0',
+                        'hero_id' => '15',
+                        'team' => '1',
+                        'order' => '0'
                     ),
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "64",
-                        "team" => "1",
-                        "order" => "2"
+                        'is_pick' => '0',
+                        'hero_id' => '64',
+                        'team' => '1',
+                        'order' => '2'
                     ),
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "92",
-                        "team" => "1",
-                        "order" => "8"
+                        'is_pick' => '0',
+                        'hero_id' => '92',
+                        'team' => '1',
+                        'order' => '8'
                     ),
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "65",
-                        "team" => "1",
-                        "order" => "10"
+                        'is_pick' => '0',
+                        'hero_id' => '65',
+                        'team' => '1',
+                        'order' => '10'
                     ),
                     array(
-                        "is_pick" => "0",
-                        "hero_id" => "83",
-                        "team" => "1",
-                        "order" => "17"
+                        'is_pick' => '0',
+                        'hero_id' => '83',
+                        'team' => '1',
+                        'order' => '17'
                     )
                 ),
-                "picks" => array(
+                'picks' => array(
 
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "78",
-                        "team" => "1",
-                        "order" => "4"
+                        'is_pick' => '1',
+                        'hero_id' => '78',
+                        'team' => '1',
+                        'order' => '4'
                     ),
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "7",
-                        "team" => "1",
-                        "order" => "7"
+                        'is_pick' => '1',
+                        'hero_id' => '7',
+                        'team' => '1',
+                        'order' => '7'
                     ),
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "69",
-                        "team" => "1",
-                        "order" => "13"
+                        'is_pick' => '1',
+                        'hero_id' => '69',
+                        'team' => '1',
+                        'order' => '13'
                     ),
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "94",
-                        "team" => "1",
-                        "order" => "15"
+                        'is_pick' => '1',
+                        'hero_id' => '94',
+                        'team' => '1',
+                        'order' => '15'
                     ),
                     array(
-                        "is_pick" => "1",
-                        "hero_id" => "90",
-                        "team" => "1",
-                        "order" => "19"
+                        'is_pick' => '1',
+                        'hero_id' => '90',
+                        'team' => '1',
+                        'order' => '19'
                     )
                 )
             )

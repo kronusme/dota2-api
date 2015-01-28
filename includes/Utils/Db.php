@@ -67,7 +67,7 @@ class Db
      * @var PDO $_linkId
      * @static
      */
-    private static $_linkId = null;
+    private static $_linkId;
     /**
      * Represents a prepared statement
      * @access private
@@ -88,7 +88,7 @@ class Db
     private function __construct($server = null, $user = null, $pass = null, $database = null, $pref = null)
     {
 
-        if ($server == null || $user == null || $database == null) {
+        if ($server === null || $user === null || $database === null) {
             return;
         }
 
@@ -111,7 +111,7 @@ class Db
      */
     public static function obtain($server = null, $user = null, $pass = null, $database = null, $pref = null)
     {
-        if (is_null(self::$_instance)) {
+        if (null === self::$_instance) {
             self::$_instance = new db($server, $user, $pass, $database, $pref);
         }
         return self::$_instance;
@@ -131,7 +131,7 @@ class Db
      */
     public function connectPDO($selectDb = true)
     {
-        if (!is_null(self::$_linkId)) {
+        if (null !== self::$_linkId) {
             return true;
         }
         try {
@@ -168,7 +168,7 @@ class Db
      * @param Array $params
      * @return Boolean Returns TRUE on success or FALSE on failure.
      */
-    private function _queryPDO($sql, $params = array())
+    private function _queryPDO($sql, array $params = array())
     {
         try {
             $this->_queryId = self::$_linkId->prepare($sql);
@@ -192,7 +192,7 @@ class Db
      * @param Array $params
      * @return Mixed The first record as an Array or FALSE in case the query fails to execute.
      */
-    public function queryFirstPDO($sql, $params = array())
+    public function queryFirstPDO($sql, array $params = array())
     {
         $query_id = $this->_queryPDO($sql, $params);
         if ($query_id === false) {
@@ -210,22 +210,16 @@ class Db
      */
     private function _fetchPDO()
     {
-
-        $record = "";
-        if (isset($this->_queryId)) {
-            $record = $this->_queryId->fetch(PDO::FETCH_ASSOC);
-        }
-        return $record;
+        return ($this->_queryId === null) ? '' : $this->_queryId->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
      * Fetches and returns all the results (not just one row)
-     * @access public
-     * @param String $sql
-     * @param Array $params
-     * @return Mixed The complete records as an Associative Array or Empty in case if the query_id (i.e. if the query did not execute) is not set.
+     * @param string $sql
+     * @param array $params
+     * @return array The complete records as an Associative Array or Empty in case if the query_id (i.e. if the query did not execute) is not set.
      */
-    public function fetchArrayPDO($sql, $params = array())
+    public function fetchArrayPDO($sql, array $params = array())
     {
 
         $query_id = $this->_queryPDO($sql, $params);
@@ -250,28 +244,23 @@ class Db
      * @param Array $where
      * @return Boolean Returns TRUE on success or FALSE on failure.
      */
-    public function updatePDO($table, $data, $where = array())
+    public function updatePDO($table, array $data, array $where = array())
     {
 
-        if (empty($data)) {
+        if (count($data) === 0) {
             return false;
         }
         $q = "UPDATE `$table` SET ";
 
         foreach ($data as $key => $val) {
-            if (is_null($val)) {
-                ;
-            } // fix by KronuS 07.12.2012. Was "if(empty($val));"
-            else {
+            if (null !== $val) {
                 $q .= "`$key`=?, ";
             }
         }
         $q = rtrim($q, ', ') . ' WHERE ';
 
         foreach ($where as $key => $val) {
-            if (is_null($val)) {
-                ;
-            } else {
+            if (null !== $val) {
                 $q .= "`$key`=? AND ";
             }
         }
@@ -282,10 +271,7 @@ class Db
 
             $i = 1;
             foreach ($data as $key => $val) {
-                if (is_null($val)) {
-// fix by KronuS 07.12.2012. Was "if(empty($val));"
-                    ;
-                } else {
+                if (null !== $val) {
                     $type = $this->getPDOConstantType($val);
                     $this->_queryId->bindValue($i, $val, $type);
                     ++$i;
@@ -317,7 +303,7 @@ class Db
      */
     public function insertManyPDO($table, array $fields, array $data = array(), $update = false)
     {
-        if (empty($data)) {
+        if (count($data) === 0) {
             return false;
         }
         $q = 'INSERT INTO `' . $table . '`';
@@ -325,7 +311,8 @@ class Db
         $n = '(`' . implode('`,`', $fields) . '`) ';
         foreach ($data as $sd) {
             $v .= '(';
-            foreach ($sd as $val) {
+            $sd_c = count($sd);
+            for ($i = 0; $i < $sd_c; $i++) {
                 $v .= '?,';
             }
             $v = rtrim($v, ',') . '),';
@@ -366,9 +353,9 @@ class Db
      * @param Array $data is an assoc array with keys are column names and values as the actual values
      * @return Mixed Returns ID of the inserted record or FALSE on failure.
      */
-    public function insertPDO($table, $data = array())
+    public function insertPDO($table, array $data = array())
     {
-        if (empty($data)) {
+        if (count($data) === 0) {
             return false;
         }
         $q = "INSERT INTO `$table` ";
@@ -377,14 +364,14 @@ class Db
 
         foreach ($data as $key => $val) {
             $n .= "`$key`, ";
-            if (strtolower($val) == 'now()') {
-                $v .= "NOW(), ";
+            if (strtolower($val) === 'now()') {
+                $v .= 'NOW(), ';
                 unset($data[$key]);
             } else {
-                $v .= "?, ";
+                $v .= '?, ';
             }
         }
-        $q .= "(" . rtrim($n, ', ') . ") VALUES (" . rtrim($v, ', ') . ");";
+        $q .= '(' . rtrim($n, ', ') . ') VALUES (' . rtrim($v, ', ') . ');';
         try {
             $this->_queryId = self::$_linkId->prepare($q);
 
@@ -412,8 +399,8 @@ class Db
      */
     public function deletePDO($table, array $where = array(), $limit = 1)
     {
-        $limit = intval($limit);
-        if (empty($where)) {
+        $limit = (int)$limit;
+        if (count($where) === 0) {
             return false;
         }
         $q = "DELETE FROM `$table` ";
@@ -453,7 +440,7 @@ class Db
     /**
      * Checks the data type of the value that is passed
      * @access public
-     * @param Mixed $value
+     * @param * $value
      * @return Integer Returns the corresponding PDO ID of the data type.
      */
     public function getPDOConstantType($value)
@@ -466,7 +453,7 @@ class Db
             case is_bool($value):
                 $type = PDO::PARAM_BOOL;
                 break;
-            case is_null($value):
+            case (null === $value):
                 $type = PDO::PARAM_NULL;
                 break;
             default:

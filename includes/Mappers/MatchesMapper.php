@@ -83,7 +83,7 @@ abstract class MatchesMapper
      */
     public function setHeroId($heroId)
     {
-        $this->_hero_id = intval($heroId);
+        $this->_hero_id = (int)$heroId;
         return $this;
     }
 
@@ -101,7 +101,7 @@ abstract class MatchesMapper
      */
     public function setSkill($skill)
     {
-        $skill = intval($skill);
+        $skill = (int)$skill;
         if ($skill >= 0 && $skill <= 3) {
             $this->_skill = $skill;
         }
@@ -122,7 +122,7 @@ abstract class MatchesMapper
      */
     public function setDateMax($timestamp)
     {
-        $timestamp = intval($timestamp);
+        $timestamp = (int)$timestamp;
         if ($timestamp >= 0 && $timestamp < 2147483647) {
             $this->_date_max = $timestamp;
         }
@@ -143,7 +143,7 @@ abstract class MatchesMapper
      */
     public function setDateMin($timestamp)
     {
-        $timestamp = intval($timestamp);
+        $timestamp = (int)$timestamp;
         if ($timestamp >= 0 && $timestamp < 2147483647) {
             $this->_date_min = $timestamp;
         }
@@ -164,7 +164,7 @@ abstract class MatchesMapper
      */
     public function setAccountId($accountId)
     {
-        $this->_account_id = intval($accountId);
+        $this->_account_id = (int)$accountId;
         return $this;
     }
 
@@ -182,7 +182,7 @@ abstract class MatchesMapper
      */
     public function setLeagueId($leagueId)
     {
-        $this->_league_id = intval($leagueId);
+        $this->_league_id = (int)$leagueId;
         return $this;
     }
 
@@ -200,7 +200,7 @@ abstract class MatchesMapper
      */
     public function setStartAtMatchId($matchId)
     {
-        $this->_start_at_match_id = intval($matchId);
+        $this->_start_at_match_id = (int)$matchId;
         return $this;
     }
 
@@ -218,7 +218,7 @@ abstract class MatchesMapper
      */
     public function setMatchesRequested($matchesRequested)
     {
-        $matchesRequested = intval($matchesRequested);
+        $matchesRequested = (int)$matchesRequested;
         if ($matchesRequested > 0 && $matchesRequested <= 100) {
             $this->_matches_requested = $matchesRequested;
         }

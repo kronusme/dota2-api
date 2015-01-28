@@ -63,7 +63,7 @@ class MatchesMapperDb extends MatchesMapper
         foreach ($matchesInfo as $matchInfo) {
             array_push($matchesIds, $matchInfo['match_id']);
         }
-        if (count($matchesIds) == 0) {
+        if (count($matchesIds) === 0) {
             return array();
         }
         $slotsInfo = $this->_loadSlotsInfo($matchesIds);
@@ -88,20 +88,20 @@ class MatchesMapperDb extends MatchesMapper
                     // match can't has more than 10 slots
                     break;
                 }
-                if ($slotInfo['match_id'] == $match->get('match_id')) {
+                if ((int)$slotInfo['match_id'] === (int)$match->get('match_id')) {
                     $slot = new slot();
                     $slot->setArray($slotInfo);
-                    if (isset($abilitiesUpgradeFormattedInfo[$slot->get('id')])) {
+                    if (array_key_exists($slot->get('id'), $abilitiesUpgradeFormattedInfo)) {
                         $slot->setAbilitiesUpgrade($abilitiesUpgradeFormattedInfo[$slot->get('id')]);
                     }
-                    if (isset($additionalUnitsFormattedInfo[$slot->get('id')])) {
+                    if (array_key_exists($slot->get('id'), $additionalUnitsFormattedInfo)) {
                         $slot->setAdditionalUnitItems($additionalUnitsFormattedInfo[$slot->get('id')]);
                     }
                     $match->addSlot($slot);
                     $slots_count++;
                 }
             }
-            if (isset($picksBansFormattedInfo[$match->get('match_id')])) {
+            if (array_key_exists($match->get('match_id'), $picksBansFormattedInfo)) {
                 $match->setAllPickBans($picksBansFormattedInfo[$match->get('match_id')]);
             }
             $matches[$match->get('match_id')] = $match;
@@ -149,9 +149,9 @@ class MatchesMapperDb extends MatchesMapper
     {
         $db = Db::obtain();
         $slots_query = 'SELECT * FROM ' . Db::realTablename('slots') . ' WHERE match_id IN (' . implode(
-            ',',
-            $matchesIds
-        ) . ')';
+                ',',
+                $matchesIds
+            ) . ')';
         return $db->fetchArrayPDO($slots_query, array());
     }
 
@@ -182,14 +182,14 @@ class MatchesMapperDb extends MatchesMapper
     {
         $db = Db::obtain();
         $picksBansQuery = 'SELECT * FROM ' . Db::realTablename('picks_bans') . ' WHERE match_id IN (' . implode(
-            ',',
-            $matchesIds
-        ) . ')';
+                ',',
+                $matchesIds
+            ) . ')';
         $picksBansInfo = $db->fetchArrayPDO($picksBansQuery, array());
         // reformat picks_bans array
         $picksBansFormattedInfo = array();
         foreach ($picksBansInfo as $pickBanInfo) {
-            if (!isset($picksBansFormattedInfo[$pickBanInfo['match_id']])) {
+            if (!array_key_exists($pickBanInfo['match_id'], $picksBansFormattedInfo)) {
                 $picksBansFormattedInfo[$pickBanInfo['match_id']] = array();
             }
             array_push($picksBansFormattedInfo[$pickBanInfo['match_id']], $pickBanInfo);
@@ -222,15 +222,15 @@ class MatchesMapperDb extends MatchesMapper
     {
         $db = Db::obtain();
         $abilitiesUpgradeQuery = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . implode(
-            ',',
-            $slotsIds
-        ) . ') ORDER BY slot_id, level ASC';
+                ',',
+                $slotsIds
+            ) . ') ORDER BY slot_id, level ASC';
         $abilitiesUpgradeInfo = $db->fetchArrayPDO($abilitiesUpgradeQuery, array());
 
         // reformat abilities upgrades array
         $abilitiesUpgradeFormattedInfo = array();
         foreach ($abilitiesUpgradeInfo as $abilityUpgradeInfo) {
-            if (!isset($abilitiesUpgradeFormattedInfo[$abilityUpgradeInfo['slot_id']])) {
+            if (!array_key_exists($abilityUpgradeInfo['slot_id'], $abilitiesUpgradeFormattedInfo)) {
                 $abilitiesUpgradeFormattedInfo[$abilityUpgradeInfo['slot_id']] = array();
             }
             array_push($abilitiesUpgradeFormattedInfo[$abilityUpgradeInfo['slot_id']], $abilityUpgradeInfo);
@@ -264,13 +264,13 @@ class MatchesMapperDb extends MatchesMapper
     {
         $db = Db::obtain();
         $additionalUnitsQuery = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN (' . implode(
-            ',',
-            $slotsIds
-        ) . ')';
+                ',',
+                $slotsIds
+            ) . ')';
         $additionalUnitsInfo = $db->fetchArrayPDO($additionalUnitsQuery, array());
         $additionalUnitsFormattedInfo = array();
         foreach ($additionalUnitsInfo as $additionalUnitInfo) {
-            if (!isset($additionalUnitsFormattedInfo[$additionalUnitInfo['slot_id']])) {
+            if (!array_key_exists($additionalUnitInfo['slot_id'], $additionalUnitsFormattedInfo)) {
                 $additionalUnitsFormattedInfo[$additionalUnitInfo['slot_id']] = array();
             }
             $additionalUnitsFormattedInfo[$additionalUnitInfo['slot_id']] = $additionalUnitInfo;
@@ -292,12 +292,12 @@ class MatchesMapperDb extends MatchesMapper
         $where = '';
         $data = array();
 
-        if (!is_null($this->getLeagueId())) {
+        if (null !== $this->getLeagueId()) {
             $where .= 'leagueid = ? AND ';
             array_push($data, $this->getLeagueId());
         }
 
-        if (!is_null($this->getTeamId())) {
+        if (null !== $this->getTeamId()) {
             $where .= '(radiant_team_id = ? OR dire_team_id = ?) AND ';
             array_push($data, $this->getTeamId());
             array_push($data, $this->getTeamId());
@@ -307,7 +307,7 @@ class MatchesMapperDb extends MatchesMapper
             $where .= 'match_id IN (' . implode(',', $_matchesIdsFromSlots) . ') AND ';
         }
 
-        if (!is_null($this->getStartAtMatchId())) {
+        if (null !== $this->getStartAtMatchId()) {
             $where .= 'match_id > ? AND ';
             array_push($data, $this->getStartAtMatchId());
         }
@@ -318,7 +318,7 @@ class MatchesMapperDb extends MatchesMapper
 
         $matchesQuery .= ' ORDER BY start_time DESC';
 
-        if (!is_null($this->getMatchesRequested())) {
+        if (null !== $this->getMatchesRequested()) {
             $matchesQuery .= ' LIMIT ?';
             array_push($data, $this->getMatchesRequested());
         }
@@ -342,11 +342,11 @@ class MatchesMapperDb extends MatchesMapper
         $whereForSlots = '';
         $dataForSlots = array();
 
-        if (!is_null($this->getHeroId())) {
+        if (null !== $this->getHeroId()) {
             $whereForSlots .= 'heroid = ? AND ';
             array_push($dataForSlots, $this->getHeroId());
         }
-        if (!is_null($this->getAccountId())) {
+        if (null !== $this->getAccountId()) {
             $whereForSlots .= 'account_id = ? AND ';
             array_push($dataForSlots, $this->getAccountId());
         }

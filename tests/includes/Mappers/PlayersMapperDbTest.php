@@ -6,13 +6,14 @@ use Dota2Api\Mappers\LeaguesMapperDb;
 use Dota2Api\Mappers\MatchMapperWeb;
 use Dota2Api\Mappers\MatchMapperDb;
 use Dota2Api\Models\Player;
+use Dota2Api\Utils\Db;
 
 class PlayersMapperDbTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var PlayersMapperDb
      */
-    public $mapper = null;
+    public $mapper;
 
     public static function setUpBeforeClass()
     {

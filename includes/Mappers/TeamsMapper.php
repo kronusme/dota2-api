@@ -32,7 +32,7 @@ abstract class TeamsMapper
      */
     public function setTeamId($teamId)
     {
-        $teamId = intval($teamId);
+        $teamId = (int)$teamId;
         if ($teamId > 0) {
             $this->_teamId = $teamId;
         }
@@ -53,7 +53,7 @@ abstract class TeamsMapper
      */
     public function setTeamsRequested($teamRequested)
     {
-        $teamRequested = intval($teamRequested);
+        $teamRequested = (int)$teamRequested;
         if ($teamRequested >= 1) {
             $this->_teamsRequested = $teamRequested;
         }

@@ -22,7 +22,7 @@ class PlayersMapperDb
     public function addId($id)
     {
         $id = (string)$id;
-        if (!in_array($id, $this->_ids)) {
+        if (!in_array($id, $this->_ids, true)) {
             array_push($this->_ids, $id);
         }
 
@@ -33,7 +33,7 @@ class PlayersMapperDb
     {
         $id = (string)$id;
         foreach ($this->_ids as $k => $v) {
-            if ($v == $id) {
+            if ($v === $id) {
                 unset($this->_ids[$k]);
             }
         }

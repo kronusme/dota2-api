@@ -41,7 +41,7 @@ class MatchMapperWeb extends MatchMapper
     {
         $request = new request(self::STEAM_MATCH_URL, array('match_id' => $this->getMatchId()));
         $matchInfo = $request->send();
-        if (is_null($matchInfo)) {
+        if (null === $matchInfo) {
             return null;
         }
         $match = new Match();
@@ -52,7 +52,7 @@ class MatchMapperWeb extends MatchMapper
         $data = (array)$matchInfo;
         unset($data['players']);
         $data['start_time'] = date('Y-m-d H:i:s', $data['start_time']);
-        $data['radiant_win'] = ($data['radiant_win'] == 'true') ? '1' : '0';
+        $data['radiant_win'] = ($data['radiant_win'] === 'true') ? '1' : '0';
         $match->setArray($data);
         // slots info
         foreach ($players as $player) {
@@ -61,11 +61,11 @@ class MatchMapperWeb extends MatchMapper
             $slot = new Slot();
             $slot->setArray($data);
             // additional_units
-            if (isset($data['additional_units'])) {
+            if (array_key_exists('additional_units', $data)) {
                 $slot->setAdditionalUnitItems((array)($data['additional_units']->unit));
             }
             // abilities
-            if (isset($data['ability_upgrades'])) {
+            if (array_key_exists('ability_upgrades', $data)) {
                 $d = (array)$data['ability_upgrades'];
                 $abilitiesUpgrade = $d['ability'];
                 if (!is_array($abilitiesUpgrade)) {
@@ -78,14 +78,13 @@ class MatchMapperWeb extends MatchMapper
             }
             $match->addSlot($slot);
         }
-        if (isset($matchInfo->picks_bans)) {
+        if (null !== $matchInfo->picks_bans) {
             $picksBans = (array)$matchInfo->picks_bans;
             foreach ($picksBans['pick_ban'] as $k => $v) {
                 $picksBans['pick_ban'][$k] = (array)$v;
-                if ($picksBans['pick_ban'][$k]['is_pick'] == 'false') {
+                $picksBans['pick_ban'][$k]['is_pick'] = '1';
+                if ($picksBans['pick_ban'][$k]['is_pick'] === 'false') {
                     $picksBans['pick_ban'][$k]['is_pick'] = '0';
-                } else {
-                    $picksBans['pick_ban'][$k]['is_pick'] = '1';
                 }
             }
             $match->setAllPickBans($picksBans['pick_ban']);

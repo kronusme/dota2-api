@@ -69,7 +69,7 @@ class LeaguesMapperDb extends LeaguesMapper
 
     public static function leagueExists($leagueid)
     {
-        $leagueid = intval($leagueid);
+        $leagueid = (int)$leagueid;
         $db = Db::obtain();
         $r = $db->queryFirstPDO(
             'SELECT leagueid FROM ' . Db::realTablename('leagues') . ' WHERE leagueid = ?',

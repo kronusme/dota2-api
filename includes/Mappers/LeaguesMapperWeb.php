@@ -38,7 +38,7 @@ class LeaguesMapperWeb extends LeaguesMapper
             array()
         );
         $response = $request->send();
-        if (is_null($response)) {
+        if (null === $response) {
             return null;
         }
         $leaguesInfo = (array)($response->leagues);

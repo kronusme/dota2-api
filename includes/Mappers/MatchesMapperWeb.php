@@ -52,7 +52,7 @@ class MatchesMapperWeb extends MatchesMapper
         $data = get_object_vars($this);
         $ret = array();
         foreach ($data as $key => $value) {
-            if (!is_array($value) && !is_null($value) && $key != '_total_results') {
+            if ($key !== '_total_results' && null !== $value && !is_array($value)) {
                 $ret[ltrim($key, '_')] = $value;
             }
         }
@@ -66,11 +66,11 @@ class MatchesMapperWeb extends MatchesMapper
     {
         $request = new Request(self::STEAM_MATCHES_URL, $this->_getDataArray());
         $xml = $request->send();
-        if (is_null($xml)) {
+        if (null === $xml) {
             return null;
         }
         $matches = array();
-        if (isset($xml->matches)) {
+        if (null !== $xml->matches) {
             $this->_total_results = $xml->total_results;
             foreach ($xml->matches as $m_matches) {
                 foreach ($m_matches as $m) {

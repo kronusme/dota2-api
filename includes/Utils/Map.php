@@ -62,7 +62,7 @@ class Map
 
     public function getImage()
     {
-        $path =  __DIR__ . '/../../' . $this->_folder;
+        $path = __DIR__ . '/../../' . $this->_folder;
         $this->_canvas = imagecreatefromjpeg($path . 'dota_map.jpg');
         if ($this->_canvas === false) {
             return null;
@@ -88,7 +88,8 @@ class Map
             array(115, 520),  // t2 top
             array(115, 383)  // t1 top
         );
-        for ($i = 0; $i < count($positions); $i++) {
+        $c = count($positions);
+        for ($i = 0; $i < $c; $i++) {
             if ($this->_towerStatusRadiant[$i]) {
                 $this->_drawIcon($towerRadiant, $positions[$i]);
             }
@@ -101,7 +102,8 @@ class Map
             array(60, 730), // TOP RANGED
             array(100, 730) // TOP MELEE
         );
-        for ($i = 0; $i < count($positions); $i++) {
+        $c = count($positions);
+        for ($i = 0; $i < $c; $i++) {
             if ($this->_barracksStatusRadiant[$i]) {
                 $this->_drawIcon($barracksRadiant, $positions[$i]);
             }
@@ -123,7 +125,8 @@ class Map
             array(450, 100), // t2 top
             array(180, 100) // t1 top
         );
-        for ($i = 0; $i < count($positions); $i++) {
+        $c = count($positions);
+        for ($i = 0; $i < $c; $i++) {
             if ($this->_towerStatusDire[$i]) {
                 $this->_drawIcon($towerDire, $positions[$i]);
             }
@@ -136,7 +139,8 @@ class Map
             array(750, 110), // TOP RANGED
             array(750, 150) // TOP MELEE
         );
-        for ($i = 0; $i < count($positions); $i++) {
+        $c = count($positions);
+        for ($i = 0; $i < $c; $i++) {
             if ($this->_barracksStatusDire[$i]) {
                 $this->_drawIcon($barracksDire, $positions[$i]);
             }
@@ -164,7 +168,7 @@ class Map
      */
     private function _loadPng($file)
     {
-        $pic = @imagecreatefrompng($file);
+        $pic = imagecreatefrompng($file);
         if ($pic === false) {
             return null;
         }

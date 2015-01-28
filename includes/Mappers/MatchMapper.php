@@ -18,9 +18,11 @@ abstract class MatchMapper
      * @param int $matchId
      * @return MatchMapper
      */
-    public function setMatchId($matchId)
+    public function setMatchId($matchId = null)
     {
-        $this->_match_id = intval($matchId);
+        if (null === $matchId) {
+            $this->_match_id = (int)$matchId;
+        }
         return $this;
     }
 
@@ -35,9 +37,11 @@ abstract class MatchMapper
     /**
      * @param int $matchId
      */
-    public function __construct($matchId)
+    public function __construct($matchId = null)
     {
-        $this->setMatchId($matchId);
+        if (null === $matchId) {
+            $this->setMatchId($matchId);
+        }
     }
 
     /**

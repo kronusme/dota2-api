@@ -31,7 +31,7 @@ class LeaguePrizePoolMapperWeb extends LeaguePrizePoolMapper
      */
     public function __construct($leagueId = null)
     {
-        if (!is_null($leagueId)) {
+        if (null !== $leagueId) {
             $this->setLeagueId($leagueId);
         }
     }
@@ -43,7 +43,7 @@ class LeaguePrizePoolMapperWeb extends LeaguePrizePoolMapper
             array('leagueid' => $this->getLeagueId())
         );
         $prizePool = $request->send();
-        if (is_null($prizePool)) {
+        if (null === $prizePool) {
             return null;
         }
         return (array)$prizePool;

@@ -13,9 +13,9 @@ abstract class HeroesData extends Data
      */
     public function getImgUrlById($id, $thumb = true)
     {
-        $id = intval($id);
+        $id = (int)$id;
         $data = $this->getDataById($id);
-        if (is_null($data)) {
+        if (null === $data) {
             return '';
         } else {
             $suffix = $thumb ? $this->_suffixes['thumb'] : $this->_suffixes['large'];

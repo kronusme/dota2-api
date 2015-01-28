@@ -13,7 +13,7 @@ class PlayerMapperDbTest extends PHPUnit_Framework_TestCase
     /**
      * @var Player
      */
-    public $player = null;
+    public $player;
 
     public static function setUpBeforeClass()
     {
@@ -58,7 +58,7 @@ class PlayerMapperDbTest extends PHPUnit_Framework_TestCase
     public function testLoad()
     {
         $mapperDb = new PlayerMapperDb();
-        $player = $mapperDb->load(Player::convertId(strval($this->playerId)));
+        $player = $mapperDb->load(Player::convertId((string)$this->playerId));
         $this->assertEquals('test', $player->get('personaname'));
     }
 

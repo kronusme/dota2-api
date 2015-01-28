@@ -97,7 +97,7 @@ abstract class Data
      */
     public function parse()
     {
-        $fullpath = dirname(__FILE__) . '/../../' . self::PATH . '/' . $this->_filename;
+        $fullpath = __DIR__ . '/../../' . self::PATH . '/' . $this->_filename;
         if (file_exists($fullpath)) {
             $content = file_get_contents($fullpath);
             $data = json_decode($content);
@@ -121,11 +121,8 @@ abstract class Data
      */
     public function getDataById($id)
     {
-        $id = intval($id);
-        if (isset($this->_data[$id])) {
-            return $this->_data[$id];
-        }
-        return null;
+        $id = (int)$id;
+        return array_key_exists($id, $this->_data) ? $this->_data[$id] : null;
     }
 
     /**
@@ -137,9 +134,9 @@ abstract class Data
     public function getFieldById($id, $field_name)
     {
         $data = $this->getDataById($id);
-        if (!is_null($data)) {
+        if (null !== $data) {
             $field_name = (string)$field_name;
-            if (isset($data[$field_name])) {
+            if (array_key_exists($field_name, $data)) {
                 return $data[$field_name];
             }
         }

@@ -22,7 +22,7 @@ class LeaguePrizePoolMapperDb extends LeaguePrizePoolMapper
     public function load()
     {
         $leagueid = $this->getLeagueId();
-        if (is_null($leagueid)) {
+        if (null === $leagueid) {
             return array();
         }
         $db = Db::obtain();
@@ -42,7 +42,7 @@ class LeaguePrizePoolMapperDb extends LeaguePrizePoolMapper
     {
         $leagueid = $this->getLeagueId();
         $prizePool = $this->getPrizePool();
-        if (is_null($prizePool) || is_null($leagueid)) {
+        if (null === $prizePool || null === $leagueid) {
             return;
         }
         $db = Db::obtain();

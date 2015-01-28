@@ -26,7 +26,7 @@ abstract class LeaguePrizePoolMapper
      */
     public function setLeagueId($leagueId)
     {
-        $this->_leagueId = intval($leagueId);
+        $this->_leagueId = (int)$leagueId;
         return $this;
     }
 
@@ -44,7 +44,7 @@ abstract class LeaguePrizePoolMapper
      */
     public function setPrizePool($prizePool)
     {
-        $this->_prizePool = intval($prizePool);
+        $this->_prizePool = (int)$prizePool;
         return $this;
     }
 

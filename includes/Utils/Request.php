@@ -64,10 +64,7 @@ class Request
     public function getParameter($name)
     {
         $name = (string)$name;
-        if (isset($this->_params[$name])) {
-            return $this->_params[$name];
-        }
-        return null;
+        return array_key_exists($name, $this->_params) ? $this->_params[$name] : null;
     }
 
     /**
@@ -108,7 +105,7 @@ class Request
     /**
      * Send request to Valve's servers
      * @access public
-     * @return mixed
+     * @return SimpleXMLElement | null
      */
     public function send()
     {
@@ -127,7 +124,7 @@ class Request
         $url .= '?' . $d;
 
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_ENCODING, "gzip");
+        curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         // Ignore SSL warnings and questions
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);

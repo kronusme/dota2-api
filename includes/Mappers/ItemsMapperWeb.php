@@ -42,7 +42,7 @@ class ItemsMapperWeb extends ItemsMapper
             array()
         );
         $response = $request->send();
-        if (is_null($response)) {
+        if (null === $response) {
             return null;
         }
         $itemsInfo = (array)($response->items);

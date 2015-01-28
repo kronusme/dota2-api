@@ -13,7 +13,7 @@ class match_mapper_webTest extends PHPUnit_Framework_TestCase
             'radiant_win' => '1',
             'first_blood_time' => '7',
             'leagueid' => '600',
-            'duration' => '1662',
+            'duration' => '1662'
         );
         $mapper = new MatchMapperWeb($matchId);
         $match = $mapper->load();
@@ -25,43 +25,43 @@ class match_mapper_webTest extends PHPUnit_Framework_TestCase
         $expectedSlotsInfo = array(
             0 => array(
                 'ability_upgrades' => 13,
-                'level' => 13,
+                'level' => 13
             ),
             1 => array(
                 'ability_upgrades' => 16,
-                'level' => 16,
+                'level' => 16
             ),
             2 => array(
                 'ability_upgrades' => 15,
-                'level' => 15,
+                'level' => 15
             ),
             3 => array(
                 'ability_upgrades' => 17, // player got level up but didn't choose any spell
-                'level' => 18,
+                'level' => 18
             ),
             4 => array(
                 'ability_upgrades' => 14,
-                'level' => 14,
+                'level' => 14
             ),
             128 => array(
                 'ability_upgrades' => 11,
-                'level' => 11,
+                'level' => 11
             ),
             129 => array(
                 'ability_upgrades' => 16,
-                'level' => 16,
+                'level' => 16
             ),
             130 => array(
                 'ability_upgrades' => 13,
-                'level' => 13,
+                'level' => 13
             ),
             131 => array(
                 'ability_upgrades' => 13,
-                'level' => 13,
+                'level' => 13
             ),
             132 => array(
                 'ability_upgrades' => 11,
-                'level' => 11,
+                'level' => 11
             )
         );
         $slots = $match->getAllSlots();
@@ -75,7 +75,7 @@ class match_mapper_webTest extends PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $picksBans);
         $fl = true;
         foreach ($picksBans as $r) {
-            if (!in_array($r['is_pick'], array('1', '0'))) {
+            if (!in_array($r['is_pick'], array('1', '0'), true)) {
                 $fl = false;
             }
         }

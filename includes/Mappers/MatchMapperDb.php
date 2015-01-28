@@ -30,15 +30,6 @@ use Dota2Api\Models\Player;
  */
 class MatchMapperDb extends MatchMapper
 {
-    /**
-     * @param int $matchId
-     */
-    public function __construct($matchId = null)
-    {
-        if (!is_null($matchId)) {
-            parent::__construct($matchId);
-        }
-    }
 
     /**
      * @param int $matchId
@@ -46,7 +37,7 @@ class MatchMapperDb extends MatchMapper
      */
     public function load($matchId = null)
     {
-        if (!is_null($matchId)) {
+        if (null !== $matchId) {
             $this->setMatchId($matchId);
         }
         $db = Db::obtain();
@@ -64,25 +55,25 @@ class MatchMapperDb extends MatchMapper
             $slotIds .= $slot['id'] . ',';
         }
         $queryForAbilityUpgrades = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . rtrim(
-            $slotIds,
-            ','
-        ) . ')';
+                $slotIds,
+                ','
+            ) . ')';
         $abilityUpgrade = $db->fetchArrayPDO($queryForAbilityUpgrades);
         $abilityUpgradeFormatted = array();
         foreach ($abilityUpgrade as $a) {
-            if (!isset($abilityUpgradeFormatted[$a['slot_id']])) {
+            if (!array_key_exists($a['slot_id'], $abilityUpgradeFormatted)) {
                 $abilityUpgradeFormatted[$a['slot_id']] = array();
             }
             array_push($abilityUpgradeFormatted[$a['slot_id']], $a);
         }
         $queryForAdditionalUnits = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN  (' . rtrim(
-            $slotIds,
-            ','
-        ) . ')';
+                $slotIds,
+                ','
+            ) . ')';
         $additionalUnits = $db->fetchArrayPDO($queryForAdditionalUnits);
         $additionalUnitsFormatted = array();
         foreach ($additionalUnits as $additionalUnit) {
-            if (!isset($additionalUnitsFormatted[$additionalUnit['slot_id']])) {
+            if (!array_key_exists($additionalUnit['slot_id'], $additionalUnitsFormatted)) {
                 $additionalUnitsFormatted[$additionalUnit['slot_id']] = array();
             }
             array_push($additionalUnitsFormatted[$additionalUnit['slot_id']], $additionalUnit);
@@ -90,15 +81,15 @@ class MatchMapperDb extends MatchMapper
         foreach ($slots as $s) {
             $slot = new Slot();
             $slot->setArray($s);
-            if (isset($abilityUpgradeFormatted[$slot->get('id')])) {
+            if (array_key_exists($slot->get('id'), $abilityUpgradeFormatted)) {
                 $slot->setAbilitiesUpgrade($abilityUpgradeFormatted[$slot->get('id')]);
             }
-            if (isset($additionalUnitsFormatted[$slot->get('id')])) {
+            if (array_key_exists($slot->get('id'), $additionalUnitsFormatted)) {
                 $slot->setAdditionalUnitItems($additionalUnitsFormatted[$slot->get('id')]);
             }
             $match->addSlot($slot);
         }
-        if ($match->get('game_mode') == match::CAPTAINS_MODE) {
+        if ($match->get('game_mode') === match::CAPTAINS_MODE) {
             $queryForPicksBans = 'SELECT `is_pick`, `hero_id`, `team`, `order` FROM ' . Db::realTablename('picks_bans') . ' WHERE match_id = ? ORDER BY `order`';
             $picks_bans = $db->fetchArrayPDO($queryForPicksBans, array($match->get('match_id')));
             $match->setAllPickBans($picks_bans);
@@ -144,10 +135,9 @@ class MatchMapperDb extends MatchMapper
 
         // save common match info
         $db->insertPDO(Db::realTablename('matches'), $match->getDataArray());
-        $users_data = array();
         // save accounts
         foreach ($slots as $slot) {
-            if ($slot->get('account_id') != Player::ANONYMOUS) {
+            if ($slot->get('account_id') !== Player::ANONYMOUS) {
                 $db->insertPDO(Db::realTablename('users'), array(
                     'account_id' => $slot->get('account_id'),
                     'steamid' => Player::convertId($slot->get('account_id'))
@@ -178,7 +168,7 @@ class MatchMapperDb extends MatchMapper
                 $db->insertPDO(Db::realTablename('additional_units'), $additionalUnit);
             }
         }
-        if ($match->get('game_mode') == match::CAPTAINS_MODE) {
+        if ($match->get('game_mode') === match::CAPTAINS_MODE) {
             $picksBans = $match->getAllPicksBans();
             $data = array();
             foreach ($picksBans as $pickBan) {
@@ -234,7 +224,7 @@ class MatchMapperDb extends MatchMapper
      */
     public function delete($matchId)
     {
-        $matchId = intval($matchId);
+        $matchId = (int)$matchId;
         if (!self::matchExists($matchId)) {
             return;
         }
@@ -265,7 +255,7 @@ class MatchMapperDb extends MatchMapper
      */
     public static function matchExists($matchId)
     {
-        $matchId = intval($matchId);
+        $matchId = (int)$matchId;
         $db = Db::obtain();
         $r = $db->queryFirstPDO(
             'SELECT match_id FROM ' . Db::realTablename('matches') . ' WHERE match_id = ?',

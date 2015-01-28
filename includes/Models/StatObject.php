@@ -18,10 +18,7 @@ abstract class StatObject
     public function get($name)
     {
         $name = '_' . (string)$name;
-        if (isset($this->$name)) {
-            return $this->$name;
-        }
-        return null;
+        return property_exists($this, $name) ? $this->$name : null;
     }
 
     /**

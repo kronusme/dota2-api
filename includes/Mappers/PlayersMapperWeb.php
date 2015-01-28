@@ -38,7 +38,7 @@ class PlayersMapperWeb
     public function addId($id)
     {
         $id = (string)$id;
-        if (!in_array($id, $this->_ids)) {
+        if (!in_array($id, $this->_ids, true)) {
             array_push($this->_ids, $id);
         }
         return $this;
@@ -52,7 +52,7 @@ class PlayersMapperWeb
     {
         $id = (string)$id;
         foreach ($this->_ids as $k => $v) {
-            if ($v == $id) {
+            if ($v === $id) {
                 unset($this->_ids[$k]);
             }
         }
@@ -99,7 +99,7 @@ class PlayersMapperWeb
     {
         $request = new Request(self::PLAYER_STEAM_URL, array('steamids' => $this->getIdsString()));
         $playersInfo = $request->send();
-        if (is_null($playersInfo)) {
+        if (null === $playersInfo) {
             return null;
         }
         $players = array();
