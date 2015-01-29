@@ -137,7 +137,7 @@ class MatchMapperDb extends MatchMapper
         $db->insertPDO(Db::realTablename('matches'), $match->getDataArray());
         // save accounts
         foreach ($slots as $slot) {
-            if ($slot->get('account_id') !== Player::ANONYMOUS) {
+            if ((int)$slot->get('account_id') !== Player::ANONYMOUS) {
                 $db->insertPDO(Db::realTablename('users'), array(
                     'account_id' => $slot->get('account_id'),
                     'steamid' => Player::convertId($slot->get('account_id'))
@@ -168,7 +168,7 @@ class MatchMapperDb extends MatchMapper
                 $db->insertPDO(Db::realTablename('additional_units'), $additionalUnit);
             }
         }
-        if ($match->get('game_mode') === match::CAPTAINS_MODE) {
+        if ((int)$match->get('game_mode') === match::CAPTAINS_MODE) {
             $picksBans = $match->getAllPicksBans();
             $data = array();
             foreach ($picksBans as $pickBan) {
