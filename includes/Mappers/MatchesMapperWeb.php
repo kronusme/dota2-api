@@ -70,7 +70,7 @@ class MatchesMapperWeb extends MatchesMapper
             return null;
         }
         $matches = array();
-        if (property_exists($xml, 'matches')) {
+        if (isset($xml->matches)) {
             $this->_total_results = $xml->total_results;
             foreach ($xml->matches as /* @var $m_matches array */ $m_matches) {
                 foreach ($m_matches as $m) {

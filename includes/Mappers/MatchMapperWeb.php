@@ -78,7 +78,7 @@ class MatchMapperWeb extends MatchMapper
             }
             $match->addSlot($slot);
         }
-        if (property_exists($matchInfo, 'picks_bans')) {
+        if (isset($matchInfo->picks_bans)) {
             $picksBans = (array)$matchInfo->picks_bans;
             foreach ($picksBans['pick_ban'] as $k => $v) {
                 $picksBans['pick_ban'][$k] = (array)$v;

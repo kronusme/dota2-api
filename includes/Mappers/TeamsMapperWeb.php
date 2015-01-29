@@ -45,7 +45,7 @@ class TeamsMapperWeb extends TeamsMapper
             return null;
         }
         $teams = array();
-        if (property_exists($teamsInfo, 'teams')) {
+        if (isset($teamsInfo->teams)) {
             $teamsInfo = (array)$teamsInfo->teams;
             $teamsInfo = $teamsInfo['team'];
             if (is_array($teamsInfo)) {
