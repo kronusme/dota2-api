@@ -84,8 +84,7 @@ class MatchMapperWeb extends MatchMapper
                 $picksBans['pick_ban'][$k] = (array)$v;
                 if ($picksBans['pick_ban'][$k]['is_pick'] === 'false') {
                     $picksBans['pick_ban'][$k]['is_pick'] = '0';
-                }
-                else {
+                } else {
                     $picksBans['pick_ban'][$k]['is_pick'] = '1';
                 }
             }
