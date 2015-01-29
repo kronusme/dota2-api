@@ -20,7 +20,7 @@ abstract class MatchMapper
      */
     public function setMatchId($matchId = null)
     {
-        if (null === $matchId) {
+        if (null !== $matchId) {
             $this->_match_id = (int)$matchId;
         }
         return $this;
@@ -39,7 +39,7 @@ abstract class MatchMapper
      */
     public function __construct($matchId = null)
     {
-        if (null === $matchId) {
+        if (null !== $matchId) {
             $this->setMatchId($matchId);
         }
     }

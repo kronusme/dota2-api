@@ -70,13 +70,13 @@ class MatchesMapperWeb extends MatchesMapper
             return null;
         }
         $matches = array();
-        if (null !== $xml->matches) {
+        if (property_exists($xml, 'matches')) {
             $this->_total_results = $xml->total_results;
-            foreach ($xml->matches as $m_matches) {
+            foreach ($xml->matches as /* @var $m_matches array */ $m_matches) {
                 foreach ($m_matches as $m) {
                     $match = new Match();
                     $match->setArray((array)$m);
-                    foreach ($m->players as $players) {
+                    foreach ($m->players as /* @var $players array */ $players) {
                         foreach ($players as $player) {
                             $slot = new Slot();
                             $slot->setArray((array)$player);

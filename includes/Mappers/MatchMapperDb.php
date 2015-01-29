@@ -55,9 +55,9 @@ class MatchMapperDb extends MatchMapper
             $slotIds .= $slot['id'] . ',';
         }
         $queryForAbilityUpgrades = 'SELECT * FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . rtrim(
-                $slotIds,
-                ','
-            ) . ')';
+            $slotIds,
+            ','
+        ) . ')';
         $abilityUpgrade = $db->fetchArrayPDO($queryForAbilityUpgrades);
         $abilityUpgradeFormatted = array();
         foreach ($abilityUpgrade as $a) {
@@ -67,9 +67,9 @@ class MatchMapperDb extends MatchMapper
             array_push($abilityUpgradeFormatted[$a['slot_id']], $a);
         }
         $queryForAdditionalUnits = 'SELECT * FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN  (' . rtrim(
-                $slotIds,
-                ','
-            ) . ')';
+            $slotIds,
+            ','
+        ) . ')';
         $additionalUnits = $db->fetchArrayPDO($queryForAdditionalUnits);
         $additionalUnitsFormatted = array();
         foreach ($additionalUnits as $additionalUnit) {
