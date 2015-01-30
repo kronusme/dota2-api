@@ -82,11 +82,7 @@ class MatchMapperWeb extends MatchMapper
             $picksBans = (array)$matchInfo->picks_bans;
             foreach ($picksBans['pick_ban'] as $k => $v) {
                 $picksBans['pick_ban'][$k] = (array)$v;
-                if ($picksBans['pick_ban'][$k]['is_pick'] === 'false') {
-                    $picksBans['pick_ban'][$k]['is_pick'] = '0';
-                } else {
-                    $picksBans['pick_ban'][$k]['is_pick'] = '1';
-                }
+                $picksBans['pick_ban'][$k]['is_pick'] = filter_var($picksBans['pick_ban'][$k]['is_pick'], FILTER_VALIDATE_BOOLEAN) ? '1' : '0';
             }
             $match->setAllPickBans($picksBans['pick_ban']);
         }
