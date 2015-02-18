@@ -5,6 +5,7 @@
 [![License](https://poser.pugx.org/kronusme/dota2-api/license.svg)](https://packagist.org/packages/kronusme/dota2-api)
 [![Latest Stable Version](https://poser.pugx.org/kronusme/dota2-api/v/stable.svg)](https://packagist.org/packages/kronusme/dota2-api)
 [![Dependencies](https://www.versioneye.com/user/projects/5469ed86a760ce7bc8000027/badge.svg)](https://www.versioneye.com/user/projects/5469ed86a760ce7bc8000027)
+[![Code Climate](https://codeclimate.com/github/kronusme/dota2-api/badges/gpa.svg)](https://codeclimate.com/github/kronusme/dota2-api)
 
 ### About
 

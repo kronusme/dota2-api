@@ -14,10 +14,8 @@ class PlayersMapperWebTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('76561198067833250', (string)$playersInfo['76561198067833250']->get('steamid'));
         $this->assertEquals('76561198058587506', (string)$playersInfo['76561198058587506']->get('steamid'));
 
-        $this->assertStringStartsWith('http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/',
-            $playersInfo['76561198067833250']->get('avatar'));
-        $this->assertStringStartsWith('http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/',
-            $playersInfo['76561198058587506']->get('avatar'));
+        $this->assertContains($playersInfo['76561198067833250']->get('avatar'), '/steamcommunity/public/images/avatars/');
+        $this->assertContains($playersInfo['76561198058587506']->get('avatar'), '/steamcommunity/public/images/avatars/');
 
         $this->assertStringStartsWith('http://steamcommunity.com/',
             $playersInfo['76561198067833250']->get('profileurl'));
