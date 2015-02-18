@@ -1877,6 +1877,14 @@
             "id": "5528"
         },
         {
+            "name": "shredder_chakram_2",
+            "id": "5645"
+        },
+        {
+            "name": "shredder_return_chakram_2",
+            "id": "5646"
+        },
+        {
             "name": "keeper_of_the_light_illuminate",
             "id": "5471"
         },
@@ -1907,6 +1915,10 @@
         {
             "name": "keeper_of_the_light_spirit_form_illuminate",
             "id": "5479"
+        },
+        {
+            "name": "keeper_of_the_light_spirit_form_illuminate_end",
+            "id": "5503"
         },
         {
             "name": "rubick_telekinesis",
@@ -2109,6 +2121,18 @@
             "id": "5602"
         },
         {
+            "name": "techies_focused_detonate",
+            "id": "5635"
+        },
+        {
+            "name": "techies_remote_mines_self_detonate",
+            "id": "5636"
+        },
+        {
+            "name": "techies_minefield_sign",
+            "id": "5644"
+        },
+        {
             "name": "ember_spirit_searing_chains",
             "id": "5603"
         },
@@ -2199,6 +2223,58 @@
         {
             "name": "drow_ranger_wave_of_silence",
             "id": "5632"
+        },
+        {
+            "name": "broodmother_spin_web_destroy",
+            "id": "5643"
+        },
+        {
+            "name": "earth_spirit_petrify",
+            "id": "5648"
+        },
+        {
+            "name": "treant_eyes_in_the_forest",
+            "id": "5649"
+        },
+        {
+            "name": "beastmaster_call_of_the_wild_boar",
+            "id": "5580"
+        },
+        {
+            "name": "life_stealer_control",
+            "id": "5655"
+        },
+        {
+            "name": "oracle_fortunes_end",
+            "id": "5637"
+        },
+        {
+            "name": "oracle_fates_edict",
+            "id": "5638"
+        },
+        {
+            "name": "oracle_purifying_flames",
+            "id": "5639"
+        },
+        {
+            "name": "oracle_false_promise",
+            "id": "5640"
+        },
+        {
+            "name": "winter_wyvern_arctic_burn",
+            "id": "5651"
+        },
+        {
+            "name": "winter_wyvern_splinter_blast",
+            "id": "5652"
+        },
+        {
+            "name": "winter_wyvern_cold_embrace",
+            "id": "5653"
+        },
+        {
+            "name": "winter_wyvern_winters_curse",
+            "id": "5654"
         }
     ]
 }
