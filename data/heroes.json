@@ -544,6 +544,16 @@
             "name": "techies",
             "id": 105,
             "localized_name": "Techies"
+        },
+        {
+            "name": "oracle",
+            "id": 111,
+            "localized_name": "Oracle"
+        },
+        {
+            "name": "winter_wyvern",
+            "id": 112,
+            "localized_name": "Winter Wyvern"
         }
     ]
 }
