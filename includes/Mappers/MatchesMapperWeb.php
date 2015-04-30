@@ -37,11 +37,25 @@ class MatchesMapperWeb extends MatchesMapper
     protected $_total_results;
 
     /**
+     * The remaining results to be retrieved
+     * @var int
+     */
+    protected $_results_remaining;
+
+    /**
      * @return int
      */
     public function getTotalMatches()
     {
         return $this->_total_results;
+    }
+
+    /**
+     * @return int
+     */
+    public function getResultsRemaining()
+    {
+        return $this->_results_remaining;
     }
 
     /**
@@ -72,6 +86,7 @@ class MatchesMapperWeb extends MatchesMapper
         $matches = array();
         if (isset($xml->matches)) {
             $this->_total_results = $xml->total_results;
+            $this->_results_remaining = $xml->results_remaining;
             foreach ($xml->matches as /* @var $m_matches array */ $m_matches) {
                 foreach ($m_matches as $m) {
                     $match = new Match();
