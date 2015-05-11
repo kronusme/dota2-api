@@ -60,6 +60,28 @@ abstract class MatchesMapper
     protected $_tournament_games_only;
 
     /**
+     * set to only show a particular game mode
+     * 0 - None
+     * 1 - All Pick
+     * 2 - Captain's Mode
+     * 3 - Random Draft
+     * 4 - Single Draft
+     * 5 - All Random
+     * 6 - Intro
+     * 7 - Diretide
+     * 8 - Reverse Captain's Mode
+     * 9 - The Greeviling
+     * 10 - Tutorial
+     * 11 - Mid Only
+     * 12 - Least Played
+     * 13 - New Player Pool
+     * 14 - Compendium Matchmaking
+     * 16 - Captain's Draft
+     * @var int
+     */
+    protected $_game_mode;
+
+    /**
      * @param string $name
      * @return MatchesMapper
      */
@@ -250,5 +272,24 @@ abstract class MatchesMapper
     public function getTournamentGamesOnly()
     {
         return $this->_tournament_games_only;
+    }
+
+    /**
+     * @param int $gameMode
+     * @return MatchesMapper
+     */
+    public function setGameMode($gameMode)
+    {
+        $gameMode = (int)$gameMode;
+        $this->_game_mode = $gameMode;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGameMode()
+    {
+        return $this->_game_mode;
     }
 }

@@ -858,86 +858,126 @@
         },
         {
             "id": 216,
-            "name": "halloween_candy_corn"
-        },
-        {
-            "id": 217,
-            "name": "mystery_hook"
+            "name": "enchanted_mango"
         },
         {
             "id": 218,
-            "name": "mystery_arrow"
-        },
-        {
-            "id": 219,
-            "name": "mystery_missile"
+            "name": "ward_dispenser"
         },
         {
             "id": 220,
-            "name": "mystery_toss"
-        },
-        {
-            "id": 221,
-            "name": "mystery_vacuum"
+            "name": "travel_boots_2"
         },
         {
             "id": 226,
-            "name": "halloween_rapier"
-        },
-        {
-            "id": 228,
-            "name": "greevil_whistle"
-        },
-        {
-            "id": 235,
-            "name": "greevil_whistle_toggle"
-        },
-        {
-            "id": 227,
-            "name": "present"
+            "name": "lotus_orb"
         },
         {
             "id": 229,
-            "name": "winter_stocking"
-        },
-        {
-            "id": 230,
-            "name": "winter_skates"
+            "name": "solar_crest"
         },
         {
             "id": 231,
+            "name": "guardian_greaves"
+        },
+        {
+            "id": 235,
+            "name": "octarine_core"
+        },
+        {
+            "id": 247,
+            "name": "moon_shard"
+        },
+        {
+            "id": 249,
+            "name": "silver_edge"
+        },
+        {
+            "id": 254,
+            "name": "glimmer_cape"
+        },
+        {
+            "id": 1000,
+            "name": "halloween_candy_corn"
+        },
+        {
+            "id": 1001,
+            "name": "mystery_hook"
+        },
+        {
+            "id": 1002,
+            "name": "mystery_arrow"
+        },
+        {
+            "id": 1003,
+            "name": "mystery_missile"
+        },
+        {
+            "id": 1004,
+            "name": "mystery_toss"
+        },
+        {
+            "id": 1005,
+            "name": "mystery_vacuum"
+        },
+        {
+            "id": 1006,
+            "name": "halloween_rapier"
+        },
+        {
+            "id": 1007,
+            "name": "greevil_whistle"
+        },
+        {
+            "id": 1008,
+            "name": "greevil_whistle_toggle"
+        },
+        {
+            "id": 1009,
+            "name": "present"
+        },
+        {
+            "id": 1010,
+            "name": "winter_stocking"
+        },
+        {
+            "id": 1011,
+            "name": "winter_skates"
+        },
+        {
+            "id": 1012,
             "name": "winter_cake"
         },
         {
-            "id": 232,
+            "id": 1013,
             "name": "winter_cookie"
         },
         {
-            "id": 233,
+            "id": 1014,
             "name": "winter_coco"
         },
         {
-            "id": 234,
+            "id": 1015,
             "name": "winter_ham"
         },
         {
-            "id": 236,
+            "id": 1016,
             "name": "winter_kringle"
         },
         {
-            "id": 237,
+            "id": 1017,
             "name": "winter_mushroom"
         },
         {
-            "id": 238,
+            "id": 1018,
             "name": "winter_greevil_treat"
         },
         {
-            "id": 239,
+            "id": 1019,
             "name": "winter_greevil_garbage"
         },
         {
-            "id": 240,
+            "id": 1020,
             "name": "winter_greevil_chewy"
         },
         {
