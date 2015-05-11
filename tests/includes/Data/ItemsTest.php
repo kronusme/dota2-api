@@ -2,7 +2,7 @@
 
 use Dota2Api\Data\Items;
 
-class AbilitiesTest extends PHPUnit_Framework_TestCase
+class ItemsTest extends PHPUnit_Framework_TestCase
 {
 
     /**
