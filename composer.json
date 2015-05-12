@@ -2,7 +2,7 @@
     "name": "kronusme/dota2-api",
     "description": "DotA 2 Web API PHP wrapper",
     "license": "MIT",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "type": "library",
     "keywords": [
         "dota2",
