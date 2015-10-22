@@ -9,6 +9,10 @@
             "name" : "US West"
         },
         {
+            "id" : 113,
+            "name" : "US West"
+        },
+        {
             "id" : 114,
             "name" : "US West"
         },
@@ -53,6 +57,14 @@
             "name" : "Europe West"
         },
         {
+            "id" : 137,
+            "name" : "Europe West"
+        },
+        {
+            "id" : 138,
+            "name" : "Europe West"
+        },
+        {
             "id" : 142 ,
             "name" : "South Korea"
         },
@@ -70,6 +82,14 @@
         },
         {
             "id" : 153,
+            "name" : "Southeast Asia"
+        },
+        {
+            "id" : 154,
+            "name" : "Southeast Asia"
+        },
+        {
+            "id" : 155,
             "name" : "Southeast Asia"
         },
         {
@@ -106,6 +126,14 @@
         },
         {
             "id" : 186,
+            "name" : "Russia"
+        },
+        {
+            "id" : 187,
+            "name" : "Russia"
+        },
+        {
+            "id" : 188,
             "name" : "Russia"
         },
         {
