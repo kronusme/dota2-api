@@ -990,31 +990,31 @@
     },
     {
       "id": 238,
-      "name": "item_recipe_iron_talon"
+      "name": "recipe_iron_talon"
     },
     {
       "id": 239,
-      "name": "item_iron_talon"
+      "name": "iron_talon"
     },
     {
       "id": 233,
-      "name": "item_recipe_aether_lens"
+      "name": "recipe_aether_lens"
     },
     {
       "id": 232,
-      "name": "item_aether_lens"
+      "name": "aether_lens"
     },
     {
       "id": 234,
-      "name": "item_recipe_dragon_lance"
+      "name": "recipe_dragon_lance"
     },
     {
       "id": 236,
-      "name": "item_dragon_lance"
+      "name": "dragon_lance"
     },
     {
       "id": 237,
-      "name": "item_faerie_fire"
+      "name": "faerie_fire"
     }
   ]
 }
