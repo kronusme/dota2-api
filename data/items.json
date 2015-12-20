@@ -987,6 +987,34 @@
     {
       "id": 242,
       "name": "crimson_guard"
+    },
+    {
+      "id": 238,
+      "name": "item_recipe_iron_talon"
+    },
+    {
+      "id": 239,
+      "name": "item_iron_talon"
+    },
+    {
+      "id": 233,
+      "name": "item_recipe_aether_lens"
+    },
+    {
+      "id": 232,
+      "name": "item_aether_lens"
+    },
+    {
+      "id": 234,
+      "name": "item_recipe_dragon_lance"
+    },
+    {
+      "id": 236,
+      "name": "item_dragon_lance"
+    },
+    {
+      "id": 237,
+      "name": "item_faerie_fire"
     }
   ]
 }
