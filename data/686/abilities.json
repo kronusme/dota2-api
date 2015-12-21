@@ -27,6 +27,22 @@
     {
       "name": "riki_tricks_of_the_trade",
       "id": "5145"
+    },
+    {
+      "name": "arc_warden_flux",
+      "id": "5677"
+    },
+    {
+      "name": "arc_warden_magnetic_field",
+      "id": "5678"
+    },
+    {
+      "name": "arc_warden_spark_wraith",
+      "id": "5679"
+    },
+    {
+      "name": "arc_warden_tempest_double",
+      "id": "5683"
     }
   ]
 }
