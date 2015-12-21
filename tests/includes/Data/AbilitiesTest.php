@@ -32,4 +32,13 @@ class AbilitiesTest extends PHPUnit_Framework_TestCase
         $url = $this->abilities->getImgUrlById(5002);
         $this->assertEquals('images/stats.png', $url);
     }
+
+    public function testParse()
+    {
+        $abilities = new Abilities();
+        $abilities->parse('6.86');
+        $url = $this->abilities->getImgUrlById(5341);
+        $this->assertEquals('http://media.steampowered.com/apps/dota2/images/abilities/doom_infernal_blade_lg.png',
+            $url);
+    }
 }

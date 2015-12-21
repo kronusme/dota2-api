@@ -94,23 +94,52 @@ abstract class Data
 
     /**
      * Parse JSON file
+     * @param string $parseTo
      */
-    public function parse()
+    public function parse($parseTo = '')
     {
+        $parseTo = str_replace('.', '', $parseTo); // allow to use '6.86' and '686'
         $fullpath = __DIR__ . '/../../' . self::PATH . '/' . $this->_filename;
+        $initData = $this->_parseJsonFile($fullpath);
+        if ($parseTo) {
+            $dir = '/../../' . self::PATH . '/';
+            $subdirs = array_filter(scandir($dir), 'is_dir');
+            sort($subdirs);
+            foreach($subdirs as $subdir) {
+                if ($subdir > $parseTo) {
+                    break;
+                }
+                $path = __DIR__ . '/../../' . self::PATH . '/' . $subdir . '/' . $this->_filename;
+                if (file_exists($path)) {
+                    $patchData = $this->_parseJsonFile($path);
+                    $initData = $this->_mergeById($initData, $patchData);
+                }
+            }
+        }
+        $this->_data = $initData;
+    }
+
+    protected function _mergeById($arr1, $arr2) {
+        foreach ($arr2 as $k=>$row) {
+            $arr1[$k] = $row;
+        }
+        return $arr1;
+    }
+
+    protected function _parseJsonFile($fullpath) {
+        $return = array();
         if (file_exists($fullpath)) {
             $content = file_get_contents($fullpath);
             $data = json_decode($content);
-            $return = array();
             $field = $this->getField();
             if ($field && $data->$field) {
                 foreach ($data->$field as $obj) {
                     $obj_array = (array)$obj;
                     $return[$obj_array['id']] = $obj_array;
                 }
-                $this->_data = $return;
             }
         }
+        return $return;
     }
 
     /**

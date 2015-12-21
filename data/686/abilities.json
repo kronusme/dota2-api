@@ -1,0 +1,32 @@
+{
+  "abilities": [
+    {
+      "name": "death_prophet_spirit_siphon",
+      "id": "5685"
+    },
+    {
+      "name": "doom_infernal_blade",
+      "id": "5341"
+    },
+    {
+      "name": "faceless_void_time_dilation",
+      "id": "5691"
+    },
+    {
+      "name": "lone_druid_savage_roar",
+      "id": "5414"
+    },
+    {
+      "name": "silencer_arcane_curse",
+      "id": "5377"
+    },
+    {
+      "name": "riki_cloak_and_dagger",
+      "id": "5144"
+    },
+    {
+      "name": "riki_tricks_of_the_trade",
+      "id": "5145"
+    }
+  ]
+}
