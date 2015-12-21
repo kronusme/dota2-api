@@ -99,17 +99,21 @@ abstract class Data
     public function parse($parseTo = '')
     {
         $parseTo = str_replace('.', '', $parseTo); // allow to use '6.86' and '686'
-        $fullpath = __DIR__ . '/../../' . self::PATH . '/' . $this->_filename;
+        $p = __DIR__ . '/../../' . self::PATH . '/';
+        $fullpath = $p . $this->_filename;
         $initData = $this->_parseJsonFile($fullpath);
         if ($parseTo) {
-            $dir = '/../../' . self::PATH . '/';
-            $subdirs = array_filter(scandir($dir), 'is_dir');
+            $subdirs = scandir($p);
             sort($subdirs);
-            foreach ($subdirs as $subdir) {
-                if ($subdir > $parseTo) {
+            foreach ($subdirs as $sdir) {
+                $subdir = $p . $sdir;
+                if (!is_dir($subdir) || $sdir === '.' || $sdir === '..') {
+                    continue;
+                }
+                if ($sdir > $parseTo) {
                     break;
                 }
-                $path = __DIR__ . '/../../' . self::PATH . '/' . $subdir . '/' . $this->_filename;
+                $path = $subdir . '/' . $this->_filename;
                 if (file_exists($path)) {
                     $patchData = $this->_parseJsonFile($path);
                     $initData = $this->_mergeById($initData, $patchData);
