@@ -37,7 +37,7 @@ class AbilitiesTest extends PHPUnit_Framework_TestCase
     {
         $abilities = new Abilities();
         $abilities->parse('6.86');
-        $url = $this->abilities->getImgUrlById(5341);
+        $url = $abilities->getImgUrlById(5341);
         $this->assertEquals('http://media.steampowered.com/apps/dota2/images/abilities/doom_infernal_blade_lg.png',
             $url);
     }

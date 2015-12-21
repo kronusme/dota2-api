@@ -105,7 +105,7 @@ abstract class Data
             $dir = '/../../' . self::PATH . '/';
             $subdirs = array_filter(scandir($dir), 'is_dir');
             sort($subdirs);
-            foreach($subdirs as $subdir) {
+            foreach ($subdirs as $subdir) {
                 if ($subdir > $parseTo) {
                     break;
                 }
@@ -119,14 +119,16 @@ abstract class Data
         $this->_data = $initData;
     }
 
-    protected function _mergeById($arr1, $arr2) {
-        foreach ($arr2 as $k=>$row) {
+    protected function _mergeById($arr1, $arr2)
+    {
+        foreach ($arr2 as $k => $row) {
             $arr1[$k] = $row;
         }
         return $arr1;
     }
 
-    protected function _parseJsonFile($fullpath) {
+    protected function _parseJsonFile($fullpath)
+    {
         $return = array();
         if (file_exists($fullpath)) {
             $content = file_get_contents($fullpath);
