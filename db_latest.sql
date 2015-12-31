@@ -436,10 +436,10 @@ CREATE TABLE IF NOT EXISTS `slots` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `account_id` int(20) unsigned NOT NULL DEFAULT '0',
-  `personaname` varchar(50) NOT NULL DEFAULT '',
-  `steamid` varchar(64) NOT NULL DEFAULT '',
-  `avatar` varchar(200) NOT NULL,
-  `profileurl` varchar(128) NOT NULL,
+  `personaname` varchar(50),
+  `steamid` varchar(64),
+  `avatar` varchar(200),
+  `profileurl` varchar(128),
   `is_personaname_real` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
