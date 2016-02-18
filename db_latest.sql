@@ -336,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `league_prize_pools` (
 /*!40000 ALTER TABLE `league_prize_pools` ENABLE KEYS */;
 
 CREATE TABLE IF NOT EXISTS `matches` (
-  `match_id` int(20) unsigned NOT NULL,
+  `match_id` bigint(20) unsigned NOT NULL,
   `season` tinyint(4) unsigned DEFAULT NULL,
   `radiant_win` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `duration` smallint(11) unsigned NOT NULL DEFAULT '0',
@@ -373,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `matches` (
 
 CREATE TABLE IF NOT EXISTS `picks_bans` (
   `id` mediumint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `match_id` int(20) unsigned NOT NULL,
+  `match_id` bigint(20) unsigned NOT NULL,
   `is_pick` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `hero_id` tinyint(10) unsigned NOT NULL DEFAULT '0',
   `team` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -388,7 +388,7 @@ CREATE TABLE IF NOT EXISTS `picks_bans` (
 
 CREATE TABLE IF NOT EXISTS `slots` (
   `id` mediumint(10) unsigned NOT NULL AUTO_INCREMENT,
-  `match_id` int(20) unsigned NOT NULL DEFAULT '0',
+  `match_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `account_id` int(20) unsigned NOT NULL DEFAULT '0',
   `hero_id` tinyint(10) unsigned NOT NULL DEFAULT '0',
   `player_slot` tinyint(10) unsigned NOT NULL DEFAULT '0',
