@@ -20,9 +20,9 @@ class PlayersMapperDbTest extends PHPUnit_Framework_TestCase
         $leaguesMapperWeb = new LeaguesMapperWeb();
         $leagues = $leaguesMapperWeb->load();
         $leaguesMapperDb = new LeaguesMapperDb();
-        $leaguesMapperDb->save($leagues[600]);
+        $leaguesMapperDb->save($leagues[2733]);
 
-        $matchMapperWeb = new MatchMapperWeb(683300315);
+        $matchMapperWeb = new MatchMapperWeb(1697818230);
         $match = $matchMapperWeb->load();
         $matchMapperDb = new MatchMapperDb();
         $matchMapperDb->save($match);
@@ -76,10 +76,10 @@ class PlayersMapperDbTest extends PHPUnit_Framework_TestCase
         $players = $this->mapper->load();
         $this->assertEquals(array(), $players);
 
-        $this->mapper->addId(Player::convertId(36547811))->addId(Player::convertId(89137399));
+        $this->mapper->addId(Player::convertId(86727555))->addId(Player::convertId(111620041));
         $players = $this->mapper->load();
-        $this->assertTrue($players[Player::convertId(36547811)] instanceof Player);
-        $this->assertTrue($players[Player::convertId(89137399)] instanceof Player);
+        $this->assertTrue($players[Player::convertId(86727555)] instanceof Player);
+        $this->assertTrue($players[Player::convertId(111620041)] instanceof Player);
     }
 
 }

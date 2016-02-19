@@ -222,7 +222,7 @@ abstract class MatchesMapper
      */
     public function setStartAtMatchId($matchId)
     {
-        $this->_start_at_match_id = (int)$matchId;
+        $this->_start_at_match_id = $matchId;
         return $this;
     }
 

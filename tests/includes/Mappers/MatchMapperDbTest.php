@@ -10,14 +10,14 @@ use Dota2Api\Models\Player;
 class MatchMapperDbTest extends PHPUnit_Framework_TestCase
 {
 
-    public $matchId = '683300315';
+    public $matchId = '2159643824';
 
     public static function setUpBeforeClass()
     {
         $leaguesMapperWeb = new LeaguesMapperWeb();
         $leagues = $leaguesMapperWeb->load();
         $leaguesMapperDb = new LeaguesMapperDb();
-        $leaguesMapperDb->save($leagues[600]);
+        $leaguesMapperDb->save($leagues[4395]);
     }
 
     public static function tearDownBeforeClass()
@@ -37,9 +37,9 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
         $expectedMatchInfo = array(
             'game_mode' => '2',
             'radiant_win' => '1',
-            'first_blood_time' => '7',
-            'leagueid' => '600',
-            'duration' => '1662'
+            'first_blood_time' => '77',
+            'leagueid' => '4395',
+            'duration' => '1301'
         );
 
         $mapperWeb = new MatchMapperWeb($this->matchId);
@@ -54,44 +54,44 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
         }
         $expectedSlotsInfo = array(
             0 => array(
-                'ability_upgrades' => 13,
-                'level' => 13
-            ),
-            1 => array(
-                'ability_upgrades' => 16,
-                'level' => 16
-            ),
-            2 => array(
                 'ability_upgrades' => 15,
                 'level' => 15
             ),
+            1 => array(
+                'ability_upgrades' => 11,
+                'level' => 11
+            ),
+            2 => array(
+                'ability_upgrades' => 8,
+                'level' => 8
+            ),
             3 => array(
-                'ability_upgrades' => 17, // player got level up but didn't choose any spell
-                'level' => 18
+                'ability_upgrades' => 11,
+                'level' => 11
             ),
             4 => array(
                 'ability_upgrades' => 14,
                 'level' => 14
             ),
             128 => array(
-                'ability_upgrades' => 11,
-                'level' => 11
+                'ability_upgrades' => 9,
+                'level' => 9
             ),
             129 => array(
-                'ability_upgrades' => 16,
-                'level' => 16
+                'ability_upgrades' => 10,
+                'level' => 10
             ),
             130 => array(
                 'ability_upgrades' => 13,
                 'level' => 13
             ),
             131 => array(
-                'ability_upgrades' => 13,
-                'level' => 13
+                'ability_upgrades' => 8,
+                'level' => 10
             ),
             132 => array(
-                'ability_upgrades' => 11,
-                'level' => 11
+                'ability_upgrades' => 13,
+                'level' => 13
             )
         );
         $slots = $match->getAllSlots();

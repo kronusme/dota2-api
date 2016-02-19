@@ -88,7 +88,7 @@ class MatchesMapperDb extends MatchesMapper
                     // match can't has more than 10 slots
                     break;
                 }
-                if ((int)$slotInfo['match_id'] === (int)$match->get('match_id')) {
+                if ($slotInfo['match_id'] == $match->get('match_id')) {
                     $slot = new slot();
                     $slot->setArray($slotInfo);
                     if (array_key_exists($slot->get('id'), $abilitiesUpgradeFormattedInfo)) {

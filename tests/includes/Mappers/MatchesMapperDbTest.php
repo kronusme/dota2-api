@@ -9,9 +9,9 @@ use Dota2Api\Mappers\LeaguesMapperDb;
 
 class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
 {
-    protected $matchId = 985780481;
+    protected $matchId = 1697818230;
 
-    protected $leagueId = 1803;
+    protected $leagueId = 2733;
 
     public static function setUpBeforeClass()
     {
@@ -48,22 +48,22 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($match->get('match_id'), $this->matchId);
         $this->assertEquals($match->get('game_mode'), 2);
-        $this->assertEquals($match->get('tower_status_radiant'), 1796);
-        $this->assertEquals($match->get('tower_status_dire'), 256);
+        $this->assertEquals($match->get('tower_status_radiant'), 1846);
+        $this->assertEquals($match->get('tower_status_dire'), 1572);
         $this->assertEquals($match->get('radiant_win'), 1);
-        $this->assertEquals($match->get('duration'), 3526);
-        $this->assertEquals($match->get('first_blood_time'), 47);
-        $this->assertStringStartsWith('2014-10-26', $match->get('start_time'));
-        $this->assertEquals($match->get('barracks_status_radiant'), 55);
-        $this->assertEquals($match->get('barracks_status_dire'), 50);
+        $this->assertEquals($match->get('duration'), 2348);
+        $this->assertEquals($match->get('first_blood_time'), 538);
+        $this->assertStringStartsWith('2015-08-09', $match->get('start_time'));
+        $this->assertEquals($match->get('barracks_status_radiant'), 63);
+        $this->assertEquals($match->get('barracks_status_dire'), 15);
         $this->assertEquals($match->get('lobby_type'), 1);
         $this->assertEquals($match->get('human_players'), 10);
-        $this->assertEquals($match->get('leagueid'), 1803);
-        $this->assertEquals($match->get('cluster'), 136);
+        $this->assertEquals($match->get('leagueid'), $this->leagueId);
+        $this->assertEquals($match->get('cluster'), 111);
         $this->assertEquals($match->get('radiant_name'), 'Evil Geniuses');
         $this->assertEquals($match->get('radiant_team_id'), 39);
-        $this->assertEquals($match->get('dire_name'), 'Team Secret');
-        $this->assertEquals($match->get('dire_team_id'), 1838315);
+        $this->assertEquals($match->get('dire_name'), 'CDEC Gaming');
+        $this->assertEquals($match->get('dire_team_id'), 1520578);
 
         $slots = $match->getAllSlots();
 
@@ -71,28 +71,28 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $slot = $slots[0];
         $this->assertEquals($slot->get('match_id'), $this->matchId);
         $this->assertEquals($slot->get('account_id'), 86727555);
-        $this->assertEquals($slot->get('hero_id'), 30);
+        $this->assertEquals($slot->get('hero_id'), 68);
         $this->assertEquals($slot->get('player_slot'), 0);
-        $this->assertEquals($slot->get('item_0'), 180);
-        $this->assertEquals($slot->get('item_1'), 37);
-        $this->assertEquals($slot->get('item_2'), 108);
-        $this->assertEquals($slot->get('item_3'), 42);
-        $this->assertEquals($slot->get('item_4'), 81);
+        $this->assertEquals($slot->get('item_0'), 214);
+        $this->assertEquals($slot->get('item_1'), 254);
+        $this->assertEquals($slot->get('item_2'), 92);
+        $this->assertEquals($slot->get('item_3'), 23);
+        $this->assertEquals($slot->get('item_4'), 0);
         $this->assertEquals($slot->get('item_5'), 36);
-        $this->assertEquals($slot->get('kills'), 9);
-        $this->assertEquals($slot->get('deaths'), 8);
-        $this->assertEquals($slot->get('assists'), 14);
+        $this->assertEquals($slot->get('kills'), 2);
+        $this->assertEquals($slot->get('deaths'), 2);
+        $this->assertEquals($slot->get('assists'), 13);
         $this->assertEquals($slot->get('leaver_status'), 0);
-        $this->assertEquals($slot->get('gold'), 3883);
-        $this->assertEquals($slot->get('last_hits'), 97);
-        $this->assertEquals($slot->get('denies'), 0);
-        $this->assertEquals($slot->get('gold_per_min'), 310);
-        $this->assertEquals($slot->get('xp_per_min'), 393);
-        $this->assertEquals($slot->get('gold_spent'), 14470);
-        $this->assertEquals($slot->get('hero_damage'), 6978);
-        $this->assertEquals($slot->get('tower_damage'), 1090);
-        $this->assertEquals($slot->get('hero_healing'), 4280);
-        $this->assertEquals($slot->get('level'), 21);
+        $this->assertEquals($slot->get('gold'), 2428);
+        $this->assertEquals($slot->get('last_hits'), 49);
+        $this->assertEquals($slot->get('denies'), 3);
+        $this->assertEquals($slot->get('gold_per_min'), 264);
+        $this->assertEquals($slot->get('xp_per_min'), 337);
+        $this->assertEquals($slot->get('gold_spent'), 8185);
+        $this->assertEquals($slot->get('hero_damage'), 4527);
+        $this->assertEquals($slot->get('tower_damage'), 501);
+        $this->assertEquals($slot->get('hero_healing'), 569);
+        $this->assertEquals($slot->get('level'), 15);
 
         $getAllPicksBans = $match->getAllPicksBans();
 
@@ -103,7 +103,7 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
     public function testDelete()
     {
 
-        $additionalMatchId = 886357301;
+        $additionalMatchId = 1697737102;
         $matchMapperWeb = new MatchMapperWeb($additionalMatchId);
         $match = $matchMapperWeb->load();
         $matchMapperDb = new MatchMapperDb();
