@@ -1015,6 +1015,46 @@
     {
       "id": 237,
       "name": "faerie_fire"
+    },
+    {
+      "id": 244,
+      "name": "wind_lace"
+    },
+    {
+      "id": 245,
+      "name": "recipe_bloodthorn"
+    },
+    {
+      "id": 250,
+      "name": "bloodthorn"
+    },
+    {
+      "id": 251,
+      "name": "recipe_echo_sabre"
+    },
+    {
+      "id": 252,
+      "name": "echo_sabre"
+    },
+    {
+      "id": 257,
+      "name": "tome_of_knowledge"
+    },
+    {
+      "id": 262,
+      "name": "recipe_hurricane_pike"
+    },
+    {
+      "id": 263,
+      "name": "hurricane_pike"
+    },
+    {
+      "id": 240,
+      "name": "blight_stone"
+    },
+    {
+      "id": 265,
+      "name": "infused_raindrop"
     }
   ]
 }
