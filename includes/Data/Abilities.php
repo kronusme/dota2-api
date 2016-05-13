@@ -35,4 +35,17 @@ class Abilities extends HeroesData
     {
         return ($id !== self::STATS_ABILITY_ID) ? parent::getImgUrlById($id, $thumb) : 'images/stats.png';
     }
+	
+	public function getAbilityCooldown($id, $level)
+	{
+		$level = (int)$level;
+		$data = $this->getDataById($id);
+        if (null === $data) {
+            return -1;
+        } else if($level <= 0 || $level > count($data['cooldown'])){
+			return -2;
+		} else {
+			return $data['cooldown'][$level];
+		}
+	}
 }
