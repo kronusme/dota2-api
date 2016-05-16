@@ -73,6 +73,14 @@
             "name" : "South Korea"
         },
         {
+            "id" : 144,
+            "name" : "South Korea"
+        },
+        {
+            "id" : 145,
+            "name" : "South Korea"
+        },
+        {
             "id" : 151 ,
             "name" : "Southeast Asia"
         },
@@ -90,6 +98,10 @@
         },
         {
             "id" : 155,
+            "name" : "Southeast Asia"
+        },
+        {
+            "id" : 156,
             "name" : "Southeast Asia"
         },
         {
@@ -193,8 +205,16 @@
             "name" : "China"
         },
         {
+            "id" : 227,
+            "name" : "China"
+        },
+        {
             "id" : 231,
             "name" : "China"
+        },
+        {
+            "id" : 241,
+            "name" : "Chile"
         },
         {
             "id" : 242,
