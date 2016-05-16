@@ -86,6 +86,6 @@ class Abilities extends HeroesData
 		if (null === $data) {
             return false;
 		} 
-		return (count($data['cooldown']) == 3 || $id == 5375)
+		return $data['ultimate'];
 	}
 }
