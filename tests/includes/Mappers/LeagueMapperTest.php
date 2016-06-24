@@ -13,7 +13,7 @@ class LeagueMapperTest extends PHPUnit_Framework_TestCase
         } else {
             $match = array_pop($matches);
             $slots = $match->getAllSlots();
-            $this->assertCount($slots, 10);
+            $this->assertCount(10, $slots);
             $this->assertInstanceOf('Dota2Api\Models\LiveMatch', $match);
             $slot_ids = array();
             $needed_slot_ids = array(0, 1, 2, 3, 4, 128, 129, 130, 131, 132);
@@ -26,7 +26,7 @@ class LeagueMapperTest extends PHPUnit_Framework_TestCase
             $this->assertArraySubset($needed_slot_ids, $slot_ids);
             $picks_bans = $match->getAllPicksBans();
             if (count($picks_bans) > 0) {
-                $this->assertCount($picks_bans, 20);
+                $this->assertCount(20, $picks_bans);
             }
         }
     }
