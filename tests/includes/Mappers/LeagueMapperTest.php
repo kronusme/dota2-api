@@ -19,7 +19,7 @@ class LeagueMapperTest extends PHPUnit_Framework_TestCase
             $needed_slot_ids = array(0, 1, 2, 3, 4, 128, 129, 130, 131, 132);
             foreach ($slots as $slot) {
                 $this->assertInstanceOf('Dota2Api\Models\LiveSlot', $slot);
-                array_push($slot->get('player_slot'), $slot_ids);
+                array_push($slot_ids, $slot->get('player_slot'));
             }
             array_sort($slot_ids);
             $this->assertArraySubset($slot_ids, $needed_slot_ids);
