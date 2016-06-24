@@ -21,7 +21,7 @@ class LeagueMapperTest extends PHPUnit_Framework_TestCase
                 $this->assertInstanceOf('Dota2Api\Models\LiveSlot', $slot);
                 array_push($slot_ids, $slot->get('player_slot'));
             }
-            array_sort($slot_ids);
+            sort($slot_ids);
             $this->assertArraySubset($slot_ids, $needed_slot_ids);
             $this->assertArraySubset($needed_slot_ids, $slot_ids);
             $picks_bans = $match->getAllPicksBans();
