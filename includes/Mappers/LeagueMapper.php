@@ -126,24 +126,28 @@ class LeagueMapper
                     }
                     if ($radiant->picks) {
                         foreach ($radiant->picks->pick as $pick) {
-                            array_push($picks_bans,
+                            array_push(
+                                $picks_bans,
                                 array(
                                     'is_pick' => true,
                                     'team' => 0,
                                     'order' => 0,
                                     'hero_id' => strval($pick->hero_id)
-                                ));
+                                )
+                            );
                         }
                     }
                     if ($radiant->bans) {
                         foreach ($radiant->bans->ban as $ban) {
-                            array_push($picks_bans,
+                            array_push(
+                                $picks_bans,
                                 array(
                                     'is_pick' => false,
                                     'team' => 0,
                                     'order' => 0,
                                     'hero_id' => strval($ban->hero_id)
-                                ));
+                                )
+                            );
                         }
                     }
                 }
@@ -161,24 +165,28 @@ class LeagueMapper
                     }
                     if ($dire->picks) {
                         foreach ($dire->picks->pick as $pick) {
-                            array_push($picks_bans,
+                            array_push(
+                                $picks_bans,
                                 array(
                                     'is_pick' => true,
                                     'team' => 1,
                                     'order' => 0,
                                     'hero_id' => strval($pick->hero_id)
-                                ));
+                                )
+                            );
                         }
                     }
                     if ($dire->bans) {
                         foreach ($dire->bans->ban as $ban) {
-                            array_push($picks_bans,
+                            array_push(
+                                $picks_bans,
                                 array(
                                     'is_pick' => false,
                                     'team' => 1,
                                     'order' => 0,
                                     'hero_id' => strval($ban->hero_id)
-                                ));
+                                )
+                            );
                         }
                     }
                 }
