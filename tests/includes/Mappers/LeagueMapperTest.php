@@ -13,20 +13,22 @@ class LeagueMapperTest extends PHPUnit_Framework_TestCase
         } else {
             $match = array_pop($matches);
             $slots = $match->getAllSlots();
-            $this->assertCount(10, $slots);
-            $this->assertInstanceOf('Dota2Api\Models\LiveMatch', $match);
-            $slot_ids = array();
-            $needed_slot_ids = array(0, 1, 2, 3, 4, 128, 129, 130, 131, 132);
-            foreach ($slots as $slot) {
-                $this->assertInstanceOf('Dota2Api\Models\LiveSlot', $slot);
-                array_push($slot_ids, $slot->get('player_slot'));
-            }
-            sort($slot_ids);
-            $this->assertArraySubset($slot_ids, $needed_slot_ids);
-            $this->assertArraySubset($needed_slot_ids, $slot_ids);
-            $picks_bans = $match->getAllPicksBans();
-            if (count($picks_bans) > 0) {
-                $this->assertCount(20, $picks_bans);
+            if (count($slots) > 0) {
+                $this->assertCount(10, $slots);
+                $this->assertInstanceOf('Dota2Api\Models\LiveMatch', $match);
+                $slot_ids = array();
+                $needed_slot_ids = array(0, 1, 2, 3, 4, 128, 129, 130, 131, 132);
+                foreach ($slots as $slot) {
+                    $this->assertInstanceOf('Dota2Api\Models\LiveSlot', $slot);
+                    array_push($slot_ids, $slot->get('player_slot'));
+                }
+                sort($slot_ids);
+                $this->assertArraySubset($slot_ids, $needed_slot_ids);
+                $this->assertArraySubset($needed_slot_ids, $slot_ids);
+                $picks_bans = $match->getAllPicksBans();
+                if (count($picks_bans) > 0) {
+                    $this->assertCount(20, $picks_bans);
+                }
             }
         }
     }
