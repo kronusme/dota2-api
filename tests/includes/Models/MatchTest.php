@@ -17,6 +17,9 @@ class MatchTest extends PHPUnit_Framework_TestCase
     {
         $matchMapperWeb = new MatchMapperWeb($this->matchId);
         $this->match = $matchMapperWeb->load();
+        while (!$this->match) {
+            $this->match = $matchMapperWeb->load();
+        }
     }
 
     public function testGetSlot()

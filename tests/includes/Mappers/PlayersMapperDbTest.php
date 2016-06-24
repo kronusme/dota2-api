@@ -24,6 +24,9 @@ class PlayersMapperDbTest extends PHPUnit_Framework_TestCase
 
         $matchMapperWeb = new MatchMapperWeb(1697818230);
         $match = $matchMapperWeb->load();
+        while (!$match) {
+            $match = $matchMapperWeb->load();
+        }
         $matchMapperDb = new MatchMapperDb();
         $matchMapperDb->save($match);
     }

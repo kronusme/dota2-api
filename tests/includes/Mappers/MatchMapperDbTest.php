@@ -44,6 +44,9 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
 
         $mapperWeb = new MatchMapperWeb($this->matchId);
         $match = $mapperWeb->load();
+        while (!$match) {
+            $match = $mapperWeb->load();
+        }
         $mapperDb = new MatchMapperDb();
         $mapperDb->save($match);
         $match = $mapperDb->load($this->matchId);

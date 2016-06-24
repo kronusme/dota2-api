@@ -17,6 +17,9 @@ class MatchMapperWebTest extends PHPUnit_Framework_TestCase
         );
         $mapper = new MatchMapperWeb($matchId);
         $match = $mapper->load();
+        while (!$match) {
+            $match = $mapper->load();
+        }
         $this->assertInstanceOf('Dota2Api\Models\Match', $match);
         foreach ($expectedMatchInfo as $k => $v) {
             $this->assertEquals($match->get($k), $v);

@@ -33,6 +33,9 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
 
         $matchMapperWeb = new MatchMapperWeb($this->matchId);
         $match = $matchMapperWeb->load();
+        while (!$match) {
+            $match = $matchMapperWeb->load();
+        }
         $matchMapperDb = new MatchMapperDb();
         $matchMapperDb->save($match);
     }
@@ -106,6 +109,9 @@ class MatchesMapperDbTest extends PHPUnit_Framework_TestCase
         $additionalMatchId = 1697737102;
         $matchMapperWeb = new MatchMapperWeb($additionalMatchId);
         $match = $matchMapperWeb->load();
+        while(!$match) {
+            $match = $matchMapperWeb->load();
+        }
         $matchMapperDb = new MatchMapperDb();
         $matchMapperDb->save($match);
 
