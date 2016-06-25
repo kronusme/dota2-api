@@ -18,8 +18,10 @@ use Dota2Api\Models\Slot;
  *   foreach ($matchesShortInfo as $key=>$matchShortInfo) {
  *     $matchMapper = new MatchMapperWeb($key);
  *     $match = $matchMapper->load();
- *     $mm = new Dota2Api\Mappers\MatchMapperDb();
- *     $mm->save($match);
+ *     if ($match) {
+ *       $mm = new Dota2Api\Mappers\MatchMapperDb();
+ *       $mm->save($match);
+ *     }
  *   }
  * </code>
  */

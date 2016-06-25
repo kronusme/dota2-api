@@ -108,8 +108,10 @@ $matchesShortInfo = $matchesMapperWeb->load();
 foreach ($matchesShortInfo as $key=>$matchShortInfo) {
     $matchMapper = new Dota2Api\Mappers\MatchMapperWeb($key);
     $match = $matchMapper->load();
-    $mm = new Dota2Api\Mappers\MatchMapperDb();
-    $mm->save($match);
+    if ($match) {
+      $mm = new Dota2Api\Mappers\MatchMapperDb();
+      $mm->save($match);
+    }
 }
 ````
 
