@@ -25,10 +25,6 @@ class LeagueMapperTest extends PHPUnit_Framework_TestCase
                 sort($slot_ids);
                 $this->assertArraySubset($slot_ids, $needed_slot_ids);
                 $this->assertArraySubset($needed_slot_ids, $slot_ids);
-                $picks_bans = $match->getAllPicksBans();
-                if (count($picks_bans) > 0) {
-                    $this->assertCount(20, $picks_bans);
-                }
             }
         }
     }
