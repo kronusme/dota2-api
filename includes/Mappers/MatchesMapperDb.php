@@ -332,7 +332,7 @@ class MatchesMapperDb extends MatchesMapper
     }
 
     /**
-     * Get matches ids with provided heroid or account_id (query for "slots" table)
+     * Get matches ids with provided hero_id or account_id (query for "slots" table)
      * @return array
      */
     private function _getMatchesIdsFromSlots()
@@ -343,7 +343,7 @@ class MatchesMapperDb extends MatchesMapper
         $dataForSlots = array();
 
         if (null !== $this->getHeroId()) {
-            $whereForSlots .= 'heroid = ? AND ';
+            $whereForSlots .= 'hero_id = ? AND ';
             array_push($dataForSlots, $this->getHeroId());
         }
         if (null !== $this->getAccountId()) {
