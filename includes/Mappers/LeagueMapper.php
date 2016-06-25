@@ -103,12 +103,12 @@ class LeagueMapper
             $a_game = (array)$game;
             $picks_bans = array();
             $teams = array('radiant', 'dire');
-            foreach($teams as $team) {
-                if (array_key_exists($team.'_team', $a_game)) {
-                    $a_game[$team.'_team_id'] = (string)$a_game[$team.'_team']->team_id;
-                    $a_game[$team.'_name'] = (string)$a_game[$team.'_team']->team_name;
-                    $a_game[$team.'_logo'] = (string)$a_game[$team.'_team']->team_logo;
-                    $a_game[$team.'_team_complete'] = ($a_game[$team.'_team']->complete === 'false') ? 0 : 1;
+            foreach ($teams as $team) {
+                if (array_key_exists($team . '_team', $a_game)) {
+                    $a_game[$team . '_team_id'] = (string)$a_game[$team . '_team']->team_id;
+                    $a_game[$team . '_name'] = (string)$a_game[$team . '_team']->team_name;
+                    $a_game[$team . '_logo'] = (string)$a_game[$team . '_team']->team_logo;
+                    $a_game[$team . '_team_complete'] = ($a_game[$team . '_team']->complete === 'false') ? 0 : 1;
                 }
             }
 
@@ -137,10 +137,11 @@ class LeagueMapper
      * @param string $teamSide
      * @return LiveMatch
      */
-    private function parseScoreboard(&$liveMatch, $scoreboard, $teamSide) {
+    private function parseScoreboard(&$liveMatch, $scoreboard, $teamSide)
+    {
         $team = $scoreboard->{$teamSide};
-        $a_game['tower_status_'.$teamSide] = $team['tower_state'];
-        $a_game['barracks_status_'.$teamSide] = $team['barracks_state'];
+        $a_game['tower_status_' . $teamSide] = $team['tower_state'];
+        $a_game['barracks_status_' . $teamSide] = $team['barracks_state'];
         if ($team->players) {
             foreach ($team->players->player as $player) {
                 $liveSlot = new LiveSlot();
@@ -163,7 +164,8 @@ class LeagueMapper
         return $liveMatch;
     }
 
-    private function getPlayerSlot($val, $teamSide) {
+    private function getPlayerSlot($val, $teamSide)
+    {
         $val = intval($val);
         return $teamSide === 'radiant' ? $val - 1 : $val + 127;
     }
@@ -175,7 +177,8 @@ class LeagueMapper
      * @param integer|string $heroId
      * @return array
      */
-    private function getPickBanItem($isPick, $team, $order, $heroId) {
+    private function getPickBanItem($isPick, $team, $order, $heroId)
+    {
         return array(
             'is_pick' => $isPick,
             'team' => $team,
