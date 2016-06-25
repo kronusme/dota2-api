@@ -318,6 +318,7 @@ CREATE TABLE IF NOT EXISTS `leagues` (
   `tournament_url` varchar(200) DEFAULT '',
   `itemdef` int(11) DEFAULT NULL,
   `is_finished` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0',
+  `league_tier` tinyint(4) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`leagueid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -363,6 +364,13 @@ CREATE TABLE IF NOT EXISTS `matches` (
   `dire_name` varchar(200) DEFAULT NULL,
   `dire_logo` varchar(32) DEFAULT NULL,
   `dire_team_complete` tinyint(3) unsigned DEFAULT NULL,
+  `engine` tinyint(3) unsigned DEFAULT NULL,
+  `radiant_captain` int(10) unsigned DEFAULT NULL,
+  `dire_captain` int(10) unsigned DEFAULT NULL,
+  `flags` tinyint(3) unsigned DEFAULT NULL,
+  `radiant_score` tinyint(3) unsigned DEFAULT NULL,
+  `dire_score` int(10) unsigned DEFAULT NULL,
+  `pre_game_duration` mediumint(8) unsigned DEFAULT NULL,
   PRIMARY KEY (`match_id`),
   KEY `FK_matches_leagues` (`leagueid`),
   CONSTRAINT `FK_matches_leagues` FOREIGN KEY (`leagueid`) REFERENCES `leagues` (`leagueid`)

@@ -148,6 +148,34 @@ class Match extends StatObject
      */
     protected $_dire_team_complete;
     /**
+     * @var int
+     */
+    protected $_engine;
+    /**
+     * @var int
+     */
+    protected $_radiant_captain;
+    /**
+     * @var int
+     */
+    protected $_dire_captain;
+    /**
+     * @var int
+     */
+    protected $_flags;
+    /**
+     * @var int
+     */
+    protected $_radiant_score;
+    /**
+     * @var int
+     */
+    protected $_dire_score;
+    /**
+     * @var int
+     */
+    protected $_pre_game_duration;
+    /**
      * Array of Slot objects (should be 10)
      * @var Slot[]
      */
