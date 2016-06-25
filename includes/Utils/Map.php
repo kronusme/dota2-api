@@ -22,6 +22,59 @@ namespace Dota2Api\Utils;
  */
 class Map
 {
+
+    private static $radiantTowersPositions = array(
+        array(130, 795), // t4 top
+        array(150, 810), // t4 bot
+
+        array(250, 870), // t3 bot
+        array(480, 870), // t2 bot
+        array(820, 870), // t1 bot
+
+        array(205, 745), // t3 mid
+        array(270, 660), // t2 mid
+        array(410, 580), // t1 mid
+
+        array(80, 700),  // t3 top
+        array(115, 520),  // t2 top
+        array(115, 383)  // t1 top
+    );
+
+    private static $radiantBarracksPositions = array(
+        array(220, 890), // BOT RANGED
+        array(220, 850), // BOT MELEE
+        array(165, 760), // MID RANGED
+        array(195, 780), // MID MELEE
+        array(60, 730), // TOP RANGED
+        array(100, 730) // TOP MELEE
+    );
+
+    private static $direTowersPositions = array(
+        array(830, 180), // t4 top
+        array(860, 205), // t4 bot
+
+        array(895, 310), // t3 bot
+        array(910, 490), // t2 bot
+        array(875, 597), // t1 bot
+
+        array(760, 265), // t3 mid
+        array(640, 350), // t2 mid
+        array(560, 470), // t1 mid
+
+        array(725, 130), // t3 top
+        array(450, 100), // t2 top
+        array(180, 100) // t1 top
+    );
+
+    private static $direBarracksPositions = array(
+        array(870, 285), // BOT RANGED
+        array(920, 285), // BOT MELEE
+        array(775, 235), // MID RANGED
+        array(800, 255), // MID MELEE
+        array(750, 110), // TOP RANGED
+        array(750, 150) // TOP MELEE
+    );
+
     /**
      * @var string
      */
@@ -72,77 +125,25 @@ class Map
         $barracksDire = $this->_loadPng($path . 'racks_dire.png');
         $barracksRadiant = $this->_loadPng($path . 'racks_radiant.png');
         // Radiant
-        $positions = array(
-            array(130, 795), // t4 top
-            array(150, 810), // t4 bot
-
-            array(250, 870), // t3 bot
-            array(480, 870), // t2 bot
-            array(820, 870), // t1 bot
-
-            array(205, 745), // t3 mid
-            array(270, 660), // t2 mid
-            array(410, 580), // t1 mid
-
-            array(80, 700),  // t3 top
-            array(115, 520),  // t2 top
-            array(115, 383)  // t1 top
-        );
-        $c = count($positions);
-        for ($i = 0; $i < $c; $i++) {
+        for ($i = 0; $i < count(self::$radiantTowersPositions); $i++) {
             if ($this->_towerStatusRadiant[$i]) {
-                $this->_drawIcon($towerRadiant, $positions[$i]);
+                $this->_drawIcon($towerRadiant, self::$radiantTowersPositions[$i]);
             }
         }
-        $positions = array(
-            array(220, 890), // BOT RANGED
-            array(220, 850), // BOT MELEE
-            array(165, 760), // MID RANGED
-            array(195, 780), // MID MELEE
-            array(60, 730), // TOP RANGED
-            array(100, 730) // TOP MELEE
-        );
-        $c = count($positions);
-        for ($i = 0; $i < $c; $i++) {
+        for ($i = 0; $i < count(self::$radiantBarracksPositions); $i++) {
             if ($this->_barracksStatusRadiant[$i]) {
-                $this->_drawIcon($barracksRadiant, $positions[$i]);
+                $this->_drawIcon($barracksRadiant, self::$radiantBarracksPositions[$i]);
             }
         }
         // Dire
-        $positions = array(
-            array(830, 180), // t4 top
-            array(860, 205), // t4 bot
-
-            array(895, 310), // t3 bot
-            array(910, 490), // t2 bot
-            array(875, 597), // t1 bot
-
-            array(760, 265), // t3 mid
-            array(640, 350), // t2 mid
-            array(560, 470), // t1 mid
-
-            array(725, 130), // t3 top
-            array(450, 100), // t2 top
-            array(180, 100) // t1 top
-        );
-        $c = count($positions);
-        for ($i = 0; $i < $c; $i++) {
+        for ($i = 0; $i < count(self::$direTowersPositions); $i++) {
             if ($this->_towerStatusDire[$i]) {
-                $this->_drawIcon($towerDire, $positions[$i]);
+                $this->_drawIcon($towerDire, self::$direTowersPositions[$i]);
             }
         }
-        $positions = array(
-            array(870, 285), // BOT RANGED
-            array(920, 285), // BOT MELEE
-            array(775, 235), // MID RANGED
-            array(800, 255), // MID MELEE
-            array(750, 110), // TOP RANGED
-            array(750, 150) // TOP MELEE
-        );
-        $c = count($positions);
-        for ($i = 0; $i < $c; $i++) {
+        for ($i = 0; $i < count(self::$direBarracksPositions); $i++) {
             if ($this->_barracksStatusDire[$i]) {
-                $this->_drawIcon($barracksDire, $positions[$i]);
+                $this->_drawIcon($barracksDire, self::$direBarracksPositions[$i]);
             }
         }
         return $this->_canvas;

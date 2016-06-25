@@ -71,168 +71,141 @@ class MatchTest extends PHPUnit_Framework_TestCase
     public function testGetAllPicksBansDivided()
     {
         $picksBans = $this->match->getAllPicksBansDivided();
-        $expectedPicksBans =
-            array(
-                'radiant' =>
-                    array(
-                        'bans' =>
-                            array(
-                                0 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '62',
-                                        'team' => '0',
-                                        'order' => '0',
-                                    ),
-                                1 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '100',
-                                        'team' => '0',
-                                        'order' => '2',
-                                    ),
-                                2 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '106',
-                                        'team' => '0',
-                                        'order' => '8',
-                                    ),
-                                3 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '92',
-                                        'team' => '0',
-                                        'order' => '10',
-                                    ),
-                                4 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '50',
-                                        'team' => '0',
-                                        'order' => '17',
-                                    ),
-                            ),
-                        'picks' =>
-                            array(
-                                0 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '72',
-                                        'team' => '0',
-                                        'order' => '4',
-                                    ),
-                                1 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '89',
-                                        'team' => '0',
-                                        'order' => '7',
-                                    ),
-                                2 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '17',
-                                        'team' => '0',
-                                        'order' => '13',
-                                    ),
-                                3 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '7',
-                                        'team' => '0',
-                                        'order' => '15',
-                                    ),
-                                4 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '68',
-                                        'team' => '0',
-                                        'order' => '19',
-                                    ),
-                            ),
+        $expectedDividedPicksBans = array(
+                'radiant' => array(
+                    'bans' => array(
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '62',
+                            'team' => '0',
+                            'order' => '0',
+                        ),
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '100',
+                            'team' => '0',
+                            'order' => '2',
+                        ),
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '106',
+                            'team' => '0',
+                            'order' => '8',
+                        ),
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '92',
+                            'team' => '0',
+                            'order' => '10',
+                        ),
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '50',
+                            'team' => '0',
+                            'order' => '17',
+                        ),
                     ),
-                'dire' =>
-                    array(
-                        'bans' =>
-                            array(
-                                0 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '52',
-                                        'team' => '1',
-                                        'order' => '1',
-                                    ),
-                                1 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '105',
-                                        'team' => '1',
-                                        'order' => '3',
-                                    ),
-                                2 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '55',
-                                        'team' => '1',
-                                        'order' => '9',
-                                    ),
-                                3 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '11',
-                                        'team' => '1',
-                                        'order' => '11',
-                                    ),
-                                4 =>
-                                    array(
-                                        'is_pick' => '0',
-                                        'hero_id' => '5',
-                                        'team' => '1',
-                                        'order' => '16',
-                                    ),
-                            ),
-                        'picks' =>
-                            array(
-                                0 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '51',
-                                        'team' => '1',
-                                        'order' => '5',
-                                    ),
-                                1 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '25',
-                                        'team' => '1',
-                                        'order' => '6',
-                                    ),
-                                2 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '112',
-                                        'team' => '1',
-                                        'order' => '12',
-                                    ),
-                                3 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '12',
-                                        'team' => '1',
-                                        'order' => '14',
-                                    ),
-                                4 =>
-                                    array(
-                                        'is_pick' => '1',
-                                        'hero_id' => '49',
-                                        'team' => '1',
-                                        'order' => '18',
-                                    ),
-                            ),
+                    'picks' => array(
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '72',
+                            'team' => '0',
+                            'order' => '4',
+                        ),
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '89',
+                            'team' => '0',
+                            'order' => '7',
+                        ),
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '17',
+                            'team' => '0',
+                            'order' => '13',
+                        ),
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '7',
+                            'team' => '0',
+                            'order' => '15',
+                        ),
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '68',
+                            'team' => '0',
+                            'order' => '19',
+                        ),
                     ),
+                ),
+                'dire' => array(
+                    'bans' => array(
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '52',
+                            'team' => '1',
+                            'order' => '1',
+                        ),
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '105',
+                            'team' => '1',
+                            'order' => '3',
+                        ),
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '55',
+                            'team' => '1',
+                            'order' => '9',
+                        ),
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '11',
+                            'team' => '1',
+                            'order' => '11',
+                        ),
+                        array(
+                            'is_pick' => '0',
+                            'hero_id' => '5',
+                            'team' => '1',
+                            'order' => '16',
+                        ),
+                    ),
+                    'picks' => array(
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '51',
+                            'team' => '1',
+                            'order' => '5',
+                        ),
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '25',
+                            'team' => '1',
+                            'order' => '6',
+                        ),
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '112',
+                            'team' => '1',
+                            'order' => '12',
+                        ),
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '12',
+                            'team' => '1',
+                            'order' => '14',
+                        ),
+                        array(
+                            'is_pick' => '1',
+                            'hero_id' => '49',
+                            'team' => '1',
+                            'order' => '18',
+                        ),
+                    ),
+                ),
             );
-        $this->assertEquals($expectedPicksBans, $picksBans);
+        $this->assertEquals($expectedDividedPicksBans, $picksBans);
     }
 
 }

@@ -287,6 +287,16 @@ class Match extends StatObject
     }
 
     /**
+     * @param array $data
+     * @return Match
+     */
+    public function addPickBan($data)
+    {
+        array_push($this->_picks_bans, $data);
+        return $this;
+    }
+
+    /**
      * Set list of slots for current match
      *
      * @param Slot[] $slots
