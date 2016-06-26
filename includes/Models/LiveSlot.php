@@ -7,30 +7,6 @@ class LiveSlot extends Slot
     /**
      * @var int
      */
-    protected $_item0;
-    /**
-     * @var int
-     */
-    protected $_item1;
-    /**
-     * @var int
-     */
-    protected $_item2;
-    /**
-     * @var int
-     */
-    protected $_item3;
-    /**
-     * @var int
-     */
-    protected $_item4;
-    /**
-     * @var int
-     */
-    protected $_item5;
-    /**
-     * @var int
-     */
     protected $_ultimate_state;
     /**
      * @var int

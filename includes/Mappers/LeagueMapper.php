@@ -145,6 +145,13 @@ class LeagueMapper
         if ($team->players) {
             foreach ($team->players->player as $player) {
                 $liveSlot = new LiveSlot();
+                $slotData = (array)$player;
+                for ($i = 0; $i <= 5; $i++) {
+                    if (!array_key_exists('item_'.$i, $slotData) && array_key_exists('item'.$i, $slotData)) {
+                        $slotData['item_0'.$i] = $slotData['item'.$i];
+                        unset($slotData['item'.$i]);
+                    }
+                }
                 $liveSlot->setArray((array)$player);
                 $liveSlot->set('player_slot', $this->getPlayerSlot($player->player_slot, $teamSide));
                 $liveMatch->addSlot($liveSlot);
