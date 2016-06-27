@@ -116,7 +116,7 @@ class LeagueMapper
                     $a_game[$team . '_team_complete'] = ($a_game[$team . '_team']->complete === 'false') ? 0 : 1;
                 }
             }
-
+            $liveMatch->setArray($a_game);
             if (array_key_exists('scoreboard', $a_game)) {
                 $scoreboard = $a_game['scoreboard'];
                 $a_game['duration'] = intval($scoreboard->duration);
@@ -129,7 +129,6 @@ class LeagueMapper
                     $this->parseScoreboard($liveMatch, $scoreboard, 'dire');
                 }
             }
-            $liveMatch->setArray($a_game);
             $liveMatch->setAllPickBans($picks_bans);
             $liveMatches[$liveMatch->get('match_id')] = $liveMatch;
         }
@@ -158,7 +157,7 @@ class LeagueMapper
                         unset($slotData['item'.$i]);
                     }
                 }
-                $liveSlot->setArray((array)$player);
+                $liveSlot->setArray($slotData);
                 $liveSlot->set('match_id', $liveMatch->get('match_id'));
                 $liveSlot->set('player_slot', $this->getPlayerSlot($player->player_slot, $teamSide));
                 $liveMatch->addSlot($liveSlot);
