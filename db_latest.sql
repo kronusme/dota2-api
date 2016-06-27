@@ -463,6 +463,104 @@ CREATE TABLE IF NOT EXISTS `teams` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `broadcasters` (
+  `match_id` bigint(20) unsigned NOT NULL,
+  `account_id` int(10) unsigned NOT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `live_matches` (
+  `id` bigint(20) unsigned NOT NULL,
+  `match_id` bigint(20) unsigned NOT NULL,
+  `duration` smallint(11) unsigned NOT NULL DEFAULT '0',
+  `first_blood_time` smallint(11) unsigned NOT NULL DEFAULT '0',
+  `start_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `game_mode` tinyint(4) NOT NULL,
+  `tower_status_radiant` int(11) unsigned NOT NULL DEFAULT '0',
+  `tower_status_dire` int(11) unsigned NOT NULL DEFAULT '0',
+  `barracks_status_radiant` int(11) unsigned NOT NULL DEFAULT '0',
+  `barracks_status_dire` int(11) unsigned NOT NULL DEFAULT '0',
+  `lobby_type` tinyint(6) unsigned NOT NULL DEFAULT '0',
+  `leagueid` mediumint(4) unsigned NOT NULL DEFAULT '0',
+  `radiant_team_id` int(11) unsigned DEFAULT NULL,
+  `radiant_name` varchar(200) DEFAULT NULL,
+  `radiant_logo` varchar(32) DEFAULT NULL,
+  `radiant_team_complete` tinyint(3) unsigned DEFAULT NULL,
+  `dire_team_id` int(11) unsigned DEFAULT NULL,
+  `dire_name` varchar(200) DEFAULT NULL,
+  `dire_logo` varchar(32) DEFAULT NULL,
+  `dire_team_complete` tinyint(3) unsigned DEFAULT NULL,
+  `radiant_captain` int(10) unsigned DEFAULT NULL,
+  `dire_captain` int(10) unsigned DEFAULT NULL,
+  `radiant_score` tinyint(3) unsigned DEFAULT NULL,
+  `dire_score` int(10) unsigned DEFAULT NULL,
+  `lobby_id` bigint(20) unsigned DEFAULT NULL,
+  `spectators` int(10) unsigned DEFAULT NULL,
+  `series_id` int(10) unsigned DEFAULT NULL,
+  `game_number` tinyint(3) unsigned DEFAULT NULL,
+  `stream_delay_s` tinyint(3) unsigned DEFAULT NULL,
+  `radiant_series_wins` tinyint(3) unsigned DEFAULT NULL,
+  `dire_series_wins` tinyint(3) unsigned DEFAULT NULL,
+  `series_type` tinyint(3) unsigned DEFAULT NULL,
+  `league_series_id` int(10) unsigned DEFAULT NULL,
+  `league_game_id` int(10) unsigned DEFAULT NULL,
+  `stage_name` varchar(255) DEFAULT NULL,
+  `league_tier` tinyint(3) unsigned DEFAULT NULL,
+  `roshan_respawn_timer` smallint(5) unsigned DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `live_slots` (
+  `live_match_id` bigint(20) unsigned NOT NULL,
+  `id` bigint(10) unsigned NOT NULL,
+  `match_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `account_id` int(20) unsigned NOT NULL DEFAULT '0',
+  `hero_id` tinyint(10) unsigned NOT NULL DEFAULT '0',
+  `player_slot` tinyint(10) unsigned NOT NULL DEFAULT '0',
+  `item_0` smallint(10) NOT NULL DEFAULT '0',
+  `item_1` smallint(10) NOT NULL DEFAULT '0',
+  `item_2` smallint(10) NOT NULL DEFAULT '0',
+  `item_3` smallint(10) NOT NULL DEFAULT '0',
+  `item_4` smallint(10) NOT NULL DEFAULT '0',
+  `item_5` smallint(10) NOT NULL DEFAULT '0',
+  `kills` tinyint(10) unsigned NOT NULL DEFAULT '0',
+  `deaths` tinyint(10) unsigned NOT NULL DEFAULT '0',
+  `assists` tinyint(10) unsigned NOT NULL DEFAULT '0',
+  `gold` mediumint(10) unsigned DEFAULT '0',
+  `last_hits` smallint(10) unsigned NOT NULL DEFAULT '0',
+  `denies` smallint(10) unsigned NOT NULL DEFAULT '0',
+  `gold_per_min` smallint(10) unsigned NOT NULL DEFAULT '0',
+  `xp_per_min` smallint(10) unsigned NOT NULL DEFAULT '0',
+  `level` tinyint(10) unsigned NOT NULL DEFAULT '0',
+  `ultimate_state` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `ultimate_cooldown` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `respawn_timer` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `position_x` smallint(6) DEFAULT NULL,
+  `position_y` smallint(6) DEFAULT NULL,
+  `net_worth` mediumint(8) unsigned NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ALTER TABLE `broadcasters`
+ADD UNIQUE KEY `match_id` (`match_id`,`account_id`) USING BTREE;
+
+ALTER TABLE `live_matches`
+ADD PRIMARY KEY (`id`),
+ADD KEY `FK_matches_leagues` (`leagueid`),
+ADD KEY `FK_matches_teams` (`radiant_team_id`),
+ADD KEY `FK_matches_teams_2` (`dire_team_id`);
+
+ALTER TABLE `live_slots`
+ADD PRIMARY KEY (`id`),
+ADD KEY `FK_slots_users` (`account_id`),
+ADD KEY `FK_slots_heroes` (`hero_id`),
+ADD KEY `FK_slots_matches` (`match_id`),
+ADD KEY `account_id` (`account_id`,`hero_id`),
+ADD KEY `live_match_id` (`live_match_id`);
+
+ALTER TABLE `live_matches`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `live_slots`
+MODIFY `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT;SET FOREIGN_KEY_CHECKS=1;
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
