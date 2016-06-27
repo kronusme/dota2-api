@@ -154,7 +154,7 @@ class LeagueMapper
                 $slotData = (array)$player;
                 for ($i = 0; $i <= 5; $i++) {
                     if (!array_key_exists('item_'.$i, $slotData) && array_key_exists('item'.$i, $slotData)) {
-                        $slotData['item_0'.$i] = $slotData['item'.$i];
+                        $slotData['item_'.$i] = $slotData['item'.$i];
                         unset($slotData['item'.$i]);
                     }
                 }
