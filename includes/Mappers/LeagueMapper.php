@@ -119,8 +119,9 @@ class LeagueMapper
             $liveMatch->setArray($a_game);
             if (array_key_exists('scoreboard', $a_game)) {
                 $scoreboard = $a_game['scoreboard'];
-                $a_game['duration'] = intval($scoreboard->duration);
-                $a_game['roshan_respawn_timer'] = intval($scoreboard->roshan_respawn_timer);
+                $a_board = (array)$scoreboard;
+                $liveMatch->set('duration', intval($a_board['duration']));
+                $liveMatch->set('roshan_respawn_timer', intval($a_board['roshan_respawn_timer']));
 
                 if ($scoreboard->radiant) {
                     $this->parseScoreboard($liveMatch, $scoreboard, 'radiant');
@@ -144,9 +145,9 @@ class LeagueMapper
     private function parseScoreboard(&$liveMatch, $scoreboard, $teamSide)
     {
         $team = $scoreboard->{$teamSide};
-        $liveMatch->set($teamSide.'_score', $team->score);
-        $liveMatch->set('tower_status_' . $teamSide, $team->tower_state);
-        $liveMatch->set('barracks_status_' . $teamSide, $team->barracks_state);
+        $liveMatch->set($teamSide.'_score', strval($team->score));
+        $liveMatch->set('tower_status_' . $teamSide, strval($team->tower_state));
+        $liveMatch->set('barracks_status_' . $teamSide, strval($team->barracks_state));
         if ($team->players) {
             foreach ($team->players->player as $player) {
                 $liveSlot = new LiveSlot();
