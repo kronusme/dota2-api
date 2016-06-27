@@ -21,19 +21,15 @@ class LiveMatchMapperDb
     protected $slotsTable = 'live_slots';
 
     /**
-     * @param int $matchId
+     * @param int $liveMatchId
      * @return LiveMatch[]
      */
-    public function load($matchId)
+    public function load($liveMatchId)
     {
-        if (null !== $matchId) {
-            $this->setMatchId($matchId);
-        }
         $db = Db::obtain();
         $queryForMatch = 'SELECT * FROM ' . Db::realTablename($this->matchesTable) . ' WHERE match_id=?';
         $queryForSlots = 'SELECT * FROM ' . Db::realTablename($this->slotsTable) . ' WHERE match_id=?';
         $queryForBroadcasters = 'SELECT * FROM ' . Db::realTablename('broadcasters') . ' WHERE match_id=?';
-        $liveMatchId = $this->getMatchId();
         $broadcasters = $db->fetchArrayPDO($queryForBroadcasters, array($liveMatchId));
         $matchInfo = $db->fetchArrayPdo($queryForMatch, array($liveMatchId));
         $liveMatchStamps = array();
