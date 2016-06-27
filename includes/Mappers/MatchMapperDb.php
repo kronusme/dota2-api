@@ -32,8 +32,17 @@ class MatchMapperDb extends MatchMapper
 {
 
     /**
+     * @var string
+     */
+    protected $matchesTable = 'matches';
+    /**
+     * @var string
+     */
+    protected $slotsTable = 'slots';
+
+    /**
      * @param int $matchId
-     * @return match
+     * @return Match
      */
     public function load($matchId = null)
     {
@@ -41,8 +50,8 @@ class MatchMapperDb extends MatchMapper
             $this->setMatchId($matchId);
         }
         $db = Db::obtain();
-        $queryForMatch = 'SELECT * FROM ' . Db::realTablename('matches') . ' WHERE match_id=?';
-        $queryForSlots = 'SELECT * FROM ' . Db::realTablename('slots') . ' WHERE match_id=?';
+        $queryForMatch = 'SELECT * FROM ' . Db::realTablename($this->matchesTable) . ' WHERE match_id=?';
+        $queryForSlots = 'SELECT * FROM ' . Db::realTablename($this->slotsTable) . ' WHERE match_id=?';
         $matchInfo = $db->queryFirstPDO($queryForMatch, array($this->getMatchId()));
         $match = new Match();
         if (!$matchInfo) {
@@ -134,7 +143,7 @@ class MatchMapperDb extends MatchMapper
         }
 
         // save common match info
-        $db->insertPDO(Db::realTablename('matches'), $match->getDataArray());
+        $db->insertPDO(Db::realTablename($this->matchesTable), $match->getDataArray());
         // save accounts
         foreach ($slots as $slot) {
             if ((int)$slot->get('account_id') !== Player::ANONYMOUS) {
@@ -146,7 +155,7 @@ class MatchMapperDb extends MatchMapper
         }
         // save slots
         foreach ($slots as $slot) {
-            $slotId = $db->insertPDO(Db::realTablename('slots'), $slot->getDataArray());
+            $slotId = $db->insertPDO(Db::realTablename($this->slotsTable), $slot->getDataArray());
             // save abilities upgrade
             $aU = $slot->getAbilitiesUpgrade();
             if (count($aU) > 0) {
@@ -198,7 +207,7 @@ class MatchMapperDb extends MatchMapper
         $slots = $match->getAllSlots();
         // update common match info
         $db->updatePDO(
-            Db::realTablename('matches'),
+            Db::realTablename($this->matchesTable),
             $match->getDataArray(),
             array('match_id' => $match->get('match_id'))
         );
@@ -211,7 +220,7 @@ class MatchMapperDb extends MatchMapper
             // update slots
             if (!$lazy) {
                 $db->updatePDO(
-                    Db::realTablename('slots'),
+                    Db::realTablename($this->slotsTable),
                     $slot->getDataArray(),
                     array('match_id' => $slot->get('match_id'), 'player_slot' => $slot->get('player_slot'))
                 );
@@ -229,7 +238,7 @@ class MatchMapperDb extends MatchMapper
         }
         $db = Db::obtain();
         $slots = $db->fetchArrayPDO(
-            'SELECT id FROM ' . Db::realTablename('slots') . ' WHERE match_id = ?',
+            'SELECT id FROM ' . Db::realTablename($this->slotsTable) . ' WHERE match_id = ?',
             array($matchId)
         );
         $slotsFormatted = array();
@@ -240,10 +249,10 @@ class MatchMapperDb extends MatchMapper
             $slots_str = implode(',', $slotsFormatted);
             $db->exec('DELETE FROM ' . Db::realTablename('ability_upgrades') . ' WHERE slot_id IN (' . $slots_str . ')');
             $db->exec('DELETE FROM ' . Db::realTablename('additional_units') . ' WHERE slot_id IN (' . $slots_str . ')');
-            $db->exec('DELETE FROM ' . Db::realTablename('slots') . ' WHERE id IN (' . $slots_str . ')');
+            $db->exec('DELETE FROM ' . Db::realTablename($this->slotsTable) . ' WHERE id IN (' . $slots_str . ')');
         }
         $db->deletePDO(Db::realTablename('picks_bans'), array('match_id' => $matchId), 0);
-        $db->deletePDO(Db::realTablename('matches'), array('match_id' => $matchId));
+        $db->deletePDO(Db::realTablename($this->matchesTable), array('match_id' => $matchId));
     }
 
     /**

@@ -85,18 +85,20 @@ class LeagueMapper
         foreach ($leagueLiveMatches->game as $game) {
             $liveMatch = new LiveMatch();
             foreach ($game->players->player as $player) {
+                $data = (array)$player;
+                $data['match_id'] = $game->match_id;
                 switch ($player->team) {
                     case 0:
-                        $liveMatch->addRadiantPlayer((array)$player);
+                        $liveMatch->addRadiantPlayer($data);
                         break;
                     case 1:
-                        $liveMatch->addDirePlayer((array)$player);
+                        $liveMatch->addDirePlayer($data);
                         break;
                     case 2:
-                        $liveMatch->addBroadcaster((array)$player);
+                        $liveMatch->addBroadcaster($data);
                         break;
                     case 4:
-                        $liveMatch->addUnassigned((array)$player);
+                        $liveMatch->addUnassigned($data);
                         break;
                 }
             }
@@ -140,6 +142,7 @@ class LeagueMapper
     private function parseScoreboard(&$liveMatch, $scoreboard, $teamSide)
     {
         $team = $scoreboard->{$teamSide};
+        $a_game[$teamSide.'_score'] = $team['score'];
         $a_game['tower_status_' . $teamSide] = $team['tower_state'];
         $a_game['barracks_status_' . $teamSide] = $team['barracks_state'];
         if ($team->players) {
