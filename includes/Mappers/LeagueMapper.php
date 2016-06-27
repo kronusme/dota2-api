@@ -103,6 +103,7 @@ class LeagueMapper
                 }
             }
             $a_game = (array)$game;
+            $a_game['stage_name'] = strval($a_game['stage_name']);
             $picks_bans = array();
             $teams = array('radiant', 'dire');
             foreach ($teams as $team) {
@@ -117,7 +118,7 @@ class LeagueMapper
             if (array_key_exists('scoreboard', $a_game)) {
                 $scoreboard = $a_game['scoreboard'];
                 $a_game['duration'] = intval($scoreboard->duration);
-                $a_game['roshan_respawn_timer'] = $scoreboard->roshan_respawn_timer;
+                $a_game['roshan_respawn_timer'] = intval($scoreboard->roshan_respawn_timer);
 
                 if ($scoreboard->radiant) {
                     $this->parseScoreboard($liveMatch, $scoreboard, 'radiant');

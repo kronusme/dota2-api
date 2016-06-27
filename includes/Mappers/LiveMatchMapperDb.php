@@ -75,9 +75,11 @@ class LiveMatchMapperDb
     {
         $db = Db::obtain();
         $slots = $liveMatch->getAllSlots();
-        $db->insertPDO(Db::realTablename($this->matchesTable), $liveMatch->getDataArray());
+        $liveMatchId = $db->insertPDO(Db::realTablename($this->matchesTable), $liveMatch->getDataArray());
         foreach ($slots as $slot) {
-            $db->insertPDO(Db::realTablename($this->slotsTable), $slot->getDataArray());
+            $dataToSave = $slot->getDataArray();
+            $dataToSave['live_match_id'] = $liveMatchId;
+            $db->insertPDO(Db::realTablename($this->slotsTable), $dataToSave);
         }
         $broadcasters = $liveMatch->get('broadcasters');
         if (count($broadcasters)) {

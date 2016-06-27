@@ -126,4 +126,16 @@ class LiveMatch extends Match
         $this->_dire_team[$player_info['account_id']] = $player_info;
         return $this;
     }
+
+    public function getDataArray()
+    {
+        $data = get_object_vars($this);
+        $ret = array();
+        foreach ($data as $key => $value) {
+            if (!is_array($value) && !is_null($value)) {
+                $ret[ltrim($key, '_')] = $value;
+            }
+        }
+        return $ret;
+    }
 }
