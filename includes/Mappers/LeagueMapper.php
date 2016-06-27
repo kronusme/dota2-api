@@ -104,6 +104,8 @@ class LeagueMapper
             }
             $a_game = (array)$game;
             $a_game['stage_name'] = strval($a_game['stage_name']);
+            $a_game['leagueid'] = $a_game['league_id'];
+            unset($a_game['league_id']);
             $picks_bans = array();
             $teams = array('radiant', 'dire');
             foreach ($teams as $team) {
