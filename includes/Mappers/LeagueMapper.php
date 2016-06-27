@@ -145,9 +145,9 @@ class LeagueMapper
     private function parseScoreboard(&$liveMatch, $scoreboard, $teamSide)
     {
         $team = $scoreboard->{$teamSide};
-        $a_game[$teamSide.'_score'] = $team['score'];
-        $a_game['tower_status_' . $teamSide] = $team['tower_state'];
-        $a_game['barracks_status_' . $teamSide] = $team['barracks_state'];
+        $liveMatch->set($teamSide.'_score', $team->score);
+        $liveMatch->set('tower_status_' . $teamSide, $team->tower_state);
+        $liveMatch->set('barracks_status_' . $teamSide, $team->barracks_state);
         if ($team->players) {
             foreach ($team->players->player as $player) {
                 $liveSlot = new LiveSlot();
@@ -159,6 +159,7 @@ class LeagueMapper
                     }
                 }
                 $liveSlot->setArray((array)$player);
+                $liveSlot->set('match_id', $liveMatch->get('match_id'));
                 $liveSlot->set('player_slot', $this->getPlayerSlot($player->player_slot, $teamSide));
                 $liveMatch->addSlot($liveSlot);
             }
