@@ -36,7 +36,7 @@ class LiveMatchMapperDb
         $liveMatchId = $this->getMatchId();
         $broadcasters = $db->fetchArrayPDO($queryForBroadcasters, array($liveMatchId));
         $matchInfo = $db->fetchArrayPdo($queryForMatch, array($liveMatchId));
-        $liveMatchStamps = [];
+        $liveMatchStamps = array();
         foreach ($matchInfo as $mTime) {
             $id = $mTime['id'];
             $match = new LiveMatch();
