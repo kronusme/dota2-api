@@ -25,7 +25,7 @@ First of all you need web-server with **PHP 5.3+** ( **PDO** and **cURL** should
 ````json
 {
     "require": {
-        "kronusme/dota2-api": "2.2.0"
+        "kronusme/dota2-api": "2.2.1"
     }
 }
 ````
