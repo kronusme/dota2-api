@@ -98,7 +98,7 @@ class MatchMapperDb extends MatchMapper
             }
             $match->addSlot($slot);
         }
-        if ($match->get('game_mode') === match::CAPTAINS_MODE) {
+        if ($match->get('game_mode') == match::CAPTAINS_MODE) {
             $queryForPicksBans = 'SELECT `is_pick`, `hero_id`, `team`, `order` FROM ' . Db::realTablename('picks_bans') . ' WHERE match_id = ? ORDER BY `order`';
             $picks_bans = $db->fetchArrayPDO($queryForPicksBans, array($match->get('match_id')));
             $match->setAllPickBans($picks_bans);
