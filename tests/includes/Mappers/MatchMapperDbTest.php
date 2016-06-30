@@ -106,6 +106,7 @@ class MatchMapperDbTest extends PHPUnit_Framework_TestCase
 
         $picksBans = $match->getAllPicksBans();
         $this->assertInternalType('array', $picksBans);
+        $this->assertGreaterThan(0, count($picksBans));
         $fl = true;
         foreach ($picksBans as $r) {
             if (!in_array($r['is_pick'], array('1', '0'), true)) {
