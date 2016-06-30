@@ -544,6 +544,7 @@ ADD UNIQUE KEY `match_id` (`match_id`,`account_id`) USING BTREE;
 
 ALTER TABLE `live_matches`
 ADD PRIMARY KEY (`id`),
+ADD UNIQUE KEY `match_id` (`match_id`,`duration`),
 ADD KEY `FK_matches_leagues` (`leagueid`),
 ADD KEY `FK_matches_teams` (`radiant_team_id`),
 ADD KEY `FK_matches_teams_2` (`dire_team_id`);
