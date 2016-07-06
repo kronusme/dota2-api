@@ -13,8 +13,7 @@ class LeaguesMapperDb extends LeaguesMapper
         if (!is_null($lid)) {
             if (is_array($lid)) {
                 $addSql = ' WHERE leagueid IN (' . implode(',', $lid) . ')';
-            }
-            else {
+            } else {
                 $addSql = ' WHERE leagueid = ' . intval($lid);
             }
         }
