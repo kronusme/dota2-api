@@ -85,7 +85,7 @@ abstract class MatchesMapper
      * @param string $name
      * @return MatchesMapper
      */
-    public function setPlayerMame($name)
+    public function setPlayerName($name)
     {
         $this->_player_name = (string)$name;
         return $this;
