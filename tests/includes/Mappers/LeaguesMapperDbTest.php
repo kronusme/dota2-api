@@ -18,6 +18,17 @@ class LeaguesMapperDbTest extends PHPUnit_Framework_TestCase
         $mapperDb->save($leagues[65000]);
         $leaguesFromDb = $mapperDb->load();
         $this->assertEquals(2, count($leaguesFromDb));
+
+        $mapperDb->save($leagues[4664]);
+
+        $leaguesFromDb = $mapperDb->load(600);
+        $this->assertEquals(1, count($leaguesFromDb));
+
+        $leaguesFromDb = $mapperDb->load([600, 65000]);
+        $this->assertEquals(2, count($leaguesFromDb));
+
+        $leaguesFromDb = $mapperDb->load([600, 4664 ,65000]);
+        $this->assertEquals(3, count($leaguesFromDb));
     }
 
     protected function tearDown()

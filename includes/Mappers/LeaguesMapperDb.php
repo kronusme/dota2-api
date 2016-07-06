@@ -7,10 +7,19 @@ use Dota2Api\Models\League;
 
 class LeaguesMapperDb extends LeaguesMapper
 {
-    public function load()
+    public function load($lid = null)
     {
+        $addSql = '';
+        if (!is_null($lid)) {
+            if (is_array($lid)) {
+                $addSql = ' WHERE leagueid IN (' . implode(',', $lid) . ')';
+            }
+            else {
+                $addSql = ' WHERE leagueid = ' . intval($lid);
+            }
+        }
         $db = Db::obtain();
-        $data = $db->fetchArrayPDO('SELECT * FROM ' . Db::realTablename('leagues'));
+        $data = $db->fetchArrayPDO('SELECT * FROM ' . Db::realTablename('leagues'). ' '. $addSql);
         $leagues = array();
         foreach ($data as $row) {
             $league = new League();
