@@ -48,6 +48,7 @@ class TeamsMapperDb extends TeamsMapper
             $tid = $row['id'];
             $team = new Team();
             $team->setArray($row);
+            $team->set('team_id', $tid);
             $teams[$tid] = $team;
         }
         return $teams;
@@ -60,8 +61,7 @@ class TeamsMapperDb extends TeamsMapper
     public function save($team)
     {
         $db = Db::obtain();
-        return $db->insertPDO(Db::realTablename('teams'),
-            array('id' => $team->get('id'), 'name' => $team->get('name')));
+        return $db->insertPDO(Db::realTablename('teams'), array('id' => $team->get('team_id'), 'name' => $team->get('name')));
     }
 
     /**

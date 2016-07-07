@@ -19,7 +19,7 @@ class TeamsMapperDbTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(count($teams), 1);
         $team = array_pop($teams);
-        $team->set('id', 36);
+        $team->set('team_id', 36);
         $this->mapper->save($team);
     }
 
