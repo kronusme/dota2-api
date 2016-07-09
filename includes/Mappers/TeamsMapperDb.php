@@ -71,6 +71,9 @@ class TeamsMapperDb extends TeamsMapper
     {
         $db = Db::obtain();
         $ids = is_array($ids) ? $ids : array($ids);
+        if (!count($ids)) {
+            return;
+        }
         $db->exec('DELETE FROM ' . Db::realTablename('teams') . ' WHERE id IN (' . implode(',', $ids) . ')');
     }
 }
