@@ -129,7 +129,7 @@ class Request
         // Ignore SSL warnings and questions
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-
+        echo $url."\n";
         $r = curl_exec($ch);
         curl_close($ch);
         libxml_use_internal_errors(true);

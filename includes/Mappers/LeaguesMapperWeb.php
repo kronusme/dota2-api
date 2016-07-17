@@ -29,7 +29,7 @@ class LeaguesMapperWeb extends LeaguesMapper
     const LEAGUES_STEAM_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/';
 
     /**
-     * @return array
+     * @return League[]
      */
     public function load()
     {

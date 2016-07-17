@@ -14,6 +14,10 @@ class Player extends StatObject
      */
     const ANONYMOUS = 4294967295;
     /**
+     * @var number
+     */
+    protected $_account_id;
+    /**
      * @var string
      */
     protected $_steamid;

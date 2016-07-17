@@ -64,7 +64,7 @@ class PlayerMapperDb
         }
     }
 
-    private function insert(Player $player)
+    public function insert(Player $player)
     {
         $db = Db::obtain();
         $data = array('account_id' => Player::convertId($player->get('steamid')));
@@ -72,7 +72,7 @@ class PlayerMapperDb
         $db->insertPDO(Db::realTablename('users'), $data);
     }
 
-    private function update(Player $player)
+    public function update(Player $player)
     {
         $db = Db::obtain();
         $data = array('account_id' => Player::convertId($player->get('steamid')));
