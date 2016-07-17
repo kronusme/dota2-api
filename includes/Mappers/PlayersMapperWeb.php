@@ -98,6 +98,7 @@ class PlayersMapperWeb
         foreach ($playersInfo->players[0] as $playerInfo) {
             $player = new Player();
             $player->setArray((array)$playerInfo);
+            $player->set('account_id', Player::convertId($player->get('steamid')));
             $players[$player->get('steamid')] = $player;
         }
         return $players;

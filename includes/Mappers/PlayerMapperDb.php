@@ -68,7 +68,7 @@ class PlayerMapperDb
     {
         $db = Db::obtain();
         $data = array('account_id' => Player::convertId($player->get('steamid')));
-        $data = array_merge($data, $player->getDataArray());
+        $data = array_merge($player->getDataArray(), $data);
         $db->insertPDO(Db::realTablename('users'), $data);
     }
 

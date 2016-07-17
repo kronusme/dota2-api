@@ -30,7 +30,7 @@ class PlayerMapperDbTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $mapperWeb = new PlayersMapperWeb();
-        $mapperWeb->addId(player::convertId($this->playerId));
+        $mapperWeb->addId(Player::convertId($this->playerId));
         $d = $mapperWeb->load();
         $this->player = array_pop($d);
     }
