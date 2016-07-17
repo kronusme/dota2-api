@@ -85,14 +85,6 @@ class PlayersMapperWeb
     }
 
     /**
-     *
-     */
-    public function __construct()
-    {
-
-    }
-
-    /**
      * @return Player[]
      */
     public function load()

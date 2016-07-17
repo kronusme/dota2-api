@@ -50,6 +50,5 @@ class UgcMapperWeb
             array('appid' => 570, 'ugcid' => $this->_ugcid)
         );
         return $request->send();
-
     }
 }

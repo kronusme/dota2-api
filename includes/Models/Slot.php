@@ -205,13 +205,4 @@ class Slot extends StatObject
         }
         return $this;
     }
-
-    /**
-     * Just empty construct
-     * Don't use me directly!
-     */
-    public function __construct()
-    {
-
-    }
 }

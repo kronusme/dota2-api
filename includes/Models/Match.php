@@ -307,13 +307,4 @@ class Match extends StatObject
         $this->_slots = $slots;
         return $this;
     }
-
-    /**
-     * Just empty construct.
-     * Don't use me directly!
-     */
-    public function __construct()
-    {
-
-    }
 }

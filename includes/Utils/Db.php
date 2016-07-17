@@ -386,7 +386,6 @@ class Db
             $this->_error = $e->getMessage();
             return false;
         }
-
     }
 
     /**
