@@ -260,20 +260,20 @@ $mm->delete(151341579);
 <?php
 $abilities = new Dota2Api\Data\Abilities();
 $abilities->parse();
-$abilities-getDataById(5172); // return array for ability with id 5172 (BeastMaster Inner Beast)
+$abilities->getDataById(5172); // return array for ability with id 5172 (BeastMaster Inner Beast)
 // same, because there are no thumbs for abilities
 $abilities->getImgUrlById(5172, false);
 $abilities->getImgUrlById(5172);
 
 $heroes = new Dota2Api\Data\Heroes();
 $heroes->parse();
-$heroes-getDataById(97); // get info about Magnus
+$heroes->getDataById(97); // get info about Magnus
 $heroes->getImgUrlById(97, false); // large image
 $heroes->getImgUrlById(97); // thumb
 
 $items = new Dota2Api\Data\Items();
 $items->parse();
-$items-getDataById(149); // get info about Crystalis
+$items->getDataById(149); // get info about Crystalis
 $items->getImgUrlById(149, false); // large image
 $items->getImgUrlById(149); // thumb
 
