@@ -136,7 +136,7 @@ class Db
         }
         try {
             self::$_linkId = new PDO(
-                'mysql:host=' . $this->_server . ';dbname=' . $this->_database,
+                'mysql:host=' . $this->_server,
                 $this->_user,
                 $this->_pass,
                 array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'')
