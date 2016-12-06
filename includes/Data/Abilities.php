@@ -35,4 +35,57 @@ class Abilities extends HeroesData
     {
         return ($id !== self::STATS_ABILITY_ID) ? parent::getImgUrlById($id, $thumb) : 'images/stats.png';
     }
+	
+	/**
+	* Returns the Cooldown of an Ability at a specific level
+	*
+	* @param int $id item identifier
+	* @param int $level level of the ability
+	* @return float (-1 if ability not found, -2 if ability doesn't have a cooldown at the given level)
+	*/
+	public function getCooldownById($id, $level)
+	{
+		$level = (int)$level;
+		$data = $this->getDataById($id);
+        if (null === $data) {
+            return -1;
+        } else if($level < 0 || $level >= count($data['cooldown'])){
+			return -2;
+		} else {
+			return $data['cooldown'][$level];
+		}
+	}
+	
+	/**
+	* Returns the Cooldowns of an Ability
+	*
+	* @param int $id item identifier
+	* @return array with floats or null if ability wasn't found
+	*/
+	public function getCooldownsById($id)
+	{
+		$level = (int)$level;
+		$data = $this->getDataById($id);
+        if (null === $data) {
+            return null;
+		} else {
+			return $data['cooldown'];
+		}
+	}
+	
+	/**
+	* Returns if an Ability is an Ultimate
+	*
+	* @param int $id item identifier
+	* @return bool
+	*/
+	public function isUltimate($id) {
+		$data = $this->getDataById($id);
+		$id = int($id);
+		
+		if (null === $data) {
+            return false;
+		} 
+		return $data['ultimate'];
+	}
 }

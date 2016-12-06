@@ -378,7 +378,7 @@
         {
             "name": "lycan",
             "id": 77,
-            "localized_name": "Lycanthrope"
+            "localized_name": "Lycan"
         },
         {
             "name": "brewmaster",
@@ -448,7 +448,7 @@
         {
             "name": "wisp",
             "id": 91,
-            "localized_name": "Wisp"
+            "localized_name": "IO"
         },
         {
             "name": "visage",

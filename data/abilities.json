@@ -2,2283 +2,5755 @@
     "abilities": [
         {
             "name": "centaur_khan_war_stomp",
-            "id": "5295"
+            "id": "5295",
+			"ultimate": false,
+			"cooldown": [
+				20.0
+			]
         },
         {
             "name": "necronomicon_warrior_last_will",
-            "id": "5200"
+            "id": "5200",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "enigma_demonic_conversion",
-            "id": "5147"
+            "id": "5147",
+			"ultimate": false,
+			"cooldown": [
+				35.0,
+				35.0,
+				35.0,
+				35.0
+			]
         },
         {
             "name": "beastmaster_boar_poison",
-            "id": "5171"
+            "id": "5171",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "juggernaut_blade_fury",
-            "id": "5028"
+            "id": "5028",
+			"ultimate": false,
+			"cooldown": [
+				42.0, 
+				34.0, 
+				26.0,
+				18.0
+			]
         },
         {
             "name": "witch_doctor_voodoo_restoration",
-            "id": "5139"
+            "id": "5139",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "bloodseeker_blood_bath",
-            "id": "5016"
+            "id": "5016",
+			"ultimate": false,
+			"cooldown": [
+				30.0, 
+				25.0, 
+				20.0,
+				15.0
+			]
         },
         {
             "name": "backdoor_protection_in_base",
-            "id": "5351"
+            "id": "5351",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "broodmother_spawn_spiderite",
-            "id": "5283"
+            "id": "5283",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "spirit_breaker_charge_of_darkness",
-            "id": "5353"
+            "id": "5353",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "chaos_knight_reality_rift",
-            "id": "5427"
+            "id": "5427",
+			"ultimate": false,
+			"cooldown": [
+				24.0,
+				18.0,
+				12.0,
+				6.0
+			]
         },
         {
             "name": "lina_laguna_blade",
-            "id": "5043"
-        },
-        {
-            "name": "riki_backstab",
-            "id": "5144"
-        },
-        {
-            "name": "forest_troll_high_priest_heal",
-            "id": "5318"
-        },
-        {
-            "name": "warlock_upheaval",
-            "id": "5164"
-        },
-        {
-            "name": "ogre_magi_frost_armor",
-            "id": "5304"
-        },
-        {
-            "name": "stats",
-            "id": "5002"
-        },
-        {
-            "name": "dazzle_poison_touch",
-            "id": "5233"
-        },
-        {
-            "name": "templar_assassin_self_trap",
-            "id": "5199"
-        },
-        {
-            "name": "silencer_glaives_of_wisdom",
-            "id": "5378"
-        },
-        {
-            "name": "warlock_rain_of_chaos",
-            "id": "5165"
-        },
-        {
-            "name": "sven_warcry",
-            "id": "5096"
-        },
-        {
-            "name": "templar_assassin_meld",
-            "id": "5195"
-        },
-        {
-            "name": "enchantress_impetus",
-            "id": "5270"
-        },
-        {
-            "name": "earthshaker_enchant_totem",
-            "id": "5024"
-        },
-        {
-            "name": "lone_druid_synergy",
-            "id": "5414"
-        },
-        {
-            "name": "invoker_forge_spirit",
-            "id": "5387"
-        },
-        {
-            "name": "chaos_knight_phantasm",
-            "id": "5429"
-        },
-        {
-            "name": "satyr_hellcaller_unholy_aura",
-            "id": "5317"
-        },
-        {
-            "name": "shadow_shaman_shackles",
-            "id": "5080"
-        },
-        {
-            "name": "ogre_magi_bloodlust",
-            "id": "5440"
-        },
-        {
-            "name": "shadow_demon_shadow_poison_release",
-            "id": "5424"
-        },
-        {
-            "name": "blue_dragonspawn_sorcerer_evasion",
-            "id": "5325"
-        },
-        {
-            "name": "antimage_mana_break",
-            "id": "5003"
-        },
-        {
-            "name": "spirit_breaker_empowering_haste",
-            "id": "5354"
-        },
-        {
-            "name": "satyr_hellcaller_shockwave",
-            "id": "5316"
-        },
-        {
-            "name": "morphling_morph_agi",
-            "id": "5055"
-        },
-        {
-            "name": "bounty_hunter_track",
-            "id": "5288"
-        },
-        {
-            "name": "bloodseeker_bloodrage",
-            "id": "5015"
-        },
-        {
-            "name": "obsidian_destroyer_astral_imprisonment",
-            "id": "5392"
-        },
-        {
-            "name": "lich_dark_ritual",
-            "id": "5136"
-        },
-        {
-            "name": "antimage_spell_shield",
-            "id": "5005"
-        },
-        {
-            "name": "enchantress_natures_attendants",
-            "id": "5269"
-        },
-        {
-            "name": "broodmother_incapacitating_bite",
-            "id": "5281"
-        },
-        {
-            "name": "undying_flesh_golem",
-            "id": "5447"
-        },
-        {
-            "name": "lone_druid_rabid",
-            "id": "5413"
-        },
-        {
-            "name": "slardar_sprint",
-            "id": "5114"
-        },
-        {
-            "name": "sandking_caustic_finale",
-            "id": "5104"
-        },
-        {
-            "name": "nevermore_dark_lord",
-            "id": "5063"
-        },
-        {
-            "name": "lycan_summon_wolves_invisibility",
-            "id": "5500"
-        },
-        {
-            "name": "life_stealer_infest",
-            "id": "5252"
-        },
-        {
-            "name": "lycan_feral_impulse",
-            "id": "5397"
-        },
-        {
-            "name": "ursa_overpower",
-            "id": "5358"
-        },
-        {
-            "name": "enraged_wildkin_toughness_aura",
-            "id": "5313"
-        },
-        {
-            "name": "pudge_flesh_heap",
-            "id": "5074"
-        },
-        {
-            "name": "witch_doctor_maledict",
-            "id": "5140"
-        },
-        {
-            "name": "vengefulspirit_nether_swap",
-            "id": "5125"
-        },
-        {
-            "name": "weaver_shukuchi",
-            "id": "5290"
-        },
-        {
-            "name": "weaver_the_swarm",
-            "id": "5289"
-        },
-        {
-            "name": "alchemist_acid_spray",
-            "id": "5365"
-        },
-        {
-            "name": "phantom_assassin_stifling_dagger",
-            "id": "5190"
-        },
-        {
-            "name": "sandking_epicenter",
-            "id": "5105"
-        },
-        {
-            "name": "tornado_tempest",
-            "id": "5310"
-        },
-        {
-            "name": "jakiro_liquid_fire",
-            "id": "5299"
-        },
-        {
-            "name": "chen_hand_of_god",
-            "id": "5331"
-        },
-        {
-            "name": "batrider_flaming_lasso",
-            "id": "5323"
-        },
-        {
-            "name": "lone_druid_true_form",
-            "id": "5416"
-        },
-        {
-            "name": "spirit_breaker_nether_strike",
-            "id": "5356"
-        },
-        {
-            "name": "spectre_haunt",
-            "id": "5337"
-        },
-        {
-            "name": "alchemist_chemical_rage",
-            "id": "5369"
-        },
-        {
-            "name": "silencer_last_word",
-            "id": "5379"
-        },
-        {
-            "name": "tinker_rearm",
-            "id": "5153"
-        },
-        {
-            "name": "rattletrap_rocket_flare",
-            "id": "5239"
-        },
-        {
-            "name": "omniknight_guardian_angel",
-            "id": "5266"
-        },
-        {
-            "name": "leshrac_diabolic_edict",
-            "id": "5242"
-        },
-        {
-            "name": "tiny_toss",
-            "id": "5107"
-        },
-        {
-            "name": "razor_static_link",
-            "id": "5083"
-        },
-        {
-            "name": "invoker_ice_wall",
-            "id": "5389"
-        },
-        {
-            "name": "brewmaster_drunken_haze",
-            "id": "5401"
-        },
-        {
-            "name": "batrider_flamebreak",
-            "id": "5321"
-        },
-        {
-            "name": "dark_seer_ion_shell",
-            "id": "5256"
-        },
-        {
-            "name": "queenofpain_scream_of_pain",
-            "id": "5175"
-        },
-        {
-            "name": "phantom_assassin_blur",
-            "id": "5192"
-        },
-        {
-            "name": "phantom_lancer_juxtapose",
-            "id": "5067"
-        },
-        {
-            "name": "tidehunter_anchor_smash",
-            "id": "5120"
-        },
-        {
-            "name": "axe_battle_hunger",
-            "id": "5008"
-        },
-        {
-            "name": "pugna_life_drain",
-            "id": "5189"
-        },
-        {
-            "name": "batrider_firefly",
-            "id": "5322"
-        },
-        {
-            "name": "beastmaster_primal_roar",
-            "id": "5177"
-        },
-        {
-            "name": "shadow_shaman_mass_serpent_ward",
-            "id": "5081"
-        },
-        {
-            "name": "treant_leech_seed",
-            "id": "5435"
-        },
-        {
-            "name": "chen_holy_persuasion",
-            "id": "5330"
-        },
-        {
-            "name": "courier_burst",
-            "id": "5210"
-        },
-        {
-            "name": "luna_lucent_beam",
-            "id": "5222"
-        },
-        {
-            "name": "morphling_morph_replicate",
-            "id": "5058"
-        },
-        {
-            "name": "venomancer_poison_sting",
-            "id": "5179"
-        },
-        {
-            "name": "roshan_bash",
-            "id": "5214"
-        },
-        {
-            "name": "tinker_march_of_the_machines",
-            "id": "5152"
-        },
-        {
-            "name": "lone_druid_spirit_bear_demolish",
-            "id": "5420"
-        },
-        {
-            "name": "mirana_leap",
-            "id": "5050"
-        },
-        {
-            "name": "brewmaster_storm_wind_walk",
-            "id": "5410"
-        },
-        {
-            "name": "skeleton_king_reincarnation",
-            "id": "5089"
-        },
-        {
-            "name": "beastmaster_call_of_the_wild",
-            "id": "5169"
+            "id": "5043",
+			"ultimate": true,
+			"cooldown": [
+				70.0,
+				60.0,
+				50.0
+			]
         },
         {
             "name": "riki_permanent_invisibility",
-            "id": "5145"
+            "id": "5144",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "forest_troll_high_priest_heal",
+            "id": "5318",
+			"ultimate": false,
+			"cooldown": [
+				0.5
+			]
+        },
+        {
+            "name": "warlock_upheaval",
+            "id": "5164",
+			"ultimate": false,
+			"cooldown": [
+				50.0,
+				46.0,
+				42.0,
+				38.0
+			]
+        },
+        {
+            "name": "ogre_magi_frost_armor",
+            "id": "5304",
+			"ultimate": false,
+			"cooldown": [
+				5.0
+			]
+        },
+        {
+            "name": "stats",
+            "id": "5002",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "dazzle_poison_touch",
+            "id": "5233",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				13.0,
+				11.0,
+				7.0
+			]
+        },
+        {
+            "name": "templar_assassin_self_trap",
+            "id": "5199",
+			"ultimate": false,
+			"cooldown": [
+				0.5,
+				0.5,
+				0.5
+			]
+        },
+        {
+            "name": "silencer_glaives_of_wisdom",
+            "id": "5378",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "warlock_rain_of_chaos",
+            "id": "5165",
+			"ultimate": true,
+			"cooldown": [
+				165.0,
+				165.0,
+				165.0
+			]
+        },
+        {
+            "name": "sven_warcry",
+            "id": "5096",
+			"ultimate": false,
+			"cooldown": [
+				32.0,
+				26.0,
+				20.0,
+				14.0
+			]
+        },
+        {
+            "name": "templar_assassin_meld",
+            "id": "5195",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				6.0,
+				6.0,
+				6.0
+			]
+        },
+        {
+            "name": "enchantress_impetus",
+            "id": "5270",
+			"ultimate": true,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0
+			]
+        },
+        {
+            "name": "earthshaker_enchant_totem",
+            "id": "5024",
+			"ultimate": false,
+			"cooldown": [
+				5.0, 
+				5.0, 
+				5.0,
+				5.0
+			]
+        },
+        {
+            "name": "lone_druid_savage_roar",
+            "id": "5414",
+			"ultimate": false,
+			"cooldown": [
+				38.0,
+				32.0,
+				26.0,
+				20.0
+			]
+        },
+        {
+            "name": "invoker_forge_spirit",
+            "id": "5387",
+			"ultimate": false,
+			"cooldown": [
+				30.0
+			]
+        },
+        {
+            "name": "chaos_knight_phantasm",
+            "id": "5429",
+			"ultimate": true,
+			"cooldown": [
+				140.0,
+				140.0,
+				140.0
+			]
+        },
+        {
+            "name": "satyr_hellcaller_unholy_aura",
+            "id": "5317",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "shadow_shaman_shackles",
+            "id": "5080",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
+        },
+        {
+            "name": "ogre_magi_bloodlust",
+            "id": "5440",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				20.0,
+				20.0,
+				20.0
+			]
+        },
+        {
+            "name": "shadow_demon_shadow_poison_release",
+            "id": "5424",
+			"ultimate": false,
+			"cooldown": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			]
+        },
+        {
+            "name": "blue_dragonspawn_sorcerer_evasion",
+            "id": "5325",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "antimage_mana_break",
+            "id": "5003",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "spirit_breaker_empowering_haste",
+            "id": "5354",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
+        },
+        {
+            "name": "satyr_hellcaller_shockwave",
+            "id": "5316",
+			"ultimate": false,
+			"cooldown": [
+				8.0
+			]
+        },
+        {
+            "name": "morphling_morph_agi",
+            "id": "5055",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
+        },
+        {
+            "name": "bounty_hunter_track",
+            "id": "5288",
+			"ultimate": true,
+			"cooldown": [
+				4.0,
+				4.0,
+				4.0
+			]
+        },
+        {
+            "name": "bloodseeker_bloodrage",
+            "id": "5015",
+			"ultimate": false,
+			"cooldown": [
+				12.0, 
+				10.0, 
+				8.0,
+				6.0
+			]
+        },
+        {
+            "name": "obsidian_destroyer_astral_imprisonment",
+            "id": "5392",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				18.0,
+				14.0,
+				10.0
+			]
+        },
+        {
+            "name": "lich_dark_ritual",
+            "id": "5136",
+			"ultimate": false,
+			"cooldown": [
+				60.0,
+				50.0,
+				40.0,
+				30.0
+			]
+        },
+        {
+            "name": "antimage_spell_shield",
+            "id": "5005",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "enchantress_natures_attendants",
+            "id": "5269",
+			"ultimate": false,
+			"cooldown": [
+				45.0,
+				45.0,
+				45.0,
+				45.0
+			]
+        },
+        {
+            "name": "broodmother_incapacitating_bite",
+            "id": "5281",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "undying_flesh_golem",
+            "id": "5447",
+			"ultimate": true,
+			"cooldown": [
+				75.0,
+				75.0,
+				75.0
+			]
+        },
+        {
+            "name": "lone_druid_rabid",
+            "id": "5413",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				30.0,
+				30.0,
+				30.0
+			]
+        },
+        {
+            "name": "slardar_sprint",
+            "id": "5114",
+			"ultimate": false,
+			"cooldown": [
+				17.0,
+				17.0,
+				17.0,
+				17.0
+			]
+        },
+        {
+            "name": "sandking_caustic_finale",
+            "id": "5104",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "nevermore_dark_lord",
+            "id": "5063",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "lycan_summon_wolves_invisibility",
+            "id": "5500",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "life_stealer_infest",
+            "id": "5252",
+			"ultimate": true,
+			"cooldown": [
+				100.0,
+				75.0,
+				50.0
+			]
+        },
+        {
+            "name": "lycan_feral_impulse",
+            "id": "5397",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "ursa_overpower",
+            "id": "5358",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
+        },
+        {
+            "name": "enraged_wildkin_toughness_aura",
+            "id": "5313",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "pudge_flesh_heap",
+            "id": "5074",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "witch_doctor_maledict",
+            "id": "5140",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				20.0,
+				20.0,
+				20.0
+			]
+        },
+        {
+            "name": "vengefulspirit_nether_swap",
+            "id": "5125",
+			"ultimate": true,
+			"cooldown": [
+				45.0,
+				45.0,
+				45.0
+			]
+        },
+        {
+            "name": "weaver_shukuchi",
+            "id": "5290",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				10.0,
+				8.0,
+				6.0
+			]
+        },
+        {
+            "name": "weaver_the_swarm",
+            "id": "5289",
+			"ultimate": false,
+			"cooldown": [
+				35.0,
+				30.0,
+				25.0,
+				20.0
+			]
+        },
+        {
+            "name": "alchemist_acid_spray",
+            "id": "5365",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				22.0,
+				22.0,
+				22.0
+			]
+        },
+        {
+            "name": "phantom_assassin_stifling_dagger",
+            "id": "5190",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				6.0,
+				6.0,
+				6.0
+			]
+        },
+        {
+            "name": "sandking_epicenter",
+            "id": "5105",
+			"ultimate": true,
+			"cooldown": [
+				140.0,
+				120.0,
+				100.0
+			]
+        },
+        {
+            "name": "tornado_tempest",
+            "id": "5310",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "jakiro_liquid_fire",
+            "id": "5299",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				15.0,
+				10.0,
+				4.0
+			]
+        },
+        {
+            "name": "chen_hand_of_god",
+            "id": "5331",
+			"ultimate": true,
+			"cooldown": [
+				160.0,
+				140.0,
+				120.0
+			]
+        },
+        {
+            "name": "batrider_flaming_lasso",
+            "id": "5323",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				75.0,
+				60.0
+			]
+        },
+        {
+            "name": "lone_druid_true_form_druid",
+            "id": "5416",
+			"ultimate": true,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0
+			]
+        },
+        {
+            "name": "spirit_breaker_nether_strike",
+            "id": "5356",
+			"ultimate": true,
+			"cooldown": [
+				80.0,
+				70.0,
+				60.0
+			]
+        },
+        {
+            "name": "spectre_haunt",
+            "id": "5337",
+			"ultimate": true,
+			"cooldown": [
+				140.0,
+				130.0,
+				120.0
+			]
+        },
+        {
+            "name": "alchemist_chemical_rage",
+            "id": "5369",
+			"ultimate": true,
+			"cooldown": [
+				45.0,
+				45.0,
+				45.0
+			]
+        },
+        {
+            "name": "silencer_last_word",
+            "id": "5379",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				24.0,
+				18.0,
+				12.0
+			]
+        },
+        {
+            "name": "tinker_rearm",
+            "id": "5153",
+			"ultimate": true,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0
+			]
+        },
+        {
+            "name": "rattletrap_rocket_flare",
+            "id": "5239",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				18.0,
+				16.0,
+				14.0
+			]
+        },
+        {
+            "name": "omniknight_guardian_angel",
+            "id": "5266",
+			"ultimate": true,
+			"cooldown": [
+				150.0,
+				150.0,
+				150.0
+			]
+        },
+        {
+            "name": "leshrac_diabolic_edict",
+            "id": "5242",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				22.0,
+				22.0,
+				22.0
+			]
+        },
+        {
+            "name": "tiny_toss",
+            "id": "5107",
+			"ultimate": false,
+			"cooldown": [
+				9.0,
+				9.0,
+				9.0,
+				9.0
+			]
+        },
+        {
+            "name": "razor_static_link",
+            "id": "5083",
+			"ultimate": false,
+			"cooldown": [
+				32.0,
+				30.0,
+				28.0,
+				26.0
+			]
+        },
+        {
+            "name": "invoker_ice_wall",
+            "id": "5389",
+			"ultimate": false,
+			"cooldown": [
+				25.0
+			]
+        },
+        {
+            "name": "brewmaster_drunken_haze",
+            "id": "5401",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				7.0,
+				6.0,
+				5.0
+			]
+        },
+        {
+            "name": "batrider_flamebreak",
+            "id": "5321",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				14.0,
+				14.0,
+				14.0
+			]
+        },
+        {
+            "name": "dark_seer_ion_shell",
+            "id": "5256",
+			"ultimate": false,
+			"cooldown": [
+				9.0,
+				9.0,
+				9.0,
+				9.0
+			]
+        },
+        {
+            "name": "queenofpain_scream_of_pain",
+            "id": "5175",
+			"ultimate": false,
+			"cooldown": [
+				7.0,
+				7.0,
+				7.0,
+				7.0
+			]
+        },
+        {
+            "name": "phantom_assassin_blur",
+            "id": "5192",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "phantom_lancer_juxtapose",
+            "id": "5067",
+			"ultimate": true,
+			"cooldown": []
+        },
+        {
+            "name": "tidehunter_anchor_smash",
+            "id": "5120",
+			"ultimate": false,
+			"cooldown": [
+				7.0,
+				6.0,
+				5.0,
+				4.0
+			]
+        },
+        {
+            "name": "axe_battle_hunger",
+            "id": "5008",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				15.0,
+				10.0,
+				5.0
+			]
+        },
+        {
+            "name": "pugna_life_drain",
+            "id": "5189",
+			"ultimate": true,
+			"cooldown": [
+				22.0,
+				22.0,
+				22.0
+			]
+        },
+        {
+            "name": "batrider_firefly",
+            "id": "5322",
+			"ultimate": false,
+			"cooldown": [
+				40.0,
+				40.0,
+				40.0,
+				40.0
+			]
+        },
+        {
+            "name": "beastmaster_primal_roar",
+            "id": "5177",
+			"ultimate": true,
+			"cooldown": [
+				80.0,
+				75.0,
+				70.0
+			]
+        },
+        {
+            "name": "shadow_shaman_mass_serpent_ward",
+            "id": "5081",
+			"ultimate": true,
+			"cooldown": [
+				120.0,
+				120.0,
+				120.0
+			]
+        },
+        {
+            "name": "treant_leech_seed",
+            "id": "5435",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				13.0,
+				10.0,
+				7.0
+			]
+        },
+        {
+            "name": "chen_holy_persuasion",
+            "id": "5330",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				26.0,
+				22.0,
+				18.0
+			]
+        },
+        {
+            "name": "courier_burst",
+            "id": "5210",
+			"ultimate": false,
+			"cooldown": [
+				90.0
+			]
+        },
+        {
+            "name": "luna_lucent_beam",
+            "id": "5222",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				6.0,
+				6.0,
+				6.0
+			]
+        },
+        {
+            "name": "morphling_morph_replicate",
+            "id": "5058",
+			"ultimate": true,
+			"cooldown": []
+        },
+        {
+            "name": "venomancer_poison_sting",
+            "id": "5179",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "roshan_bash",
+            "id": "5214",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "tinker_march_of_the_machines",
+            "id": "5152",
+			"ultimate": false,
+			"cooldown": [
+				35.0,
+				35.0,
+				35.0,
+				35.0
+			]
+        },
+        {
+            "name": "lone_druid_spirit_bear_demolish",
+            "id": "5420",
+			"ultimate": false,
+			"cooldown": []
+        },
+        {
+            "name": "mirana_leap",
+            "id": "5050",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				26.0,
+				22.0,
+				18.0
+			]
+        },
+        {
+            "name": "brewmaster_storm_wind_walk",
+            "id": "5410",
+			"ultimate": false,
+			"cooldown": [
+				5.0
+			]
+        },
+        {
+            "name": "skeleton_king_reincarnation",
+            "id": "5089",
+			"ultimate": true,
+			"cooldown": [
+				260.0,
+				160.0,
+				60.0
+			]
+        },
+        {
+            "name": "beastmaster_call_of_the_wild",
+            "id": "5169",
+			"ultimate": false,
+			"cooldown": [
+				42.0,
+				38.0,
+				34.0,
+				30.0
+			]
+        },
+        {
+            "name": "riki_tricks_of_the_trade",
+            "id": "5145",
+			"ultimate": true,
+			"cooldown": [
+				40.0,
+				35.0,
+				30.0
+			]
         },
         {
             "name": "courier_shield",
-            "id": "5209"
+            "id": "5209",
+			"ultimate": false,
+			"cooldown": [
+				20.0
+			]
         },
         {
             "name": "clinkz_searing_arrows",
-            "id": "5260"
+            "id": "5260",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "puck_illusory_orb",
-            "id": "5069"
+            "id": "5069",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				13.0,
+				12.0,
+				11.0
+			]
         },
         {
             "name": "forged_spirit_melting_strike",
-            "id": "5388"
+            "id": "5388",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "viper_viper_strike",
-            "id": "5221"
+            "id": "5221",
+			"ultimate": true,
+			"cooldown": [
+				70.0,
+				50.0,
+				30.0
+			]
         },
         {
             "name": "furion_wrath_of_nature",
-            "id": "5248"
+            "id": "5248",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				75.0,
+				60.0
+			]
         },
         {
             "name": "silencer_curse_of_the_silent",
-            "id": "5377"
+            "id": "5377",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				18.0,
+				16.0,
+				14.0
+			]
         },
         {
             "name": "lich_frost_nova",
-            "id": "5134"
+            "id": "5134",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				8.0,
+				8.0,
+				8.0
+			]
         },
         {
             "name": "doom_bringer_doom",
-            "id": "5342"
+            "id": "5342",
+			"ultimate": true,
+			"cooldown": [
+				125.0,				
+				125.0,
+				125.0
+			]
         },
         {
             "name": "warlock_golem_flaming_fists",
-            "id": "5166"
+            "id": "5166",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "invoker_quas",
-            "id": "5370"
+            "id": "5370",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "invoker_invoke",
-            "id": "5375"
+            "id": "5375",
+			"ultimate": true,
+			"cooldown": [
+				22.0,
+				17.0,
+				12.0,
+				5.0
+			]
         },
         {
             "name": "dazzle_weave",
-            "id": "5236"
+            "id": "5236",
+			"ultimate": true,
+			"cooldown": [
+				40.0,
+				40.0,
+				40.0
+			]
         },
         {
             "name": "courier_go_to_secretshop",
-            "id": "5492"
+            "id": "5492",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "meepo_geostrike",
-            "id": "5432"
+            "id": "5432",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "ogre_magi_multicast",
-            "id": "5441"
+            "id": "5441",
+			"ultimate": true,
+			"cooldown": []
         },
         {
             "name": "crystal_maiden_frostbite",
-            "id": "5127"
+            "id": "5127",
+			"ultimate": false,
+			"cooldown": [
+				9.0,
+				8.0,
+				7.0,
+				6.0
+			]
         },
         {
             "name": "invoker_deafening_blast",
-            "id": "5390"
+            "id": "5390",
+			"ultimate": false,
+			"cooldown": [
+				40.0
+			]
         },
         {
             "name": "crystal_maiden_freezing_field",
-            "id": "5129"
+            "id": "5129",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				90.0,
+				90.0
+			]
         },
         {
             "name": "lina_light_strike_array",
-            "id": "5041"
+            "id": "5041",
+			"ultimate": false,
+			"cooldown": [
+				7.0,
+				7.0,
+				7.0,
+				7.0
+			]
         },
         {
             "name": "dragon_knight_breathe_fire",
-            "id": "5226"
+            "id": "5226",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				13.0,
+				12.0,
+				11.0
+			]
         },
         {
             "name": "earthshaker_fissure",
-            "id": "5023"
+            "id": "5023",
+			"ultimate": false,
+			"cooldown": [
+				15.0, 
+				15.0, 
+				15.0,
+				15.0
+			]
         },
         {
             "name": "witch_doctor_paralyzing_cask",
-            "id": "5138"
+            "id": "5138",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				18.0,
+				16.0,
+				14.0
+			]
         },
         {
             "name": "centaur_khan_endurance_aura",
-            "id": "5294"
+            "id": "5294",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "gyrocopter_homing_missile",
-            "id": "5362"
+            "id": "5362",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				17.0,
+				14.0,
+				11.0
+			]
         },
         {
             "name": "death_prophet_silence",
-            "id": "5091"
+            "id": "5091",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				14.0,
+				13.0,
+				12.0
+			]
         },
         {
             "name": "beastmaster_wild_axes",
-            "id": "5168"
+            "id": "5168",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				13.0,
+				13.0,
+				13.0
+			]
         },
         {
-            "name": "doom_bringer_lvl_death",
-            "id": "5341"
+            "name": "doom_bringer_infernal_blade",
+            "id": "5341",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				12.0,
+				8.0,
+				4.0
+			]
         },
         {
             "name": "queenofpain_shadow_strike",
-            "id": "5173"
+            "id": "5173",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				12.0,
+				8.0,
+				4.0
+			]
         },
         {
             "name": "tiny_avalanche",
-            "id": "5106"
+            "id": "5106",
+			"ultimate": false,
+			"cooldown": [
+				17.0,
+				17.0,
+				17.0,
+				17.0
+			]
         },
         {
             "name": "invoker_exort",
-            "id": "5372"
+            "id": "5372",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "lone_druid_true_form_battle_cry",
-            "id": "5417"
+            "id": "5417",
+			"ultimate": false,
+			"cooldown": [
+				60.0,
+				60.0,
+				60.0,
+				60.0
+			]
         },
         {
             "name": "tiny_craggy_exterior",
-            "id": "5108"
+            "id": "5108",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "antimage_mana_void",
-            "id": "5006"
+            "id": "5006",
+			"ultimate": true,
+			"cooldown": [
+				70.0,
+				70.0,
+				70.0
+			]
         },
         {
             "name": "riki_smoke_screen",
-            "id": "5142"
+            "id": "5142",
+			"ultimate": false,
+			"cooldown": [
+				11.0,
+				11.0,
+				11.0,
+				11.0
+			]
         },
         {
             "name": "roshan_spell_block",
-            "id": "5213"
+            "id": "5213",
+			"ultimate": false,
+			"cooldown": [
+				15.0
+			]
         },
         {
             "name": "juggernaut_healing_ward",
-            "id": "5029"
+            "id": "5029",
+			"ultimate": false,
+			"cooldown": [
+				60.0, 
+				60.0, 
+				60.0,
+				60.0
+			]
         },
         {
             "name": "ancient_apparition_ice_blast_release",
-            "id": "5349"
+            "id": "5349",
+			"ultimate": true,
+			"cooldown": [
+				1.0,
+				1.0,
+				1.0
+			]
         },
         {
             "name": "obsidian_destroyer_arcane_orb",
-            "id": "5391"
+            "id": "5391",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "earthshaker_aftershock",
-            "id": "5025"
+            "id": "5025",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "satyr_trickster_purge",
-            "id": "5314"
+            "id": "5314",
+			"ultimate": false,
+			"cooldown": [
+				3.0
+			]
         },
         {
             "name": "slardar_amplify_damage",
-            "id": "5117"
+            "id": "5117",
+			"ultimate": true,
+			"cooldown": [
+				5.0,
+				5.0,
+				5.0
+			]
         },
         {
             "name": "dazzle_shallow_grave",
-            "id": "5234"
+            "id": "5234",
+			"ultimate": false,
+			"cooldown": [
+				60.0,
+				45.0,
+				30.0,
+				15.0
+			]
         },
         {
             "name": "tiny_grow",
-            "id": "5109"
+            "id": "5109",
+			"ultimate": true,
+			"cooldown": []
         },
         {
             "name": "shadow_demon_demonic_purge",
-            "id": "5425"
+            "id": "5425",
+			"ultimate": true,
+			"cooldown": [
+				50.0,
+				50.0,
+				50.0
+			]
         },
         {
             "name": "enigma_midnight_pulse",
-            "id": "5148"
+            "id": "5148",
+			"ultimate": false,
+			"cooldown": [
+				35.0,
+				35.0,
+				35.0,
+				35.0
+			]
         },
         {
             "name": "treant_living_armor",
-            "id": "5436"
+            "id": "5436",
+			"ultimate": false,
+			"cooldown": [
+				32.0,
+				26.0,
+				20.0,
+				14.0
+			]
         },
         {
             "name": "spectre_desolate",
-            "id": "5335"
+            "id": "5335",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "weaver_time_lapse",
-            "id": "5292"
+            "id": "5292",
+			"ultimate": true,
+			"cooldown": [
+				60.0,
+				50.0,
+				40.0
+			]
         },
         {
             "name": "ancient_apparition_chilling_touch",
-            "id": "5347"
+            "id": "5347",
+			"ultimate": false,
+			"cooldown": [
+				50.0,
+				42.0,
+				34.0,
+				26.0
+			]
         },
         {
             "name": "brewmaster_storm_cyclone",
-            "id": "5409"
+            "id": "5409",
+			"ultimate": false,
+			"cooldown": [
+				8.0
+			]
         },
         {
             "name": "vengefulspirit_command_aura",
-            "id": "5123"
+            "id": "5123",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "broodmother_spawn_spiderlings",
-            "id": "5279"
+            "id": "5279",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "bane_fiends_grip",
-            "id": "5013"
+            "id": "5013",
+			"ultimate": true,
+			"cooldown": [
+				100.0, 
+				100.0, 
+				100.0
+			]
         },
         {
             "name": "gyrocopter_flak_cannon",
-            "id": "5363"
+            "id": "5363",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				30.0,
+				30.0,
+				30.0
+			]
         },
         {
             "name": "sniper_take_aim",
-            "id": "5156"
+            "id": "5156",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "sven_great_cleave",
-            "id": "5095"
+            "id": "5095",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "death_prophet_exorcism",
-            "id": "5093"
+            "id": "5093",
+			"ultimate": true,
+			"cooldown": [
+				145.0,
+				145.0,
+				145.0
+			]
         },
         {
             "name": "mirana_arrow",
-            "id": "5048"
+            "id": "5048",
+			"ultimate": false,
+			"cooldown": [
+				17.0,
+				17.0,
+				17.0,
+				17.0
+			]
         },
         {
             "name": "bounty_hunter_jinada",
-            "id": "5286"
+            "id": "5286",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				10.0,
+				8.0,
+				6.0
+			]
         },
         {
             "name": "pudge_rot",
-            "id": "5076"
+            "id": "5076",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "chen_test_of_faith",
-            "id": "5329"
+            "id": "5329",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				16.0,
+				16.0,
+				16.0
+			]
         },
         {
             "name": "jakiro_ice_path",
-            "id": "5298"
+            "id": "5298",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				11.0,
+				10.0,
+				9.0
+			]
         },
         {
             "name": "enraged_wildkin_tornado",
-            "id": "5312"
+            "id": "5312",
+			"ultimate": false,
+			"cooldown": [
+				70.0
+			]
         },
         {
             "name": "pugna_decrepify",
-            "id": "5187"
+            "id": "5187",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				12.0,
+				9.0,
+				6.0
+			]
         },
         {
             "name": "dark_troll_warlord_raise_dead",
-            "id": "5306"
+            "id": "5306",
+			"ultimate": false,
+			"cooldown": [
+				25.0
+			]
         },
         {
             "name": "drow_ranger_trueshot",
-            "id": "5021"
+            "id": "5021",
+			"ultimate": false,
+			"cooldown": [
+				100.0, 
+				100.0, 
+				100.0,
+				100.0
+			]
         },
         {
             "name": "vengefulspirit_wave_of_terror",
-            "id": "5124"
+            "id": "5124",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				20.0,
+				20.0,
+				20.0
+			]
         },
         {
             "name": "bounty_hunter_wind_walk",
-            "id": "5287"
+            "id": "5287",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				15.0,
+				15.0,
+				15.0
+			]
         },
         {
             "name": "nevermore_requiem",
-            "id": "5064"
+            "id": "5064",
+			"ultimate": true,
+			"cooldown": [
+				120.0,
+				110.0,
+				100.0
+			]
         },
         {
             "name": "courier_transfer_items",
-            "id": "5206"
+            "id": "5206",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "viper_poison_attack",
-            "id": "5218"
+            "id": "5218",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "brewmaster_fire_permanent_immolation",
-            "id": "5411"
+            "id": "5411",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "alchemist_unstable_concoction",
-            "id": "5366"
+            "id": "5366",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				16.0,
+				16.0,
+				16.0
+			]
         },
         {
             "name": "undying_soul_rip",
-            "id": "5443"
+            "id": "5443",
+			"ultimate": false,
+			"cooldown": [
+				24.0,
+				18.0,
+				12.0,
+				6.0
+			]
         },
         {
             "name": "roshan_devotion",
-            "id": "5217"
+            "id": "5217",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "zuus_thundergods_wrath",
-            "id": "5113"
+            "id": "5113",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				90.0,
+				90.0
+			]
         },
         {
             "name": "broodmother_spin_web",
-            "id": "5280"
+            "id": "5280",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "jakiro_dual_breath",
-            "id": "5297"
+            "id": "5297",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "luna_moon_glaive",
-            "id": "5223"
+            "id": "5223",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "roshan_slam",
-            "id": "5215"
+            "id": "5215",
+			"ultimate": false,
+			"cooldown": [
+				10.0
+			]
         },
         {
             "name": "queenofpain_sonic_wave",
-            "id": "5176"
+            "id": "5176",
+			"ultimate": true,
+			"cooldown": [
+				135.0,
+				135.0,
+				135.0
+			]
         },
         {
             "name": "sniper_assassinate",
-            "id": "5157"
+            "id": "5157",
+			"ultimate": true,
+			"cooldown": [
+				20.0,
+				15.0,
+				10.0
+			]
         },
         {
             "name": "invoker_tornado",
-            "id": "5382"
+            "id": "5382",
+			"ultimate": false,
+			"cooldown": [
+				30.0
+			]
         },
         {
             "name": "dark_troll_warlord_ensnare",
-            "id": "5305"
+            "id": "5305",
+			"ultimate": false,
+			"cooldown": [
+				20.0
+			]
         },
         {
             "name": "courier_return_stash_items",
-            "id": "5207"
+            "id": "5207",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "batrider_sticky_napalm",
-            "id": "5320"
+            "id": "5320",
+			"ultimate": false,
+			"cooldown": [
+				3.0,
+				3.0,
+				3.0,
+				3.0
+			]
         },
         {
             "name": "ancient_apparition_ice_vortex",
-            "id": "5346"
+            "id": "5346",
+			"ultimate": false,
+			"cooldown": [
+				4.0,
+				4.0,
+				4.0,
+				4.0
+			]
         },
         {
             "name": "windrunner_shackleshot",
-            "id": "5130"
+            "id": "5130",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "lion_voodoo",
-            "id": "5045"
+            "id": "5045",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				24.0,
+				18.0,
+				12.0
+			]
         },
         {
             "name": "undying_decay",
-            "id": "5442"
+            "id": "5442",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				8.0,
+				6.0,
+				4.0
+			]
         },
         {
             "name": "tinker_heat_seeking_missile",
-            "id": "5151"
+            "id": "5151",
+			"ultimate": false,
+			"cooldown": [
+				25.0,
+				25.0,
+				25.0,
+				25.0
+			]
         },
         {
             "name": "lion_mana_drain",
-            "id": "5046"
+            "id": "5046",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				12.0,
+				8.0,
+				4.0
+			]
         },
         {
             "name": "lone_druid_spirit_bear",
-            "id": "5412"
+            "id": "5412",
+			"ultimate": false,
+			"cooldown": [
+				120.0,
+				120.0,
+				120.0,
+				120.0
+			]
         },
         {
             "name": "shadow_shaman_voodoo",
-            "id": "5079"
+            "id": "5079",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				13.0,
+				13.0,
+				13.0
+			]
         },
         {
             "name": "brewmaster_thunder_clap",
-            "id": "5400"
+            "id": "5400",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				13.0,
+				13.0,
+				13.0
+			]
         },
         {
             "name": "meepo_divided_we_stand",
-            "id": "5433"
+            "id": "5433",
+			"ultimate": true,
+			"cooldown": []
         },
         {
             "name": "big_thunder_lizard_frenzy",
-            "id": "5333"
+            "id": "5333",
+			"ultimate": false,
+			"cooldown": [
+				8.0
+			]
         },
         {
             "name": "luna_eclipse",
-            "id": "5225"
+            "id": "5225",
+			"ultimate": true,
+			"cooldown": [
+				140.0,
+				140.0,
+				140.0
+			]
         },
         {
             "name": "sandking_sand_storm",
-            "id": "5103"
+            "id": "5103",
+			"ultimate": false,
+			"cooldown": [
+				40.0,
+				30.0,
+				20.0,
+				10.0
+			]
         },
         {
             "name": "giant_wolf_critical_strike",
-            "id": "5307"
+            "id": "5307",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "brewmaster_storm_dispel_magic",
-            "id": "5408"
+            "id": "5408",
+			"ultimate": false,
+			"cooldown": [
+				4.0
+			]
         },
         {
             "name": "big_thunder_lizard_slam",
-            "id": "5332"
+            "id": "5332",
+			"ultimate": false,
+			"cooldown": [
+				6.0
+			]
         },
         {
             "name": "forest_troll_high_priest_mana_aura",
-            "id": "5491"
+            "id": "5491",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "invoker_wex",
-            "id": "5371"
+            "id": "5371",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "clinkz_wind_walk",
-            "id": "5261"
+            "id": "5261",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				19.0,
+				18.0,
+				17.0
+			]
         },
         {
             "name": "lone_druid_true_form",
-            "id": "5415"
+            "id": "5415",
+			"ultimate": true,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "undying_tombstone_zombie_deathstrike",
-            "id": "5446"
+            "id": "5446",
+			"ultimate": false,
+			"cooldown": [
+				70.0,
+				70.0,
+				70.0
+			]
         },
         {
             "name": "queenofpain_blink",
-            "id": "5174"
+            "id": "5174",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				12.0,
+				9.0,
+				6.0
+			]
         },
         {
-            "name": "roshan_illusion_protection",
-            "id": "5216"
+            "name": "roshan_inherent_buffs",
+            "id": "5216",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "necronomicon_archer_aoe",
-            "id": "5204"
+            "id": "5204",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "witch_doctor_death_ward",
-            "id": "5141"
+            "id": "5141",
+			"ultimate": true,
+			"cooldown": [
+				80.0,
+				80.0,
+				80.0
+			]
         },
         {
             "name": "enchantress_untouchable",
-            "id": "5267"
+            "id": "5267",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "night_stalker_void",
-            "id": "5275"
+            "id": "5275",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				8.0,
+				8.0,
+				8.0
+			]
         },
         {
             "name": "faceless_void_time_lock",
-            "id": "5184"
+            "id": "5184",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "faceless_void_backtrack",
-            "id": "5183"
+            "id": "5183",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "polar_furbolg_ursa_warrior_thunder_clap",
-            "id": "5302"
+            "id": "5302",
+			"ultimate": false,
+			"cooldown": [
+				12.0
+			]
         },
         {
             "name": "slardar_bash",
-            "id": "5116"
+            "id": "5116",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "omniknight_repel",
-            "id": "5264"
+            "id": "5264",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				14.0,
+				14.0,
+				14.0
+			]
         },
         {
             "name": "huskar_life_break",
-            "id": "5274"
+            "id": "5274",
+			"ultimate": true,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "spirit_breaker_greater_bash",
-            "id": "5355"
+            "id": "5355",
+			"ultimate": false,
+			"cooldown": [
+				1.5,
+				1.5,
+				1.5,
+				1.5
+			]
         },
         {
             "name": "invoker_ghost_walk",
-            "id": "5381"
+            "id": "5381",
+			"ultimate": false,
+			"cooldown": [
+				45.0
+			]
         },
         {
             "name": "tidehunter_gush",
-            "id": "5118"
+            "id": "5118",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "tidehunter_ravage",
-            "id": "5121"
+            "id": "5121",
+			"ultimate": true,
+			"cooldown": [
+				150.0,
+				150.0,
+				150.0
+			]
         },
         {
             "name": "lycan_summon_wolves",
-            "id": "5395"
+            "id": "5395",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				30.0,
+				30.0,
+				30.0
+			]
         },
         {
             "name": "drow_ranger_frost_arrows",
-            "id": "5019"
+            "id": "5019",
+			"ultimate": false,
+			"cooldown": [
+				0.0, 
+				0.0, 
+				0.0,
+				0.0
+			]
         },
         {
             "name": "rattletrap_power_cogs",
-            "id": "5238"
+            "id": "5238",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				15.0,
+				15.0,
+				15.0
+			]
         },
         {
             "name": "chen_penitence",
-            "id": "5328"
+            "id": "5328",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				13.0,
+				12.0,
+				11.0
+			]
         },
         {
             "name": "skeleton_king_mortal_strike",
-            "id": "5088"
+            "id": "5088",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "dazzle_shadow_wave",
-            "id": "5235"
+            "id": "5235",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				10.0,
+				8.0,
+				6.0
+			]
         },
         {
             "name": "sniper_headshot",
-            "id": "5155"
+            "id": "5155",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "life_stealer_consume",
-            "id": "5253"
+            "id": "5253",
+			"ultimate": true,
+			"cooldown": []
         },
         {
             "name": "kunkka_x_marks_the_spot",
-            "id": "5033"
+            "id": "5033",
+			"ultimate": false,
+			"cooldown": [
+				26.0, 
+				20.0, 
+				14.0,
+				8.0
+			]
         },
         {
             "name": "furion_teleportation",
-            "id": "5246"
+            "id": "5246",
+			"ultimate": false,
+			"cooldown": [
+				50.0,
+				40.0,
+				30.0,
+				20.0
+			]
         },
         {
             "name": "brewmaster_drunken_brawler",
-            "id": "5402"
+            "id": "5402",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "morphling_waveform",
-            "id": "5052"
+            "id": "5052",
+			"ultimate": false,
+			"cooldown": [
+				11.0,
+				11.0,
+				11.0,
+				11.0
+			]
         },
         {
             "name": "morphling_replicate",
-            "id": "5057"
+            "id": "5057",
+			"ultimate": true,
+			"cooldown": [
+				80.0,
+				80.0,
+				80.0
+			]
         },
         {
             "name": "storm_spirit_static_remnant",
-            "id": "5098"
+            "id": "5098",
+			"ultimate": false,
+			"cooldown": [
+				3.5,
+				3.5,
+				3.5,
+				3.5
+			]
         },
         {
             "name": "drow_ranger_marksmanship",
-            "id": "5022"
+            "id": "5022",
+			"ultimate": true,
+			"cooldown": []
         },
         {
             "name": "night_stalker_darkness",
-            "id": "5278"
+            "id": "5278",
+			"ultimate": true,
+			"cooldown": [
+				160.0,
+				120.0,
+				80.0
+			]
         },
         {
             "name": "windrunner_powershot",
-            "id": "5131"
+            "id": "5131",
+			"ultimate": false,
+			"cooldown": [
+				9.0,
+				9.0,
+				9.0,
+				9.0
+			]
         },
         {
             "name": "venomancer_plague_ward",
-            "id": "5180"
+            "id": "5180",
+			"ultimate": false,
+			"cooldown": [
+				5.0,
+				5.0,
+				5.0,
+				5.0
+			]
         },
         {
             "name": "invoker_sun_strike",
-            "id": "5386"
+            "id": "5386",
+			"ultimate": false,
+			"cooldown": [
+				25.0
+			]
         },
         {
             "name": "riki_blink_strike",
-            "id": "5143"
+            "id": "5143",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				12.0,
+				8.0,
+				4.0
+			]
         },
         {
             "name": "zuus_static_field",
-            "id": "5112"
+            "id": "5112",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "pudge_meat_hook",
-            "id": "5075"
+            "id": "5075",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				13.0,
+				12.0,
+				11.0
+			]
         },
         {
             "name": "pugna_nether_ward",
-            "id": "5188"
+            "id": "5188",
+			"ultimate": false,
+			"cooldown": [
+				35.0,
+				35.0,
+				35.0,
+				35.0
+			]
         },
         {
             "name": "treant_overgrowth",
-            "id": "5437"
+            "id": "5437",
+			"ultimate": true,
+			"cooldown": [
+				70.0,
+				70.0,
+				70.0
+			]
         },
         {
             "name": "zuus_lightning_bolt",
-            "id": "5111"
+            "id": "5111",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				6.0,
+				6.0,
+				6.0
+			]
         },
         {
             "name": "luna_lunar_blessing",
-            "id": "5224"
+            "id": "5224",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "brewmaster_primal_split",
-            "id": "5403"
+            "id": "5403",
+			"ultimate": true,
+			"cooldown": [
+				140.0,
+				120.0,
+				100.0
+			]
         },
         {
             "name": "invoker_chaos_meteor",
-            "id": "5385"
+            "id": "5385",
+			"ultimate": false,
+			"cooldown": [
+				55.0
+			]
         },
         {
             "name": "ogre_magi_fireblast",
-            "id": "5438"
+            "id": "5438",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "tidehunter_kraken_shell",
-            "id": "5119"
+            "id": "5119",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "ursa_enrage",
-            "id": "5360"
+            "id": "5360",
+			"ultimate": true,
+			"cooldown": [
+				50.0,
+				40.0,
+				30.0
+			]
         },
         {
             "name": "lich_chain_frost",
-            "id": "5137"
+            "id": "5137",
+			"ultimate": true,
+			"cooldown": [
+				120.0,
+				90.0,
+				60.0
+			]
         },
         {
             "name": "razor_eye_of_the_storm",
-            "id": "5085"
+            "id": "5085",
+			"ultimate": true,
+			"cooldown": [
+				80.0,
+				70.0,
+				60.0
+			]
         },
         {
             "name": "ursa_fury_swipes",
-            "id": "5359"
+            "id": "5359",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "juggernaut_omni_slash",
-            "id": "5030"
+            "id": "5030",
+			"ultimate": true,
+			"cooldown": [
+				130.0, 
+				120.0, 
+				110.0
+			]
         },
         {
             "name": "obsidian_destroyer_essence_aura",
-            "id": "5393"
+            "id": "5393",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "warlock_shadow_word",
-            "id": "5163"
+            "id": "5163",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				16.0,
+				16.0,
+				16.0
+			]
         },
         {
             "name": "axe_berserkers_call",
-            "id": "5007"
+            "id": "5007",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				14.0,
+				12.0,
+				10.0
+			]
         },
         {
             "name": "dark_seer_wall_of_replica",
-            "id": "5258"
+            "id": "5258",
+			"ultimate": true,
+			"cooldown": [
+				100.0,
+				100.0,
+				100.0
+			]
         },
         {
             "name": "razor_unstable_current",
-            "id": "5084"
+            "id": "5084",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "necrolyte_death_pulse",
-            "id": "5158"
+            "id": "5158",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				7.0,
+				6.0,
+				5.0
+			]
         },
         {
             "name": "necrolyte_reapers_scythe",
-            "id": "5161"
+            "id": "5161",
+			"ultimate": true,
+			"cooldown": [
+				100.0,
+				85.0,
+				70.0
+			]
         },
         {
             "name": "broodmother_insatiable_hunger",
-            "id": "5282"
+            "id": "5282",
+			"ultimate": true,
+			"cooldown": [
+				45.0,
+				45.0,
+				45.0
+			]
         },
         {
             "name": "templar_assassin_psi_blades",
-            "id": "5196"
+            "id": "5196",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "pugna_nether_blast",
-            "id": "5186"
+            "id": "5186",
+			"ultimate": false,
+			"cooldown": [
+				5.5,
+				5.5,
+				5.5,
+				5.5
+			]
         },
         {
             "name": "leshrac_pulse_nova",
-            "id": "5244"
+            "id": "5244",
+			"ultimate": true,
+			"cooldown": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			]
         },
         {
             "name": "doom_bringer_scorched_earth",
-            "id": "5340"
+            "id": "5340",
+			"ultimate": false,
+			"cooldown": [
+				55.0,
+				55.0,
+				55.0,
+				55.0
+			]
         },
         {
             "name": "warlock_golem_permanent_immolation",
-            "id": "5167"
+            "id": "5167",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "bloodseeker_thirst",
-            "id": "5017"
+            "id": "5017",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "mirana_starfall",
-            "id": "5051"
+            "id": "5051",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "viper_corrosive_skin",
-            "id": "5220"
+            "id": "5220",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "kunkka_ghostship",
-            "id": "5035"
+            "id": "5035",
+			"ultimate": true,
+			"cooldown": [
+				60.0, 
+				50.0, 
+				40.0
+			]
         },
         {
             "name": "dark_seer_surge",
-            "id": "5257"
+            "id": "5257",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				11.0,
+				10.0,
+				9.0
+			]
         },
         {
             "name": "lone_druid_spirit_bear_return",
-            "id": "5418"
+            "id": "5418",
+			"ultimate": false,
+			"cooldown": [
+				5.0,
+				5.0,
+				5.0,
+				5.0
+			]
         },
         {
             "name": "meepo_poof",
-            "id": "5431"
+            "id": "5431",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				10.0,
+				8.0,
+				6.0
+			]
         },
         {
             "name": "black_dragon_splash_attack",
-            "id": "5324"
+            "id": "5324",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "rattletrap_battery_assault",
-            "id": "5237"
+            "id": "5237",
+			"ultimate": false,
+			"cooldown": [
+				32.0,
+				28.0,
+				24.0,
+				20.0
+			]
         },
         {
             "name": "drow_ranger_silence",
-            "id": "5020"
+            "id": "5020",
+			"ultimate": false,
+			"cooldown": [
+				13.0, 
+				13.0, 
+				13.0,
+				13.0
+			]
         },
         {
             "name": "nevermore_necromastery",
-            "id": "5062"
+            "id": "5062",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "jakiro_macropyre",
-            "id": "5300"
+            "id": "5300",
+			"ultimate": true,
+			"cooldown": [
+				60.0,
+				60.0,
+				60.0
+			]
         },
         {
             "name": "lone_druid_spirit_bear_entangle",
-            "id": "5419"
+            "id": "5419",
+			"ultimate": false,
+			"cooldown": [
+				5.0,
+				5.0,
+				5.0,
+				5.0
+			]
         },
         {
             "name": "treant_natures_guise",
-            "id": "5434"
+            "id": "5434",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				8.0,
+				6.0,
+				4.0
+			]
         },
         {
             "name": "beastmaster_greater_boar_poison",
-            "id": "5352"
+            "id": "5352",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "tinker_laser",
-            "id": "5150"
+            "id": "5150",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				14.0,
+				14.0,
+				14.0
+			]
         },
         {
             "name": "clinkz_death_pact",
-            "id": "5262"
+            "id": "5262",
+			"ultimate": true,
+			"cooldown": [
+				45.0,
+				35.0,
+				25.0
+			]
         },
         {
             "name": "morphling_morph",
-            "id": "5054"
+            "id": "5054",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "morphling_adaptive_strike",
-            "id": "5053"
+            "id": "5053",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "mirana_invis",
-            "id": "5049"
+            "id": "5049",
+			"ultimate": true,
+			"cooldown": [
+				140.0,
+				120.0,
+				100.0
+			]
         },
         {
             "name": "enigma_malefice",
-            "id": "5146"
+            "id": "5146",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				15.0,
+				15.0,
+				15.0
+			]
         },
         {
             "name": "skeleton_king_hellfire_blast",
-            "id": "5086"
+            "id": "5086",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				8.0,
+				8.0,
+				8.0
+			]
         },
         {
             "name": "silencer_global_silence",
-            "id": "5380"
+            "id": "5380",
+			"ultimate": true,
+			"cooldown": [
+				130.0,
+				130.0,
+				130.0
+			]
         },
         {
             "name": "phantom_assassin_phantom_strike",
-            "id": "5191"
+            "id": "5191",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				11.0,
+				8.0,
+				5.0
+			]
         },
         {
             "name": "lycan_shapeshift",
-            "id": "5398"
+            "id": "5398",
+			"ultimate": true,
+			"cooldown": [
+				120.0,
+				90.0,
+				60.0
+			]
         },
         {
             "name": "templar_assassin_refraction",
-            "id": "5194"
+            "id": "5194",
+			"ultimate": false,
+			"cooldown": [
+				17.0,
+				17.0,
+				17.0,
+				17.0
+			]
         },
         {
             "name": "warlock_fatal_bonds",
-            "id": "5162"
+            "id": "5162",
+			"ultimate": false,
+			"cooldown": [
+				24.0,
+				22.0,
+				20.0,
+				18.0
+			]
         },
         {
             "name": "death_prophet_carrion_swarm",
-            "id": "5090"
+            "id": "5090",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				7.0,
+				6.0,
+				5.0
+			]
         },
         {
             "name": "lion_finger_of_death",
-            "id": "5047"
+            "id": "5047",
+			"ultimate": true,
+			"cooldown": [
+				160.0,
+				100.0,
+				40.0
+			]
         },
         {
             "name": "ursa_earthshock",
-            "id": "5357"
+            "id": "5357",
+			"ultimate": false,
+			"cooldown": [
+				5.0,
+				5.0,
+				5.0,
+				5.0
+			]
         },
         {
             "name": "life_stealer_open_wounds",
-            "id": "5251"
+            "id": "5251",
+			"ultimate": false,
+			"cooldown": [
+				24.0,
+				20.0,
+				16.0,
+				12.0
+			]
         },
         {
             "name": "blue_dragonspawn_overseer_evasion",
-            "id": "5326"
+            "id": "5326",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "slardar_slithereen_crush",
-            "id": "5115"
+            "id": "5115",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				8.0,
+				8.0,
+				8.0
+			]
         },
         {
             "name": "razor_plasma_field",
-            "id": "5082"
+            "id": "5082",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				14.0,
+				14.0,
+				14.0
+			]
         },
         {
             "name": "storm_spirit_electric_vortex",
-            "id": "5099"
+            "id": "5099",
+			"ultimate": false,
+			"cooldown": [
+				21.0,
+				20.0,
+				19.0,
+				18.0
+			]
         },
         {
             "name": "spectre_dispersion",
-            "id": "5336"
+            "id": "5336",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "courier_return_to_base",
-            "id": "5205"
+            "id": "5205",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "sven_gods_strength",
-            "id": "5097"
+            "id": "5097",
+			"ultimate": true,
+			"cooldown": [
+				80.0,
+				80.0,
+				80.0
+			]
         },
         {
             "name": "leshrac_lightning_storm",
-            "id": "5243"
+            "id": "5243",
+			"ultimate": false,
+			"cooldown": [
+				4.0,
+				4.0,
+				4.0,
+				4.0
+			]
         },
         {
             "name": "life_stealer_rage",
-            "id": "5249"
+            "id": "5249",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				16.0,
+				16.0,
+				16.0
+			]
         },
         {
             "name": "spectre_reality",
-            "id": "5338"
+            "id": "5338",
+			"ultimate": false,
+			"cooldown": [
+				0.0
+			]
         },
         {
             "name": "antimage_blink",
-            "id": "5004"
+            "id": "5004",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				9.0,
+				7.0,
+				5.0
+			]
         },
         {
             "name": "sniper_shrapnel",
-            "id": "5154"
+            "id": "5154",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "rattletrap_hookshot",
-            "id": "5240"
+            "id": "5240",
+			"ultimate": true,
+			"cooldown": [
+				70.0,
+				55.0,
+				40.0
+			]
         },
         {
             "name": "invoker_cold_snap",
-            "id": "5376"
+            "id": "5376",
+			"ultimate": false,
+			"cooldown": [
+				20.0
+			]
         },
         {
             "name": "crystal_maiden_crystal_nova",
-            "id": "5126"
+            "id": "5126",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				11.0,
+				10.0,
+				9.0
+			]
         },
         {
             "name": "bloodseeker_rupture",
-            "id": "5018"
+            "id": "5018",
+			"ultimate": true,
+			"cooldown": [
+				60.0, 
+				60.0, 
+				60.0
+			]
         },
         {
             "name": "kunkka_tidebringer",
-            "id": "5032"
+            "id": "5032",
+			"ultimate": false,
+			"cooldown": [
+				13.0, 
+				10.0, 
+				7.0,
+				4.0
+			]
         },
         {
             "name": "invoker_alacrity",
-            "id": "5384"
+            "id": "5384",
+			"ultimate": false,
+			"cooldown": [
+				15.0
+			]
         },
         {
             "name": "huskar_inner_vitality",
-            "id": "5271"
+            "id": "5271",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				18.0,
+				14.0,
+				10.0
+			]
         },
         {
             "name": "axe_counter_helix",
-            "id": "5009"
+            "id": "5009",
+			"ultimate": false,
+			"cooldown": [
+				0.45,
+				0.4,
+				0.35,
+				0.3
+			]
         },
         {
             "name": "spectre_spectral_dagger",
-            "id": "5334"
+            "id": "5334",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				16.0,
+				16.0,
+				16.0
+			]
         },
         {
             "name": "furion_force_of_nature",
-            "id": "5247"
+            "id": "5247",
+			"ultimate": false,
+			"cooldown": [
+				37.0,
+				37.0,
+				37.0,
+				37.0
+			]
         },
         {
             "name": "brewmaster_earth_hurl_boulder",
-            "id": "5404"
+            "id": "5404",
+			"ultimate": false,
+			"cooldown": [
+				5.0
+			]
         },
         {
             "name": "alchemist_goblins_greed",
-            "id": "5368"
+            "id": "5368",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "windrunner_windrun",
-            "id": "5132"
+            "id": "5132",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				15.0,
+				15.0,
+				15.0
+			]
         },
         {
             "name": "kunkka_return",
-            "id": "5034"
+            "id": "5034",
+			"ultimate": false,
+			"cooldown": [
+				1.0
+			]
         },
         {
             "name": "backdoor_protection",
-            "id": "5350"
+            "id": "5350",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "dragon_knight_dragon_blood",
-            "id": "5228"
+            "id": "5228",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "vengefulspirit_magic_missile",
-            "id": "5122"
+            "id": "5122",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				12.0,
+				11.0,
+				10.0
+			]
         },
         {
             "name": "phantom_lancer_spirit_lance",
-            "id": "5065"
+            "id": "5065",
+			"ultimate": false,
+			"cooldown": [
+				7.0,
+				7.0,
+				7.0,
+				7.0
+			]
         },
         {
             "name": "nevermore_shadowraze1",
-            "id": "5059"
+            "id": "5059",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "courier_take_stash_items",
-            "id": "5208"
+            "id": "5208",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "nevermore_shadowraze2",
-            "id": "5060"
+            "id": "5060",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "nevermore_shadowraze3",
-            "id": "5061"
+            "id": "5061",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "weaver_geminate_attack",
-            "id": "5291"
+            "id": "5291",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				5.0,
+				4.0,
+				3.0
+			]
         },
         {
             "name": "alpha_wolf_command_aura",
-            "id": "5309"
+            "id": "5309",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "ancient_apparition_ice_blast",
-            "id": "5348"
+            "id": "5348",
+			"ultimate": true,
+			"cooldown": [
+				40.0,
+				40.0,
+				40.0
+			]
         },
         {
             "name": "ogre_magi_ignite",
-            "id": "5439"
+            "id": "5439",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				15.0,
+				15.0,
+				15.0
+			]
         },
         {
             "name": "harpy_storm_chain_lightning",
-            "id": "5319"
+            "id": "5319",
+			"ultimate": false,
+			"cooldown": [
+				4.0
+			]
         },
         {
             "name": "omniknight_degen_aura",
-            "id": "5265"
+            "id": "5265",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "enchantress_enchant",
-            "id": "5268"
+            "id": "5268",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				24.0,
+				18.0,
+				12.0
+			]
         },
         {
             "name": "leshrac_split_earth",
-            "id": "5241"
+            "id": "5241",
+			"ultimate": false,
+			"cooldown": [
+				9.0,
+				9.0,
+				9.0,
+				9.0
+			]
         },
         {
             "name": "death_prophet_witchcraft",
-            "id": "5092"
+            "id": "5092",
+			"ultimate": false,
+			"cooldown": []
         },
+		{
+			"name": "death_prophet_spirit_siphon",
+			"id": "5685",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
+		},
         {
             "name": "viper_nethertoxin",
-            "id": "5219"
+            "id": "5219",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "necrolyte_sadist",
-            "id": "5160"
+            "id": "5160",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "phantom_assassin_coup_de_grace",
-            "id": "5193"
+            "id": "5193",
+			"ultimate": true,
+			"cooldown": []
         },
         {
             "name": "ancient_apparition_cold_feet",
-            "id": "5345"
+            "id": "5345",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				11.0,
+				9.0,
+				7.0
+			]
         },
         {
             "name": "puck_dream_coil",
-            "id": "5073"
+            "id": "5073",
+			"ultimate": true,
+			"cooldown": [
+				75.0,
+				75.0,
+				75.0
+			]
         },
         {
             "name": "venomancer_poison_nova",
-            "id": "5181"
+            "id": "5181",
+			"ultimate": true,
+			"cooldown": [
+				140.0,
+				120.0,
+				100.0
+			]
         },
         {
             "name": "chaos_knight_chaos_bolt",
-            "id": "5426"
+            "id": "5426",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "doom_bringer_devour",
-            "id": "5339"
+            "id": "5339",
+			"ultimate": false,
+			"cooldown": [
+				70.0,
+				60.0,
+				50.0,
+				40.0
+			]
         },
         {
             "name": "bounty_hunter_shuriken_toss",
-            "id": "5285"
+            "id": "5285",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "blue_dragonspawn_overseer_devotion_aura",
-            "id": "5327"
+            "id": "5327",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "earthshaker_echo_slam",
-            "id": "5026"
+            "id": "5026",
+			"ultimate": true,
+			"cooldown": [
+				150.0, 
+				130.0, 
+				110.0
+			]
         },
         {
             "name": "necronomicon_warrior_sight",
-            "id": "5201"
+            "id": "5201",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "huskar_berserkers_blood",
-            "id": "5273"
+            "id": "5273",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "templar_assassin_psionic_trap",
-            "id": "5197"
+            "id": "5197",
+			"ultimate": true,
+			"cooldown": [
+				11.0,
+				8.0,
+				5.0
+			]
         },
         {
             "name": "night_stalker_crippling_fear",
-            "id": "5276"
+            "id": "5276",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "storm_spirit_overload",
-            "id": "5100"
+            "id": "5100",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "alchemist_unstable_concoction_throw",
-            "id": "5367"
+            "id": "5367",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "morphling_morph_str",
-            "id": "5056"
+            "id": "5056",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
-            "name": "doom_bringer_empty",
-            "id": "5343"
+            "name": "doom_bringer_empty1",
+            "id": "5343",
+			"ultimate": false,
+			"cooldown": []
         },
         {
-            "name": "doom_bringer_empty",
-            "id": "5344"
+            "name": "doom_bringer_empty2",
+            "id": "5344",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "lycan_howl",
-            "id": "5396"
+            "id": "5396",
+			"ultimate": false,
+			"cooldown": [
+				50.0,
+				45.0,
+				40.0,
+				35.0
+			]
         },
         {
             "name": "beastmaster_hawk_invisibility",
-            "id": "5170"
+            "id": "5170",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "storm_spirit_ball_lightning",
-            "id": "5101"
+            "id": "5101",
+			"ultimate": true,
+			"cooldown": []
         },
         {
             "name": "omniknight_purification",
-            "id": "5263"
+            "id": "5263",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "shadow_demon_shadow_poison",
-            "id": "5423"
+            "id": "5423",
+			"ultimate": false,
+			"cooldown": [
+				2.5,
+				2.5,
+				2.5,
+				2.5
+			]
         },
         {
             "name": "dragon_knight_elder_dragon_form",
-            "id": "5229"
+            "id": "5229",
+			"ultimate": true,
+			"cooldown": [
+				115.0,
+				115.0,
+				115.0
+			]
         },
         {
             "name": "juggernaut_blade_dance",
-            "id": "5027"
+            "id": "5027",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "shadow_demon_disruption",
-            "id": "5421"
+            "id": "5421",
+			"ultimate": false,
+			"cooldown": [
+				25.0,
+				22.0,
+				19.0,
+				16.0
+			]
         },
         {
             "name": "venomancer_venomous_gale",
-            "id": "5178"
+            "id": "5178",
+			"ultimate": false,
+			"cooldown": [
+				21.0,
+				20.0,
+				19.0,
+				18.0
+			]
         },
         {
             "name": "gnoll_assassin_envenomed_weapon",
-            "id": "5296"
+            "id": "5296",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "alpha_wolf_critical_strike",
-            "id": "5308"
+            "id": "5308",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "shadow_shaman_ether_shock",
-            "id": "5078"
+            "id": "5078",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				8.0,
+				8.0,
+				8.0
+			]
         },
         {
             "name": "night_stalker_hunter_in_the_night",
-            "id": "5277"
+            "id": "5277",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "dragon_knight_dragon_tail",
-            "id": "5227"
+            "id": "5227",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				11.0,
+				10.0,
+				9.0
+			]
         },
         {
             "name": "gyrocopter_call_down",
-            "id": "5364"
+            "id": "5364",
+			"ultimate": true,
+			"cooldown": [
+				55.0,
+				50.0,
+				45.0
+			]
         },
         {
             "name": "beastmaster_inner_beast",
-            "id": "5172"
+            "id": "5172",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "pudge_dismember",
-            "id": "5077"
+            "id": "5077",
+			"ultimate": true,
+			"cooldown": [
+				30.0,
+				30.0,
+				30.0
+			]
         },
         {
             "name": "windrunner_focusfire",
-            "id": "5133"
+            "id": "5133",
+			"ultimate": true,
+			"cooldown": [
+				60.0,
+				60.0,
+				60.0
+			]
         },
         {
             "name": "ghost_frost_attack",
-            "id": "5301"
+            "id": "5301",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "bane_brain_sap",
-            "id": "5011"
+            "id": "5011",
+			"ultimate": false,
+			"cooldown": [
+				14.0, 
+				14.0, 
+				14.0,
+				14.0
+			]
         },
         {
             "name": "necrolyte_heartstopper_aura",
-            "id": "5159"
+            "id": "5159",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "chaos_knight_chaos_strike",
-            "id": "5428"
+            "id": "5428",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "skeleton_king_vampiric_aura",
-            "id": "5087"
+            "id": "5087",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "clinkz_strafe",
-            "id": "5259"
+            "id": "5259",
+			"ultimate": false,
+			"cooldown": [
+				40.0,
+				35.0,
+				30.0,
+				25.0
+			]
         },
         {
             "name": "life_stealer_feast",
-            "id": "5250"
+            "id": "5250",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "faceless_void_chronosphere",
-            "id": "5185"
+            "id": "5185",
+			"ultimate": true,
+			"cooldown": [
+				130.0,
+				115.0,
+				100.0
+			]
         },
         {
             "name": "lion_impale",
-            "id": "5044"
+            "id": "5044",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "necronomicon_archer_mana_burn",
-            "id": "5203"
+            "id": "5203",
+			"ultimate": false,
+			"cooldown": [
+				20.0
+			]
         },
         {
             "name": "axe_culling_blade",
-            "id": "5010"
+            "id": "5010",
+			"ultimate": true,
+			"cooldown": [
+				75.0, 
+				65.0, 
+				55.0
+			]
         },
         {
             "name": "huskar_burning_spear",
-            "id": "5272"
+            "id": "5272",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "brewmaster_earth_pulverize",
-            "id": "5406"
+            "id": "5406",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "kobold_taskmaster_speed_aura",
-            "id": "5293"
+            "id": "5293",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "brewmaster_earth_spell_immunity",
-            "id": "5405"
+            "id": "5405",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "necronomicon_warrior_mana_burn",
-            "id": "5202"
+            "id": "5202",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "furion_sprout",
-            "id": "5245"
+            "id": "5245",
+			"ultimate": false,
+			"cooldown": [
+				11.0,
+				10.0,
+				9.0,
+				8.0
+			]
         },
         {
             "name": "invoker_empty2",
-            "id": "5374"
+            "id": "5374",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "puck_ethereal_jaunt",
-            "id": "5070"
+            "id": "5070",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "invoker_empty1",
-            "id": "5373"
+            "id": "5373",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "kunkka_torrent",
-            "id": "5031"
+            "id": "5031",
+			"ultimate": false,
+			"cooldown": [
+				10.0, 
+				10.0, 
+				10.0,
+				10.0
+			]
         },
         {
             "name": "phantom_lancer_doppelwalk",
-            "id": "5066"
+            "id": "5066",
+			"ultimate": false,
+			"cooldown": [
+				25.0,
+				20.0,
+				15.0,
+				10.0
+			]
         },
         {
             "name": "undying_tombstone",
-            "id": "5444"
+            "id": "5444",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "bane_nightmare",
-            "id": "5014"
+            "id": "5014",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				19.0, 
+				16.0, 
+				13.0
+			]
         },
         {
             "name": "zuus_arc_lightning",
-            "id": "5110"
+            "id": "5110",
+			"ultimate": false,
+			"cooldown": [
+				1.75,
+				1.75,
+				1.75,
+				1.75
+			]
         },
         {
             "name": "undying_tombstone_zombie_aura",
-            "id": "5445"
+            "id": "5445",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "crystal_maiden_brilliance_aura",
-            "id": "5128"
+            "id": "5128",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "bane_enfeeble",
-            "id": "5012"
+            "id": "5012",
+			"ultimate": false,
+			"cooldown": [
+				8.0, 
+				8.0, 
+				8.0,
+				8.0
+			]
         },
         {
             "name": "satyr_soulstealer_mana_burn",
-            "id": "5315"
+            "id": "5315",
+			"ultimate": false,
+			"cooldown": [
+				18.0
+			]
         },
         {
             "name": "gyrocopter_rocket_barrage",
-            "id": "5361"
+            "id": "5361",
+			"ultimate": false,
+			"cooldown": [
+				7.0,
+				6.5,
+				6.0,
+				5.5
+			]
         },
         {
             "name": "dragon_knight_frost_breath",
-            "id": "5232"
+            "id": "5232",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "invoker_emp",
-            "id": "5383"
+            "id": "5383",
+			"ultimate": false,
+			"cooldown": [
+				30.0
+			]
         },
         {
             "name": "shadow_demon_soul_catcher",
-            "id": "5422"
+            "id": "5422",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				12.0,
+				11.0,
+				10.0
+			]
         },
         {
             "name": "lina_fiery_soul",
-            "id": "5042"
+            "id": "5042",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "lina_dragon_slave",
-            "id": "5040"
+            "id": "5040",
+			"ultimate": false,
+			"cooldown": [
+				8.5, 
+				8.5, 
+				8.5,
+				8.5
+			]
         },
         {
             "name": "sven_storm_bolt",
-            "id": "5094"
+            "id": "5094",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				13.0,
+				13.0,
+				13.0
+			]
         },
         {
             "name": "broodmother_poison_sting",
-            "id": "5284"
+            "id": "5284",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "meepo_earthbind",
-            "id": "5430"
+            "id": "5430",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				16.0,
+				12.0,
+				8.0
+			]
         },
         {
             "name": "phantom_lancer_phantom_edge",
-            "id": "5068"
+            "id": "5068",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				12.0,
+				8.0,
+				4.0
+			]
         },
         {
             "name": "puck_phase_shift",
-            "id": "5072"
+            "id": "5072",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				6.0,
+				6.0,
+				6.0
+			]
         },
         {
             "name": "faceless_void_time_walk",
-            "id": "5182"
+            "id": "5182",
+			"ultimate": false,
+			"cooldown": [
+				24.0,
+				18.0,
+				12.0,
+				6.0
+			]
         },
         {
             "name": "puck_waning_rift",
-            "id": "5071"
+            "id": "5071",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				15.0,
+				14.0,
+				13.0
+			]
         },
         {
             "name": "lich_frost_armor",
-            "id": "5135"
+            "id": "5135",
+			"ultimate": false,
+			"cooldown": [
+				5.0,
+				5.0,
+				5.0,
+				5.0
+			]
         },
         {
             "name": "sandking_burrowstrike",
-            "id": "5102"
+            "id": "5102",
+			"ultimate": false,
+			"cooldown": [
+				11.0,
+				11.0,
+				11.0,
+				11.0
+			]
         },
         {
             "name": "dark_seer_vacuum",
-            "id": "5255"
+            "id": "5255",
+			"ultimate": false,
+			"cooldown": [
+				28.0,
+				28.0,
+				28.0,
+				28.0
+			]
         },
         {
             "name": "obsidian_destroyer_sanity_eclipse",
-            "id": "5394"
+            "id": "5394",
+			"ultimate": true,
+			"cooldown": [
+				160.0,
+				160.0,
+				160.0
+			]
         },
         {
             "name": "enigma_black_hole",
-            "id": "5149"
+            "id": "5149",
+			"ultimate": true,
+			"cooldown": [
+				200.0,
+				180.0,
+				160.0
+			]
         },
         {
             "name": "lycan_summon_wolves_critical_strike",
-            "id": "5399"
+            "id": "5399",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "default_attack",
-            "id": "5001"
+            "id": "5001",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "templar_assassin_trap",
-            "id": "5198"
+            "id": "5198",
+			"ultimate": false,
+			"cooldown": [
+				0.5,
+				0.5,
+				0.5
+			]
         },
         {
             "name": "neutral_spell_immunity",
-            "id": "5303"
+            "id": "5303",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "nyx_assassin_impale",
-            "id": "5462"
+            "id": "5462",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				13.0,
+				13.0
+			]
         },
         {
             "name": "nyx_assassin_mana_burn",
-            "id": "5463"
+            "id": "5463",
+			"ultimate": false,
+			"cooldown": [
+				28.0,
+				20.0,
+				12.0,
+				4.0
+			]
         },
         {
             "name": "nyx_assassin_spiked_carapace",
-            "id": "5464"
+            "id": "5464",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				18.0,
+				14.0,
+				10.0
+			]
         },
         {
             "name": "nyx_assassin_vendetta",
-            "id": "5465"
+            "id": "5465",
+			"ultimate": true,
+			"cooldown": [
+				70.0,
+				60.0,
+				50.0
+			]
         },
         {
             "name": "slark_dark_pact",
-            "id": "5494"
+            "id": "5494",
+			"ultimate": false,
+			"cooldown": [
+				9.0,
+				8.0,
+				7.0,
+				6.0
+			]
         },
         {
             "name": "slark_pounce",
-            "id": "5495"
+            "id": "5495",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				16.0,
+				12.0,
+				8.0
+			]
         },
         {
             "name": "slark_essence_shift",
-            "id": "5496"
+            "id": "5496",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "slark_shadow_dance",
-            "id": "5497"
+            "id": "5497",
+			"ultimate": true,
+			"cooldown": [
+				60.0,
+				60.0,
+				60.0
+			]
         },
         {
             "name": "medusa_split_shot",
-            "id": "5504"
+            "id": "5504",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "medusa_mystic_snake",
-            "id": "5505"
+            "id": "5505",
+			"ultimate": false,
+			"cooldown": [
+				11.0,
+				11.0,
+				11.0,
+				11.0
+			]
         },
         {
             "name": "medusa_mana_shield",
-            "id": "5506"
+            "id": "5506",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "medusa_stone_gaze",
-            "id": "5507"
+            "id": "5507",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				90.0,
+				90.0
+			]
         },
         {
             "name": "troll_warlord_berserkers_rage",
-            "id": "5508"
+            "id": "5508",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "troll_warlord_whirling_axes_ranged",
-            "id": "5509"
+            "id": "5509",
+			"ultimate": false,
+			"cooldown": [
+				19.0,
+				16.0,
+				13.0,
+				10.0
+			]
         },
         {
             "name": "troll_warlord_whirling_axes_melee",
-            "id": "5510"
+            "id": "5510",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "troll_warlord_fervor",
-            "id": "5511"
+            "id": "5511",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "troll_warlord_battle_trance",
-            "id": "5512"
+            "id": "5512",
+			"ultimate": true,
+			"cooldown": [
+				30.0,
+				30.0,
+				30.0
+			]
         },
         {
             "name": "centaur_hoof_stomp",
-            "id": "5514"
+            "id": "5514",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				13.0,
+				13.0,
+				13.0
+			]
         },
         {
             "name": "centaur_double_edge",
-            "id": "5515"
+            "id": "5515",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				6.0,
+				6.0,
+				6.0
+			]
         },
         {
             "name": "centaur_return",
-            "id": "5516"
+            "id": "5516",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "centaur_stampede",
-            "id": "5517"
+            "id": "5517",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				75.0,
+				60.0
+			]
         },
         {
             "name": "magnataur_shockwave",
-            "id": "5518"
+            "id": "5518",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				9.0,
+				8.0,
+				7.0
+			]
         },
         {
             "name": "magnataur_empower",
-            "id": "5519"
+            "id": "5519",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				8.0,
+				8.0,
+				8.0
+			]
         },
         {
             "name": "magnataur_skewer",
-            "id": "5520"
+            "id": "5520",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				30.0,
+				30.0,
+				30.0
+			]
         },
         {
             "name": "magnataur_reverse_polarity",
-            "id": "5521"
+            "id": "5521",
+			"ultimate": true,
+			"cooldown": [
+				120.0,
+				110.0,
+				100.0
+			]
         },
         {
             "name": "shredder_whirling_death",
-            "id": "5524"
+            "id": "5524",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				6.0,
+				6.0,
+				6.0
+			]
         },
         {
             "name": "shredder_timber_chain",
-            "id": "5525"
+            "id": "5525",
+			"ultimate": false,
+			"cooldown": [
+				4.0,
+				4.0,
+				4.0,
+				4.0
+			]
         },
         {
             "name": "shredder_reactive_armor",
-            "id": "5526"
+            "id": "5526",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "shredder_chakram",
-            "id": "5527"
+            "id": "5527",
+			"ultimate": true,
+			"cooldown": [
+				8.0,
+				8.0,
+				8.0
+			]
         },
         {
             "name": "shredder_return_chakram",
-            "id": "5528"
+            "id": "5528",
+			"ultimate": true,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "shredder_chakram_2",
-            "id": "5645"
+            "id": "5645",
+			"ultimate": false,
+			"cooldown": [
+				8.0,
+				8.0,
+				8.0
+			]
         },
         {
             "name": "shredder_return_chakram_2",
-            "id": "5646"
+            "id": "5646",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "keeper_of_the_light_illuminate",
-            "id": "5471"
+            "id": "5471",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "keeper_of_the_light_mana_leak",
-            "id": "5472"
+            "id": "5472",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				14.0,
+				12.0,
+				10.0
+			]
         },
         {
             "name": "keeper_of_the_light_chakra_magic",
-            "id": "5473"
+            "id": "5473",
+			"ultimate": false,
+			"cooldown": [
+				19.0,
+				18.0,
+				17.0,
+				16.0
+			]
         },
         {
             "name": "keeper_of_the_light_spirit_form",
-            "id": "5474"
+            "id": "5474",
+			"ultimate": true,
+			"cooldown": [
+				80.0,
+				70.0,
+				60.0
+			]
         },
         {
             "name": "keeper_of_the_light_recall",
-            "id": "5475"
+            "id": "5475",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				15.0,
+				15.0
+			]
         },
         {
             "name": "keeper_of_the_light_blinding_light",
-            "id": "5476"
+            "id": "5476",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				16.0,
+				12.0
+			]
         },
         {
             "name": "keeper_of_the_light_illuminate_end",
-            "id": "5477"
+            "id": "5477",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "keeper_of_the_light_spirit_form_illuminate",
-            "id": "5479"
+            "id": "5479",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "keeper_of_the_light_spirit_form_illuminate_end",
-            "id": "5503"
+            "id": "5503",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "rubick_telekinesis",
-            "id": "5448"
+            "id": "5448",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				22.0,
+				22.0
+			]
         },
         {
             "name": "rubick_fade_bolt",
-            "id": "5450"
+            "id": "5450",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				14.0,
+				12.0,
+				10.0
+			]
         },
         {
             "name": "rubick_null_field",
-            "id": "5451"
+            "id": "5451",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "rubick_spell_steal",
-            "id": "5452"
+            "id": "5452",
+			"ultimate": true,
+			"cooldown": [
+				20.0,
+				18.0,
+				16.0
+			]
         },
         {
             "name": "disruptor_thunder_strike",
-            "id": "5458"
+            "id": "5458",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				11.0,
+				10.0,
+				9.0
+			]
         },
         {
             "name": "disruptor_glimpse",
-            "id": "5459"
+            "id": "5459",
+			"ultimate": false,
+			"cooldown": [
+				60.0,
+				46.0,
+				32.0,
+				18.0
+			]
         },
         {
             "name": "disruptor_kinetic_field",
-            "id": "5460"
+            "id": "5460",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				12.0,
+				11.0,
+				10.0
+			]
         },
         {
             "name": "disruptor_static_storm",
-            "id": "5461"
+            "id": "5461",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				80.0,
+				70.0
+			]
         },
         {
             "name": "naga_siren_mirror_image",
-            "id": "5467"
+            "id": "5467",
+			"ultimate": false,
+			"cooldown": [
+				40.0,
+				40.0,
+				40.0,
+				40.0
+			]
         },
         {
             "name": "naga_siren_ensnare",
-            "id": "5468"
+            "id": "5468",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "naga_siren_rip_tide",
-            "id": "5469"
+            "id": "5469",
+			"ultimate": false,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "naga_siren_song_of_the_siren",
-            "id": "5470"
+            "id": "5470",
+			"ultimate": true,
+			"cooldown": [
+				180.0,
+				120.0,
+				60.0
+			]
         },
         {
             "name": "visage_grave_chill",
-            "id": "5480"
+            "id": "5480",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				14.0,
+				12.0,
+				10.0
+			]
         },
         {
             "name": "visage_soul_assumption",
-            "id": "5481"
+            "id": "5481",
+			"ultimate": false,
+			"cooldown": [
+				4.0,
+				4.0,
+				4.0,
+				4.0
+			]
         },
         {
             "name": "visage_gravekeepers_cloak",
-            "id": "5482"
+            "id": "5482",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "visage_summon_familiars",
-            "id": "5483"
+            "id": "5483",
+			"ultimate": true,
+			"cooldown": [
+				180.0,
+				160.0,
+				140.0
+			]
         },
         {
             "name": "wisp_tether",
-            "id": "5485"
+            "id": "5485",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				12.0,
+				12.0,
+				12.0
+			]
         },
         {
             "name": "wisp_spirits",
-            "id": "5486"
+            "id": "5486",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				18.0,
+				16.0,
+				14.0
+			]
         },
         {
             "name": "wisp_overcharge",
-            "id": "5487"
+            "id": "5487",
+			"ultimate": false,
+			"cooldown": [
+				2.0,
+				2.0,
+				2.0,
+				2.0
+			]
         },
         {
             "name": "wisp_relocate",
-            "id": "5488"
+            "id": "5488",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				75.0,
+				60.0
+			]
         },
         {
             "name": "wisp_tether_break",
-            "id": "5489"
+            "id": "5489",
+			"ultimate": false,
+			"cooldown": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			]
         },
         {
             "name": "wisp_spirits_in",
-            "id": "5490"
+            "id": "5490",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "wisp_spirits_out",
-            "id": "5493"
+            "id": "5493",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "bristleback_viscous_nasal_goo",
-            "id": "5548"
+            "id": "5548",
+			"ultimate": false,
+			"cooldown": [
+				1.5,
+				1.5,
+				1.5,
+				1.5
+			]
         },
         {
             "name": "bristleback_quill_spray",
-            "id": "5549"
+            "id": "5549",
+			"ultimate": false,
+			"cooldown": [
+				3.0,
+				3.0,
+				3.0,
+				3.0
+			]
         },
         {
             "name": "bristleback_bristleback",
-            "id": "5550"
+            "id": "5550",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "bristleback_warpath",
-            "id": "5551"
+            "id": "5551",
+			"ultimate": true,
+			"cooldown": []
         },
         {
             "name": "tusk_ice_shards",
-            "id": "5565"
+            "id": "5565",
+			"ultimate": false,
+			"cooldown": [
+				19.0,
+				16.0,
+				13.0,
+				10.0
+			]
         },
         {
             "name": "tusk_snowball",
-            "id": "5566"
+            "id": "5566",
+			"ultimate": false,
+			"cooldown": [
+				21.0,
+				20.0,
+				19.0,
+				18.0
+			]
         },
         {
             "name": "tusk_frozen_sigil",
-            "id": "5567"
+            "id": "5567",
+			"ultimate": false,
+			"cooldown": [
+				50.0,
+				50.0,
+				50.0,
+				50.0
+			]
         },
         {
             "name": "tusk_walrus_punch",
-            "id": "5568"
+            "id": "5568",
+			"ultimate": true,
+			"cooldown": [
+				36.0,
+				24.0,
+				12.0
+			]
         },
         {
             "name": "skywrath_mage_arcane_bolt",
-            "id": "5581"
+            "id": "5581",
+			"ultimate": false,
+			"cooldown": [
+				5.0,
+				4.0,
+				3.0,
+				2.0
+			]
         },
         {
             "name": "skywrath_mage_concussive_shot",
-            "id": "5582"
+            "id": "5582",
+			"ultimate": false,
+			"cooldown": [
+				18.0,
+				16.0,
+				14.0,
+				12.0
+			]
         },
         {
             "name": "skywrath_mage_ancient_seal",
-            "id": "5583"
+            "id": "5583",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				14.0,
+				14.0,
+				14.0
+			]
         },
         {
             "name": "skywrath_mage_mystic_flare",
-            "id": "5584"
+            "id": "5584",
+			"ultimate": true,
+			"cooldown": [
+				60.0,
+				40.0,
+				20.0
+			]
         },
         {
             "name": "abaddon_death_coil",
-            "id": "5585"
+            "id": "5585",
+			"ultimate": false,
+			"cooldown": [
+				4.5,
+				4.5,
+				4.5,
+				4.5
+			]
         },
         {
             "name": "abaddon_aphotic_shield",
-            "id": "5586"
+            "id": "5586",
+			"ultimate": false,
+			"cooldown": [
+				12.0,
+				10.0,
+				8.0,
+				6.0
+			]
         },
         {
             "name": "abaddon_frostmourne",
-            "id": "5587"
+            "id": "5587",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "abaddon_borrowed_time",
-            "id": "5588"
+            "id": "5588",
+			"ultimate": true,
+			"cooldown": [
+				60.0,
+				50.0,
+				40.0
+			]
         },
         {
             "name": "elder_titan_echo_stomp",
-            "id": "5589"
+            "id": "5589",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				13.0,
+				12.0,
+				11.0
+			]
         },
         {
             "name": "elder_titan_ancestral_spirit",
-            "id": "5591"
+            "id": "5591",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				16.0,
+				16.0,
+				16.0
+			]
         },
         {
             "name": "elder_titan_natural_order",
-            "id": "5593"
+            "id": "5593",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "elder_titan_earth_splitter",
-            "id": "5594"
+            "id": "5594",
+			"ultimate": true,
+			"cooldown": [
+				100.0,
+				100.0,
+				100.0
+			]
         },
         {
             "name": "legion_commander_overwhelming_odds",
-            "id": "5595"
+            "id": "5595",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				15.0,
+				15.0,
+				15.0
+			]
         },
         {
             "name": "legion_commander_press_the_attack",
-            "id": "5596"
+            "id": "5596",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				15.0,
+				14.0,
+				13.0
+			]
         },
         {
             "name": "legion_commander_moment_of_courage",
-            "id": "5597"
+            "id": "5597",
+			"ultimate": false,
+			"cooldown": [
+				2.6,
+				2.0,
+				1.4,
+				0.8
+			]
         },
         {
             "name": "legion_commander_duel",
-            "id": "5598"
+            "id": "5598",
+			"ultimate": true,
+			"cooldown": [
+				50.0,
+				50.0,
+				50.0
+			]
         },
         {
             "name": "techies_land_mines",
-            "id": "5599"
+            "id": "5599",
+			"ultimate": false,
+			"cooldown": [
+				9.0,
+				8.0,
+				7.0,
+				5.0
+			]
         },
         {
             "name": "techies_stasis_trap",
-            "id": "5600"
+            "id": "5600",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				16.0,
+				13.0,
+				10.0
+			]
         },
         {
-            "name": "techies_suicide_squad_attack",
-            "id": "5601"
+            "name": "techies_suicide",
+            "id": "5601",
+			"ultimate": false,
+			"cooldown": [
+				160.0,
+				140.0,
+				120.0,
+				100.0
+			]
         },
         {
             "name": "techies_remote_mines",
-            "id": "5602"
+            "id": "5602",
+			"ultimate": true,
+			"cooldown": [
+				10.0,
+				10.0,
+				10.0
+			]
         },
         {
             "name": "techies_focused_detonate",
-            "id": "5635"
+            "id": "5635",
+			"ultimate": false,
+			"cooldown": [
+				1.0,
+				1.0,
+				1.0
+			]
         },
         {
             "name": "techies_remote_mines_self_detonate",
-            "id": "5636"
+            "id": "5636",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "techies_minefield_sign",
-            "id": "5644"
+            "id": "5644",
+			"ultimate": false,
+			"cooldown": [
+				360.0
+			]
         },
         {
             "name": "ember_spirit_searing_chains",
-            "id": "5603"
+            "id": "5603",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				12.0,
+				10.0,
+				8.0
+			]
         },
         {
             "name": "ember_spirit_sleight_of_fist",
-            "id": "5604"
+            "id": "5604",
+			"ultimate": false,
+			"cooldown": [
+				30.0,
+				22.0,
+				14.0,
+				6.0
+			]
         },
         {
             "name": "ember_spirit_flame_guard",
-            "id": "5605"
+            "id": "5605",
+			"ultimate": false,
+			"cooldown": [
+				35.0,
+				35.0,
+				35.0,
+				35.0
+			]
         },
         {
             "name": "ember_spirit_fire_remnant",
-            "id": "5606"
+            "id": "5606",
+			"ultimate": true,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "ember_spirit_activate_fire_remnant",
-            "id": "5607"
+            "id": "5607",
+			"ultimate": false,
+			"cooldown": [
+				0.0,
+				0.0,
+				0.0
+			]
         },
         {
             "name": "earth_spirit_boulder_smash",
-            "id": "5608"
+            "id": "5608",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				18.0,
+				14.0,
+				10.0
+			]
         },
         {
             "name": "earth_spirit_rolling_boulder",
-            "id": "5609"
+            "id": "5609",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				12.0,
+				8.0,
+				4.0
+			]
         },
         {
             "name": "earth_spirit_geomagnetic_grip",
-            "id": "5610"
+            "id": "5610",
+			"ultimate": false,
+			"cooldown": [
+				13.0,
+				13.0,
+				13.0,
+				13.0
+			]
         },
         {
             "name": "earth_spirit_stone_caller",
-            "id": "5611"
+            "id": "5611",
+			"ultimate": false,
+			"cooldown": [
+				0.0
+			]
         },
         {
             "name": "earth_spirit_magnetize",
-            "id": "5612"
+            "id": "5612",
+			"ultimate": true,
+			"cooldown": [
+				80.0,
+				80.0,
+				80.0
+			]
         },
         {
             "name": "abyssal_underlord_firestorm",
-            "id": "5613"
+            "id": "5613",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				14.0,
+				14.0,
+				14.0
+			]
         },
         {
             "name": "abyssal_underlord_pit_of_malice",
-            "id": "5614"
+            "id": "5614",
+			"ultimate": false,
+			"cooldown": [
+				24.0,
+				21.0,
+				18.0,
+				15.0
+			]
         },
         {
             "name": "abyssal_underlord_atrophy_aura",
-            "id": "5615"
+            "id": "5615",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "abyssal_underlord_dark_rift",
-            "id": "5616"
+            "id": "5616",
+			"ultimate": true,
+			"cooldown": [
+				130.0,
+				130.0,
+				130.0
+			]
         },
         {
             "name": "terrorblade_reflection",
-            "id": "5619"
+            "id": "5619",
+			"ultimate": false,
+			"cooldown": [
+				22.0,
+				20.0,
+				18.0,
+				16.0
+			]
         },
         {
             "name": "terrorblade_conjure_image",
-            "id": "5620"
+            "id": "5620",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				16.0,
+				16.0,
+				16.0
+			]
         },
         {
             "name": "terrorblade_metamorphosis",
-            "id": "5621"
+            "id": "5621",
+			"ultimate": false,
+			"cooldown": [
+				140.0,
+				140.0,
+				140.0
+			]
         },
         {
             "name": "terrorblade_sunder",
-            "id": "5622"
+            "id": "5622",
+			"ultimate": true,
+			"cooldown": [
+				120.0,
+				80.0,
+				40.0
+			]
         },
         {
             "name": "phoenix_icarus_dive",
-            "id": "5623"
+            "id": "5623",
+			"ultimate": false,
+			"cooldown": [
+				36.0,
+				36.0,
+				36.0,
+				36.0
+			]
         },
         {
             "name": "phoenix_fire_spirits",
-            "id": "5625"
+            "id": "5625",
+			"ultimate": false,
+			"cooldown": [
+				45.0,
+				40.0,
+				35.0,
+				30.0
+			]
         },
         {
             "name": "phoenix_sun_ray",
-            "id": "5626"
+            "id": "5626",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				20.0,
+				20.0,
+				20.0
+			]
         },
         {
             "name": "phoenix_supernova",
-            "id": "5630"
+            "id": "5630",
+			"ultimate": true,
+			"cooldown": [
+				110.0,
+				110.0,
+				110.0
+			]
         },
         {
             "name": "drow_ranger_wave_of_silence",
-            "id": "5632"
+            "id": "5632",
+			"ultimate": false,
+			"cooldown": [
+				13.0, 
+				13.0, 
+				13.0,
+				13.0
+			]
         },
         {
             "name": "broodmother_spin_web_destroy",
-            "id": "5643"
+            "id": "5643",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "earth_spirit_petrify",
-            "id": "5648"
+            "id": "5648",
+			"ultimate": false,
+			"cooldown": [
+				45.0
+			]
         },
         {
             "name": "treant_eyes_in_the_forest",
-            "id": "5649"
+            "id": "5649",
+			"ultimate": false,
+			"cooldown": [
+				25.0
+			]
         },
         {
             "name": "beastmaster_call_of_the_wild_boar",
-            "id": "5580"
+            "id": "5580",
+			"ultimate": false,
+			"cooldown": [
+				42.0,
+				38.0,
+				34.0,
+				30.0
+			]
         },
         {
             "name": "life_stealer_control",
-            "id": "5655"
+            "id": "5655",
+			"ultimate": false,
+			"cooldown": []
         },
         {
             "name": "oracle_fortunes_end",
-            "id": "5637"
+            "id": "5637",
+			"ultimate": false,
+			"cooldown": [
+				15.0,
+				12.0,
+				9.0,
+				6.0
+			]
         },
         {
             "name": "oracle_fates_edict",
-            "id": "5638"
+            "id": "5638",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				13.0,
+				10.0,
+				7.0
+			]
         },
         {
             "name": "oracle_purifying_flames",
-            "id": "5639"
+            "id": "5639",
+			"ultimate": false,
+			"cooldown": [
+				2.25,
+				2.25,
+				2.25,
+				2.25
+			]
         },
         {
             "name": "oracle_false_promise",
-            "id": "5640"
+            "id": "5640",
+			"ultimate": false,
+			"cooldown": [
+				90.0,
+				60.0,
+				30.0
+			]
         },
         {
             "name": "winter_wyvern_arctic_burn",
-            "id": "5651"
+            "id": "5651",
+			"ultimate": false,
+			"cooldown": [
+				50.0,
+				40.0,
+				30.0,
+				20.0
+			]
         },
         {
             "name": "winter_wyvern_splinter_blast",
-            "id": "5652"
+            "id": "5652",
+			"ultimate": false,
+			"cooldown": [
+				7.0,
+				7.0,
+				7.0,
+				7.0
+			]
         },
         {
             "name": "winter_wyvern_cold_embrace",
-            "id": "5653"
+            "id": "5653",
+			"ultimate": false,
+			"cooldown": [
+				24.0,
+				21.0,
+				18.0,
+				15.0
+			]
         },
         {
             "name": "winter_wyvern_winters_curse",
-            "id": "5654"
-        }
-    ]
+            "id": "5654",
+			"ultimate": true,
+			"cooldown": [
+				90.0,
+				90.0,
+				90.0
+			]
+        },
+		{
+			"name": "morphling_hybrid",
+			"id": "5674",
+			"ultimate": false,
+			"cooldown": [
+				70.0,
+				70.0,
+				70.0
+			]
+		},
+		{
+			"name": "faceless_void_time_dilation",
+			"id": "5691",
+			"ultimate": false,
+			"cooldown": [
+				40.0,
+				34.0,
+				28.0,
+				22.0
+			]
+		},
+		{
+			"name": "life_stealer_assimilate",
+			"id": "5671",
+			"ultimate": false,
+			"cooldown": [
+				50.0,
+				50.0,
+				50.0
+			]
+		},
+		{
+			"name": "life_stealer_assimilate_eject",
+			"id": "5675",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "life_stealer_empty_1",
+			"id": "5657",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "life_stealer_empty_2",
+			"id": "5658",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "life_stealer_empty_3",
+			"id": "5659",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "life_stealer_empty_4",
+			"id": "5660",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "chen_test_of_faith_teleport",
+			"id": "5522",
+			"ultimate": false,
+			"cooldown": [
+				24.0,
+				24.0,
+				24.0,
+				24.0
+			]
+		},
+		{
+			"name": "invoker_attribute_bonus",
+			"id": "5690",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "obsidian_destroyer_mind_over_matter",
+			"id": "5684",
+			"ultimate": false,
+			"cooldown": [
+				16.0,
+				14.0,
+				12.0,
+				10.0
+			]
+		},
+		{
+			"name": "lone_druid_savage_roar_bear",
+			"id": "5687",
+			"ultimate": false,
+			"cooldown": [
+				38.0,
+				32.0,
+				26.0,
+				20.0
+			]
+		},
+		{
+			"name": "ogre_magi_unrefined_fireblast",
+			"id": "5466",
+			"ultimate": false,
+			"cooldown": [
+				6.0,
+				6.0,
+				6.0,
+				6.0
+			]
+		},
+		{
+			"name": "rubick_telekinesis_land",
+			"id": "5449",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "rubick_empty1",
+			"id": "5453",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "rubick_empty2",
+			"id": "5454",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "rubick_hidden1",
+			"id": "5455",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "rubick_hidden2",
+			"id": "5456",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "rubick_hidden3",
+			"id": "5457",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "nyx_assassin_burrow",
+			"id": "5666",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "nyx_assassin_unburrow",
+			"id": "5673",
+			"ultimate": false,
+			"cooldown": [
+				0.0
+			]
+		},
+		{
+			"name": "naga_siren_song_of_the_siren_cancel",
+			"id": "5478",
+			"ultimate": true,
+			"cooldown": [
+				1.0,
+				1.0,
+				1.0
+			]
+		},
+		{
+			"name": "keeper_of_the_light_empty1",
+			"id": "5501",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "keeper_of_the_light_empty2",
+			"id": "5502",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "visage_summon_familiars_stone_form",
+			"id": "5484",
+			"ultimate": false,
+			"cooldown": [
+				26.0
+			]
+		},
+		{
+			"name": "wisp_empty1",
+			"id": "5498",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "wisp_empty2",
+			"id": "5499",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "bane_nightmare_end",
+			"id": "5523",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "tusk_ice_shards_stop",
+			"id": "5668",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "tusk_launch_snowball",
+			"id": "5641",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "tusk_walrus_kick",
+			"id": "5672",
+			"ultimate": false,
+			"cooldown": [
+				8.0
+			]
+		},
+		{
+			"name": "elder_titan_echo_stomp_spirit",
+			"id": "5590",
+			"ultimate": false,
+			"cooldown": [
+				14.0,
+				13.0,
+				12.0,
+				11.0
+			]
+		},	
+		{
+			"name": "elder_titan_return_spirit",
+			"id": "5592",
+			"ultimate": false,
+			"cooldown": [
+				0.0
+			]
+		},
+		{
+			"name": "abyssal_underlord_cancel_dark_rift",
+			"id": "5617",
+			"ultimate": true,
+			"cooldown": []
+		},
+		{
+			"name": "phoenix_icarus_dive_stop",
+			"id": "5624",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "phoenix_sun_ray_stop",
+			"id": "5627",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "phoenix_sun_ray_toggle_move",
+			"id": "5628",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "phoenix_sun_ray_toggle_move_empty",
+			"id": "5629",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "phoenix_launch_fire_spirit",
+			"id": "5631",
+			"ultimate": false,
+			"cooldown": [
+				0
+			]
+		},
+		{
+			"name": "courier_morph",
+			"id": "5642",
+			"ultimate": false,
+			"cooldown": [
+				0.1
+			]
+		},
+		{
+			"name": "mud_golem_rock_destroy",
+			"id": "5667",
+			"ultimate": false,
+			"cooldown": []
+		},	
+		{
+			"name": "mud_golem_hurl_boulder",
+			"id": "5670",
+			"ultimate": false,
+			"cooldown": [
+				30.0
+			]
+		},		
+		{
+			"name": "granite_golem_hp_aura",
+			"id": "5656",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "granite_golem_bash",
+			"id": "5680",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "ancient_golem_rockslide",
+			"id": "5686",
+			"ultimate": false,
+			"cooldown": [
+				16.0
+			]
+		},		
+		{
+			"name": "big_thunder_lizard_wardrums_aura",
+			"id": "5682",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "black_dragon_dragonhide_aura",
+			"id": "5681",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "black_dragon_fireball",
+			"id": "5689",
+			"ultimate": false,
+			"cooldown": [
+				10
+			]
+		},
+		{
+			"name": "mudgolem_cloak_aura",
+			"id": "5688",
+			"ultimate": false,
+			"cooldown": []
+		},
+		{
+			"name": "arc_warden_flux",
+			"id": "5677",
+			"ultimate": false,
+			"cooldown": [
+				20.0,
+				20.0,
+				20.0,
+				20.0
+			]
+		},
+		{
+			"name": "arc_warden_magnetic_field",
+			"id": "5678",
+			"ultimate": false,
+			"cooldown": [
+				35.0,
+				30.0,
+				25.0,
+				20.0
+			]
+		},
+		{
+			"name": "arc_warden_spark_wraith",
+			"id": "5679",
+			"ultimate": false,
+			"cooldown": [
+				4.0,
+				4.0,
+				4.0,
+				4.0
+			]
+		},
+		{
+			"name": "arc_warden_tempest_double",
+			"id": "5683",
+			"ultimate": true,
+			"cooldown": [
+				50.0,
+				40.0,
+				30.0
+			]
+		}
+	]
 }
