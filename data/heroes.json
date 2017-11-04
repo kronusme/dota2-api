@@ -559,6 +559,11 @@
             "name": "arc_warden",
             "id": 113,
             "localized_name": "Arc Warden"
+        },
+        {
+            "name": "monkey_king",
+            "id": 114,
+            "localized_name": "Monkey King"
         }
     ]
 }
