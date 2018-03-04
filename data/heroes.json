@@ -561,23 +561,18 @@
             "localized_name": "Arc Warden"
         },
         {
-            "name": "underlord",
-            "id": 114,
-            "localized_name": "Underlord"
-        },
-        {
             "name": "monkey_king",
-            "id": 115,
+            "id": 114,
             "localized_name": "Monkey King"
         },
         {
             "name": "dark_willow",
-            "id": 116,
+            "id": 119,
             "localized_name": "Dark Willow"
         },
         {
             "name": "pangolier",
-            "id": 117,
+            "id": 120,
             "localized_name": "Pangolier"
         }
     ]
