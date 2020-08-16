@@ -574,6 +574,31 @@
             "name": "pangolier",
             "id": 120,
             "localized_name": "Pangolier"
+        },
+        {
+            "name": "grimstroke",
+            "id": 121,
+            "localized_name": "Grimstroke"
+        },
+        {
+            "name": "mars",
+            "id": 129,
+            "localized_name": "Mars"
+        },
+        {
+            "name": "grimstroke",
+            "id": 121,
+            "localized_name": "Grimstroke"
+        },
+        {
+            "name": "snapfire",
+            "id": 128,
+            "localized_name": "Snapfire"
+        },
+        {
+            "name": "void_spirit",
+            "id": 126,
+            "localized_name": "Void Spirit"
         }
     ]
 }
